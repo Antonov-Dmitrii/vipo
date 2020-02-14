@@ -22,5 +22,16 @@ namespace vipo
             author aut = new author();
             aut.Show();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            vipo12_01_1 vipo_1= new vipo12_01_1();
+            vipo_1.Show();
+        }
     }
 }

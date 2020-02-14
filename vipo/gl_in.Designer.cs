@@ -180,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 563);
+            this.ClientSize = new System.Drawing.Size(779, 563);
             this.Controls.Add(this.progress_button);
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.deletebutton);
