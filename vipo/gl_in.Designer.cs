@@ -175,6 +175,7 @@
             this.progress_button.TabIndex = 12;
             this.progress_button.Text = "Прогресс выполнение";
             this.progress_button.UseVisualStyleBackColor = true;
+            this.progress_button.Click += new System.EventHandler(this.progress_button_Click);
             // 
             // gl_in
             // 

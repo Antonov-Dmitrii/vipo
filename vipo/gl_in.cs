@@ -99,5 +99,11 @@ namespace vipo
 
             this.view_StudentTableAdapter.Fill(this.educationDataSet.View_Student);*/
         }
+
+        private void progress_button_Click(object sender, EventArgs e)
+        {
+            progress prog = new progress();
+            prog.Show();
+        }
     }
 }

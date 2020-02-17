@@ -25,6 +25,7 @@ namespace vipo
             var pass_b = "2";
             var log_admin = "3";
             var pass_admin = "3";
+            //passBox.PasswordChar = '*';
 
             if ((logBox.Text == log_gl_in) && (passBox.Text == pass_gl_in))
                 {
