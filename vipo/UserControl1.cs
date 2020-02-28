@@ -13,27 +13,26 @@ namespace vipo
 {
     public partial class UserControl1 : UserControl
     {
+        SqlConnection connection;
+        DataSet dataSet;
+        BindingSource bindingSource;
+        DataTable DT;
         public UserControl1()
         {
             InitializeComponent();
+            connection = new SqlConnection(@"Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_dmitrii;Password=Qwerty12312");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           /* if (comboBox1.Text = ' ')
-            {
-                vipo_pod_1 vp = new vipo_pod_1();
-                v_name.Text = vp.radioButton1.Text;
-                zav_n.Text = vp.button9.Text;
-                string connectionString = "....."; 
-                var conn = new SqlConnection(connectionString);
-                    SqlCommand command = new SqlCommand("", conn);
-                conn.Open();
-                name_op.Text = command.ExecuteScalar().ToString();
-                conn.Close();
-                f_time*/
-                
-            }
+           
+
+            
+        }
+
+        private void UserControl1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
-
+}
