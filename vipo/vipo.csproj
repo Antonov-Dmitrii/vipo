@@ -71,6 +71,11 @@
     <Compile Include="bu_otchet.Designer.cs">
       <DependentUpon>bu_otchet.cs</DependentUpon>
     </Compile>
+    <Compile Include="dubakby_VIPODataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dubakby_VIPODataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +151,17 @@
     <EmbeddedResource Include="vipo_pod_1.resx">
       <DependentUpon>vipo_pod_1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dubakby_VIPODataSet.xsc">
+      <DependentUpon>dubakby_VIPODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dubakby_VIPODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dubakby_VIPODataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dubakby_VIPODataSet.xss">
+      <DependentUpon>dubakby_VIPODataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
