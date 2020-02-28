@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace vipo
 {
     public partial class gl_in : Form
     {
-        /*string conn_string = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=Education;Integrated Security=True;Pooling=False";*/
-
+       // string conn_string = @"Data Source=93.125.99.108;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+        string configConnectionString = ConfigurationManager.ConnectionStrings["vipo.Properties.Settings.dubakby_VIPOConnectionString"].ConnectionString;
 
         public gl_in()
         {
@@ -24,36 +25,20 @@ namespace vipo
 
         private void addbutton_Click(object sender, EventArgs e)
         {
-          /*  string cmd_text;
-            Form2 f2 = new Form2();
-            int index;
-            string num_book;
-
-            index = dataGridView1.CurrentRow.Index;
-            num_book = Convert.ToString(dataGridView1[0, index].Value);
-
-            f2.textBox1.Text = num_book;
-            f2.textBox2.Text = Convert.ToString(dataGridView1[1, index].Value);
-            f2.textBox3.Text = Convert.ToString(dataGridView1[2, index].Value);
-            f2.textBox4.Text = Convert.ToString(dataGridView1[3, index].Value);
-
-            if (f2.ShowDialog() == DialogResult.OK)
-            {
-                cmd_text = "UPDATE Student SET Num_book = '" + f2.textBox1.Text + "', " +
-                "[Name] = '" + f2.textBox2.Text + "', " +
-                "[Group] = '" + f2.textBox3.Text + "', " +
-                "Year = " + f2.textBox4.Text +
-                "WHERE Num_book = '" + num_book + "'";
-
-                SqlConnection sql_conn = new SqlConnection(conn_string);
-                SqlCommand sql_comm = new SqlCommand(cmd_text, sql_conn);
-
-                sql_conn.Open();
-                sql_comm.ExecuteNonQuery();
-                sql_conn.Close();
-
-                this.view_StudentTableAdapter.Fill(this.educationDataSet.View_Student);
-            }*/
+            DataRow nRow = dubakby_VIPODataSet.Tables[5].NewRow();
+            nRow[0] = textBox1.Text;
+            nRow[1] = comboBox1.Text;
+            nRow[2] = comboBox2.Text;
+            nRow[3] = dateTimePicker1.Text;
+            dubakby_VIPODataSet.Tables[5].Rows.Add(nRow);
+            plan_agpTableAdapter.Update(dubakby_VIPODataSet.plan_agp);
+            dubakby_VIPODataSet.Tables[5].AcceptChanges();
+            dataGridView1.Refresh();
+            textBox1.Text = "";
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+            dateTimePicker1.Text = "";
+            this.plan_agpTableAdapter.Fill(this.dubakby_VIPODataSet.plan_agp);
         }
 
         private void savebutton_Click(object sender, EventArgs e)
@@ -77,6 +62,10 @@ namespace vipo
 
         private void gl_in_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.vishki". При необходимости она может быть перемещена или удалена.
+            this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.plan_agp". При необходимости она может быть перемещена или удалена.
+            //this.plan_agpTableAdapter.Fill(this.dubakby_VIPODataSet.plan_agp);
             /*this.view_StudentTableAdapter.Fill(this.educationDataSet.View_Student);*/
         }
 

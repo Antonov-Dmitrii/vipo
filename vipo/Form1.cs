@@ -30,8 +30,14 @@ namespace vipo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            vipo12_01_1 vipo_1= new vipo12_01_1();
-            vipo_1.Show();
+           bank bank_1= new bank();
+           bank_1.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            vipo_pod_1 vipo_2 = new vipo_pod_1();
+            vipo_2.Show();
         }
     }
 }

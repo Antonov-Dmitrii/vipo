@@ -33,5 +33,16 @@ namespace vipo.Properties {
                 return ((string)(this["dubakby_VIPOConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security I" +
+            "nfo=True;User ID=dubakby_dmitrii;Password=Qwerty12312")]
+        public string dubakby_VIPOConnectionString1 {
+            get {
+                return ((string)(this["dubakby_VIPOConnectionString1"]));
+            }
+        }
     }
 }

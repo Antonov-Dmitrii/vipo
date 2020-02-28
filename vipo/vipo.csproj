@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,16 +59,17 @@
     <Compile Include="author.Designer.cs">
       <DependentUpon>author.cs</DependentUpon>
     </Compile>
+    <Compile Include="bank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bank.Designer.cs">
+      <DependentUpon>bank.cs</DependentUpon>
+    </Compile>
     <Compile Include="bu_otchet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="bu_otchet.Designer.cs">
       <DependentUpon>bu_otchet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="dubakby_VIPODataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dubakby_VIPODataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -89,14 +91,33 @@
       <DependentUpon>progress.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+      <Generator>usercontrol</Generator>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="vipo12-01_1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="vipo12-01_1.Designer.cs">
       <DependentUpon>vipo12-01_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="vipo_pod_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vipo_pod_1.Designer.cs">
+      <DependentUpon>vipo_pod_1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="author.resx">
       <DependentUpon>author.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bank.resx">
+      <DependentUpon>bank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bu_otchet.resx">
+      <DependentUpon>bu_otchet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -116,20 +137,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vipo12-01_1.resx">
       <DependentUpon>vipo12-01_1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dubakby_VIPODataSet.xsc">
-      <DependentUpon>dubakby_VIPODataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dubakby_VIPODataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dubakby_VIPODataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dubakby_VIPODataSet.xss">
-      <DependentUpon>dubakby_VIPODataSet.xsd</DependentUpon>
-    </None>
+    <EmbeddedResource Include="vipo_pod_1.resx">
+      <DependentUpon>vipo_pod_1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
