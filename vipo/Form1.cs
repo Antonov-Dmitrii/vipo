@@ -39,5 +39,16 @@ namespace vipo
             vipo_pod_1 vipo_2 = new vipo_pod_1();
             vipo_2.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

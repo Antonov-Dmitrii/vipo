@@ -13,9 +13,8 @@ namespace vipo
 {
     public partial class gl_in : Form
     {
-       // string conn_string = @"Data Source=93.125.99.108;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-        string configConnectionString = ConfigurationManager.ConnectionStrings["vipo.Properties.Settings.dubakby_VIPOConnectionString"].ConnectionString;
-
+         string conn_string = @"Data Source=93.125.99.108;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+        
         public gl_in()
         {
             InitializeComponent();
@@ -62,6 +61,8 @@ namespace vipo
 
         private void gl_in_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.vishki". При необходимости она может быть перемещена или удалена.
             this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.plan_agp". При необходимости она может быть перемещена или удалена.
