@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.zavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +53,11 @@
             this.progress_button = new System.Windows.Forms.Button();
             this.plan_agpTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.plan_agpTableAdapter();
             this.vishkiTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
+            this.zavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.voltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planagpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -59,6 +66,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -113,6 +123,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox1.DataSource = this.vishkiBindingSource;
             this.comboBox1.DisplayMember = "id_v";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -130,6 +141,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(24, 409);
@@ -140,6 +152,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(203, 409);
@@ -150,6 +163,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(207, 443);
             this.textBox1.Name = "textBox1";
@@ -158,6 +172,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
@@ -170,6 +185,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(393, 409);
@@ -180,6 +196,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateTimePicker1.Location = new System.Drawing.Point(552, 443);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -188,6 +205,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(560, 409);
@@ -198,6 +216,7 @@
             // 
             // addbutton
             // 
+            this.addbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addbutton.Location = new System.Drawing.Point(28, 498);
             this.addbutton.Name = "addbutton";
             this.addbutton.Size = new System.Drawing.Size(137, 38);
@@ -208,6 +227,7 @@
             // 
             // progress_button
             // 
+            this.progress_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.progress_button.Location = new System.Drawing.Point(573, 498);
             this.progress_button.Name = "progress_button";
             this.progress_button.Size = new System.Drawing.Size(137, 38);
@@ -224,6 +244,34 @@
             // 
             this.vishkiTableAdapter.ClearBeforeFill = true;
             // 
+            // zavnDataGridViewTextBoxColumn
+            // 
+            this.zavnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.zavnDataGridViewTextBoxColumn.DataPropertyName = "zav_n";
+            this.zavnDataGridViewTextBoxColumn.HeaderText = "zav_n";
+            this.zavnDataGridViewTextBoxColumn.Name = "zavnDataGridViewTextBoxColumn";
+            // 
+            // idvDataGridViewTextBoxColumn
+            // 
+            this.idvDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
+            this.idvDataGridViewTextBoxColumn.HeaderText = "id_v";
+            this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
+            // 
+            // voltDataGridViewTextBoxColumn
+            // 
+            this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
+            this.voltDataGridViewTextBoxColumn.HeaderText = "volt";
+            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
+            // 
+            // dataplDataGridViewTextBoxColumn
+            // 
+            this.dataplDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataplDataGridViewTextBoxColumn.DataPropertyName = "data_pl";
+            this.dataplDataGridViewTextBoxColumn.HeaderText = "data_pl";
+            this.dataplDataGridViewTextBoxColumn.Name = "dataplDataGridViewTextBoxColumn";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(207, 498);
@@ -233,16 +281,6 @@
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(393, 498);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 38);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Создать план";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // gl_in
             // 
@@ -292,11 +330,11 @@
         private dubakby_VIPODataSetTableAdapters.plan_agpTableAdapter plan_agpTableAdapter;
         private System.Windows.Forms.BindingSource vishkiBindingSource;
         private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn zavnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idvDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn voltDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataplDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }

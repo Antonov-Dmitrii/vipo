@@ -12,6 +12,8 @@ namespace vipo
 {
     public partial class Form1 : Form
     {
+        //private Form1 form1;
+
         public Form1()
         {
             InitializeComponent();
@@ -40,5 +42,17 @@ namespace vipo
             vipo_1.Show();
             
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
     }
 }

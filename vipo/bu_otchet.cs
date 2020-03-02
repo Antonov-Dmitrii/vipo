@@ -29,6 +29,9 @@ namespace vipo
         {
             Load_table("SELECT * FROM sklad ");
             dataSet_bu.Tables.Clear();
+            FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
+
         }
         private void Load_table(string str)
         {

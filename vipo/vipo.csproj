@@ -146,6 +146,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="vipo_post1.resx">
       <DependentUpon>vipo_post1.cs</DependentUpon>
@@ -197,6 +198,10 @@
     <Content Include="img\7899.png" />
     <Content Include="img\9676.png" />
     <Content Include="img\img1-----------.jpg" />
+    <None Include="Resources\vhod.png" />
+    <None Include="Resources\dda7b8ed3bc420a5a3b882f751a62ae5.jpg" />
+    <None Include="Resources\close_red.png" />
+    <None Include="Resources\52-521680_red-close-button-vector-clipart-image-smiley-pas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -70,13 +70,16 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl1.Location = new System.Drawing.Point(1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1448, 704);
+            this.tabControl1.Size = new System.Drawing.Size(1435, 698);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -92,13 +95,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1440, 671);
+            this.tabPage1.Size = new System.Drawing.Size(1427, 665);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Материалы";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(6, 640);
@@ -109,9 +113,11 @@
             // 
             // button5
             // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button5.AutoSize = true;
             this.button5.Location = new System.Drawing.Point(697, 637);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(145, 26);
+            this.button5.Size = new System.Drawing.Size(145, 30);
             this.button5.TabIndex = 6;
             this.button5.Text = "Найти";
             this.button5.UseVisualStyleBackColor = true;
@@ -119,6 +125,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox2.Location = new System.Drawing.Point(179, 637);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(512, 26);
@@ -127,35 +134,43 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1216, 224);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.AutoSize = true;
+            this.button1.Location = new System.Drawing.Point(1139, 117);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 40);
+            this.button1.Size = new System.Drawing.Size(124, 30);
             this.button1.TabIndex = 4;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(896, 231);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(848, 119);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(270, 26);
             this.textBox1.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(896, 31);
+            this.groupBox1.Location = new System.Drawing.Point(848, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(514, 165);
+            this.groupBox1.Size = new System.Drawing.Size(272, 105);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выбор материалов";
             // 
             // radioButton2
             // 
+            this.radioButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(27, 88);
+            this.radioButton2.Location = new System.Drawing.Point(27, 71);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(196, 24);
             this.radioButton2.TabIndex = 1;
@@ -166,6 +181,9 @@
             // 
             // radioButton1
             // 
+            this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(27, 41);
             this.radioButton1.Name = "radioButton1";
@@ -178,6 +196,11 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 6);
             this.dataGridView1.Name = "dataGridView1";
@@ -197,25 +220,27 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1440, 671);
+            this.tabPage2.Size = new System.Drawing.Size(1427, 665);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Рабочие";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.comboBox3);
-            this.groupBox4.Location = new System.Drawing.Point(8, 506);
+            this.groupBox4.Location = new System.Drawing.Point(8, 437);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(412, 99);
+            this.groupBox4.Size = new System.Drawing.Size(337, 70);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Сортировка по постам";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(228, 45);
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button4.Location = new System.Drawing.Point(191, 25);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(140, 28);
             this.button4.TabIndex = 2;
@@ -224,20 +249,22 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(14, 46);
+            this.comboBox3.Location = new System.Drawing.Point(14, 25);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(177, 28);
+            this.comboBox3.Size = new System.Drawing.Size(169, 28);
             this.comboBox3.TabIndex = 0;
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.monthCalendar2);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.monthCalendar1);
-            this.groupBox3.Location = new System.Drawing.Point(488, 367);
+            this.groupBox3.Location = new System.Drawing.Point(375, 361);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(467, 279);
             this.groupBox3.TabIndex = 6;
@@ -246,7 +273,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(126, 215);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(136, 205);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(214, 39);
             this.button3.TabIndex = 11;
@@ -255,21 +283,25 @@
             // 
             // monthCalendar2
             // 
+            this.monthCalendar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendar2.Location = new System.Drawing.Point(265, 31);
             this.monthCalendar2.Name = "monthCalendar2";
             this.monthCalendar2.TabIndex = 10;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(225, 40);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(216, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 20);
+            this.label4.Size = new System.Drawing.Size(48, 25);
             this.label4.TabIndex = 9;
             this.label4.Text = "По :";
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(12, 35);
@@ -280,24 +312,27 @@
             // 
             // monthCalendar1
             // 
+            this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendar1.Location = new System.Drawing.Point(49, 31);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 7;
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Location = new System.Drawing.Point(8, 367);
+            this.groupBox2.Location = new System.Drawing.Point(8, 361);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(412, 99);
+            this.groupBox2.Size = new System.Drawing.Size(337, 70);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Сортировка по рабочим";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(228, 40);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(189, 25);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 28);
             this.button2.TabIndex = 1;
@@ -306,17 +341,19 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(14, 40);
+            this.comboBox2.Location = new System.Drawing.Point(6, 25);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(177, 28);
             this.comboBox2.TabIndex = 0;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(903, 22);
+            this.label2.Location = new System.Drawing.Point(862, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(274, 25);
             this.label2.TabIndex = 4;
@@ -325,16 +362,16 @@
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(891, 63);
+            this.dataGridView3.Location = new System.Drawing.Point(867, 41);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(525, 282);
+            this.dataGridView3.Size = new System.Drawing.Size(344, 320);
             this.dataGridView3.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(17, 22);
+            this.label1.Location = new System.Drawing.Point(9, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(319, 25);
             this.label1.TabIndex = 2;
@@ -343,16 +380,16 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 63);
+            this.dataGridView2.Location = new System.Drawing.Point(7, 41);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(773, 282);
+            this.dataGridView2.Size = new System.Drawing.Size(848, 320);
             this.dataGridView2.TabIndex = 1;
             // 
             // bu_otchet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 705);
+            this.ClientSize = new System.Drawing.Size(1439, 699);
             this.Controls.Add(this.tabControl1);
             this.Name = "bu_otchet";
             this.Text = "bu_otchet";
