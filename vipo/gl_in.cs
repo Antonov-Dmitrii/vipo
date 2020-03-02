@@ -77,5 +77,10 @@ namespace vipo
         {
             plan_agpTableAdapter.Update(dubakby_VIPODataSet);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+        }
     }
 }
