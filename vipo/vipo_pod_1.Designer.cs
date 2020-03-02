@@ -42,6 +42,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.userControl11 = new vipo.UserControl1();
-            this.button9 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -229,6 +229,15 @@
             this.panel2.Size = new System.Drawing.Size(1044, 132);
             this.panel2.TabIndex = 1;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(43, 28);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(108, 31);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "1234";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button7);
@@ -298,24 +307,18 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "Пост №1";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // userControl11
             // 
+            this.userControl11.AllowDrop = true;
+            this.userControl11.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.userControl11.BackColor = System.Drawing.SystemColors.ControlDark;
             this.userControl11.Location = new System.Drawing.Point(226, 138);
             this.userControl11.Name = "userControl11";
             this.userControl11.Size = new System.Drawing.Size(1038, 527);
             this.userControl11.TabIndex = 2;
             this.userControl11.Load += new System.EventHandler(this.userControl11_Load);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(43, 28);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(108, 31);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "1234";
-            this.button9.UseVisualStyleBackColor = true;
             // 
             // vipo_pod_1
             // 

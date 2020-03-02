@@ -50,9 +50,14 @@
             this.name_op = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
+            this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workersTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.workersTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -95,11 +100,14 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.workersBindingSource;
+            this.comboBox1.DisplayMember = "rab_name";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(15, 36);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.ValueMember = "rab_name";
             // 
             // groupBox2
             // 
@@ -257,6 +265,20 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // dubakby_VIPODataSet
+            // 
+            this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
+            this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // workersBindingSource
+            // 
+            this.workersBindingSource.DataMember = "workers";
+            this.workersBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // workersTableAdapter
+            // 
+            this.workersTableAdapter.ClearBeforeFill = true;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,10 +293,13 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(1038, 543);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +327,8 @@
         private System.Windows.Forms.Label name_op;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.BindingSource workersBindingSource;
+        private dubakby_VIPODataSet dubakby_VIPODataSet;
+        private dubakby_VIPODataSetTableAdapters.workersTableAdapter workersTableAdapter;
     }
 }
