@@ -36,8 +36,8 @@ namespace vipo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            vipo_pod_1 vipo_2 = new vipo_pod_1();
-            vipo_2.Show();
+           vipo_vishki vipo_1 = new vipo_vishki();
+            vipo_1.Show();
             
         }
     }

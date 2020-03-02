@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace vipo
 {
-    public partial class vipo12_01_1 : Form
+    public partial class vipo_zav : Form
     {
-        public vipo12_01_1()
+        public vipo_zav()
         {
             InitializeComponent();
         }
