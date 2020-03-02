@@ -8,6 +8,7 @@ namespace vipo
 {
     static class Program
     {
+        public static vipo_post1 p1;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
