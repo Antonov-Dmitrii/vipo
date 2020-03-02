@@ -12,6 +12,8 @@ namespace vipo
 {
     public partial class Form1 : Form
     {
+        //private Form1 form1;
+
         public Form1()
         {
             InitializeComponent();
@@ -51,5 +53,6 @@ namespace vipo
         {
             Close();
         }
+
     }
 }

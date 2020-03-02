@@ -16,7 +16,6 @@ namespace vipo
 
     public partial class gl_in : Form
     {
-
         SqlConnection connection;
         DataSet dataSet;
         BindingSource bindingSource;
@@ -51,7 +50,8 @@ namespace vipo
 
         private void gl_in_Load(object sender, EventArgs e)
         {
-
+            FormBorderStyle = FormBorderStyle.Sizable;
+            this.WindowState = FormWindowState.Maximized;
             this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
             this.plan_agpTableAdapter.Fill(this.dubakby_VIPODataSet.plan_agp);
             dataGridView1.Refresh();
@@ -77,5 +77,6 @@ namespace vipo
         {
             plan_agpTableAdapter.Update(dubakby_VIPODataSet);
         }
+
     }
 }
