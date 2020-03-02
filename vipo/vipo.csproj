@@ -88,6 +88,12 @@
     <Compile Include="gl_in.Designer.cs">
       <DependentUpon>gl_in.cs</DependentUpon>
     </Compile>
+    <Compile Include="keyboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="keyboard.Designer.cs">
+      <DependentUpon>keyboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="progress.cs">
       <SubType>Form</SubType>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gl_in.resx">
       <DependentUpon>gl_in.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="keyboard.resx">
+      <DependentUpon>keyboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="progress.resx">
       <DependentUpon>progress.cs</DependentUpon>
