@@ -30,20 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.planallBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.planallBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
-            this.planagpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.plan_agpTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.plan_agpTableAdapter();
+            this.plan_allTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.plan_allTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planagpBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.planagpBindingSource;
+            this.comboBox1.DataSource = this.planallBindingSource;
             this.comboBox1.DisplayMember = "id_v";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.FormattingEnabled = true;
@@ -52,9 +54,19 @@
             this.comboBox1.Size = new System.Drawing.Size(377, 63);
             this.comboBox1.TabIndex = 0;
             // 
+            // planallBindingSource
+            // 
+            this.planallBindingSource.DataMember = "plan_all";
+            this.planallBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // dubakby_VIPODataSet
+            // 
+            this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
+            this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // comboBox2
             // 
-            this.comboBox2.DataSource = this.planagpBindingSource;
+            this.comboBox2.DataSource = this.planallBindingSource;
             this.comboBox2.DisplayMember = "zav_n";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox2.FormattingEnabled = true;
@@ -62,6 +74,11 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(373, 63);
             this.comboBox2.TabIndex = 1;
+            // 
+            // planallBindingSource1
+            // 
+            this.planallBindingSource1.DataMember = "plan_all";
+            this.planallBindingSource1.DataSource = this.dubakby_VIPODataSet;
             // 
             // label1
             // 
@@ -96,19 +113,9 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dubakby_VIPODataSet
+            // plan_allTableAdapter
             // 
-            this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
-            this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // planagpBindingSource
-            // 
-            this.planagpBindingSource.DataMember = "plan_agp";
-            this.planagpBindingSource.DataSource = this.dubakby_VIPODataSet;
-            // 
-            // plan_agpTableAdapter
-            // 
-            this.plan_agpTableAdapter.ClearBeforeFill = true;
+            this.plan_allTableAdapter.ClearBeforeFill = true;
             // 
             // vipo_vishki
             // 
@@ -124,8 +131,9 @@
             this.Name = "vipo_vishki";
             this.Text = "vipo_vishki";
             this.Load += new System.EventHandler(this.vipo_vishki_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planagpBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,7 +147,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private dubakby_VIPODataSet dubakby_VIPODataSet;
-        private System.Windows.Forms.BindingSource planagpBindingSource;
-        private dubakby_VIPODataSetTableAdapters.plan_agpTableAdapter plan_agpTableAdapter;
+        private System.Windows.Forms.BindingSource planallBindingSource;
+        private dubakby_VIPODataSetTableAdapters.plan_allTableAdapter plan_allTableAdapter;
+        private System.Windows.Forms.BindingSource planallBindingSource1;
     }
 }

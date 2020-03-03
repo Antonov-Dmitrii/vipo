@@ -17,9 +17,9 @@ namespace vipo
     public partial class gl_in : Form
     {
         SqlConnection connection;
-        DataSet dataSet;
-        BindingSource bindingSource;
-        DataTable DT;
+       // DataSet dataSet;
+        //BindingSource bindingSource;
+        //DataTable DT;
 
         public gl_in()
         {
@@ -50,6 +50,8 @@ namespace vipo
 
         private void gl_in_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.plan_all". При необходимости она может быть перемещена или удалена.
+            //this.plan_allTableAdapter.Fill(this.dubakby_VIPODataSet.plan_all);
             FormBorderStyle = FormBorderStyle.Sizable;
             this.WindowState = FormWindowState.Maximized;
             this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
@@ -78,26 +80,5 @@ namespace vipo
             plan_agpTableAdapter.Update(dubakby_VIPODataSet);
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            /*connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("INSERT INTO plan_all (id_v, zav_n, volt, data_pl, data_v, complete) SELECT id_v, zav_n, volt, data_pl, NULL, NULL FROM plan_agp");*/
-            using (SqlCommand com = connection.CreateCommand())
-            {
-                connection.Open();
-                com.CommandText = string.Format("insert into plan_all (id_v, zav_n, volt, data_pl, data_v, complete) SELECT id_v, zav_n, volt, data_pl, NULL, NULL FROM plan_agp");
-                if (com.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Вставка прошла успешно");
-                    com.CommandText = string.Format("delete from plan_agp");
-                    if (com.ExecuteNonQuery() == 1)
-                        MessageBox.Show("Удаление прошло успешно");
-                }
-                else
-                    MessageBox.Show("Произошла ошибка");
-                connection.Close();
-            }
-
-        }
     }
 }
