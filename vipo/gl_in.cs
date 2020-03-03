@@ -78,5 +78,26 @@ namespace vipo
             plan_agpTableAdapter.Update(dubakby_VIPODataSet);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            /*connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("INSERT INTO plan_all (id_v, zav_n, volt, data_pl, data_v, complete) SELECT id_v, zav_n, volt, data_pl, NULL, NULL FROM plan_agp");*/
+            using (SqlCommand com = connection.CreateCommand())
+            {
+                connection.Open();
+                com.CommandText = string.Format("insert into plan_all (id_v, zav_n, volt, data_pl, data_v, complete) SELECT id_v, zav_n, volt, data_pl, NULL, NULL FROM plan_agp");
+                if (com.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Вставка прошла успешно");
+                    com.CommandText = string.Format("delete from plan_agp");
+                    if (com.ExecuteNonQuery() == 1)
+                        MessageBox.Show("Удаление прошло успешно");
+                }
+                else
+                    MessageBox.Show("Произошла ошибка");
+                connection.Close();
+            }
+
+        }
     }
 }

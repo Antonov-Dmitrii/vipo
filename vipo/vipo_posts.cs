@@ -24,5 +24,11 @@ namespace vipo
             this.Close();
 
         }
+
+        private void vipo_posts_Load(object sender, EventArgs e)
+        {
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+        }
     }
 }

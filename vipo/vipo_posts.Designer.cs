@@ -123,6 +123,7 @@
             this.Controls.Add(this.button1);
             this.Name = "vipo_posts";
             this.Text = "vipo_posts";
+            this.Load += new System.EventHandler(this.vipo_posts_Load);
             this.ResumeLayout(false);
 
         }

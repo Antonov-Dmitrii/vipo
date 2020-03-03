@@ -17,6 +17,7 @@ namespace vipo
         public Form1()
         {
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,8 +46,10 @@ namespace vipo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+            Width = Screen.PrimaryScreen.WorkingArea.Width;
+            Height = Screen.PrimaryScreen.WorkingArea.Height;
         }
 
         private void button4_Click(object sender, EventArgs e)
