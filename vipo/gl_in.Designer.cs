@@ -29,15 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.zavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.voltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.planagpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -53,19 +45,28 @@
             this.progress_button = new System.Windows.Forms.Button();
             this.plan_agpTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.plan_agpTableAdapter();
             this.vishkiTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.planallBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.plan_allTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.plan_allTableAdapter();
+            this.dubakbyVIPODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.planallBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.zavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.voltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.voltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planagpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dubakbyVIPODataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -74,42 +75,14 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.zavnDataGridViewTextBoxColumn,
             this.idvDataGridViewTextBoxColumn,
-            this.voltDataGridViewTextBoxColumn,
-            this.dataplDataGridViewTextBoxColumn});
+            this.dataplDataGridViewTextBoxColumn,
+            this.voltDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.planagpBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(753, 376);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
-            // 
-            // zavnDataGridViewTextBoxColumn
-            // 
-            this.zavnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.zavnDataGridViewTextBoxColumn.DataPropertyName = "zav_n";
-            this.zavnDataGridViewTextBoxColumn.HeaderText = "zav_n";
-            this.zavnDataGridViewTextBoxColumn.Name = "zavnDataGridViewTextBoxColumn";
-            // 
-            // idvDataGridViewTextBoxColumn
-            // 
-            this.idvDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
-            this.idvDataGridViewTextBoxColumn.HeaderText = "id_v";
-            this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
-            // 
-            // voltDataGridViewTextBoxColumn
-            // 
-            this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
-            this.voltDataGridViewTextBoxColumn.HeaderText = "volt";
-            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
-            // 
-            // dataplDataGridViewTextBoxColumn
-            // 
-            this.dataplDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataplDataGridViewTextBoxColumn.DataPropertyName = "data_pl";
-            this.dataplDataGridViewTextBoxColumn.HeaderText = "data_pl";
-            this.dataplDataGridViewTextBoxColumn.Name = "dataplDataGridViewTextBoxColumn";
             // 
             // planagpBindingSource
             // 
@@ -172,7 +145,7 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
@@ -185,7 +158,7 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(393, 409);
@@ -196,7 +169,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateTimePicker1.Location = new System.Drawing.Point(552, 443);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -205,7 +178,7 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(560, 409);
@@ -227,7 +200,7 @@
             // 
             // progress_button
             // 
-            this.progress_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.progress_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.progress_button.Location = new System.Drawing.Point(573, 498);
             this.progress_button.Name = "progress_button";
             this.progress_button.Size = new System.Drawing.Size(137, 38);
@@ -244,6 +217,47 @@
             // 
             this.vishkiTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(207, 498);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 38);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(393, 498);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(137, 38);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Задать план";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // planallBindingSource
+            // 
+            this.planallBindingSource.DataMember = "plan_all";
+            this.planallBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // plan_allTableAdapter
+            // 
+            this.plan_allTableAdapter.ClearBeforeFill = true;
+            // 
+            // dubakbyVIPODataSetBindingSource
+            // 
+            this.dubakbyVIPODataSetBindingSource.DataSource = this.dubakby_VIPODataSet;
+            this.dubakbyVIPODataSetBindingSource.Position = 0;
+            // 
+            // planallBindingSource1
+            // 
+            this.planallBindingSource1.DataMember = "plan_all";
+            this.planallBindingSource1.DataSource = this.dubakbyVIPODataSetBindingSource;
+            // 
             // zavnDataGridViewTextBoxColumn
             // 
             this.zavnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -258,13 +272,6 @@
             this.idvDataGridViewTextBoxColumn.HeaderText = "id_v";
             this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
             // 
-            // voltDataGridViewTextBoxColumn
-            // 
-            this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
-            this.voltDataGridViewTextBoxColumn.HeaderText = "volt";
-            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
-            // 
             // dataplDataGridViewTextBoxColumn
             // 
             this.dataplDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -272,15 +279,12 @@
             this.dataplDataGridViewTextBoxColumn.HeaderText = "data_pl";
             this.dataplDataGridViewTextBoxColumn.Name = "dataplDataGridViewTextBoxColumn";
             // 
-            // button1
+            // voltDataGridViewTextBoxColumn
             // 
-            this.button1.Location = new System.Drawing.Point(207, 498);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 38);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
+            this.voltDataGridViewTextBoxColumn.HeaderText = "volt";
+            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
             // 
             // gl_in
             // 
@@ -307,6 +311,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.planagpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dubakbyVIPODataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,10 +338,14 @@
         private System.Windows.Forms.BindingSource vishkiBindingSource;
         private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource planallBindingSource;
+        private dubakby_VIPODataSetTableAdapters.plan_allTableAdapter plan_allTableAdapter;
+        private System.Windows.Forms.BindingSource planallBindingSource1;
+        private System.Windows.Forms.BindingSource dubakbyVIPODataSetBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn zavnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idvDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn voltDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataplDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn voltDataGridViewTextBoxColumn;
     }
 }

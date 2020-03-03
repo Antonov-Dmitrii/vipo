@@ -41,8 +41,9 @@ namespace vipo
 
         private void vipo_vishki_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.plan_agp". При необходимости она может быть перемещена или удалена.
-            this.plan_agpTableAdapter.Fill(this.dubakby_VIPODataSet.plan_agp);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.plan_all". При необходимости она может быть перемещена или удалена.
+            this.plan_allTableAdapter.Fill(this.dubakby_VIPODataSet.plan_all);
+
 
         }
     }

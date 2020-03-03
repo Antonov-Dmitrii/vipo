@@ -17,9 +17,9 @@ namespace vipo
     public partial class gl_in : Form
     {
         SqlConnection connection;
-        DataSet dataSet;
-        BindingSource bindingSource;
-        DataTable DT;
+       // DataSet dataSet;
+        //BindingSource bindingSource;
+        //DataTable DT;
 
         public gl_in()
         {
@@ -50,6 +50,8 @@ namespace vipo
 
         private void gl_in_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.plan_all". При необходимости она может быть перемещена или удалена.
+            //this.plan_allTableAdapter.Fill(this.dubakby_VIPODataSet.plan_all);
             FormBorderStyle = FormBorderStyle.Sizable;
             this.WindowState = FormWindowState.Maximized;
             this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
@@ -76,6 +78,34 @@ namespace vipo
         private void button1_Click(object sender, EventArgs e)
         {
             plan_agpTableAdapter.Update(dubakby_VIPODataSet);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "INSERT INTO plan_all (id_v, zav_n, volt, data_pl, data_v, complete) SELECT id_v, zav_n, volt, data_pl, 0, 0 FROM plan_agp;TRUNCATE TABLE plan_agp";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = queryString;
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("План добавлен");
+                        this.plan_agpTableAdapter.Fill(this.dubakby_VIPODataSet.plan_agp);
+                        dataGridView1.Refresh();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка добавления");
+                        throw;
+                    }
+                }
+            }
         }
     }
 }

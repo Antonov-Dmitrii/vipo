@@ -30,17 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.kol_rab = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.time_n = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.time_f = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.time_n = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.name_op = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,8 +54,7 @@
             this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.workersTableAdapter();
-            this.label7 = new System.Windows.Forms.Label();
-            this.kol_rab = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,17 +77,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выбор работника";
             // 
-            // comboBox1
+            // kol_rab
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Скоморощенко П.И.",
-            "Лысенко А.А."});
-            this.comboBox1.Location = new System.Drawing.Point(6, 35);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 28);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.kol_rab.AutoSize = true;
+            this.kol_rab.Location = new System.Drawing.Point(272, 82);
+            this.kol_rab.Name = "kol_rab";
+            this.kol_rab.Size = new System.Drawing.Size(0, 20);
+            this.kol_rab.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 82);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(259, 20);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Число работников на операцию :";
             // 
             // comboBox2
             // 
@@ -98,6 +104,18 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(144, 28);
             this.comboBox2.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Скоморощенко П.И.",
+            "Лысенко А.А."});
+            this.comboBox1.Location = new System.Drawing.Point(6, 35);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(155, 28);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -117,38 +135,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ход технологического процесса";
             // 
-            // button1
+            // time_f
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(17, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 64);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Начало технологического процесса";
-            this.button1.UseVisualStyleBackColor = false;
+            this.time_f.AutoSize = true;
+            this.time_f.Location = new System.Drawing.Point(200, 150);
+            this.time_f.Name = "time_f";
+            this.time_f.Size = new System.Drawing.Size(53, 20);
+            this.time_f.TabIndex = 7;
+            this.time_f.Text = "time_f";
             // 
-            // button2
+            // label3
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(204, 36);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 64);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Завершение технологического процесса";
-            this.button2.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(200, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(162, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Фактическое время";
             // 
-            // button3
+            // time_n
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(17, 183);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(144, 64);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Остановка технологического процесса";
-            this.button3.UseVisualStyleBackColor = false;
+            this.time_n.AutoSize = true;
+            this.time_n.Location = new System.Drawing.Point(24, 150);
+            this.time_n.Name = "time_n";
+            this.time_n.Size = new System.Drawing.Size(57, 20);
+            this.time_n.TabIndex = 5;
+            this.time_n.Text = "time_n";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 113);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Норма времени";
             // 
             // button4
             // 
@@ -162,41 +183,40 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label1
+            // button3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 113);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Норма времени";
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Location = new System.Drawing.Point(17, 183);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(144, 64);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Остановка технологического процесса";
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // time_n
+            // button2
             // 
-            this.time_n.AutoSize = true;
-            this.time_n.Location = new System.Drawing.Point(24, 150);
-            this.time_n.Name = "time_n";
-            this.time_n.Size = new System.Drawing.Size(57, 20);
-            this.time_n.TabIndex = 5;
-            this.time_n.Text = "time_n";
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(204, 36);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(144, 64);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Завершение технологического процесса";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(200, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Фактическое время";
-            // 
-            // time_f
-            // 
-            this.time_f.AutoSize = true;
-            this.time_f.Location = new System.Drawing.Point(200, 150);
-            this.time_f.Name = "time_f";
-            this.time_f.Size = new System.Drawing.Size(53, 20);
-            this.time_f.TabIndex = 7;
-            this.time_f.Text = "time_f";
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(17, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 64);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Начало технологического процесса";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // name_op
             // 
@@ -286,22 +306,10 @@
             // 
             this.workersTableAdapter.ClearBeforeFill = true;
             // 
-            // label7
+            // timer1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(259, 20);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Число работников на операцию :";
-            // 
-            // kol_rab
-            // 
-            this.kol_rab.AutoSize = true;
-            this.kol_rab.Location = new System.Drawing.Point(272, 82);
-            this.kol_rab.Name = "kol_rab";
-            this.kol_rab.Size = new System.Drawing.Size(0, 20);
-            this.kol_rab.TabIndex = 3;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // vipo_post1
             // 
@@ -362,5 +370,6 @@
         public System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label kol_rab;
         private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Timer timer1;
     }
 }
