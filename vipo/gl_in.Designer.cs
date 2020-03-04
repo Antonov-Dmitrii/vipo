@@ -91,8 +91,8 @@
             // 
             this.zavnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.zavnDataGridViewTextBoxColumn.DataPropertyName = "zav_n";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.zavnDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            //dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            //this.zavnDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.zavnDataGridViewTextBoxColumn.HeaderText = "Заводской номер";
             this.zavnDataGridViewTextBoxColumn.Name = "zavnDataGridViewTextBoxColumn";
             // 
@@ -100,8 +100,8 @@
             // 
             this.idvDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.idvDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            //dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            //this.idvDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.idvDataGridViewTextBoxColumn.HeaderText = "Вышка";
             this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
             // 
@@ -109,8 +109,8 @@
             // 
             this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.voltDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            //dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            //this.voltDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.voltDataGridViewTextBoxColumn.HeaderText = "Вольтаж";
             this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
             // 
@@ -118,8 +118,8 @@
             // 
             this.dataplDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataplDataGridViewTextBoxColumn.DataPropertyName = "data_pl";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataplDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            //dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            //this.dataplDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataplDataGridViewTextBoxColumn.HeaderText = "Дата заполнения";
             this.dataplDataGridViewTextBoxColumn.Name = "dataplDataGridViewTextBoxColumn";
             // 
@@ -365,6 +365,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idvDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataplDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn voltDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataplDataGridViewTextBoxColumn;
     }
 }
