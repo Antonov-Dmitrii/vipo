@@ -52,14 +52,15 @@ namespace vipo
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {   //timer
             i = 0;
             c = "00:00";
-
-            
             timer1.Interval = 1000;
             timer1.Enabled = true;
             timer1.Start();
+            /////////////////////////////////////////
+            ////////////////////////////////////////
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
