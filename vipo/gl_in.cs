@@ -30,6 +30,7 @@ namespace vipo
 
         public void addbutton_Click(object sender, EventArgs e)
         {
+
             DataRow nRow = dubakby_VIPODataSet.Tables[5].NewRow();
             nRow[0] = textBox1.Text;
             nRow[1] = comboBox1.Text;
@@ -47,29 +48,22 @@ namespace vipo
             //////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////
             string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            string queryString = "INSERT INTO progress (zav_n, id_v, id_post ,id_op, num_op , op_name ,kol_rab , time_norm , f_time , otkl, proc_op, complete) SELECT @zav_n, id_v, id_post ,id_op, num_op , op_name ,kol_rab , time_norm ,0 ,0 , proc_op, 0 FROM op_norm WHERE id_v = @id_v; ";
-            
+            string queryString = "INSERT INTO progress (zav_n, id_v, id_post ,id_op, num_op , op_name ,kol_rab , time_norm , f_time , otkl, proc_op, complete) SELECT @zav_n, id_v, id_post ,id_op, num_op , op_name ,kol_rab , time_norm ,0 ,0 , proc_op, 0 FROM op_norm WHERE id_v = 1201 ";          
             //string queryString = "TRUNCATE TABLE progress";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    
-                    SqlParameter Param1 = new SqlParameter("@zav_n", SqlDbType.Int);
-                    SqlParameter Param2 = new SqlParameter("@id_v", SqlDbType.NVarChar);
-                    Param1.Value = textBox1;
-                    Param1.Value = comboBox1;
-                    command.Parameters.Add(Param1);
-                    command.Parameters.Add(Param2);
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-
+                    command.Parameters.Add("@zav_n", SqlDbType.NVarChar).Value = textBox1.Text;
+                  //  command.Parameters.AddWithValue("@id_v", (string)comboBox1.SelectedValue);
+                   // command.Parameters.AddWithValue("@zav_n", (string)textBox1.Text);
                     command.CommandText = queryString;
 
                     try
-                    {
+                    {   
                         connection.Open();
-
-                        command.ExecuteNonQuery();
+                       
+                       command.ExecuteNonQuery();
                         MessageBox.Show("План добавлен");
                     }
                     catch (Exception ex)
@@ -79,7 +73,6 @@ namespace vipo
                     }
                 }
             }
-
         }
      
      
@@ -98,8 +91,33 @@ namespace vipo
        
         private void progress_button_Click(object sender, EventArgs e)
         {
-            progress prog = new progress();
-            prog.Show();
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "TRUNCATE TABLE progress";
+
+            //string queryString = "TRUNCATE TABLE progress";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+
+                    command.CommandText = queryString;
+
+                    try
+                    {
+                        connection.Open();
+                        Int32 rowsAffected = command.ExecuteNonQuery();
+                        // command.ExecuteNonQuery();
+                        MessageBox.Show("План добавлен");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка добавления");
+                        throw;
+                    }
+                }
+            }
+            //  progress prog = new progress();
+            //prog.Show();
         }
 
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -144,5 +162,7 @@ namespace vipo
                 }
             }
         }
+
+       
     }
 }

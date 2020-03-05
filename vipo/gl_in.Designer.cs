@@ -99,15 +99,6 @@
             this.idvDataGridViewTextBoxColumn.HeaderText = "Вышка";
             this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
             // 
-            // voltDataGridViewTextBoxColumn
-            // 
-            this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
-            //dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            //this.voltDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            this.voltDataGridViewTextBoxColumn.HeaderText = "Вольтаж";
-            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
-            // 
             // dataplDataGridViewTextBoxColumn
             // 
             this.dataplDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
