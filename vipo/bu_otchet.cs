@@ -33,10 +33,8 @@ namespace vipo
             dataSet_bu = new DataSet();
         }
 
-        private void bu_otchet_Load(object sender, EventArgs e)
+            private void bu_otchet_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.mat_norm". При необходимости она может быть перемещена или удалена.
-            this.mat_normTableAdapter.Fill(this.dubakby_VIPODataSet.mat_norm);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.posts". При необходимости она может быть перемещена или удалена.
             this.postsTableAdapter.Fill(this.dubakby_VIPODataSet.posts);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.sklad". При необходимости она может быть перемещена или удалена.
@@ -45,8 +43,6 @@ namespace vipo
             this.materialsTableAdapter.Fill(this.dubakby_VIPODataSet.materials);
             FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Maximized;
-            
-
 
         }
 
@@ -69,8 +65,8 @@ namespace vipo
         private void radioButton2_Click(object sender, EventArgs e)
         {
             if (radioButton2.Checked == true)
-                skladBindingSource1.Filter = "";
-            else skladBindingSource1.Filter = string.Format("kol=0");
+                skladBindingSource.Filter = "";
+            else skladBindingSource.Filter = string.Format("kol=0");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,10 +78,9 @@ namespace vipo
             else
             {
                 string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-                //string queryString = "INSERT INTO sklad , ";
-                string queryString1 = "INSERT INTO sklad (id_mat, id_post, kol, izm) VALUES ('" + label12.Text.ToString() + "', '" + comboBox1.Text + "', '" + textBox1.Text + "', '" + label14.Text.ToString() + "');";
-                //"Insert Into sklad id_mat, id_post, kol, izm Values (\'" + label12.Text.ToString() + "\',\'" + comboBox1.Text.ToString() + "\',\'" + textBox1.Text.ToString() + "\', шт.)";       
-
+                _ = int.Parse(label12.Text);
+                string queryString1 = "INSERT INTO sklad (id_mat, id_post, kol, izm) VALUES ('" + label12.Text + "', '" + comboBox1.Text + "', '" + textBox1.Text + "', '" + label14.Text.ToString() + "');";       
+                 
                 using (SqlConnection connection_bu = new SqlConnection(connectionString))
                 {
                     using (SqlCommand command = connection_bu.CreateCommand())
@@ -96,9 +91,10 @@ namespace vipo
                         {
                             connection_bu.Open();
                             command.ExecuteNonQuery();
-                            MessageBox.Show("Материал " + label13.Text + " добавлен на " + comboBox1.Text + " в количестве " + textBox1.Text + " шт.");
+                            MessageBox.Show("Материал " + label13.Text + " добавлен на ПОСТ №" + comboBox1.Text + " в количестве " + textBox1.Text +" "+ label14.Text +".");
                             skladTableAdapter.Fill(dubakby_VIPODataSet.sklad);
                             dataGridView1.Refresh();
+                            textBox1.Clear();
                         }
                         catch (Exception ex)
                         {
@@ -113,24 +109,27 @@ namespace vipo
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox2.Text))
-                materialsBindingSource1.Filter = "";
-            else materialsBindingSource1.Filter = String.Format("mat_name LIKE '%{0}%'", textBox2.Text);
+                materialsBindingSource.Filter = "";
+            else materialsBindingSource.Filter = String.Format("mat_name LIKE '%{0}%'", textBox2.Text);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text))
+            if (string.IsNullOrEmpty(textBox3.Text))
                 skladBindingSource.Filter = "";
-            else skladBindingSource.Filter = String.Format("id_post LIKE '%{0}%'", textBox3.Text);
+            else
+                skladBindingSource.Filter = string.Format("[id_post] = {0}", textBox3.Text);
         }
 
         private void dgv_materials_Click(object sender, EventArgs e)
         {
             String s = dgv_materials.CurrentRow.Cells[0].Value.ToString();
             label12.Text = s;
-            label12.Text.ToString();
+            //int i = int.Parse(label12.Text);
             String s1 = dgv_materials.CurrentRow.Cells[1].Value.ToString();
             label13.Text = s1;
+            String s2 = dgv_materials.CurrentRow.Cells[2].Value.ToString();
+            label14.Text = s2;
 
         }
 

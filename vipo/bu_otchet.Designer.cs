@@ -31,21 +31,23 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.postsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.postsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgv_materials = new System.Windows.Forms.DataGridView();
             this.idmatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mat_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.matnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.izmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -72,36 +74,19 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.materialsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.materialsTableAdapter();
             this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
-            this.postsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.postsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.postsTableAdapter();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.skladBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKmatnormpostsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mat_normTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.mat_normTableAdapter();
-            this.postsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKmatnormpostsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKskladmaterialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fKskladmaterialsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKskladmaterialsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.skladBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKskladmaterialsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.postsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKskladmaterialsBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.idmatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.idpostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idmatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.kolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.izmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.izmDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_materials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skladBindingSource)).BeginInit();
@@ -111,20 +96,6 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.skladBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKmatnormpostsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKmatnormpostsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.skladBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -151,7 +122,6 @@
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.dgv_materials);
@@ -170,6 +140,25 @@
             this.tabPage1.Text = "Материалы";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(910, 600);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(0, 24);
+            this.label14.TabIndex = 19;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(566, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 20);
+            this.label13.TabIndex = 18;
+            this.label13.Visible = false;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -177,6 +166,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(0, 20);
             this.label12.TabIndex = 17;
+            this.label12.Visible = false;
             // 
             // textBox3
             // 
@@ -224,8 +214,9 @@
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.comboBox1.DataSource = this.postsBindingSource3;
+            this.comboBox1.DataSource = this.postsBindingSource;
             this.comboBox1.DisplayMember = "id_post";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(404, 597);
@@ -234,26 +225,15 @@
             this.comboBox1.TabIndex = 12;
             this.comboBox1.ValueMember = "post_name";
             // 
-            // postsBindingSource1
+            // postsBindingSource
             // 
-            this.postsBindingSource1.DataMember = "posts";
-            this.postsBindingSource1.DataSource = this.dubakby_VIPODataSet;
+            this.postsBindingSource.DataMember = "posts";
+            this.postsBindingSource.DataSource = this.dubakby_VIPODataSet;
             // 
             // dubakby_VIPODataSet
             // 
             this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
             this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(910, 600);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 24);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "шт.";
             // 
             // label7
             // 
@@ -290,9 +270,11 @@
             this.dgv_materials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_materials.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idmatDataGridViewTextBoxColumn,
-            this.mat_name});
-            this.dgv_materials.DataSource = this.materialsBindingSource1;
+            this.matnameDataGridViewTextBoxColumn,
+            this.izmDataGridViewTextBoxColumn});
+            this.dgv_materials.DataSource = this.materialsBindingSource;
             this.dgv_materials.Location = new System.Drawing.Point(679, 30);
+            this.dgv_materials.MultiSelect = false;
             this.dgv_materials.Name = "dgv_materials";
             this.dgv_materials.ReadOnly = true;
             this.dgv_materials.Size = new System.Drawing.Size(573, 487);
@@ -301,25 +283,34 @@
             // 
             // idmatDataGridViewTextBoxColumn
             // 
-            this.idmatDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.idmatDataGridViewTextBoxColumn.DataPropertyName = "id_mat";
             this.idmatDataGridViewTextBoxColumn.HeaderText = "id_mat";
             this.idmatDataGridViewTextBoxColumn.Name = "idmatDataGridViewTextBoxColumn";
             this.idmatDataGridViewTextBoxColumn.ReadOnly = true;
             this.idmatDataGridViewTextBoxColumn.Visible = false;
+            this.idmatDataGridViewTextBoxColumn.Width = 82;
             // 
-            // mat_name
+            // matnameDataGridViewTextBoxColumn
             // 
-            this.mat_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.mat_name.DataPropertyName = "mat_name";
-            this.mat_name.HeaderText = "Наименование материала";
-            this.mat_name.Name = "mat_name";
-            this.mat_name.ReadOnly = true;
+            this.matnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.matnameDataGridViewTextBoxColumn.DataPropertyName = "mat_name";
+            this.matnameDataGridViewTextBoxColumn.HeaderText = "Наименование материала";
+            this.matnameDataGridViewTextBoxColumn.Name = "matnameDataGridViewTextBoxColumn";
+            this.matnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // materialsBindingSource1
+            // izmDataGridViewTextBoxColumn
             // 
-            this.materialsBindingSource1.DataMember = "materials";
-            this.materialsBindingSource1.DataSource = this.dubakby_VIPODataSet;
+            this.izmDataGridViewTextBoxColumn.DataPropertyName = "izm";
+            this.izmDataGridViewTextBoxColumn.HeaderText = "izm";
+            this.izmDataGridViewTextBoxColumn.Name = "izmDataGridViewTextBoxColumn";
+            this.izmDataGridViewTextBoxColumn.ReadOnly = true;
+            this.izmDataGridViewTextBoxColumn.Visible = false;
+            this.izmDataGridViewTextBoxColumn.Width = 58;
+            // 
+            // materialsBindingSource
+            // 
+            this.materialsBindingSource.DataMember = "materials";
+            this.materialsBindingSource.DataSource = this.dubakby_VIPODataSet;
             // 
             // label5
             // 
@@ -405,23 +396,26 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idmatDataGridViewTextBoxColumn1,
             this.idpostDataGridViewTextBoxColumn,
+            this.idmatDataGridViewTextBoxColumn1,
             this.kolDataGridViewTextBoxColumn,
-            this.izmDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.skladBindingSource2;
+            this.izmDataGridViewTextBoxColumn1});
+            this.dataGridView1.DataSource = this.skladBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 30);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(667, 487);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -614,11 +608,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(809, 490);
             this.dataGridView2.TabIndex = 1;
             // 
-            // BindingSource
-            // 
-            this.BindingSource.DataMember = "materials";
-            this.BindingSource.DataSource = this.dubakby_VIPODataSet;
-            // 
             // materialsTableAdapter
             // 
             this.materialsTableAdapter.ClearBeforeFill = true;
@@ -627,95 +616,18 @@
             // 
             this.skladTableAdapter.ClearBeforeFill = true;
             // 
-            // postsBindingSource
-            // 
-            this.postsBindingSource.DataMember = "posts";
-            this.postsBindingSource.DataSource = this.dubakby_VIPODataSet;
-            // 
             // postsTableAdapter
             // 
             this.postsTableAdapter.ClearBeforeFill = true;
             // 
-            // label13
+            // idpostDataGridViewTextBoxColumn
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(566, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 20);
-            this.label13.TabIndex = 18;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1135, 7);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 20);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "шт";
-            // 
-            // skladBindingSource1
-            // 
-            this.skladBindingSource1.DataMember = "sklad";
-            this.skladBindingSource1.DataSource = this.dubakby_VIPODataSet;
-            // 
-            // fKmatnormpostsBindingSource
-            // 
-            this.fKmatnormpostsBindingSource.DataMember = "FK_mat_norm_posts";
-            this.fKmatnormpostsBindingSource.DataSource = this.postsBindingSource1;
-            // 
-            // mat_normTableAdapter
-            // 
-            this.mat_normTableAdapter.ClearBeforeFill = true;
-            // 
-            // postsBindingSource2
-            // 
-            this.postsBindingSource2.DataMember = "posts";
-            this.postsBindingSource2.DataSource = this.dubakby_VIPODataSet;
-            // 
-            // fKmatnormpostsBindingSource1
-            // 
-            this.fKmatnormpostsBindingSource1.DataMember = "FK_mat_norm_posts";
-            this.fKmatnormpostsBindingSource1.DataSource = this.postsBindingSource2;
-            // 
-            // fKskladmaterialsBindingSource
-            // 
-            this.fKskladmaterialsBindingSource.DataMember = "FK_sklad_materials";
-            this.fKskladmaterialsBindingSource.DataSource = this.BindingSource;
-            // 
-            // fKskladmaterialsBindingSource1
-            // 
-            this.fKskladmaterialsBindingSource1.DataMember = "FK_sklad_materials";
-            this.fKskladmaterialsBindingSource1.DataSource = this.materialsBindingSource1;
-            // 
-            // fKskladmaterialsBindingSource2
-            // 
-            this.fKskladmaterialsBindingSource2.DataMember = "FK_sklad_materials";
-            this.fKskladmaterialsBindingSource2.DataSource = this.materialsBindingSource1;
-            // 
-            // skladBindingSource2
-            // 
-            this.skladBindingSource2.DataMember = "sklad";
-            this.skladBindingSource2.DataSource = this.dubakby_VIPODataSet;
-            // 
-            // fKskladmaterialsBindingSource3
-            // 
-            this.fKskladmaterialsBindingSource3.DataMember = "FK_sklad_materials";
-            this.fKskladmaterialsBindingSource3.DataSource = this.materialsBindingSource1;
-            // 
-            // materialsBindingSource
-            // 
-            this.materialsBindingSource.DataMember = "materials";
-            this.materialsBindingSource.DataSource = this.dubakby_VIPODataSet;
-            // 
-            // postsBindingSource3
-            // 
-            this.postsBindingSource3.DataMember = "posts";
-            this.postsBindingSource3.DataSource = this.dubakby_VIPODataSet;
-            // 
-            // fKskladmaterialsBindingSource4
-            // 
-            this.fKskladmaterialsBindingSource4.DataMember = "FK_sklad_materials";
-            this.fKskladmaterialsBindingSource4.DataSource = this.materialsBindingSource1;
+            this.idpostDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.idpostDataGridViewTextBoxColumn.DataPropertyName = "id_post";
+            this.idpostDataGridViewTextBoxColumn.HeaderText = "Номер поста";
+            this.idpostDataGridViewTextBoxColumn.Name = "idpostDataGridViewTextBoxColumn";
+            this.idpostDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idpostDataGridViewTextBoxColumn.Width = 132;
             // 
             // idmatDataGridViewTextBoxColumn1
             // 
@@ -723,33 +635,32 @@
             this.idmatDataGridViewTextBoxColumn1.DataPropertyName = "id_mat";
             this.idmatDataGridViewTextBoxColumn1.DataSource = this.materialsBindingSource;
             this.idmatDataGridViewTextBoxColumn1.DisplayMember = "mat_name";
-            this.idmatDataGridViewTextBoxColumn1.HeaderText = "id_mat";
+            this.idmatDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.idmatDataGridViewTextBoxColumn1.HeaderText = "Наименование материала";
+            this.idmatDataGridViewTextBoxColumn1.MaxDropDownItems = 1;
             this.idmatDataGridViewTextBoxColumn1.Name = "idmatDataGridViewTextBoxColumn1";
             this.idmatDataGridViewTextBoxColumn1.ReadOnly = true;
             this.idmatDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.idmatDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.idmatDataGridViewTextBoxColumn1.ValueMember = "mat_name";
-            // 
-            // idpostDataGridViewTextBoxColumn
-            // 
-            this.idpostDataGridViewTextBoxColumn.DataPropertyName = "id_post";
-            this.idpostDataGridViewTextBoxColumn.HeaderText = "id_post";
-            this.idpostDataGridViewTextBoxColumn.Name = "idpostDataGridViewTextBoxColumn";
-            this.idpostDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idmatDataGridViewTextBoxColumn1.ValueMember = "id_mat";
             // 
             // kolDataGridViewTextBoxColumn
             // 
+            this.kolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.kolDataGridViewTextBoxColumn.DataPropertyName = "kol";
-            this.kolDataGridViewTextBoxColumn.HeaderText = "kol";
+            this.kolDataGridViewTextBoxColumn.HeaderText = "Количество материала";
             this.kolDataGridViewTextBoxColumn.Name = "kolDataGridViewTextBoxColumn";
             this.kolDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kolDataGridViewTextBoxColumn.Width = 194;
             // 
-            // izmDataGridViewTextBoxColumn
+            // izmDataGridViewTextBoxColumn1
             // 
-            this.izmDataGridViewTextBoxColumn.DataPropertyName = "izm";
-            this.izmDataGridViewTextBoxColumn.HeaderText = "izm";
-            this.izmDataGridViewTextBoxColumn.Name = "izmDataGridViewTextBoxColumn";
-            this.izmDataGridViewTextBoxColumn.ReadOnly = true;
+            this.izmDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.izmDataGridViewTextBoxColumn1.DataPropertyName = "izm";
+            this.izmDataGridViewTextBoxColumn1.HeaderText = "Ед. изм.";
+            this.izmDataGridViewTextBoxColumn1.Name = "izmDataGridViewTextBoxColumn1";
+            this.izmDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.izmDataGridViewTextBoxColumn1.Width = 88;
             // 
             // bu_otchet
             // 
@@ -764,10 +675,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_materials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -780,20 +691,6 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.skladBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKmatnormpostsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKmatnormpostsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.skladBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKskladmaterialsBindingSource4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -811,7 +708,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button4;
@@ -833,44 +729,30 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private dubakby_VIPODataSet dubakby_VIPODataSet;
-        private System.Windows.Forms.BindingSource BindingSource;
-        private dubakby_VIPODataSetTableAdapters.materialsTableAdapter materialsTableAdapter;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.BindingSource skladBindingSource;
-        private dubakby_VIPODataSetTableAdapters.skladTableAdapter skladTableAdapter;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.BindingSource materialsBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idmatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mat_name;
-        private System.Windows.Forms.BindingSource postsBindingSource;
-        private dubakby_VIPODataSetTableAdapters.postsTableAdapter postsTableAdapter;
-        private System.Windows.Forms.BindingSource postsBindingSource1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.DataGridView dgv_materials;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.BindingSource skladBindingSource1;
-        private System.Windows.Forms.BindingSource fKmatnormpostsBindingSource;
-        private dubakby_VIPODataSetTableAdapters.mat_normTableAdapter mat_normTableAdapter;
-        private System.Windows.Forms.BindingSource fKskladmaterialsBindingSource;
-        private System.Windows.Forms.BindingSource skladBindingSource2;
-        private System.Windows.Forms.BindingSource postsBindingSource2;
-        private System.Windows.Forms.BindingSource fKmatnormpostsBindingSource1;
-        private System.Windows.Forms.BindingSource fKskladmaterialsBindingSource1;
-        private System.Windows.Forms.BindingSource fKskladmaterialsBindingSource2;
+        private dubakby_VIPODataSet dubakby_VIPODataSet;
         private System.Windows.Forms.BindingSource materialsBindingSource;
-        private System.Windows.Forms.BindingSource fKskladmaterialsBindingSource3;
-        private System.Windows.Forms.BindingSource postsBindingSource3;
-        private System.Windows.Forms.DataGridViewComboBoxColumn idmatDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idpostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kolDataGridViewTextBoxColumn;
+        private dubakby_VIPODataSetTableAdapters.materialsTableAdapter materialsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idmatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn izmDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource fKskladmaterialsBindingSource4;
+        private System.Windows.Forms.BindingSource skladBindingSource;
+        private dubakby_VIPODataSetTableAdapters.skladTableAdapter skladTableAdapter;
+        private System.Windows.Forms.BindingSource postsBindingSource;
+        private dubakby_VIPODataSetTableAdapters.postsTableAdapter postsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idmatDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kolDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn izmDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
