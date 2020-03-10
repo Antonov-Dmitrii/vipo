@@ -43,8 +43,14 @@ namespace vipo
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.plan_all". При необходимости она может быть перемещена или удалена.
             this.plan_allTableAdapter.Fill(this.dubakby_VIPODataSet.plan_all);
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
+        }
 
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Close();
         }
     }
 }

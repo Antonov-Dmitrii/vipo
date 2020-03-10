@@ -50,7 +50,7 @@ namespace vipo
             string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
             //string queryString = "INSERT INTO progress (zav_n, id_v, id_post ,id_op, num_op , op_name ,kol_rab , time_norm , f_time , otkl, proc_op, complete) SELECT zav_n, id_v, id_post ,id_op, num_op , op_name ,kol_rab , time_norm ,0 ,0 , proc_op, 0 FROM op_norm WHERE id_v = 1201 ";          
             //string queryString = "TRUNCATE TABLE progress";
-            string queryString = "INSERT INTO progress (zav_n, id_v, id_post ,id_op, num_op , op_name ,kol_rab , time_norm , proc_op) SELECT zav_n , id_v ,id_post , num_op , id_op , op_name ,kol_rab , time_norm ,proc_op FROM op_norm INNER JOIN plan_agp on plan_agp.id_v = op_norm.id_v "; 
+            string queryString = "INSERT INTO progress (zav_n, id_v, id_post ,id_op, num_op , op_name ,kol_rab , time_norm , proc_op) SELECT zav_n , id_v ,id_post , num_op , id_op , op_name ,kol_rab , time_norm ,proc_op FROM op_norm_1201 INNER JOIN plan_agp on plan_agp.id_v = op_norm.id_v "; 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())

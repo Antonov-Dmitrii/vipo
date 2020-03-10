@@ -56,6 +56,10 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idpostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idmatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.kolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.izmDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skladBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -77,10 +81,6 @@
             this.materialsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.materialsTableAdapter();
             this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
             this.postsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.postsTableAdapter();
-            this.idpostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idmatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.kolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.izmDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
@@ -375,7 +375,6 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(187, 24);
             this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Дефицит материала";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.Click += new System.EventHandler(this.radioButton2_Click);
@@ -387,10 +386,8 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(206, 24);
             this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Количество материала";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButton1_MouseClick);
             // 
             // dataGridView1
             // 
@@ -418,6 +415,48 @@
             this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(667, 487);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // idpostDataGridViewTextBoxColumn
+            // 
+            this.idpostDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.idpostDataGridViewTextBoxColumn.DataPropertyName = "id_post";
+            this.idpostDataGridViewTextBoxColumn.HeaderText = "Номер поста";
+            this.idpostDataGridViewTextBoxColumn.Name = "idpostDataGridViewTextBoxColumn";
+            this.idpostDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idpostDataGridViewTextBoxColumn.Width = 121;
+            // 
+            // idmatDataGridViewTextBoxColumn1
+            // 
+            this.idmatDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idmatDataGridViewTextBoxColumn1.DataPropertyName = "id_mat";
+            this.idmatDataGridViewTextBoxColumn1.DataSource = this.materialsBindingSource;
+            this.idmatDataGridViewTextBoxColumn1.DisplayMember = "mat_name";
+            this.idmatDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.idmatDataGridViewTextBoxColumn1.HeaderText = "Наименование материала";
+            this.idmatDataGridViewTextBoxColumn1.MaxDropDownItems = 1;
+            this.idmatDataGridViewTextBoxColumn1.Name = "idmatDataGridViewTextBoxColumn1";
+            this.idmatDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idmatDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idmatDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idmatDataGridViewTextBoxColumn1.ValueMember = "id_mat";
+            // 
+            // kolDataGridViewTextBoxColumn
+            // 
+            this.kolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.kolDataGridViewTextBoxColumn.DataPropertyName = "kol";
+            this.kolDataGridViewTextBoxColumn.HeaderText = "Количество материала";
+            this.kolDataGridViewTextBoxColumn.Name = "kolDataGridViewTextBoxColumn";
+            this.kolDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kolDataGridViewTextBoxColumn.Width = 194;
+            // 
+            // izmDataGridViewTextBoxColumn1
+            // 
+            this.izmDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.izmDataGridViewTextBoxColumn1.DataPropertyName = "izm";
+            this.izmDataGridViewTextBoxColumn1.HeaderText = "Ед. изм.";
+            this.izmDataGridViewTextBoxColumn1.Name = "izmDataGridViewTextBoxColumn1";
+            this.izmDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.izmDataGridViewTextBoxColumn1.Width = 88;
             // 
             // skladBindingSource
             // 
@@ -619,48 +658,6 @@
             // postsTableAdapter
             // 
             this.postsTableAdapter.ClearBeforeFill = true;
-            // 
-            // idpostDataGridViewTextBoxColumn
-            // 
-            this.idpostDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.idpostDataGridViewTextBoxColumn.DataPropertyName = "id_post";
-            this.idpostDataGridViewTextBoxColumn.HeaderText = "Номер поста";
-            this.idpostDataGridViewTextBoxColumn.Name = "idpostDataGridViewTextBoxColumn";
-            this.idpostDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idpostDataGridViewTextBoxColumn.Width = 132;
-            // 
-            // idmatDataGridViewTextBoxColumn1
-            // 
-            this.idmatDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idmatDataGridViewTextBoxColumn1.DataPropertyName = "id_mat";
-            this.idmatDataGridViewTextBoxColumn1.DataSource = this.materialsBindingSource;
-            this.idmatDataGridViewTextBoxColumn1.DisplayMember = "mat_name";
-            this.idmatDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.idmatDataGridViewTextBoxColumn1.HeaderText = "Наименование материала";
-            this.idmatDataGridViewTextBoxColumn1.MaxDropDownItems = 1;
-            this.idmatDataGridViewTextBoxColumn1.Name = "idmatDataGridViewTextBoxColumn1";
-            this.idmatDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idmatDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.idmatDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.idmatDataGridViewTextBoxColumn1.ValueMember = "id_mat";
-            // 
-            // kolDataGridViewTextBoxColumn
-            // 
-            this.kolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.kolDataGridViewTextBoxColumn.DataPropertyName = "kol";
-            this.kolDataGridViewTextBoxColumn.HeaderText = "Количество материала";
-            this.kolDataGridViewTextBoxColumn.Name = "kolDataGridViewTextBoxColumn";
-            this.kolDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kolDataGridViewTextBoxColumn.Width = 194;
-            // 
-            // izmDataGridViewTextBoxColumn1
-            // 
-            this.izmDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.izmDataGridViewTextBoxColumn1.DataPropertyName = "izm";
-            this.izmDataGridViewTextBoxColumn1.HeaderText = "Ед. изм.";
-            this.izmDataGridViewTextBoxColumn1.Name = "izmDataGridViewTextBoxColumn1";
-            this.izmDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.izmDataGridViewTextBoxColumn1.Width = 88;
             // 
             // bu_otchet
             // 

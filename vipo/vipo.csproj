@@ -198,6 +198,7 @@
     <Content Include="img\7899.png" />
     <Content Include="img\9676.png" />
     <Content Include="img\img1-----------.jpg" />
+    <None Include="Resources\Без имени-1.png" />
     <None Include="Resources\vhod.png" />
     <None Include="Resources\dda7b8ed3bc420a5a3b882f751a62ae5.jpg" />
     <None Include="Resources\close_red.png" />

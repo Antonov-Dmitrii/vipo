@@ -49,17 +49,7 @@ namespace vipo
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                button5_Click(sender, e);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
-        }
-    
-            private void radioButton1_MouseClick(object sender, MouseEventArgs e)
-        {
-            
+                button1_Click(sender, e);
         }
 
         private void radioButton2_Click(object sender, EventArgs e)
@@ -132,7 +122,5 @@ namespace vipo
             label14.Text = s2;
 
         }
-
-
     }
 }
