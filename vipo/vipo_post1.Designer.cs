@@ -100,15 +100,15 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.workersBindingSource;
+            this.comboBox2.DisplayMember = "rab_name";
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Скоморощенко П.И.",
-            "Лысенко А.А."});
             this.comboBox2.Location = new System.Drawing.Point(218, 35);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(171, 32);
             this.comboBox2.TabIndex = 1;
+            this.comboBox2.ValueMember = "id_rab";
             // 
             // comboBox1
             // 

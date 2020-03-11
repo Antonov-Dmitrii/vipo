@@ -120,6 +120,11 @@
     <Compile Include="vipo_zav.Designer.cs">
       <DependentUpon>vipo_zav.cs</DependentUpon>
     </Compile>
+    <Compile Include="_123DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_123DataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="author.resx">
       <DependentUpon>author.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +185,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_123DataSet.xsc">
+      <DependentUpon>_123DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_123DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_123DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_123DataSet.xss">
+      <DependentUpon>_123DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

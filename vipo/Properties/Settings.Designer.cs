@@ -44,5 +44,15 @@ namespace vipo.Properties {
                 return ((string)(this["dubakby_VIPOConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DUBAK\\SQLEXPRESS;Initial Catalog=123;Integrated Security=True")]
+        public string _123ConnectionString {
+            get {
+                return ((string)(this["_123ConnectionString"]));
+            }
+        }
     }
 }
