@@ -128,6 +128,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
             this.Text = "Витебские подъёмники";
             this.Load += new System.EventHandler(this.Form1_Load);

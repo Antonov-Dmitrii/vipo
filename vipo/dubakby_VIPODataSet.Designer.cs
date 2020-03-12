@@ -28,6 +28,8 @@ namespace vipo {
         
         private materialsDataTable tablematerials;
         
+        private numbersDataTable tablenumbers;
+        
         private op_normDataTable tableop_norm;
         
         private p_reasonsDataTable tablep_reasons;
@@ -63,6 +65,8 @@ namespace vipo {
         private global::System.Data.DataRelation relationFK_mat_norm_posts;
         
         private global::System.Data.DataRelation relationFK_mat_norm_vishki;
+        
+        private global::System.Data.DataRelation relationFK_numbers_vishki;
         
         private global::System.Data.DataRelation relationFK_op_norm_posts;
         
@@ -117,6 +121,9 @@ namespace vipo {
                 }
                 if ((ds.Tables["materials"] != null)) {
                     base.Tables.Add(new materialsDataTable(ds.Tables["materials"]));
+                }
+                if ((ds.Tables["numbers"] != null)) {
+                    base.Tables.Add(new numbersDataTable(ds.Tables["numbers"]));
                 }
                 if ((ds.Tables["op_norm"] != null)) {
                     base.Tables.Add(new op_normDataTable(ds.Tables["op_norm"]));
@@ -195,6 +202,16 @@ namespace vipo {
         public materialsDataTable materials {
             get {
                 return this.tablematerials;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public numbersDataTable numbers {
+            get {
+                return this.tablenumbers;
             }
         }
         
@@ -411,6 +428,9 @@ namespace vipo {
                 if ((ds.Tables["materials"] != null)) {
                     base.Tables.Add(new materialsDataTable(ds.Tables["materials"]));
                 }
+                if ((ds.Tables["numbers"] != null)) {
+                    base.Tables.Add(new numbersDataTable(ds.Tables["numbers"]));
+                }
                 if ((ds.Tables["op_norm"] != null)) {
                     base.Tables.Add(new op_normDataTable(ds.Tables["op_norm"]));
                 }
@@ -496,6 +516,12 @@ namespace vipo {
             if ((initTable == true)) {
                 if ((this.tablematerials != null)) {
                     this.tablematerials.InitVars();
+                }
+            }
+            this.tablenumbers = ((numbersDataTable)(base.Tables["numbers"]));
+            if ((initTable == true)) {
+                if ((this.tablenumbers != null)) {
+                    this.tablenumbers.InitVars();
                 }
             }
             this.tableop_norm = ((op_normDataTable)(base.Tables["op_norm"]));
@@ -586,6 +612,7 @@ namespace vipo {
             this.relationFK_mat_norm_op_norm = this.Relations["FK_mat_norm_op_norm"];
             this.relationFK_mat_norm_posts = this.Relations["FK_mat_norm_posts"];
             this.relationFK_mat_norm_vishki = this.Relations["FK_mat_norm_vishki"];
+            this.relationFK_numbers_vishki = this.Relations["FK_numbers_vishki"];
             this.relationFK_op_norm_posts = this.Relations["FK_op_norm_posts"];
             this.relationFK_op_norm_vishki = this.Relations["FK_op_norm_vishki"];
             this.relationFK_p_time_p_reasons = this.Relations["FK_p_time_p_reasons"];
@@ -610,6 +637,8 @@ namespace vipo {
             base.Tables.Add(this.tablemat_norm);
             this.tablematerials = new materialsDataTable();
             base.Tables.Add(this.tablematerials);
+            this.tablenumbers = new numbersDataTable();
+            base.Tables.Add(this.tablenumbers);
             this.tableop_norm = new op_normDataTable();
             base.Tables.Add(this.tableop_norm);
             this.tablep_reasons = new p_reasonsDataTable();
@@ -654,6 +683,10 @@ namespace vipo {
                         this.tablevishki.id_vColumn}, new global::System.Data.DataColumn[] {
                         this.tablemat_norm.id_vColumn}, false);
             this.Relations.Add(this.relationFK_mat_norm_vishki);
+            this.relationFK_numbers_vishki = new global::System.Data.DataRelation("FK_numbers_vishki", new global::System.Data.DataColumn[] {
+                        this.tablevishki.id_vColumn}, new global::System.Data.DataColumn[] {
+                        this.tablenumbers.id_vColumn}, false);
+            this.Relations.Add(this.relationFK_numbers_vishki);
             this.relationFK_op_norm_posts = new global::System.Data.DataRelation("FK_op_norm_posts", new global::System.Data.DataColumn[] {
                         this.tableposts.id_postColumn}, new global::System.Data.DataColumn[] {
                         this.tableop_norm.id_postColumn}, false);
@@ -705,6 +738,12 @@ namespace vipo {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializematerials() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializenumbers() {
             return false;
         }
         
@@ -852,6 +891,9 @@ namespace vipo {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void materialsRowChangeEventHandler(object sender, materialsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void numbersRowChangeEventHandler(object sender, numbersRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void op_normRowChangeEventHandler(object sender, op_normRowChangeEvent e);
@@ -1032,7 +1074,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public mat_normRow Addmat_normRow(vishkiRow parentvishkiRowByFK_mat_norm_vishki, postsRow parentpostsRowByFK_mat_norm_posts, op_normRow parentop_normRowByFK_mat_norm_op_norm, materialsRow parentmaterialsRowByFK_mat_norm_materials, string kol_mat, string izm) {
+            public mat_normRow Addmat_normRow(vishkiRow parentvishkiRowByFK_mat_norm_vishki, postsRow parentpostsRowByFK_mat_norm_posts, op_normRow parentop_normRowByFK_mat_norm_op_norm, materialsRow parentmaterialsRowByFK_mat_norm_materials, float kol_mat, string izm) {
                 mat_normRow rowmat_normRow = ((mat_normRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1086,28 +1128,25 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_v);
                 this.columnid_post = new global::System.Data.DataColumn("id_post", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_post);
-                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_op);
                 this.columnid_mat = new global::System.Data.DataColumn("id_mat", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_mat);
-                this.columnkol_mat = new global::System.Data.DataColumn("kol_mat", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnkol_mat = new global::System.Data.DataColumn("kol_mat", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkol_mat);
                 this.columnizm = new global::System.Data.DataColumn("izm", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnizm);
                 this.columnid_v.AllowDBNull = false;
-                this.columnid_v.MaxLength = 20;
                 this.columnid_post.AllowDBNull = false;
                 this.columnid_op.AllowDBNull = false;
-                this.columnid_op.MaxLength = 200;
                 this.columnid_mat.AllowDBNull = false;
                 this.columnkol_mat.AllowDBNull = false;
-                this.columnkol_mat.MaxLength = 10;
                 this.columnizm.AllowDBNull = false;
-                this.columnizm.MaxLength = 10;
+                this.columnizm.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1533,6 +1572,297 @@ namespace vipo {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class numbersDataTable : global::System.Data.TypedTableBase<numbersRow> {
+            
+            private global::System.Data.DataColumn columnzav_n;
+            
+            private global::System.Data.DataColumn columnid_v;
+            
+            private global::System.Data.DataColumn columncomplete;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public numbersDataTable() {
+                this.TableName = "numbers";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal numbersDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected numbersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn zav_nColumn {
+                get {
+                    return this.columnzav_n;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn id_vColumn {
+                get {
+                    return this.columnid_v;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn completeColumn {
+                get {
+                    return this.columncomplete;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public numbersRow this[int index] {
+                get {
+                    return ((numbersRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event numbersRowChangeEventHandler numbersRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event numbersRowChangeEventHandler numbersRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event numbersRowChangeEventHandler numbersRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event numbersRowChangeEventHandler numbersRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddnumbersRow(numbersRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public numbersRow AddnumbersRow(int zav_n, vishkiRow parentvishkiRowByFK_numbers_vishki, bool complete) {
+                numbersRow rownumbersRow = ((numbersRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        zav_n,
+                        null,
+                        complete};
+                if ((parentvishkiRowByFK_numbers_vishki != null)) {
+                    columnValuesArray[1] = parentvishkiRowByFK_numbers_vishki[0];
+                }
+                rownumbersRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rownumbersRow);
+                return rownumbersRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public numbersRow FindByzav_n(int zav_n) {
+                return ((numbersRow)(this.Rows.Find(new object[] {
+                            zav_n})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                numbersDataTable cln = ((numbersDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new numbersDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnzav_n = base.Columns["zav_n"];
+                this.columnid_v = base.Columns["id_v"];
+                this.columncomplete = base.Columns["complete"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnzav_n = new global::System.Data.DataColumn("zav_n", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnzav_n);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_v);
+                this.columncomplete = new global::System.Data.DataColumn("complete", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomplete);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnzav_n}, true));
+                this.columnzav_n.AllowDBNull = false;
+                this.columnzav_n.Unique = true;
+                this.columnid_v.AllowDBNull = false;
+                this.columncomplete.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public numbersRow NewnumbersRow() {
+                return ((numbersRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new numbersRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(numbersRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.numbersRowChanged != null)) {
+                    this.numbersRowChanged(this, new numbersRowChangeEvent(((numbersRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.numbersRowChanging != null)) {
+                    this.numbersRowChanging(this, new numbersRowChangeEvent(((numbersRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.numbersRowDeleted != null)) {
+                    this.numbersRowDeleted(this, new numbersRowChangeEvent(((numbersRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.numbersRowDeleting != null)) {
+                    this.numbersRowDeleting(this, new numbersRowChangeEvent(((numbersRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovenumbersRow(numbersRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dubakby_VIPODataSet ds = new dubakby_VIPODataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "numbersDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class op_normDataTable : global::System.Data.TypedTableBase<op_normRow> {
             
             private global::System.Data.DataColumn columnid_op;
@@ -1685,10 +2015,10 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public op_normRow Addop_normRow(string id_op, postsRow parentpostsRowByFK_op_norm_posts, vishkiRow parentvishkiRowByFK_op_norm_vishki, int num_op, string op_name, int time_norm, int kol_rab, int proc_op) {
+            public op_normRow Addop_normRow(postsRow parentpostsRowByFK_op_norm_posts, vishkiRow parentvishkiRowByFK_op_norm_vishki, int num_op, string op_name, int time_norm, int kol_rab, int proc_op) {
                 op_normRow rowop_normRow = ((op_normRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_op,
+                        null,
                         null,
                         null,
                         num_op,
@@ -1709,7 +2039,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public op_normRow FindByid_op(string id_op) {
+            public op_normRow FindByid_op(int id_op) {
                 return ((op_normRow)(this.Rows.Find(new object[] {
                             id_op})));
             }
@@ -1744,11 +2074,11 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_op);
                 this.columnid_post = new global::System.Data.DataColumn("id_post", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_post);
-                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_v);
                 this.columnnum_op = new global::System.Data.DataColumn("num_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnum_op);
@@ -1762,12 +2092,14 @@ namespace vipo {
                 base.Columns.Add(this.columnproc_op);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_op}, true));
+                this.columnid_op.AutoIncrement = true;
+                this.columnid_op.AutoIncrementSeed = -1;
+                this.columnid_op.AutoIncrementStep = -1;
                 this.columnid_op.AllowDBNull = false;
+                this.columnid_op.ReadOnly = true;
                 this.columnid_op.Unique = true;
-                this.columnid_op.MaxLength = 200;
                 this.columnid_post.AllowDBNull = false;
                 this.columnid_v.AllowDBNull = false;
-                this.columnid_v.MaxLength = 20;
                 this.columnnum_op.AllowDBNull = false;
                 this.columnop_name.AllowDBNull = false;
                 this.columnop_name.MaxLength = 200;
@@ -1997,10 +2329,10 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public p_reasonsRow Addp_reasonsRow(string id_p, string p_name) {
+            public p_reasonsRow Addp_reasonsRow(string p_name) {
                 p_reasonsRow rowp_reasonsRow = ((p_reasonsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_p,
+                        null,
                         p_name};
                 rowp_reasonsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowp_reasonsRow);
@@ -2009,7 +2341,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public p_reasonsRow FindByid_p(string id_p) {
+            public p_reasonsRow FindByid_p(int id_p) {
                 return ((p_reasonsRow)(this.Rows.Find(new object[] {
                             id_p})));
             }
@@ -2038,15 +2370,18 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_p = new global::System.Data.DataColumn("id_p", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_p = new global::System.Data.DataColumn("id_p", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_p);
                 this.columnp_name = new global::System.Data.DataColumn("p_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnp_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_p}, true));
+                this.columnid_p.AutoIncrement = true;
+                this.columnid_p.AutoIncrementSeed = -1;
+                this.columnid_p.AutoIncrementStep = -1;
                 this.columnid_p.AllowDBNull = false;
+                this.columnid_p.ReadOnly = true;
                 this.columnid_p.Unique = true;
-                this.columnid_p.MaxLength = 50;
                 this.columnp_name.AllowDBNull = false;
                 this.columnp_name.MaxLength = 50;
             }
@@ -2382,7 +2717,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public p_timeRow Addp_timeRow(int zav_n, string id_v, int id_post, string id_op, string num_op, System.DateTime op_start, System.DateTime op_end, System.DateTime p_start, System.DateTime p_stop, System.DateTime f_time, System.DateTime otkl, p_reasonsRow parentp_reasonsRowByFK_p_time_p_reasons) {
+            public p_timeRow Addp_timeRow(int zav_n, int id_v, int id_post, int id_op, int num_op, System.DateTime op_start, System.DateTime op_end, System.DateTime p_start, System.DateTime p_stop, System.DateTime f_time, float otkl, p_reasonsRow parentp_reasonsRowByFK_p_time_p_reasons) {
                 p_timeRow rowp_timeRow = ((p_timeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2452,13 +2787,13 @@ namespace vipo {
                 base.Columns.Add(this.columnid_time);
                 this.columnzav_n = new global::System.Data.DataColumn("zav_n", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnzav_n);
-                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_v);
                 this.columnid_post = new global::System.Data.DataColumn("id_post", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_post);
-                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_op);
-                this.columnnum_op = new global::System.Data.DataColumn("num_op", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnnum_op = new global::System.Data.DataColumn("num_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnum_op);
                 this.columnop_start = new global::System.Data.DataColumn("op_start", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnop_start);
@@ -2470,9 +2805,9 @@ namespace vipo {
                 base.Columns.Add(this.columnp_stop);
                 this.columnf_time = new global::System.Data.DataColumn("f_time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnf_time);
-                this.columnotkl = new global::System.Data.DataColumn("otkl", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnotkl = new global::System.Data.DataColumn("otkl", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnotkl);
-                this.columnid_p = new global::System.Data.DataColumn("id_p", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_p = new global::System.Data.DataColumn("id_p", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_p);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_time}, true));
@@ -2484,12 +2819,9 @@ namespace vipo {
                 this.columnid_time.Unique = true;
                 this.columnzav_n.AllowDBNull = false;
                 this.columnid_v.AllowDBNull = false;
-                this.columnid_v.MaxLength = 20;
                 this.columnid_post.AllowDBNull = false;
                 this.columnid_op.AllowDBNull = false;
-                this.columnid_op.MaxLength = 200;
                 this.columnnum_op.AllowDBNull = false;
-                this.columnnum_op.MaxLength = 200;
                 this.columnop_start.AllowDBNull = false;
                 this.columnop_end.AllowDBNull = false;
                 this.columnp_start.AllowDBNull = false;
@@ -2497,7 +2829,6 @@ namespace vipo {
                 this.columnf_time.AllowDBNull = false;
                 this.columnotkl.AllowDBNull = false;
                 this.columnid_p.AllowDBNull = false;
-                this.columnid_p.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2791,7 +3122,7 @@ namespace vipo {
             private void InitClass() {
                 this.columnzav_n = new global::System.Data.DataColumn("zav_n", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnzav_n);
-                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_v);
                 this.columnvolt = new global::System.Data.DataColumn("volt", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvolt);
@@ -2802,7 +3133,6 @@ namespace vipo {
                 this.columnzav_n.AllowDBNull = false;
                 this.columnzav_n.Unique = true;
                 this.columnid_v.AllowDBNull = false;
-                this.columnid_v.MaxLength = 20;
                 this.columnvolt.AllowDBNull = false;
                 this.columndata_pl.AllowDBNull = false;
             }
@@ -3068,7 +3398,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public plan_allRow Addplan_allRow(int zav_n, string id_v, int volt, System.DateTime data_pl, System.DateTime data_v, bool complete) {
+            public plan_allRow Addplan_allRow(int zav_n, int id_v, int volt, System.DateTime data_pl, System.DateTime data_v, bool complete) {
                 plan_allRow rowplan_allRow = ((plan_allRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         zav_n,
@@ -3119,7 +3449,7 @@ namespace vipo {
             private void InitClass() {
                 this.columnzav_n = new global::System.Data.DataColumn("zav_n", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnzav_n);
-                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_v);
                 this.columnvolt = new global::System.Data.DataColumn("volt", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvolt);
@@ -3134,10 +3464,8 @@ namespace vipo {
                 this.columnzav_n.AllowDBNull = false;
                 this.columnzav_n.Unique = true;
                 this.columnid_v.AllowDBNull = false;
-                this.columnid_v.MaxLength = 20;
                 this.columnvolt.AllowDBNull = false;
                 this.columndata_pl.AllowDBNull = false;
-                this.columndata_v.AllowDBNull = false;
                 this.columncomplete.AllowDBNull = false;
             }
             
@@ -3740,7 +4068,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public progressRow AddprogressRow(int zav_n, string id_v, int id_post, string id_op, string num_op, string op_name, string kol_rab, System.DateTime time_norm, System.DateTime f_time, float otkl, string proc_op, bool complete) {
+            public progressRow AddprogressRow(int zav_n, int id_v, int id_post, int id_op, int num_op, string op_name, int kol_rab, int time_norm, int f_time, float otkl, int proc_op, bool complete) {
                 progressRow rowprogressRow = ((progressRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         zav_n,
@@ -3796,45 +4124,38 @@ namespace vipo {
             private void InitClass() {
                 this.columnzav_n = new global::System.Data.DataColumn("zav_n", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnzav_n);
-                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_v);
                 this.columnid_post = new global::System.Data.DataColumn("id_post", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_post);
-                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_op);
-                this.columnnum_op = new global::System.Data.DataColumn("num_op", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnnum_op = new global::System.Data.DataColumn("num_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnum_op);
                 this.columnop_name = new global::System.Data.DataColumn("op_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnop_name);
-                this.columnkol_rab = new global::System.Data.DataColumn("kol_rab", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnkol_rab = new global::System.Data.DataColumn("kol_rab", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkol_rab);
-                this.columntime_norm = new global::System.Data.DataColumn("time_norm", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columntime_norm = new global::System.Data.DataColumn("time_norm", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntime_norm);
-                this.columnf_time = new global::System.Data.DataColumn("f_time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnf_time = new global::System.Data.DataColumn("f_time", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnf_time);
                 this.columnotkl = new global::System.Data.DataColumn("otkl", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnotkl);
-                this.columnproc_op = new global::System.Data.DataColumn("proc_op", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnproc_op = new global::System.Data.DataColumn("proc_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproc_op);
                 this.columncomplete = new global::System.Data.DataColumn("complete", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncomplete);
                 this.columnzav_n.AllowDBNull = false;
                 this.columnid_v.AllowDBNull = false;
-                this.columnid_v.MaxLength = 20;
                 this.columnid_post.AllowDBNull = false;
                 this.columnid_op.AllowDBNull = false;
-                this.columnid_op.MaxLength = 200;
                 this.columnnum_op.AllowDBNull = false;
-                this.columnnum_op.MaxLength = 200;
                 this.columnop_name.AllowDBNull = false;
                 this.columnop_name.MaxLength = 300;
                 this.columnkol_rab.AllowDBNull = false;
-                this.columnkol_rab.MaxLength = 200;
                 this.columntime_norm.AllowDBNull = false;
-                this.columnf_time.AllowDBNull = false;
-                this.columnotkl.AllowDBNull = false;
                 this.columnproc_op.AllowDBNull = false;
-                this.columnproc_op.MaxLength = 200;
                 this.columncomplete.AllowDBNull = false;
             }
             
@@ -4135,7 +4456,7 @@ namespace vipo {
                 this.columnid_post.AllowDBNull = false;
                 this.columnkol.AllowDBNull = false;
                 this.columnizm.AllowDBNull = false;
-                this.columnizm.MaxLength = 50;
+                this.columnizm.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4369,10 +4690,10 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public stavkaRow AddstavkaRow(string id_st, postsRow parentpostsRowByFK_stavka_posts, string stavka) {
+            public stavkaRow AddstavkaRow(postsRow parentpostsRowByFK_stavka_posts, float stavka) {
                 stavkaRow rowstavkaRow = ((stavkaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_st,
+                        null,
                         null,
                         stavka};
                 if ((parentpostsRowByFK_stavka_posts != null)) {
@@ -4385,7 +4706,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public stavkaRow FindByid_st(string id_st) {
+            public stavkaRow FindByid_st(int id_st) {
                 return ((stavkaRow)(this.Rows.Find(new object[] {
                             id_st})));
             }
@@ -4415,20 +4736,22 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_st = new global::System.Data.DataColumn("id_st", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_st = new global::System.Data.DataColumn("id_st", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_st);
                 this.columnid_post = new global::System.Data.DataColumn("id_post", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_post);
-                this.columnstavka = new global::System.Data.DataColumn("stavka", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnstavka = new global::System.Data.DataColumn("stavka", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstavka);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_st}, true));
+                this.columnid_st.AutoIncrement = true;
+                this.columnid_st.AutoIncrementSeed = -1;
+                this.columnid_st.AutoIncrementStep = -1;
                 this.columnid_st.AllowDBNull = false;
+                this.columnid_st.ReadOnly = true;
                 this.columnid_st.Unique = true;
-                this.columnid_st.MaxLength = 20;
                 this.columnid_post.AllowDBNull = false;
                 this.columnstavka.AllowDBNull = false;
-                this.columnstavka.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4682,7 +5005,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public usersRow AddusersRow(string u_name, string position, string pass, bool active) {
+            public usersRow AddusersRow(string u_name, string position, int pass, bool active) {
                 usersRow rowusersRow = ((usersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4735,7 +5058,7 @@ namespace vipo {
                 base.Columns.Add(this.columnu_name);
                 this.columnposition = new global::System.Data.DataColumn("position", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnposition);
-                this.columnpass = new global::System.Data.DataColumn("pass", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnpass = new global::System.Data.DataColumn("pass", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpass);
                 this.columnactive = new global::System.Data.DataColumn("active", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnactive);
@@ -4752,7 +5075,7 @@ namespace vipo {
                 this.columnposition.AllowDBNull = false;
                 this.columnposition.MaxLength = 100;
                 this.columnpass.AllowDBNull = false;
-                this.columnpass.MaxLength = 20;
+                this.columnactive.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4976,7 +5299,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vishkiRow AddvishkiRow(string id_v, string v_name) {
+            public vishkiRow AddvishkiRow(int id_v, string v_name) {
                 vishkiRow rowvishkiRow = ((vishkiRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_v,
@@ -4988,7 +5311,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vishkiRow FindByid_v(string id_v) {
+            public vishkiRow FindByid_v(int id_v) {
                 return ((vishkiRow)(this.Rows.Find(new object[] {
                             id_v})));
             }
@@ -5017,7 +5340,7 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_v);
                 this.columnv_name = new global::System.Data.DataColumn("v_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnv_name);
@@ -5025,7 +5348,6 @@ namespace vipo {
                                 this.columnid_v}, true));
                 this.columnid_v.AllowDBNull = false;
                 this.columnid_v.Unique = true;
-                this.columnid_v.MaxLength = 20;
                 this.columnv_name.AllowDBNull = false;
                 this.columnv_name.MaxLength = 20;
             }
@@ -5281,10 +5603,10 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public workersRow AddworkersRow(string id_rab, postsRow parentpostsRowByFK_workers_posts, string position, string rab_name, int pass) {
+            public workersRow AddworkersRow(postsRow parentpostsRowByFK_workers_posts, string position, string rab_name, int pass) {
                 workersRow rowworkersRow = ((workersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_rab,
+                        null,
                         null,
                         position,
                         rab_name,
@@ -5299,7 +5621,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public workersRow FindByid_rab(string id_rab) {
+            public workersRow FindByid_rab(int id_rab) {
                 return ((workersRow)(this.Rows.Find(new object[] {
                             id_rab})));
             }
@@ -5331,7 +5653,7 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_rab = new global::System.Data.DataColumn("id_rab", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_rab = new global::System.Data.DataColumn("id_rab", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_rab);
                 this.columnid_post = new global::System.Data.DataColumn("id_post", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_post);
@@ -5343,9 +5665,12 @@ namespace vipo {
                 base.Columns.Add(this.columnpass);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_rab}, true));
+                this.columnid_rab.AutoIncrement = true;
+                this.columnid_rab.AutoIncrementSeed = -1;
+                this.columnid_rab.AutoIncrementStep = -1;
                 this.columnid_rab.AllowDBNull = false;
+                this.columnid_rab.ReadOnly = true;
                 this.columnid_rab.Unique = true;
-                this.columnid_rab.MaxLength = 20;
                 this.columnid_post.AllowDBNull = false;
                 this.columnposition.AllowDBNull = false;
                 this.columnposition.MaxLength = 100;
@@ -5625,7 +5950,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zpRow AddzpRow(string id_rab, string id_v, int id_post, string id_op, stavkaRow parentstavkaRowByFK_zp_stavka, int time_norm, System.DateTime op_end) {
+            public zpRow AddzpRow(int id_rab, int id_v, int id_post, int id_op, stavkaRow parentstavkaRowByFK_zp_stavka, int time_norm, System.DateTime op_end) {
                 zpRow rowzpRow = ((zpRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_rab,
@@ -5645,7 +5970,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zpRow FindByid_rab(string id_rab) {
+            public zpRow FindByid_rab(int id_rab) {
                 return ((zpRow)(this.Rows.Find(new object[] {
                             id_rab})));
             }
@@ -5679,15 +6004,15 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_rab = new global::System.Data.DataColumn("id_rab", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_rab = new global::System.Data.DataColumn("id_rab", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_rab);
-                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_v);
                 this.columnid_post = new global::System.Data.DataColumn("id_post", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_post);
-                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_op);
-                this.columnid_st = new global::System.Data.DataColumn("id_st", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_st = new global::System.Data.DataColumn("id_st", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_st);
                 this.columntime_norm = new global::System.Data.DataColumn("time_norm", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntime_norm);
@@ -5697,14 +6022,10 @@ namespace vipo {
                                 this.columnid_rab}, true));
                 this.columnid_rab.AllowDBNull = false;
                 this.columnid_rab.Unique = true;
-                this.columnid_rab.MaxLength = 20;
                 this.columnid_v.AllowDBNull = false;
-                this.columnid_v.MaxLength = 20;
                 this.columnid_post.AllowDBNull = false;
                 this.columnid_op.AllowDBNull = false;
-                this.columnid_op.MaxLength = 200;
                 this.columnid_st.AllowDBNull = false;
-                this.columnid_st.MaxLength = 20;
                 this.columntime_norm.AllowDBNull = false;
                 this.columnop_end.AllowDBNull = false;
             }
@@ -5930,7 +6251,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zp_rabRow Addzp_rabRow(zpRow parentzpRowByFK_zp_rab_zp, string zp) {
+            public zp_rabRow Addzp_rabRow(zpRow parentzpRowByFK_zp_rab_zp, float zp) {
                 zp_rabRow rowzp_rabRow = ((zp_rabRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5967,14 +6288,12 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_rab = new global::System.Data.DataColumn("id_rab", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid_rab = new global::System.Data.DataColumn("id_rab", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_rab);
-                this.columnzp = new global::System.Data.DataColumn("zp", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnzp = new global::System.Data.DataColumn("zp", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnzp);
                 this.columnid_rab.AllowDBNull = false;
-                this.columnid_rab.MaxLength = 20;
                 this.columnzp.AllowDBNull = false;
-                this.columnzp.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6117,9 +6436,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_v {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tablemat_norm.id_vColumn]));
+                    return ((int)(this[this.tablemat_norm.id_vColumn]));
                 }
                 set {
                     this[this.tablemat_norm.id_vColumn] = value;
@@ -6139,9 +6458,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_op {
+            public int id_op {
                 get {
-                    return ((string)(this[this.tablemat_norm.id_opColumn]));
+                    return ((int)(this[this.tablemat_norm.id_opColumn]));
                 }
                 set {
                     this[this.tablemat_norm.id_opColumn] = value;
@@ -6161,9 +6480,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string kol_mat {
+            public float kol_mat {
                 get {
-                    return ((string)(this[this.tablemat_norm.kol_matColumn]));
+                    return ((float)(this[this.tablemat_norm.kol_matColumn]));
                 }
                 set {
                     this[this.tablemat_norm.kol_matColumn] = value;
@@ -6299,6 +6618,65 @@ namespace vipo {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class numbersRow : global::System.Data.DataRow {
+            
+            private numbersDataTable tablenumbers;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal numbersRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablenumbers = ((numbersDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int zav_n {
+                get {
+                    return ((int)(this[this.tablenumbers.zav_nColumn]));
+                }
+                set {
+                    this[this.tablenumbers.zav_nColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int id_v {
+                get {
+                    return ((int)(this[this.tablenumbers.id_vColumn]));
+                }
+                set {
+                    this[this.tablenumbers.id_vColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool complete {
+                get {
+                    return ((bool)(this[this.tablenumbers.completeColumn]));
+                }
+                set {
+                    this[this.tablenumbers.completeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public vishkiRow vishkiRow {
+                get {
+                    return ((vishkiRow)(this.GetParentRow(this.Table.ParentRelations["FK_numbers_vishki"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_numbers_vishki"]);
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class op_normRow : global::System.Data.DataRow {
             
             private op_normDataTable tableop_norm;
@@ -6312,9 +6690,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_op {
+            public int id_op {
                 get {
-                    return ((string)(this[this.tableop_norm.id_opColumn]));
+                    return ((int)(this[this.tableop_norm.id_opColumn]));
                 }
                 set {
                     this[this.tableop_norm.id_opColumn] = value;
@@ -6334,9 +6712,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_v {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tableop_norm.id_vColumn]));
+                    return ((int)(this[this.tableop_norm.id_vColumn]));
                 }
                 set {
                     this[this.tableop_norm.id_vColumn] = value;
@@ -6448,9 +6826,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_p {
+            public int id_p {
                 get {
-                    return ((string)(this[this.tablep_reasons.id_pColumn]));
+                    return ((int)(this[this.tablep_reasons.id_pColumn]));
                 }
                 set {
                     this[this.tablep_reasons.id_pColumn] = value;
@@ -6518,9 +6896,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_v {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tablep_time.id_vColumn]));
+                    return ((int)(this[this.tablep_time.id_vColumn]));
                 }
                 set {
                     this[this.tablep_time.id_vColumn] = value;
@@ -6540,9 +6918,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_op {
+            public int id_op {
                 get {
-                    return ((string)(this[this.tablep_time.id_opColumn]));
+                    return ((int)(this[this.tablep_time.id_opColumn]));
                 }
                 set {
                     this[this.tablep_time.id_opColumn] = value;
@@ -6551,9 +6929,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string num_op {
+            public int num_op {
                 get {
-                    return ((string)(this[this.tablep_time.num_opColumn]));
+                    return ((int)(this[this.tablep_time.num_opColumn]));
                 }
                 set {
                     this[this.tablep_time.num_opColumn] = value;
@@ -6617,9 +6995,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime otkl {
+            public float otkl {
                 get {
-                    return ((global::System.DateTime)(this[this.tablep_time.otklColumn]));
+                    return ((float)(this[this.tablep_time.otklColumn]));
                 }
                 set {
                     this[this.tablep_time.otklColumn] = value;
@@ -6628,9 +7006,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_p {
+            public int id_p {
                 get {
-                    return ((string)(this[this.tablep_time.id_pColumn]));
+                    return ((int)(this[this.tablep_time.id_pColumn]));
                 }
                 set {
                     this[this.tablep_time.id_pColumn] = value;
@@ -6676,9 +7054,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_v {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tableplan_agp.id_vColumn]));
+                    return ((int)(this[this.tableplan_agp.id_vColumn]));
                 }
                 set {
                     this[this.tableplan_agp.id_vColumn] = value;
@@ -6746,9 +7124,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_v {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tableplan_all.id_vColumn]));
+                    return ((int)(this[this.tableplan_all.id_vColumn]));
                 }
                 set {
                     this[this.tableplan_all.id_vColumn] = value;
@@ -6781,7 +7159,12 @@ namespace vipo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime data_v {
                 get {
-                    return ((global::System.DateTime)(this[this.tableplan_all.data_vColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableplan_all.data_vColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'data_v\' в таблице \'plan_all\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableplan_all.data_vColumn] = value;
@@ -6797,6 +7180,18 @@ namespace vipo {
                 set {
                     this[this.tableplan_all.completeColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdata_vNull() {
+                return this.IsNull(this.tableplan_all.data_vColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdata_vNull() {
+                this[this.tableplan_all.data_vColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6919,9 +7314,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_v {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tableprogress.id_vColumn]));
+                    return ((int)(this[this.tableprogress.id_vColumn]));
                 }
                 set {
                     this[this.tableprogress.id_vColumn] = value;
@@ -6941,9 +7336,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_op {
+            public int id_op {
                 get {
-                    return ((string)(this[this.tableprogress.id_opColumn]));
+                    return ((int)(this[this.tableprogress.id_opColumn]));
                 }
                 set {
                     this[this.tableprogress.id_opColumn] = value;
@@ -6952,9 +7347,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string num_op {
+            public int num_op {
                 get {
-                    return ((string)(this[this.tableprogress.num_opColumn]));
+                    return ((int)(this[this.tableprogress.num_opColumn]));
                 }
                 set {
                     this[this.tableprogress.num_opColumn] = value;
@@ -6974,9 +7369,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string kol_rab {
+            public int kol_rab {
                 get {
-                    return ((string)(this[this.tableprogress.kol_rabColumn]));
+                    return ((int)(this[this.tableprogress.kol_rabColumn]));
                 }
                 set {
                     this[this.tableprogress.kol_rabColumn] = value;
@@ -6985,9 +7380,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime time_norm {
+            public int time_norm {
                 get {
-                    return ((global::System.DateTime)(this[this.tableprogress.time_normColumn]));
+                    return ((int)(this[this.tableprogress.time_normColumn]));
                 }
                 set {
                     this[this.tableprogress.time_normColumn] = value;
@@ -6996,9 +7391,14 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime f_time {
+            public int f_time {
                 get {
-                    return ((global::System.DateTime)(this[this.tableprogress.f_timeColumn]));
+                    try {
+                        return ((int)(this[this.tableprogress.f_timeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'f_time\' в таблице \'progress\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableprogress.f_timeColumn] = value;
@@ -7009,7 +7409,12 @@ namespace vipo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public float otkl {
                 get {
-                    return ((float)(this[this.tableprogress.otklColumn]));
+                    try {
+                        return ((float)(this[this.tableprogress.otklColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'otkl\' в таблице \'progress\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableprogress.otklColumn] = value;
@@ -7018,9 +7423,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string proc_op {
+            public int proc_op {
                 get {
-                    return ((string)(this[this.tableprogress.proc_opColumn]));
+                    return ((int)(this[this.tableprogress.proc_opColumn]));
                 }
                 set {
                     this[this.tableprogress.proc_opColumn] = value;
@@ -7036,6 +7441,30 @@ namespace vipo {
                 set {
                     this[this.tableprogress.completeColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isf_timeNull() {
+                return this.IsNull(this.tableprogress.f_timeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setf_timeNull() {
+                this[this.tableprogress.f_timeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsotklNull() {
+                return this.IsNull(this.tableprogress.otklColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetotklNull() {
+                this[this.tableprogress.otklColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7136,9 +7565,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_st {
+            public int id_st {
                 get {
-                    return ((string)(this[this.tablestavka.id_stColumn]));
+                    return ((int)(this[this.tablestavka.id_stColumn]));
                 }
                 set {
                     this[this.tablestavka.id_stColumn] = value;
@@ -7158,9 +7587,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string stavka {
+            public float stavka {
                 get {
-                    return ((string)(this[this.tablestavka.stavkaColumn]));
+                    return ((float)(this[this.tablestavka.stavkaColumn]));
                 }
                 set {
                     this[this.tablestavka.stavkaColumn] = value;
@@ -7239,9 +7668,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string pass {
+            public int pass {
                 get {
-                    return ((string)(this[this.tableusers.passColumn]));
+                    return ((int)(this[this.tableusers.passColumn]));
                 }
                 set {
                     this[this.tableusers.passColumn] = value;
@@ -7252,28 +7681,11 @@ namespace vipo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool active {
                 get {
-                    try {
-                        return ((bool)(this[this.tableusers.activeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'active\' в таблице \'users\' равно DBNull.", e);
-                    }
+                    return ((bool)(this[this.tableusers.activeColumn]));
                 }
                 set {
                     this[this.tableusers.activeColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsactiveNull() {
-                return this.IsNull(this.tableusers.activeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetactiveNull() {
-                this[this.tableusers.activeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7293,9 +7705,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_v {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tablevishki.id_vColumn]));
+                    return ((int)(this[this.tablevishki.id_vColumn]));
                 }
                 set {
                     this[this.tablevishki.id_vColumn] = value;
@@ -7321,6 +7733,17 @@ namespace vipo {
                 }
                 else {
                     return ((mat_normRow[])(base.GetChildRows(this.Table.ChildRelations["FK_mat_norm_vishki"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public numbersRow[] GetnumbersRows() {
+                if ((this.Table.ChildRelations["FK_numbers_vishki"] == null)) {
+                    return new numbersRow[0];
+                }
+                else {
+                    return ((numbersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_numbers_vishki"])));
                 }
             }
             
@@ -7363,9 +7786,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_rab {
+            public int id_rab {
                 get {
-                    return ((string)(this[this.tableworkers.id_rabColumn]));
+                    return ((int)(this[this.tableworkers.id_rabColumn]));
                 }
                 set {
                     this[this.tableworkers.id_rabColumn] = value;
@@ -7444,9 +7867,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_rab {
+            public int id_rab {
                 get {
-                    return ((string)(this[this.tablezp.id_rabColumn]));
+                    return ((int)(this[this.tablezp.id_rabColumn]));
                 }
                 set {
                     this[this.tablezp.id_rabColumn] = value;
@@ -7455,9 +7878,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_v {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tablezp.id_vColumn]));
+                    return ((int)(this[this.tablezp.id_vColumn]));
                 }
                 set {
                     this[this.tablezp.id_vColumn] = value;
@@ -7477,9 +7900,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_op {
+            public int id_op {
                 get {
-                    return ((string)(this[this.tablezp.id_opColumn]));
+                    return ((int)(this[this.tablezp.id_opColumn]));
                 }
                 set {
                     this[this.tablezp.id_opColumn] = value;
@@ -7488,9 +7911,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_st {
+            public int id_st {
                 get {
-                    return ((string)(this[this.tablezp.id_stColumn]));
+                    return ((int)(this[this.tablezp.id_stColumn]));
                 }
                 set {
                     this[this.tablezp.id_stColumn] = value;
@@ -7558,9 +7981,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_rab {
+            public int id_rab {
                 get {
-                    return ((string)(this[this.tablezp_rab.id_rabColumn]));
+                    return ((int)(this[this.tablezp_rab.id_rabColumn]));
                 }
                 set {
                     this[this.tablezp_rab.id_rabColumn] = value;
@@ -7569,9 +7992,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string zp {
+            public float zp {
                 get {
-                    return ((string)(this[this.tablezp_rab.zpColumn]));
+                    return ((float)(this[this.tablezp_rab.zpColumn]));
                 }
                 set {
                     this[this.tablezp_rab.zpColumn] = value;
@@ -7644,6 +8067,40 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public materialsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class numbersRowChangeEvent : global::System.EventArgs {
+            
+            private numbersRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public numbersRowChangeEvent(numbersRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public numbersRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -8271,11 +8728,11 @@ namespace vipo.dubakby_VIPODataSetTableAdapters {
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[mat_norm] ([id_v], [id_post], [id_op], [id_mat], [ko" +
                 "l_mat], [izm]) VALUES (@id_v, @id_post, @id_op, @id_mat, @kol_mat, @izm)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_mat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_mat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kol_mat", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kol_mat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kol_mat", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kol_mat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@izm", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "izm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -8353,27 +8810,12 @@ namespace vipo.dubakby_VIPODataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_v, int id_post, string id_op, int id_mat, string kol_mat, string izm) {
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(id_v));
-            }
+        public virtual int Insert(int id_v, int id_post, int id_op, int id_mat, float kol_mat, string izm) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_v));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_post));
-            if ((id_op == null)) {
-                throw new global::System.ArgumentNullException("id_op");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(id_op));
-            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(id_op));
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(id_mat));
-            if ((kol_mat == null)) {
-                throw new global::System.ArgumentNullException("kol_mat");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(kol_mat));
-            }
+            this.Adapter.InsertCommand.Parameters[4].Value = ((float)(kol_mat));
             if ((izm == null)) {
                 throw new global::System.ArgumentNullException("izm");
             }
@@ -8755,6 +9197,315 @@ namespace vipo.dubakby_VIPODataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class numbersTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public numbersTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "numbers";
+            tableMapping.ColumnMappings.Add("zav_n", "zav_n");
+            tableMapping.ColumnMappings.Add("id_v", "id_v");
+            tableMapping.ColumnMappings.Add("complete", "complete");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dubakby_Dubak].[numbers] WHERE (([zav_n] = @Original_zav_n) AND ([id" +
+                "_v] = @Original_id_v) AND ([complete] = @Original_complete))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[numbers] ([zav_n], [id_v], [complete]) VALUES (@zav_" +
+                "n, @id_v, @complete);\r\nSELECT zav_n, id_v, complete FROM numbers WHERE (zav_n = " +
+                "@zav_n)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[numbers] SET [zav_n] = @zav_n, [id_v] = @id_v, [complete] = @complete WHERE (([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([complete] = @Original_complete));
+SELECT zav_n, id_v, complete FROM numbers WHERE (zav_n = @zav_n)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::vipo.Properties.Settings.Default.dubakby_VIPOConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT zav_n, id_v, complete FROM dubakby_Dubak.numbers";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dubakby_VIPODataSet.numbersDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dubakby_VIPODataSet.numbersDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dubakby_VIPODataSet.numbersDataTable dataTable = new dubakby_VIPODataSet.numbersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dubakby_VIPODataSet.numbersDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dubakby_VIPODataSet dataSet) {
+            return this.Adapter.Update(dataSet, "numbers");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_zav_n, int Original_id_v, bool Original_complete) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_zav_n));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_id_v));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((bool)(Original_complete));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int zav_n, int id_v, bool complete) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(zav_n));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_v));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(complete));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int zav_n, int id_v, bool complete, int Original_zav_n, int Original_id_v, bool Original_complete) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(zav_n));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_v));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(complete));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_zav_n));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id_v));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Original_complete));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int id_v, bool complete, int Original_zav_n, int Original_id_v, bool Original_complete) {
+            return this.Update(Original_zav_n, id_v, complete, Original_zav_n, Original_id_v, Original_complete);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class op_normTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -8880,9 +9631,9 @@ namespace vipo.dubakby_VIPODataSetTableAdapters {
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dubakby_Dubak].[op_norm] WHERE (([id_op] = @Original_id_op) AND ([id_post] = @Original_id_post) AND ([id_v] = @Original_id_v) AND ([num_op] = @Original_num_op) AND ([op_name] = @Original_op_name) AND ([time_norm] = @Original_time_norm) AND ([kol_rab] = @Original_kol_rab) AND ([proc_op] = @Original_proc_op))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -8890,12 +9641,11 @@ namespace vipo.dubakby_VIPODataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_proc_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "proc_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dubakby_Dubak].[op_norm] ([id_op], [id_post], [id_v], [num_op], [op_name], [time_norm], [kol_rab], [proc_op]) VALUES (@id_op, @id_post, @id_v, @num_op, @op_name, @time_norm, @kol_rab, @proc_op);
-SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM op_norm WHERE (id_op = @id_op)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dubakby_Dubak].[op_norm] ([id_post], [id_v], [num_op], [op_name], [time_norm], [kol_rab], [proc_op]) VALUES (@id_post, @id_v, @num_op, @op_name, @time_norm, @kol_rab, @proc_op);
+SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM op_norm WHERE (id_op = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8903,25 +9653,25 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@proc_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "proc_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[op_norm] SET [id_op] = @id_op, [id_post] = @id_post, [id_v] = @id_v, [num_op] = @num_op, [op_name] = @op_name, [time_norm] = @time_norm, [kol_rab] = @kol_rab, [proc_op] = @proc_op WHERE (([id_op] = @Original_id_op) AND ([id_post] = @Original_id_post) AND ([id_v] = @Original_id_v) AND ([num_op] = @Original_num_op) AND ([op_name] = @Original_op_name) AND ([time_norm] = @Original_time_norm) AND ([kol_rab] = @Original_kol_rab) AND ([proc_op] = @Original_proc_op));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[op_norm] SET [id_post] = @id_post, [id_v] = @id_v, [num_op] = @num_op, [op_name] = @op_name, [time_norm] = @time_norm, [kol_rab] = @kol_rab, [proc_op] = @proc_op WHERE (([id_op] = @Original_id_op) AND ([id_post] = @Original_id_post) AND ([id_v] = @Original_id_v) AND ([num_op] = @Original_num_op) AND ([op_name] = @Original_op_name) AND ([time_norm] = @Original_time_norm) AND ([kol_rab] = @Original_kol_rab) AND ([proc_op] = @Original_proc_op));
 SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM op_norm WHERE (id_op = @id_op)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kol_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kol_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@proc_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "proc_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kol_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kol_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_proc_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "proc_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8999,20 +9749,10 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_id_op, int Original_id_post, string Original_id_v, int Original_num_op, string Original_op_name, int Original_time_norm, int Original_kol_rab, int Original_proc_op) {
-            if ((Original_id_op == null)) {
-                throw new global::System.ArgumentNullException("Original_id_op");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_id_op));
-            }
+        public virtual int Delete(int Original_id_op, int Original_id_post, int Original_id_v, int Original_num_op, string Original_op_name, int Original_time_norm, int Original_kol_rab, int Original_proc_op) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_op));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_id_post));
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_id_v));
-            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_id_v));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_num_op));
             if ((Original_op_name == null)) {
                 throw new global::System.ArgumentNullException("Original_op_name");
@@ -9043,30 +9783,19 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_op, int id_post, string id_v, int num_op, string op_name, int time_norm, int kol_rab, int proc_op) {
-            if ((id_op == null)) {
-                throw new global::System.ArgumentNullException("id_op");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(id_op));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_post));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(id_v));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(num_op));
+        public virtual int Insert(int id_post, int id_v, int num_op, string op_name, int time_norm, int kol_rab, int proc_op) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_post));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_v));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(num_op));
             if ((op_name == null)) {
                 throw new global::System.ArgumentNullException("op_name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(op_name));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(op_name));
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(time_norm));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(kol_rab));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(proc_op));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(time_norm));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(kol_rab));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(proc_op));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9088,68 +9817,48 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string id_op, 
                     int id_post, 
-                    string id_v, 
+                    int id_v, 
                     int num_op, 
                     string op_name, 
                     int time_norm, 
                     int kol_rab, 
                     int proc_op, 
-                    string Original_id_op, 
+                    int Original_id_op, 
                     int Original_id_post, 
-                    string Original_id_v, 
+                    int Original_id_v, 
                     int Original_num_op, 
                     string Original_op_name, 
                     int Original_time_norm, 
                     int Original_kol_rab, 
-                    int Original_proc_op) {
-            if ((id_op == null)) {
-                throw new global::System.ArgumentNullException("id_op");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(id_op));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_post));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(id_v));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(num_op));
+                    int Original_proc_op, 
+                    int id_op) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_post));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_v));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(num_op));
             if ((op_name == null)) {
                 throw new global::System.ArgumentNullException("op_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(op_name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(op_name));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(time_norm));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(kol_rab));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(proc_op));
-            if ((Original_id_op == null)) {
-                throw new global::System.ArgumentNullException("Original_id_op");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_id_op));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_id_post));
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_id_v));
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_num_op));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(time_norm));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(kol_rab));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(proc_op));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_id_op));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_id_post));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_id_v));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_num_op));
             if ((Original_op_name == null)) {
                 throw new global::System.ArgumentNullException("Original_op_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_op_name));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_op_name));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_time_norm));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_kol_rab));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_proc_op));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_time_norm));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_kol_rab));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_proc_op));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(id_op));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9170,8 +9879,8 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int id_post, string id_v, int num_op, string op_name, int time_norm, int kol_rab, int proc_op, string Original_id_op, int Original_id_post, string Original_id_v, int Original_num_op, string Original_op_name, int Original_time_norm, int Original_kol_rab, int Original_proc_op) {
-            return this.Update(Original_id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op, Original_id_op, Original_id_post, Original_id_v, Original_num_op, Original_op_name, Original_time_norm, Original_kol_rab, Original_proc_op);
+        public virtual int Update(int id_post, int id_v, int num_op, string op_name, int time_norm, int kol_rab, int proc_op, int Original_id_op, int Original_id_post, int Original_id_v, int Original_num_op, string Original_op_name, int Original_time_norm, int Original_kol_rab, int Original_proc_op) {
+            return this.Update(id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op, Original_id_op, Original_id_post, Original_id_v, Original_num_op, Original_op_name, Original_time_norm, Original_kol_rab, Original_proc_op, Original_id_op);
         }
     }
     
@@ -9304,25 +10013,24 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dubakby_Dubak].[p_reasons] WHERE (([id_p] = @Original_id_p) AND ([p_" +
                 "name] = @Original_p_name))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[p_reasons] ([id_p], [p_name]) VALUES (@id_p, @p_name" +
-                ");\r\nSELECT id_p, p_name FROM p_reasons WHERE (id_p = @id_p)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[p_reasons] ([p_name]) VALUES (@p_name);\r\nSELECT id_p" +
+                ", p_name FROM p_reasons WHERE (id_p = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dubakby_Dubak].[p_reasons] SET [id_p] = @id_p, [p_name] = @p_name WHERE (" +
-                "([id_p] = @Original_id_p) AND ([p_name] = @Original_p_name));\r\nSELECT id_p, p_na" +
-                "me FROM p_reasons WHERE (id_p = @id_p)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dubakby_Dubak].[p_reasons] SET [p_name] = @p_name WHERE (([id_p] = @Origi" +
+                "nal_id_p) AND ([p_name] = @Original_p_name));\r\nSELECT id_p, p_name FROM p_reason" +
+                "s WHERE (id_p = @id_p)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9399,13 +10107,8 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_id_p, string Original_p_name) {
-            if ((Original_id_p == null)) {
-                throw new global::System.ArgumentNullException("Original_id_p");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_id_p));
-            }
+        public virtual int Delete(int Original_id_p, string Original_p_name) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_p));
             if ((Original_p_name == null)) {
                 throw new global::System.ArgumentNullException("Original_p_name");
             }
@@ -9432,18 +10135,12 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_p, string p_name) {
-            if ((id_p == null)) {
-                throw new global::System.ArgumentNullException("id_p");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(id_p));
-            }
+        public virtual int Insert(string p_name) {
             if ((p_name == null)) {
                 throw new global::System.ArgumentNullException("p_name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p_name));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p_name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9465,31 +10162,21 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string id_p, string p_name, string Original_id_p, string Original_p_name) {
-            if ((id_p == null)) {
-                throw new global::System.ArgumentNullException("id_p");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(id_p));
-            }
+        public virtual int Update(string p_name, int Original_id_p, string Original_p_name, int id_p) {
             if ((p_name == null)) {
                 throw new global::System.ArgumentNullException("p_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p_name));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p_name));
             }
-            if ((Original_id_p == null)) {
-                throw new global::System.ArgumentNullException("Original_id_p");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_id_p));
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_id_p));
             if ((Original_p_name == null)) {
                 throw new global::System.ArgumentNullException("Original_p_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_p_name));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_p_name));
             }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id_p));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9510,8 +10197,8 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p_name, string Original_id_p, string Original_p_name) {
-            return this.Update(Original_id_p, p_name, Original_id_p, Original_p_name);
+        public virtual int Update(string p_name, int Original_id_p, string Original_p_name) {
+            return this.Update(p_name, Original_id_p, Original_p_name, Original_id_p);
         }
     }
     
@@ -9656,64 +10343,64 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op FROM o
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_num_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_start", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_stop", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_stop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_otkl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dubakby_Dubak].[p_time] ([zav_n], [id_v], [id_post], [id_op], [num_op], [op_start], [op_end], [p_start], [p_stop], [f_time], [otkl], [id_p]) VALUES (@zav_n, @id_v, @id_post, @id_op, @num_op, @op_start, @op_end, @p_start, @p_stop, @f_time, @otkl, @id_p);
 SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, p_stop, f_time, otkl, id_p FROM p_time WHERE (id_time = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_stop", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_stop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@otkl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[p_time] SET [zav_n] = @zav_n, [id_v] = @id_v, [id_post] = @id_post, [id_op] = @id_op, [num_op] = @num_op, [op_start] = @op_start, [op_end] = @op_end, [p_start] = @p_start, [p_stop] = @p_stop, [f_time] = @f_time, [otkl] = @otkl, [id_p] = @id_p WHERE (([id_time] = @Original_id_time) AND ([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([id_post] = @Original_id_post) AND ([id_op] = @Original_id_op) AND ([num_op] = @Original_num_op) AND ([op_start] = @Original_op_start) AND ([op_end] = @Original_op_end) AND ([p_start] = @Original_p_start) AND ([p_stop] = @Original_p_stop) AND ([f_time] = @Original_f_time) AND ([otkl] = @Original_otkl) AND ([id_p] = @Original_id_p));
 SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, p_stop, f_time, otkl, id_p FROM p_time WHERE (id_time = @id_time)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_stop", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_stop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@otkl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_num_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_start", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_stop", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_stop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_otkl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_time", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -9792,40 +10479,20 @@ SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_time, int Original_zav_n, string Original_id_v, int Original_id_post, string Original_id_op, string Original_num_op, System.DateTime Original_op_start, System.DateTime Original_op_end, System.DateTime Original_p_start, System.DateTime Original_p_stop, System.DateTime Original_f_time, System.DateTime Original_otkl, string Original_id_p) {
+        public virtual int Delete(int Original_id_time, int Original_zav_n, int Original_id_v, int Original_id_post, int Original_id_op, int Original_num_op, System.DateTime Original_op_start, System.DateTime Original_op_end, System.DateTime Original_p_start, System.DateTime Original_p_stop, System.DateTime Original_f_time, float Original_otkl, int Original_id_p) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_time));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_zav_n));
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_id_v));
-            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_id_v));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_id_post));
-            if ((Original_id_op == null)) {
-                throw new global::System.ArgumentNullException("Original_id_op");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_id_op));
-            }
-            if ((Original_num_op == null)) {
-                throw new global::System.ArgumentNullException("Original_num_op");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_num_op));
-            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_id_op));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_num_op));
             this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_op_start));
             this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_op_end));
             this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_p_start));
             this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_p_stop));
             this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_f_time));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_otkl));
-            if ((Original_id_p == null)) {
-                throw new global::System.ArgumentNullException("Original_id_p");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_id_p));
-            }
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((float)(Original_otkl));
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_id_p));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9846,39 +10513,19 @@ SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int zav_n, string id_v, int id_post, string id_op, string num_op, System.DateTime op_start, System.DateTime op_end, System.DateTime p_start, System.DateTime p_stop, System.DateTime f_time, System.DateTime otkl, string id_p) {
+        public virtual int Insert(int zav_n, int id_v, int id_post, int id_op, int num_op, System.DateTime op_start, System.DateTime op_end, System.DateTime p_start, System.DateTime p_stop, System.DateTime f_time, float otkl, int id_p) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(zav_n));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(id_v));
-            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(id_post));
-            if ((id_op == null)) {
-                throw new global::System.ArgumentNullException("id_op");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(id_op));
-            }
-            if ((num_op == null)) {
-                throw new global::System.ArgumentNullException("num_op");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(num_op));
-            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(id_op));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(num_op));
             this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(op_start));
             this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(op_end));
             this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(p_start));
             this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(p_stop));
             this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(f_time));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(otkl));
-            if ((id_p == null)) {
-                throw new global::System.ArgumentNullException("id_p");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(id_p));
-            }
+            this.Adapter.InsertCommand.Parameters[10].Value = ((float)(otkl));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(id_p));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9901,96 +10548,56 @@ SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     int zav_n, 
-                    string id_v, 
+                    int id_v, 
                     int id_post, 
-                    string id_op, 
-                    string num_op, 
+                    int id_op, 
+                    int num_op, 
                     System.DateTime op_start, 
                     System.DateTime op_end, 
                     System.DateTime p_start, 
                     System.DateTime p_stop, 
                     System.DateTime f_time, 
-                    System.DateTime otkl, 
-                    string id_p, 
+                    float otkl, 
+                    int id_p, 
                     int Original_id_time, 
                     int Original_zav_n, 
-                    string Original_id_v, 
+                    int Original_id_v, 
                     int Original_id_post, 
-                    string Original_id_op, 
-                    string Original_num_op, 
+                    int Original_id_op, 
+                    int Original_num_op, 
                     System.DateTime Original_op_start, 
                     System.DateTime Original_op_end, 
                     System.DateTime Original_p_start, 
                     System.DateTime Original_p_stop, 
                     System.DateTime Original_f_time, 
-                    System.DateTime Original_otkl, 
-                    string Original_id_p, 
+                    float Original_otkl, 
+                    int Original_id_p, 
                     int id_time) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(zav_n));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(id_v));
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(id_post));
-            if ((id_op == null)) {
-                throw new global::System.ArgumentNullException("id_op");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(id_op));
-            }
-            if ((num_op == null)) {
-                throw new global::System.ArgumentNullException("num_op");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(num_op));
-            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id_op));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(num_op));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(op_start));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(op_end));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(p_start));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(p_stop));
             this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(f_time));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(otkl));
-            if ((id_p == null)) {
-                throw new global::System.ArgumentNullException("id_p");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(id_p));
-            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((float)(otkl));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(id_p));
             this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_id_time));
             this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_zav_n));
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_id_v));
-            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_id_v));
             this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_id_post));
-            if ((Original_id_op == null)) {
-                throw new global::System.ArgumentNullException("Original_id_op");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_id_op));
-            }
-            if ((Original_num_op == null)) {
-                throw new global::System.ArgumentNullException("Original_num_op");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_num_op));
-            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_id_op));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_num_op));
             this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_op_start));
             this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_op_end));
             this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_p_start));
             this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_p_stop));
             this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_f_time));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_otkl));
-            if ((Original_id_p == null)) {
-                throw new global::System.ArgumentNullException("Original_id_p");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_id_p));
-            }
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((float)(Original_otkl));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_id_p));
             this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(id_time));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10014,30 +10621,30 @@ SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     int zav_n, 
-                    string id_v, 
+                    int id_v, 
                     int id_post, 
-                    string id_op, 
-                    string num_op, 
+                    int id_op, 
+                    int num_op, 
                     System.DateTime op_start, 
                     System.DateTime op_end, 
                     System.DateTime p_start, 
                     System.DateTime p_stop, 
                     System.DateTime f_time, 
-                    System.DateTime otkl, 
-                    string id_p, 
+                    float otkl, 
+                    int id_p, 
                     int Original_id_time, 
                     int Original_zav_n, 
-                    string Original_id_v, 
+                    int Original_id_v, 
                     int Original_id_post, 
-                    string Original_id_op, 
-                    string Original_num_op, 
+                    int Original_id_op, 
+                    int Original_num_op, 
                     System.DateTime Original_op_start, 
                     System.DateTime Original_op_end, 
                     System.DateTime Original_p_start, 
                     System.DateTime Original_p_stop, 
                     System.DateTime Original_f_time, 
-                    System.DateTime Original_otkl, 
-                    string Original_id_p) {
+                    float Original_otkl, 
+                    int Original_id_p) {
             return this.Update(zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, p_stop, f_time, otkl, id_p, Original_id_time, Original_zav_n, Original_id_v, Original_id_post, Original_id_op, Original_num_op, Original_op_start, Original_op_end, Original_p_start, Original_p_stop, Original_f_time, Original_otkl, Original_id_p, Original_id_time);
         }
     }
@@ -10175,7 +10782,7 @@ SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, 
                 "data_pl))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "volt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data_pl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_pl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -10185,7 +10792,7 @@ SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, 
                 "_agp WHERE (zav_n = @zav_n)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "volt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_pl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_pl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -10194,11 +10801,11 @@ SELECT id_time, zav_n, id_v, id_post, id_op, num_op, op_start, op_end, p_start, 
 SELECT zav_n, id_v, volt, data_pl FROM plan_agp WHERE (zav_n = @zav_n)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "volt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_pl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_pl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "volt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data_pl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_pl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
@@ -10277,14 +10884,9 @@ SELECT zav_n, id_v, volt, data_pl FROM plan_agp WHERE (zav_n = @zav_n)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_zav_n, string Original_id_v, int Original_volt, System.DateTime Original_data_pl) {
+        public virtual int Delete(int Original_zav_n, int Original_id_v, int Original_volt, System.DateTime Original_data_pl) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_zav_n));
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_id_v));
-            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_id_v));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_volt));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_data_pl));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
@@ -10307,14 +10909,9 @@ SELECT zav_n, id_v, volt, data_pl FROM plan_agp WHERE (zav_n = @zav_n)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int zav_n, string id_v, int volt, System.DateTime data_pl) {
+        public virtual int Insert(int zav_n, int id_v, int volt, System.DateTime data_pl) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(zav_n));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(id_v));
-            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(volt));
             this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(data_pl));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
@@ -10337,23 +10934,13 @@ SELECT zav_n, id_v, volt, data_pl FROM plan_agp WHERE (zav_n = @zav_n)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int zav_n, string id_v, int volt, System.DateTime data_pl, int Original_zav_n, string Original_id_v, int Original_volt, System.DateTime Original_data_pl) {
+        public virtual int Update(int zav_n, int id_v, int volt, System.DateTime data_pl, int Original_zav_n, int Original_id_v, int Original_volt, System.DateTime Original_data_pl) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(zav_n));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(id_v));
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(volt));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(data_pl));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_zav_n));
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_id_v));
-            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_v));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_volt));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_data_pl));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -10376,7 +10963,7 @@ SELECT zav_n, id_v, volt, data_pl FROM plan_agp WHERE (zav_n = @zav_n)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string id_v, int volt, System.DateTime data_pl, int Original_zav_n, string Original_id_v, int Original_volt, System.DateTime Original_data_pl) {
+        public virtual int Update(int id_v, int volt, System.DateTime data_pl, int Original_zav_n, int Original_id_v, int Original_volt, System.DateTime Original_data_pl) {
             return this.Update(Original_zav_n, id_v, volt, data_pl, Original_zav_n, Original_id_v, Original_volt, Original_data_pl);
         }
     }
@@ -10511,15 +11098,13 @@ SELECT zav_n, id_v, volt, data_pl FROM plan_agp WHERE (zav_n = @zav_n)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dubakby_Dubak].[plan_all] WHERE (([zav_n] = @Original_zav_n) AND ([i" +
-                "d_v] = @Original_id_v) AND ([volt] = @Original_volt) AND ([data_pl] = @Original_" +
-                "data_pl) AND ([data_v] = @Original_data_v) AND ([complete] = @Original_complete)" +
-                ")";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dubakby_Dubak].[plan_all] WHERE (([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([volt] = @Original_volt) AND ([data_pl] = @Original_data_pl) AND ((@IsNull_data_v = 1 AND [data_v] IS NULL) OR ([data_v] = @Original_data_v)) AND ([complete] = @Original_complete))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "volt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data_pl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_pl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_data_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_v", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data_v", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -10530,26 +11115,27 @@ SELECT zav_n, id_v, volt, data_pl FROM plan_agp WHERE (zav_n = @zav_n)";
                 "@zav_n)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "volt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_pl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_pl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_v", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[plan_all] SET [zav_n] = @zav_n, [id_v] = @id_v, [volt] = @volt, [data_pl] = @data_pl, [data_v] = @data_v, [complete] = @complete WHERE (([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([volt] = @Original_volt) AND ([data_pl] = @Original_data_pl) AND ([data_v] = @Original_data_v) AND ([complete] = @Original_complete));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[plan_all] SET [zav_n] = @zav_n, [id_v] = @id_v, [volt] = @volt, [data_pl] = @data_pl, [data_v] = @data_v, [complete] = @complete WHERE (([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([volt] = @Original_volt) AND ([data_pl] = @Original_data_pl) AND ((@IsNull_data_v = 1 AND [data_v] IS NULL) OR ([data_v] = @Original_data_v)) AND ([complete] = @Original_complete));
 SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n = @zav_n)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "volt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_pl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_pl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data_v", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "volt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data_pl", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_pl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_data_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_v", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data_v", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
@@ -10628,18 +11214,20 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_zav_n, string Original_id_v, int Original_volt, System.DateTime Original_data_pl, System.DateTime Original_data_v, bool Original_complete) {
+        public virtual int Delete(int Original_zav_n, int Original_id_v, int Original_volt, System.DateTime Original_data_pl, global::System.Nullable<global::System.DateTime> Original_data_v, bool Original_complete) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_zav_n));
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_id_v));
-            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_id_v));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_volt));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_data_pl));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_data_v));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_complete));
+            if ((Original_data_v.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_data_v.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_complete));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10660,17 +11248,17 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int zav_n, string id_v, int volt, System.DateTime data_pl, System.DateTime data_v, bool complete) {
+        public virtual int Insert(int zav_n, int id_v, int volt, System.DateTime data_pl, global::System.Nullable<global::System.DateTime> data_v, bool complete) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(zav_n));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(id_v));
-            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(volt));
             this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(data_pl));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(data_v));
+            if ((data_v.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(data_v.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(complete));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10692,29 +11280,31 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int zav_n, string id_v, int volt, System.DateTime data_pl, System.DateTime data_v, bool complete, int Original_zav_n, string Original_id_v, int Original_volt, System.DateTime Original_data_pl, System.DateTime Original_data_v, bool Original_complete) {
+        public virtual int Update(int zav_n, int id_v, int volt, System.DateTime data_pl, global::System.Nullable<global::System.DateTime> data_v, bool complete, int Original_zav_n, int Original_id_v, int Original_volt, System.DateTime Original_data_pl, global::System.Nullable<global::System.DateTime> Original_data_v, bool Original_complete) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(zav_n));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(id_v));
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(volt));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(data_pl));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(data_v));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(complete));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_zav_n));
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
+            if ((data_v.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(data_v.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_id_v));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(complete));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_zav_n));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_id_v));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_volt));
             this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_data_pl));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_data_v));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(Original_complete));
+            if ((Original_data_v.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_data_v.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(Original_complete));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10735,7 +11325,7 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string id_v, int volt, System.DateTime data_pl, System.DateTime data_v, bool complete, int Original_zav_n, string Original_id_v, int Original_volt, System.DateTime Original_data_pl, System.DateTime Original_data_v, bool Original_complete) {
+        public virtual int Update(int id_v, int volt, System.DateTime data_pl, global::System.Nullable<global::System.DateTime> data_v, bool complete, int Original_zav_n, int Original_id_v, int Original_volt, System.DateTime Original_data_pl, global::System.Nullable<global::System.DateTime> Original_data_v, bool Original_complete) {
             return this.Update(Original_zav_n, id_v, volt, data_pl, data_v, complete, Original_zav_n, Original_id_v, Original_volt, Original_data_pl, Original_data_v, Original_complete);
         }
     }
@@ -11197,16 +11787,16 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dubakby_Dubak].[progress] ([zav_n], [id_v], [id_post], [id_op], [num_op], [op_name], [kol_rab], [time_norm], [f_time], [otkl], [proc_op], [complete]) VALUES (@zav_n, @id_v, @id_post, @id_op, @num_op, @op_name, @kol_rab, @time_norm, @f_time, @otkl, @proc_op, @complete)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@num_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "num_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kol_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kol_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_norm", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kol_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kol_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@f_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@proc_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "proc_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@proc_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "proc_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "complete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -11285,48 +11875,33 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int zav_n, string id_v, int id_post, string id_op, string num_op, string op_name, string kol_rab, System.DateTime time_norm, System.DateTime f_time, float otkl, string proc_op, bool complete) {
+        public virtual int Insert(int zav_n, int id_v, int id_post, int id_op, int num_op, string op_name, int kol_rab, int time_norm, global::System.Nullable<int> f_time, global::System.Nullable<float> otkl, int proc_op, bool complete) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(zav_n));
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(id_v));
-            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(id_post));
-            if ((id_op == null)) {
-                throw new global::System.ArgumentNullException("id_op");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(id_op));
-            }
-            if ((num_op == null)) {
-                throw new global::System.ArgumentNullException("num_op");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(num_op));
-            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(id_op));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(num_op));
             if ((op_name == null)) {
                 throw new global::System.ArgumentNullException("op_name");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(op_name));
             }
-            if ((kol_rab == null)) {
-                throw new global::System.ArgumentNullException("kol_rab");
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(kol_rab));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(time_norm));
+            if ((f_time.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(f_time.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(kol_rab));
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(time_norm));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(f_time));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((float)(otkl));
-            if ((proc_op == null)) {
-                throw new global::System.ArgumentNullException("proc_op");
+            if ((otkl.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((float)(otkl.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(proc_op));
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(proc_op));
             this.Adapter.InsertCommand.Parameters[11].Value = ((bool)(complete));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11713,29 +12288,30 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dubakby_Dubak].[stavka] WHERE (([id_st] = @Original_id_st) AND ([id_" +
                 "post] = @Original_id_post) AND ([stavka] = @Original_stavka))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_st", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_st", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stavka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stavka", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[stavka] ([id_st], [id_post], [stavka]) VALUES (@id_s" +
-                "t, @id_post, @stavka);\r\nSELECT id_st, id_post, stavka FROM stavka WHERE (id_st =" +
-                " @id_st)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[stavka] ([id_post], [stavka]) VALUES (@id_post, @sta" +
+                "vka);\r\nSELECT id_st, id_post, stavka FROM stavka WHERE (id_st = SCOPE_IDENTITY()" +
+                ")";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_st", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stavka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stavka", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[stavka] SET [id_st] = @id_st, [id_post] = @id_post, [stavka] = @stavka WHERE (([id_st] = @Original_id_st) AND ([id_post] = @Original_id_post) AND ([stavka] = @Original_stavka));
-SELECT id_st, id_post, stavka FROM stavka WHERE (id_st = @id_st)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dubakby_Dubak].[stavka] SET [id_post] = @id_post, [stavka] = @stavka WHER" +
+                "E (([id_st] = @Original_id_st) AND ([id_post] = @Original_id_post) AND ([stavka]" +
+                " = @Original_stavka));\r\nSELECT id_st, id_post, stavka FROM stavka WHERE (id_st =" +
+                " @id_st)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_st", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stavka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_st", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stavka", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_st", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stavka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stavka", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_st", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11812,20 +12388,10 @@ SELECT id_st, id_post, stavka FROM stavka WHERE (id_st = @id_st)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_id_st, int Original_id_post, string Original_stavka) {
-            if ((Original_id_st == null)) {
-                throw new global::System.ArgumentNullException("Original_id_st");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_id_st));
-            }
+        public virtual int Delete(int Original_id_st, int Original_id_post, float Original_stavka) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_st));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_id_post));
-            if ((Original_stavka == null)) {
-                throw new global::System.ArgumentNullException("Original_stavka");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_stavka));
-            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((float)(Original_stavka));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11846,20 +12412,9 @@ SELECT id_st, id_post, stavka FROM stavka WHERE (id_st = @id_st)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_st, int id_post, string stavka) {
-            if ((id_st == null)) {
-                throw new global::System.ArgumentNullException("id_st");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(id_st));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_post));
-            if ((stavka == null)) {
-                throw new global::System.ArgumentNullException("stavka");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(stavka));
-            }
+        public virtual int Insert(int id_post, float stavka) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_post));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((float)(stavka));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11880,33 +12435,13 @@ SELECT id_st, id_post, stavka FROM stavka WHERE (id_st = @id_st)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string id_st, int id_post, string stavka, string Original_id_st, int Original_id_post, string Original_stavka) {
-            if ((id_st == null)) {
-                throw new global::System.ArgumentNullException("id_st");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(id_st));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_post));
-            if ((stavka == null)) {
-                throw new global::System.ArgumentNullException("stavka");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(stavka));
-            }
-            if ((Original_id_st == null)) {
-                throw new global::System.ArgumentNullException("Original_id_st");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_id_st));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id_post));
-            if ((Original_stavka == null)) {
-                throw new global::System.ArgumentNullException("Original_stavka");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_stavka));
-            }
+        public virtual int Update(int id_post, float stavka, int Original_id_st, int Original_id_post, float Original_stavka, int id_st) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_post));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((float)(stavka));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_id_st));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_id_post));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((float)(Original_stavka));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(id_st));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11927,8 +12462,8 @@ SELECT id_st, id_post, stavka FROM stavka WHERE (id_st = @id_st)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int id_post, string stavka, string Original_id_st, int Original_id_post, string Original_stavka) {
-            return this.Update(Original_id_st, id_post, stavka, Original_id_st, Original_id_post, Original_stavka);
+        public virtual int Update(int id_post, float stavka, int Original_id_st, int Original_id_post, float Original_stavka) {
+            return this.Update(id_post, stavka, Original_id_st, Original_id_post, Original_stavka, Original_id_st);
         }
     }
     
@@ -12061,13 +12596,14 @@ SELECT id_st, id_post, stavka FROM stavka WHERE (id_st = @id_st)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dubakby_Dubak].[users] WHERE (([id_user] = @Original_id_user) AND ([u_name] = @Original_u_name) AND ([position] = @Original_position) AND ([pass] = @Original_pass) AND ((@IsNull_active = 1 AND [active] IS NULL) OR ([active] = @Original_active)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dubakby_Dubak].[users] WHERE (([id_user] = @Original_id_user) AND ([" +
+                "u_name] = @Original_u_name) AND ([position] = @Original_position) AND ([pass] = " +
+                "@Original_pass) AND ([active] = @Original_active))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_user", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_u_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "u_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "position", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pass", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_active", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "active", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pass", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "active", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -12077,22 +12613,21 @@ SELECT id_st, id_post, stavka FROM stavka WHERE (id_st = @id_st)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@u_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "u_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pass", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pass", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[users] SET [u_name] = @u_name, [position] = @position, [pass] = @pass, [active] = @active WHERE (([id_user] = @Original_id_user) AND ([u_name] = @Original_u_name) AND ([position] = @Original_position) AND ([pass] = @Original_pass) AND ((@IsNull_active = 1 AND [active] IS NULL) OR ([active] = @Original_active)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[users] SET [u_name] = @u_name, [position] = @position, [pass] = @pass, [active] = @active WHERE (([id_user] = @Original_id_user) AND ([u_name] = @Original_u_name) AND ([position] = @Original_position) AND ([pass] = @Original_pass) AND ([active] = @Original_active));
 SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_user)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@u_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "u_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pass", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pass", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_user", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_u_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "u_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "position", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pass", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_active", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "active", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pass", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "active", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -12171,7 +12706,7 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_user, string Original_u_name, string Original_position, string Original_pass, global::System.Nullable<bool> Original_active) {
+        public virtual int Delete(int Original_id_user, string Original_u_name, string Original_position, int Original_pass, bool Original_active) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_user));
             if ((Original_u_name == null)) {
                 throw new global::System.ArgumentNullException("Original_u_name");
@@ -12185,20 +12720,8 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_position));
             }
-            if ((Original_pass == null)) {
-                throw new global::System.ArgumentNullException("Original_pass");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_pass));
-            }
-            if ((Original_active.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_active.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_pass));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_active));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12219,7 +12742,7 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string u_name, string position, string pass, global::System.Nullable<bool> active) {
+        public virtual int Insert(string u_name, string position, int pass, bool active) {
             if ((u_name == null)) {
                 throw new global::System.ArgumentNullException("u_name");
             }
@@ -12232,18 +12755,8 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(position));
             }
-            if ((pass == null)) {
-                throw new global::System.ArgumentNullException("pass");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(pass));
-            }
-            if ((active.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(active.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(pass));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(active));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12264,7 +12777,7 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string u_name, string position, string pass, global::System.Nullable<bool> active, int Original_id_user, string Original_u_name, string Original_position, string Original_pass, global::System.Nullable<bool> Original_active, int id_user) {
+        public virtual int Update(string u_name, string position, int pass, bool active, int Original_id_user, string Original_u_name, string Original_position, int Original_pass, bool Original_active, int id_user) {
             if ((u_name == null)) {
                 throw new global::System.ArgumentNullException("u_name");
             }
@@ -12277,18 +12790,8 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(position));
             }
-            if ((pass == null)) {
-                throw new global::System.ArgumentNullException("pass");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(pass));
-            }
-            if ((active.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(active.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(pass));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(active));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id_user));
             if ((Original_u_name == null)) {
                 throw new global::System.ArgumentNullException("Original_u_name");
@@ -12302,21 +12805,9 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_position));
             }
-            if ((Original_pass == null)) {
-                throw new global::System.ArgumentNullException("Original_pass");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_pass));
-            }
-            if ((Original_active.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Original_active.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(id_user));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_pass));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(Original_active));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(id_user));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12337,7 +12828,7 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string u_name, string position, string pass, global::System.Nullable<bool> active, int Original_id_user, string Original_u_name, string Original_position, string Original_pass, global::System.Nullable<bool> Original_active) {
+        public virtual int Update(string u_name, string position, int pass, bool active, int Original_id_user, string Original_u_name, string Original_position, int Original_pass, bool Original_active) {
             return this.Update(u_name, position, pass, active, Original_id_user, Original_u_name, Original_position, Original_pass, Original_active, Original_id_user);
         }
     }
@@ -12471,14 +12962,14 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dubakby_Dubak].[vishki] WHERE (([id_v] = @Original_id_v) AND ([v_nam" +
                 "e] = @Original_v_name))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_v_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "v_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[vishki] ([id_v], [v_name]) VALUES (@id_v, @v_name);\r" +
                 "\nSELECT id_v, v_name FROM vishki WHERE (id_v = @id_v)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@v_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "v_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -12486,9 +12977,9 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
                 "d_v] = @Original_id_v) AND ([v_name] = @Original_v_name));\r\nSELECT id_v, v_name " +
                 "FROM vishki WHERE (id_v = @id_v)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@v_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "v_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_v_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "v_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -12566,13 +13057,8 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_id_v, string Original_v_name) {
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_id_v));
-            }
+        public virtual int Delete(int Original_id_v, string Original_v_name) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_v));
             if ((Original_v_name == null)) {
                 throw new global::System.ArgumentNullException("Original_v_name");
             }
@@ -12599,13 +13085,8 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_v, string v_name) {
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(id_v));
-            }
+        public virtual int Insert(int id_v, string v_name) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_v));
             if ((v_name == null)) {
                 throw new global::System.ArgumentNullException("v_name");
             }
@@ -12632,25 +13113,15 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string id_v, string v_name, string Original_id_v, string Original_v_name) {
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(id_v));
-            }
+        public virtual int Update(int id_v, string v_name, int Original_id_v, string Original_v_name) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_v));
             if ((v_name == null)) {
                 throw new global::System.ArgumentNullException("v_name");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(v_name));
             }
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_id_v));
-            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_id_v));
             if ((Original_v_name == null)) {
                 throw new global::System.ArgumentNullException("Original_v_name");
             }
@@ -12677,7 +13148,7 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string v_name, string Original_id_v, string Original_v_name) {
+        public virtual int Update(string v_name, int Original_id_v, string Original_v_name) {
             return this.Update(Original_id_v, v_name, Original_id_v, Original_v_name);
         }
     }
@@ -12815,37 +13286,36 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
                 "id_post] = @Original_id_post) AND ([position] = @Original_position) AND ([rab_na" +
                 "me] = @Original_rab_name) AND ([pass] = @Original_pass))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "position", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rab_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rab_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pass", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[workers] ([id_rab], [id_post], [position], [rab_name" +
-                "], [pass]) VALUES (@id_rab, @id_post, @position, @rab_name, @pass);\r\nSELECT id_r" +
-                "ab, id_post, position, rab_name, pass FROM workers WHERE (id_rab = @id_rab)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[workers] ([id_post], [position], [rab_name], [pass])" +
+                " VALUES (@id_post, @position, @rab_name, @pass);\r\nSELECT id_rab, id_post, positi" +
+                "on, rab_name, pass FROM workers WHERE (id_rab = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rab_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rab_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pass", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[workers] SET [id_rab] = @id_rab, [id_post] = @id_post, [position] = @position, [rab_name] = @rab_name, [pass] = @pass WHERE (([id_rab] = @Original_id_rab) AND ([id_post] = @Original_id_post) AND ([position] = @Original_position) AND ([rab_name] = @Original_rab_name) AND ([pass] = @Original_pass));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[workers] SET [id_post] = @id_post, [position] = @position, [rab_name] = @rab_name, [pass] = @pass WHERE (([id_rab] = @Original_id_rab) AND ([id_post] = @Original_id_post) AND ([position] = @Original_position) AND ([rab_name] = @Original_rab_name) AND ([pass] = @Original_pass));
 SELECT id_rab, id_post, position, rab_name, pass FROM workers WHERE (id_rab = @id_rab)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rab_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rab_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pass", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "position", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rab_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rab_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pass", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12922,13 +13392,8 @@ SELECT id_rab, id_post, position, rab_name, pass FROM workers WHERE (id_rab = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_id_rab, int Original_id_post, string Original_position, string Original_rab_name, int Original_pass) {
-            if ((Original_id_rab == null)) {
-                throw new global::System.ArgumentNullException("Original_id_rab");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_id_rab));
-            }
+        public virtual int Delete(int Original_id_rab, int Original_id_post, string Original_position, string Original_rab_name, int Original_pass) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_rab));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_id_post));
             if ((Original_position == null)) {
                 throw new global::System.ArgumentNullException("Original_position");
@@ -12963,27 +13428,21 @@ SELECT id_rab, id_post, position, rab_name, pass FROM workers WHERE (id_rab = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_rab, int id_post, string position, string rab_name, int pass) {
-            if ((id_rab == null)) {
-                throw new global::System.ArgumentNullException("id_rab");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(id_rab));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_post));
+        public virtual int Insert(int id_post, string position, string rab_name, int pass) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_post));
             if ((position == null)) {
                 throw new global::System.ArgumentNullException("position");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(position));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(position));
             }
             if ((rab_name == null)) {
                 throw new global::System.ArgumentNullException("rab_name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(rab_name));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(rab_name));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(pass));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(pass));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13004,47 +13463,37 @@ SELECT id_rab, id_post, position, rab_name, pass FROM workers WHERE (id_rab = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string id_rab, int id_post, string position, string rab_name, int pass, string Original_id_rab, int Original_id_post, string Original_position, string Original_rab_name, int Original_pass) {
-            if ((id_rab == null)) {
-                throw new global::System.ArgumentNullException("id_rab");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(id_rab));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_post));
+        public virtual int Update(int id_post, string position, string rab_name, int pass, int Original_id_rab, int Original_id_post, string Original_position, string Original_rab_name, int Original_pass, int id_rab) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_post));
             if ((position == null)) {
                 throw new global::System.ArgumentNullException("position");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(position));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(position));
             }
             if ((rab_name == null)) {
                 throw new global::System.ArgumentNullException("rab_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(rab_name));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(rab_name));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(pass));
-            if ((Original_id_rab == null)) {
-                throw new global::System.ArgumentNullException("Original_id_rab");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_id_rab));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id_post));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(pass));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id_rab));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_post));
             if ((Original_position == null)) {
                 throw new global::System.ArgumentNullException("Original_position");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_position));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_position));
             }
             if ((Original_rab_name == null)) {
                 throw new global::System.ArgumentNullException("Original_rab_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_rab_name));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_rab_name));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_pass));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_pass));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(id_rab));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13065,8 +13514,8 @@ SELECT id_rab, id_post, position, rab_name, pass FROM workers WHERE (id_rab = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int id_post, string position, string rab_name, int pass, string Original_id_rab, int Original_id_post, string Original_position, string Original_rab_name, int Original_pass) {
-            return this.Update(Original_id_rab, id_post, position, rab_name, pass, Original_id_rab, Original_id_post, Original_position, Original_rab_name, Original_pass);
+        public virtual int Update(int id_post, string position, string rab_name, int pass, int Original_id_rab, int Original_id_post, string Original_position, string Original_rab_name, int Original_pass) {
+            return this.Update(id_post, position, rab_name, pass, Original_id_rab, Original_id_post, Original_position, Original_rab_name, Original_pass, Original_id_rab);
         }
     }
     
@@ -13203,11 +13652,11 @@ SELECT id_rab, id_post, position, rab_name, pass FROM workers WHERE (id_rab = @i
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dubakby_Dubak].[zp] WHERE (([id_rab] = @Original_id_rab) AND ([id_v] = @Original_id_v) AND ([id_post] = @Original_id_post) AND ([id_op] = @Original_id_op) AND ([id_st] = @Original_id_st) AND ([time_norm] = @Original_time_norm) AND ([op_end] = @Original_op_end))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_st", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_st", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -13215,11 +13664,11 @@ SELECT id_rab, id_post, position, rab_name, pass FROM workers WHERE (id_rab = @i
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dubakby_Dubak].[zp] ([id_rab], [id_v], [id_post], [id_op], [id_st], [time_norm], [op_end]) VALUES (@id_rab, @id_v, @id_post, @id_op, @id_st, @time_norm, @op_end);
 SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_rab = @id_rab)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_st", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_st", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -13227,18 +13676,18 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[zp] SET [id_rab] = @id_rab, [id_v] = @id_v, [id_post] = @id_post, [id_op] = @id_op, [id_st] = @id_st, [time_norm] = @time_norm, [op_end] = @op_end WHERE (([id_rab] = @Original_id_rab) AND ([id_v] = @Original_id_v) AND ([id_post] = @Original_id_post) AND ([id_op] = @Original_id_op) AND ([id_st] = @Original_id_st) AND ([time_norm] = @Original_time_norm) AND ([op_end] = @Original_op_end));
 SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_rab = @id_rab)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_st", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_st", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_st", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_st", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_st", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
@@ -13318,32 +13767,12 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_id_rab, string Original_id_v, int Original_id_post, string Original_id_op, string Original_id_st, int Original_time_norm, System.DateTime Original_op_end) {
-            if ((Original_id_rab == null)) {
-                throw new global::System.ArgumentNullException("Original_id_rab");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_id_rab));
-            }
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_id_v));
-            }
+        public virtual int Delete(int Original_id_rab, int Original_id_v, int Original_id_post, int Original_id_op, int Original_id_st, int Original_time_norm, System.DateTime Original_op_end) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_rab));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_id_v));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_id_post));
-            if ((Original_id_op == null)) {
-                throw new global::System.ArgumentNullException("Original_id_op");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_id_op));
-            }
-            if ((Original_id_st == null)) {
-                throw new global::System.ArgumentNullException("Original_id_st");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_id_st));
-            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_id_op));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_id_st));
             this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_time_norm));
             this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_op_end));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
@@ -13366,32 +13795,12 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_rab, string id_v, int id_post, string id_op, string id_st, int time_norm, System.DateTime op_end) {
-            if ((id_rab == null)) {
-                throw new global::System.ArgumentNullException("id_rab");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(id_rab));
-            }
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(id_v));
-            }
+        public virtual int Insert(int id_rab, int id_v, int id_post, int id_op, int id_st, int time_norm, System.DateTime op_end) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_rab));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(id_post));
-            if ((id_op == null)) {
-                throw new global::System.ArgumentNullException("id_op");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(id_op));
-            }
-            if ((id_st == null)) {
-                throw new global::System.ArgumentNullException("id_st");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(id_st));
-            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(id_op));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(id_st));
             this.Adapter.InsertCommand.Parameters[5].Value = ((int)(time_norm));
             this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(op_end));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
@@ -13414,59 +13823,19 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string id_rab, string id_v, int id_post, string id_op, string id_st, int time_norm, System.DateTime op_end, string Original_id_rab, string Original_id_v, int Original_id_post, string Original_id_op, string Original_id_st, int Original_time_norm, System.DateTime Original_op_end) {
-            if ((id_rab == null)) {
-                throw new global::System.ArgumentNullException("id_rab");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(id_rab));
-            }
-            if ((id_v == null)) {
-                throw new global::System.ArgumentNullException("id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(id_v));
-            }
+        public virtual int Update(int id_rab, int id_v, int id_post, int id_op, int id_st, int time_norm, System.DateTime op_end, int Original_id_rab, int Original_id_v, int Original_id_post, int Original_id_op, int Original_id_st, int Original_time_norm, System.DateTime Original_op_end) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_rab));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(id_post));
-            if ((id_op == null)) {
-                throw new global::System.ArgumentNullException("id_op");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(id_op));
-            }
-            if ((id_st == null)) {
-                throw new global::System.ArgumentNullException("id_st");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(id_st));
-            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id_op));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(id_st));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(time_norm));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(op_end));
-            if ((Original_id_rab == null)) {
-                throw new global::System.ArgumentNullException("Original_id_rab");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_id_rab));
-            }
-            if ((Original_id_v == null)) {
-                throw new global::System.ArgumentNullException("Original_id_v");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_id_v));
-            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_id_rab));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_id_v));
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_id_post));
-            if ((Original_id_op == null)) {
-                throw new global::System.ArgumentNullException("Original_id_op");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_id_op));
-            }
-            if ((Original_id_st == null)) {
-                throw new global::System.ArgumentNullException("Original_id_st");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_id_st));
-            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_id_op));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_id_st));
             this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_time_norm));
             this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_op_end));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -13489,7 +13858,7 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string id_v, int id_post, string id_op, string id_st, int time_norm, System.DateTime op_end, string Original_id_rab, string Original_id_v, int Original_id_post, string Original_id_op, string Original_id_st, int Original_time_norm, System.DateTime Original_op_end) {
+        public virtual int Update(int id_v, int id_post, int id_op, int id_st, int time_norm, System.DateTime op_end, int Original_id_rab, int Original_id_v, int Original_id_post, int Original_id_op, int Original_id_st, int Original_time_norm, System.DateTime Original_op_end) {
             return this.Update(Original_id_rab, id_v, id_post, id_op, id_st, time_norm, op_end, Original_id_rab, Original_id_v, Original_id_post, Original_id_op, Original_id_st, Original_time_norm, Original_op_end);
         }
     }
@@ -13622,8 +13991,8 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[zp_rab] ([id_rab], [zp]) VALUES (@id_rab, @zp)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zp", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_rab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zp", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13700,19 +14069,9 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string id_rab, string zp) {
-            if ((id_rab == null)) {
-                throw new global::System.ArgumentNullException("id_rab");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(id_rab));
-            }
-            if ((zp == null)) {
-                throw new global::System.ArgumentNullException("zp");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(zp));
-            }
+        public virtual int Insert(int id_rab, float zp) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_rab));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((float)(zp));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13745,6 +14104,8 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
         private mat_normTableAdapter _mat_normTableAdapter;
         
         private materialsTableAdapter _materialsTableAdapter;
+        
+        private numbersTableAdapter _numbersTableAdapter;
         
         private op_normTableAdapter _op_normTableAdapter;
         
@@ -13814,6 +14175,20 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
             }
             set {
                 this._materialsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public numbersTableAdapter numbersTableAdapter {
+            get {
+                return this._numbersTableAdapter;
+            }
+            set {
+                this._numbersTableAdapter = value;
             }
         }
         
@@ -14040,6 +14415,10 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                             && (this._materialsTableAdapter.Connection != null))) {
                     return this._materialsTableAdapter.Connection;
                 }
+                if (((this._numbersTableAdapter != null) 
+                            && (this._numbersTableAdapter.Connection != null))) {
+                    return this._numbersTableAdapter.Connection;
+                }
                 if (((this._op_normTableAdapter != null) 
                             && (this._op_normTableAdapter.Connection != null))) {
                     return this._op_normTableAdapter.Connection;
@@ -14115,6 +14494,9 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                 if ((this._materialsTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._numbersTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._op_normTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -14177,21 +14559,21 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._stavkaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.stavka.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._stavkaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._vishkiTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.vishki.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._vishkiTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._stavkaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.stavka.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._stavkaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14231,57 +14613,12 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._mat_normTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.mat_norm.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._workersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.workers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._mat_normTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._p_timeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.p_time.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._p_timeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._plan_agpTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.plan_agp.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._plan_agpTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._plan_allTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.plan_all.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._plan_allTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._progressTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.progress.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._progressTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._skladTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.sklad.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._skladTableAdapter.Update(updatedRows));
+                    result = (result + this._workersTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14294,12 +14631,66 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._workersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.workers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._skladTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.sklad.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._workersTableAdapter.Update(updatedRows));
+                    result = (result + this._skladTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._mat_normTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.mat_norm.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._mat_normTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._plan_allTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.plan_all.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._plan_allTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._plan_agpTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.plan_agp.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._plan_agpTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._p_timeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.p_time.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._p_timeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._numbersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.numbers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._numbersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._progressTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.progress.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._progressTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14330,19 +14721,19 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._stavkaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.stavka.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._stavkaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._vishkiTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.vishki.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._vishkiTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._stavkaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.stavka.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._stavkaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -14378,51 +14769,11 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._mat_normTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.mat_norm.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._workersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.workers.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._mat_normTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._p_timeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.p_time.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._p_timeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._plan_agpTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.plan_agp.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._plan_agpTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._plan_allTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.plan_all.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._plan_allTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._progressTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.progress.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._progressTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._skladTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.sklad.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._skladTableAdapter.Update(addedRows));
+                    result = (result + this._workersTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -14434,11 +14785,59 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._workersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.workers.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._skladTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.sklad.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._workersTableAdapter.Update(addedRows));
+                    result = (result + this._skladTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._mat_normTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.mat_norm.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._mat_normTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._plan_allTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.plan_all.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._plan_allTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._plan_agpTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.plan_agp.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._plan_agpTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._p_timeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.p_time.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._p_timeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._numbersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.numbers.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._numbersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._progressTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.progress.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._progressTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -14468,30 +14867,6 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._workersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.workers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._workersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._skladTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.sklad.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._skladTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._progressTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.progress.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -14500,19 +14875,11 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._plan_allTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.plan_all.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._numbersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.numbers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._plan_allTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._plan_agpTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.plan_agp.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._plan_agpTableAdapter.Update(deletedRows));
+                    result = (result + this._numbersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -14524,11 +14891,51 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._plan_agpTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.plan_agp.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._plan_agpTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._plan_allTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.plan_all.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._plan_allTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._mat_normTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.mat_norm.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._mat_normTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._skladTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.sklad.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._skladTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._usersTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._workersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.workers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._workersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -14564,19 +14971,19 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._vishkiTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.vishki.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._vishkiTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._stavkaTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.stavka.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._stavkaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._vishkiTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.vishki.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._vishkiTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -14634,6 +15041,11 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
             }
             if (((this._materialsTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._materialsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._numbersTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._numbersTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -14755,6 +15167,15 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                     if (this._materialsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._materialsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._materialsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._numbersTableAdapter != null)) {
+                    revertConnections.Add(this._numbersTableAdapter, this._numbersTableAdapter.Connection);
+                    this._numbersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._numbersTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._numbersTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._numbersTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._numbersTableAdapter.Adapter);
                     }
                 }
                 if ((this._op_normTableAdapter != null)) {
@@ -14948,6 +15369,10 @@ SELECT id_rab, id_v, id_post, id_op, id_st, time_norm, op_end FROM zp WHERE (id_
                 if ((this._materialsTableAdapter != null)) {
                     this._materialsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._materialsTableAdapter]));
                     this._materialsTableAdapter.Transaction = null;
+                }
+                if ((this._numbersTableAdapter != null)) {
+                    this._numbersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._numbersTableAdapter]));
+                    this._numbersTableAdapter.Transaction = null;
                 }
                 if ((this._op_normTableAdapter != null)) {
                     this._op_normTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._op_normTableAdapter]));
