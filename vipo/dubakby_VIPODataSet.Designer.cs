@@ -5213,6 +5213,8 @@ namespace vipo {
             
             private global::System.Data.DataColumn columnv_name;
             
+            private global::System.Data.DataColumn columnimg;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public vishkiDataTable() {
@@ -5264,6 +5266,14 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn imgColumn {
+                get {
+                    return this.columnimg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5299,11 +5309,12 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vishkiRow AddvishkiRow(int id_v, string v_name) {
+            public vishkiRow AddvishkiRow(int id_v, string v_name, string img) {
                 vishkiRow rowvishkiRow = ((vishkiRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_v,
-                        v_name};
+                        v_name,
+                        img};
                 rowvishkiRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvishkiRow);
                 return rowvishkiRow;
@@ -5335,6 +5346,7 @@ namespace vipo {
             internal void InitVars() {
                 this.columnid_v = base.Columns["id_v"];
                 this.columnv_name = base.Columns["v_name"];
+                this.columnimg = base.Columns["img"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5344,12 +5356,16 @@ namespace vipo {
                 base.Columns.Add(this.columnid_v);
                 this.columnv_name = new global::System.Data.DataColumn("v_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnv_name);
+                this.columnimg = new global::System.Data.DataColumn("img", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimg);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_v}, true));
                 this.columnid_v.AllowDBNull = false;
                 this.columnid_v.Unique = true;
                 this.columnv_name.AllowDBNull = false;
                 this.columnv_name.MaxLength = 20;
+                this.columnimg.AllowDBNull = false;
+                this.columnimg.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7722,6 +7738,17 @@ namespace vipo {
                 }
                 set {
                     this[this.tablevishki.v_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string img {
+                get {
+                    return ((string)(this[this.tablevishki.imgColumn]));
+                }
+                set {
+                    this[this.tablevishki.imgColumn] = value;
                 }
             }
             
@@ -12956,31 +12983,36 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
             tableMapping.DataSetTable = "vishki";
             tableMapping.ColumnMappings.Add("id_v", "id_v");
             tableMapping.ColumnMappings.Add("v_name", "v_name");
+            tableMapping.ColumnMappings.Add("img", "img");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dubakby_Dubak].[vishki] WHERE (([id_v] = @Original_id_v) AND ([v_nam" +
-                "e] = @Original_v_name))";
+                "e] = @Original_v_name) AND ([img] = @Original_img))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_v_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "v_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_img", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "img", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[vishki] ([id_v], [v_name]) VALUES (@id_v, @v_name);\r" +
-                "\nSELECT id_v, v_name FROM vishki WHERE (id_v = @id_v)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[vishki] ([id_v], [v_name], [img]) VALUES (@id_v, @v_" +
+                "name, @img);\r\nSELECT id_v, v_name, img FROM vishki WHERE (id_v = @id_v)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@v_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "v_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@img", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "img", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dubakby_Dubak].[vishki] SET [id_v] = @id_v, [v_name] = @v_name WHERE (([i" +
-                "d_v] = @Original_id_v) AND ([v_name] = @Original_v_name));\r\nSELECT id_v, v_name " +
-                "FROM vishki WHERE (id_v = @id_v)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dubakby_Dubak].[vishki] SET [id_v] = @id_v, [v_name] = @v_name, [img] = @" +
+                "img WHERE (([id_v] = @Original_id_v) AND ([v_name] = @Original_v_name) AND ([img" +
+                "] = @Original_img));\r\nSELECT id_v, v_name, img FROM vishki WHERE (id_v = @id_v)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@v_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "v_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@img", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "img", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_v_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "v_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_img", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "img", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12996,7 +13028,7 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_v, v_name FROM dubakby_Dubak.vishki";
+            this._commandCollection[0].CommandText = "SELECT id_v, v_name, img FROM dubakby_Dubak.vishki";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -13057,13 +13089,19 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_v, string Original_v_name) {
+        public virtual int Delete(int Original_id_v, string Original_v_name, string Original_img) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_v));
             if ((Original_v_name == null)) {
                 throw new global::System.ArgumentNullException("Original_v_name");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_v_name));
+            }
+            if ((Original_img == null)) {
+                throw new global::System.ArgumentNullException("Original_img");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_img));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13085,13 +13123,19 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int id_v, string v_name) {
+        public virtual int Insert(int id_v, string v_name, string img) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_v));
             if ((v_name == null)) {
                 throw new global::System.ArgumentNullException("v_name");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(v_name));
+            }
+            if ((img == null)) {
+                throw new global::System.ArgumentNullException("img");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(img));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13113,7 +13157,7 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int id_v, string v_name, int Original_id_v, string Original_v_name) {
+        public virtual int Update(int id_v, string v_name, string img, int Original_id_v, string Original_v_name, string Original_img) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_v));
             if ((v_name == null)) {
                 throw new global::System.ArgumentNullException("v_name");
@@ -13121,12 +13165,24 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(v_name));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_id_v));
+            if ((img == null)) {
+                throw new global::System.ArgumentNullException("img");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(img));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_id_v));
             if ((Original_v_name == null)) {
                 throw new global::System.ArgumentNullException("Original_v_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_v_name));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_v_name));
+            }
+            if ((Original_img == null)) {
+                throw new global::System.ArgumentNullException("Original_img");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_img));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13148,8 +13204,8 @@ SELECT id_user, u_name, position, pass, active FROM users WHERE (id_user = @id_u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string v_name, int Original_id_v, string Original_v_name) {
-            return this.Update(Original_id_v, v_name, Original_id_v, Original_v_name);
+        public virtual int Update(string v_name, string img, int Original_id_v, string Original_v_name, string Original_img) {
+            return this.Update(Original_id_v, v_name, img, Original_id_v, Original_v_name, Original_img);
         }
     }
     

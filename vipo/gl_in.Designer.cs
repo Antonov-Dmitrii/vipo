@@ -36,7 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgw_gl_in = new System.Windows.Forms.DataGridView();
             this.zavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -59,28 +59,29 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_gl_in)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planagpBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgw_gl_in
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgw_gl_in.AllowUserToAddRows = false;
+            this.dgw_gl_in.AllowUserToDeleteRows = false;
+            this.dgw_gl_in.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgw_gl_in.AutoGenerateColumns = false;
+            this.dgw_gl_in.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgw_gl_in.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgw_gl_in.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_gl_in.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.zavnDataGridViewTextBoxColumn,
             this.idvDataGridViewTextBoxColumn,
             this.voltDataGridViewTextBoxColumn,
             this.dataplDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.planagpBindingSource;
+            this.dgw_gl_in.DataSource = this.planagpBindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -88,10 +89,10 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.dgw_gl_in.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgw_gl_in.Location = new System.Drawing.Point(12, 12);
+            this.dgw_gl_in.Name = "dgw_gl_in";
+            this.dgw_gl_in.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
@@ -99,14 +100,14 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgw_gl_in.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(822, 407);
-            this.dataGridView1.TabIndex = 0;
+            this.dgw_gl_in.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgw_gl_in.RowTemplate.Height = 30;
+            this.dgw_gl_in.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw_gl_in.ShowCellErrors = false;
+            this.dgw_gl_in.Size = new System.Drawing.Size(822, 407);
+            this.dgw_gl_in.TabIndex = 0;
             // 
             // zavnDataGridViewTextBoxColumn
             // 
@@ -353,12 +354,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgw_gl_in);
             this.MinimumSize = new System.Drawing.Size(795, 602);
             this.Name = "gl_in";
             this.Text = "gl_in";
             this.Load += new System.EventHandler(this.gl_in_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_gl_in)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.planagpBindingSource)).EndInit();
@@ -369,7 +370,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgw_gl_in;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

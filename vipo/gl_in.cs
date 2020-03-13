@@ -22,15 +22,15 @@ namespace vipo
         {
             InitializeComponent();
             connection = new SqlConnection(@"Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312");
-            dataGridView1.Refresh();
+            dgw_gl_in.Refresh();
         }
 
         private void gl_in_Load(object sender, EventArgs e)
         {
             vishkiTableAdapter.Fill(dubakby_VIPODataSet.vishki);
             plan_agpTableAdapter.Fill(dubakby_VIPODataSet.plan_agp);
-            dataGridView1.Refresh();
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 14);
+            dgw_gl_in.Refresh();
+            dgw_gl_in.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 14);
             FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Maximized;
         }
@@ -42,25 +42,40 @@ namespace vipo
                 DialogResult result = MessageBox.Show("Вышка не добавлена!\nПроверьте, все ли значения введены.", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
                 if (result == DialogResult.Cancel)
-                {
-                    Close();
-                }
+                {}
             }
             else
             {
-                DataRow nRow = dubakby_VIPODataSet.Tables[5].NewRow();
-                nRow[0] = textBox1.Text;
-                nRow[1] = label5.Text;
-                nRow[2] = comboBox2.Text;
-                nRow[3] = dateTimePicker1.Text;
-                dubakby_VIPODataSet.Tables[5].Rows.Add(nRow);
-                plan_agpTableAdapter.Update(dubakby_VIPODataSet.plan_agp);
-                dubakby_VIPODataSet.Tables[5].AcceptChanges();
-                dataGridView1.Refresh();
-                textBox1.Clear();
-                plan_agpTableAdapter.Fill(dubakby_VIPODataSet.plan_agp);
-            }
-        }
+                string myConnectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                string mySelectQuery = "SELECT [zav_n] FROM [plan_agp] WHERE [zav_n] = '" + textBox1.Text + "'";
+
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(mySelectQuery, myConnectionString))
+                {
+                    DataTable table = new DataTable();
+                    dataAdapter.Fill(table);
+                    if (table.Rows.Count == 0)
+                            {
+                        DataRow nRow = dubakby_VIPODataSet.Tables[6].NewRow();
+                        nRow[0] = textBox1.Text;
+                        nRow[1] = label5.Text;
+                        nRow[2] = comboBox2.Text;
+                        nRow[3] = dateTimePicker1.Text;
+                        dubakby_VIPODataSet.Tables[6].Rows.Add(nRow);
+                        plan_agpTableAdapter.Update(dubakby_VIPODataSet.plan_agp);
+                        dubakby_VIPODataSet.Tables[6].AcceptChanges();
+                        dgw_gl_in.Refresh();
+                        textBox1.Clear();
+                        plan_agpTableAdapter.Fill(dubakby_VIPODataSet.plan_agp);
+                            }
+                            else
+                            {
+                        MessageBox.Show("Вышка не добавлена!\nПроверьте правильность ввода заводского номера!", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    }
+                        }
+                    }
+                }
+            
+        
 
         private void progress_button_Click(object sender, EventArgs e)
         {
@@ -72,49 +87,61 @@ namespace vipo
         {
             try
             {
-                if (MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                if (MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.OKCancel,MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
                 {
-
-                    int delet = dataGridView1.SelectedCells[0].RowIndex;
-                    dataGridView1.Rows.RemoveAt(delet);
+                    int delet = dgw_gl_in.SelectedCells[0].RowIndex;
+                    dgw_gl_in.Rows.RemoveAt(delet);
                     plan_agpTableAdapter.Update(dubakby_VIPODataSet);
                 }
             }
             catch
             {
-                MessageBox.Show("Нельзя удалить запись, т.к. она не выбана");
+                MessageBox.Show("Нельзя удалить запись, т.к. она не выбрана.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            string queryString = "INSERT INTO numbers (zav_n, id_v) SELECT zav_n, id_v FROM plan_agp;INSERT INTO plan_all (zav_n, id_v, volt, data_pl, data_v) SELECT zav_n, id_v, volt, data_pl, [data_v] = 0 FROM plan_agp;INSERT INTO progress(zav_n, id_v, id_post, id_op, num_op, op_name, kol_rab, time_norm, proc_op, f_time, otkl) SELECT plan_agp.zav_n, op_norm.id_v, op_norm.id_post, op_norm.id_op, op_norm.num_op, op_norm.op_name, op_norm.kol_rab, op_norm.time_norm, op_norm.proc_op, [f_time] = 0, [otkl] = 0 FROM op_norm INNER JOIN plan_agp ON plan_agp.id_v = op_norm.id_v;TRUNCATE TABLE plan_agp";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (planagpBindingSource.Count == 0)
             {
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = queryString;
+                MessageBox.Show("Ошибка добавления\nПлан ПУСТ!", "Добавление плана", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-                    try
+            else if (planagpBindingSource.Count != 0)
+            {
+                string myConnectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                string mySelectQuery = "";//"SELECT CASE WHEN [plan_agp].[zav_n] = [plan_all].[zav_n] THEN  END FROM mytable"
+
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(mySelectQuery, myConnectionString))
+                {
+                    DataTable table = new DataTable();
+                    dataAdapter.Fill(table);
+                    if (table.Rows.Count == 0)
                     {
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        DialogResult dialogResult = MessageBox.Show("План успешно добавлен!", "Добавление плана", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        plan_agpTableAdapter.Fill(dubakby_VIPODataSet.plan_agp);
-                        dataGridView1.Refresh();
+                        string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                        string queryString = "INSERT INTO numbers (zav_n, id_v) SELECT zav_n, id_v FROM plan_agp;INSERT INTO plan_all (zav_n, id_v, volt, data_pl, data_v) SELECT zav_n, id_v, volt, data_pl, [data_v] = 0 FROM plan_agp;INSERT INTO progress(zav_n, id_v, id_post, id_op, num_op, op_name, kol_rab, time_norm, proc_op, f_time, otkl) SELECT plan_agp.zav_n, op_norm.id_v, op_norm.id_post, op_norm.id_op, op_norm.num_op, op_norm.op_name, op_norm.kol_rab, op_norm.time_norm, op_norm.proc_op, [f_time] = 0, [otkl] = 0 FROM op_norm INNER JOIN plan_agp ON plan_agp.id_v = op_norm.id_v;TRUNCATE TABLE plan_agp";
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            using (SqlCommand command = connection.CreateCommand())
+                            {
+                                command.CommandText = queryString;
+                                connection.Open();
+                                command.ExecuteNonQuery();
+                                DialogResult dialogResult = MessageBox.Show("План успешно добавлен!", "Добавление плана", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                plan_agpTableAdapter.Fill(dubakby_VIPODataSet.plan_agp);
+                                dgw_gl_in.Refresh();
+                            }
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("Ошибка добавления", "Добавление плана", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                        throw;
+                        MessageBox.Show("План не добавлен!\nТакой заводской номер уже был использован ранее!", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     }
                 }
             }
         }
-
+        
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;

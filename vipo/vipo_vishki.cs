@@ -27,9 +27,9 @@ namespace vipo
 
         private void vipo_vishki_Load(object sender, EventArgs e)
         {
-            numbersTableAdapter.Fill(dubakby_VIPODataSet1.numbers);
-            vishkiTableAdapter.Fill(dubakby_VIPODataSet.vishki);
-            plan_allTableAdapter.Fill(dubakby_VIPODataSet.plan_all);
+            numbersTableAdapter1.Fill(dubakby_VIPODataSet1.numbers);
+            vishkiTableAdapter1.Fill(dubakby_VIPODataSet1.vishki);
+            //plan_allTableAdapter.Fill(dubakby_VIPODataSet1.plan_all);
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 14);
@@ -48,33 +48,16 @@ namespace vipo
             Hide();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dataGridView1.Visible = true;
+            //pictureBox1.Image = Bitmap.FromFile("'label5.Text'");
             if (string.IsNullOrEmpty(label3.Text))
                 numbersBindingSource.Filter = "";
             else
                 numbersBindingSource.Filter = string.Format("[id_v] = {0}", label3.Text);
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton radioButton = (RadioButton)sender;
-            if (radioButton.Checked)
-            {
-                MessageBox.Show("Вы выбрали " + radioButton.Text);
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ComboBox cb = new ComboBox();
-            cb.SelectedIndex -= 1;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ComboBox cb = new ComboBox();
-            cb.SelectedIndex += 1;
-        }
     }
 }
