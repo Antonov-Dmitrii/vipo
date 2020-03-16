@@ -71,9 +71,6 @@
     <Compile Include="bu_otchet.Designer.cs">
       <DependentUpon>bu_otchet.cs</DependentUpon>
     </Compile>
-    <Compile Include="dubakby_VIPODataSet.cs">
-      <DependentUpon>dubakby_VIPODataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="dubakby_VIPODataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

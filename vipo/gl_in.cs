@@ -74,13 +74,25 @@ namespace vipo
                         }
                     }
                 }
-            
-        
+
+
 
         private void progress_button_Click(object sender, EventArgs e)
         {
-                progress prog = new progress();
-                prog.Show();
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "TRUNCATE TABLE progress";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = queryString;
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    /*progress prog = new progress();
+                    prog.Show();*/
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -103,25 +115,22 @@ namespace vipo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (planagpBindingSource.Count == 0)
+            /*string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "INSERT INTO plan_all (zav_n, id_v, volt, data_pl, data_v) SELECT zav_n, id_v, volt, data_pl, [data_v] = 0 FROM plan_agp;INSERT INTO progress(zav_n, id_v, id_post, id_op, num_op, op_name, kol_rab, time_norm, proc_op, f_time, otkl) SELECT plan_agp.zav_n, op_norm.id_v, op_norm.id_post, op_norm.id_op, op_norm.num_op, op_norm.op_name, op_norm.kol_rab, op_norm.time_norm, op_norm.proc_op, [f_time] = 0, [otkl] = 0 FROM op_norm INNER JOIN plan_agp ON plan_agp.id_v = op_norm.id_v;TRUNCATE TABLE plan_agp END  FROM plan_agp";//"SELECT CASE WHEN [plan_agp].[zav_n] <> [plan_all].[zav_n] THEN  END FROM mytable"
+            //SELECT zav_n, id_v, volt, data_pl CASE WHEN[plan_agp].[zav_n] <> [plan_all].[zav_n] THEN INSERT INTO numbers(zav_n, id_v) SELECT zav_n, id_v FROM plan_agp;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString,connectionString);
+            DataTable table1 = new DataTable();
+            sqlDataAdapter.Fill(table1);*/
+            if (dgw_gl_in.Rows.Count == 0)
             {
                 MessageBox.Show("Ошибка добавления\nПлан ПУСТ!", "Добавление плана", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            else if (planagpBindingSource.Count != 0)
+            else /*if(table1.Rows.Count != 0)*/
             {
-                string myConnectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-                string mySelectQuery = "";//"SELECT CASE WHEN [plan_agp].[zav_n] = [plan_all].[zav_n] THEN  END FROM mytable"
-
-                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(mySelectQuery, myConnectionString))
-                {
-                    DataTable table = new DataTable();
-                    dataAdapter.Fill(table);
-                    if (table.Rows.Count == 0)
-                    {
-                        string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-                        string queryString = "INSERT INTO numbers (zav_n, id_v) SELECT zav_n, id_v FROM plan_agp;INSERT INTO plan_all (zav_n, id_v, volt, data_pl, data_v) SELECT zav_n, id_v, volt, data_pl, [data_v] = 0 FROM plan_agp;INSERT INTO progress(zav_n, id_v, id_post, id_op, num_op, op_name, kol_rab, time_norm, proc_op, f_time, otkl) SELECT plan_agp.zav_n, op_norm.id_v, op_norm.id_post, op_norm.id_op, op_norm.num_op, op_norm.op_name, op_norm.kol_rab, op_norm.time_norm, op_norm.proc_op, [f_time] = 0, [otkl] = 0 FROM op_norm INNER JOIN plan_agp ON plan_agp.id_v = op_norm.id_v;TRUNCATE TABLE plan_agp";
-                        using (SqlConnection connection = new SqlConnection(connectionString))
+                string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                string queryString = "INSERT INTO plan_all (zav_n, id_v, volt, data_pl, data_v) SELECT zav_n, id_v, volt, data_pl, [data_v] = 0 FROM plan_agp;INSERT INTO progress(zav_n, id_v, id_post, id_op, num_op, op_name, kol_rab, time_norm, proc_op, f_time, otkl) SELECT plan_agp.zav_n, op_norm.id_v, op_norm.id_post, op_norm.id_op, op_norm.num_op, op_norm.op_name, op_norm.kol_rab, op_norm.time_norm, op_norm.proc_op, [f_time] = 0, [otkl] = 0 FROM op_norm INNER JOIN plan_agp ON plan_agp.id_v = op_norm.id_v;TRUNCATE TABLE plan_agp";//"SELECT CASE WHEN [plan_agp].[zav_n] <> [plan_all].[zav_n] THEN  END FROM mytable"
+                using (SqlConnection connection = new SqlConnection(connectionString))
                         {
                             using (SqlCommand command = connection.CreateCommand())
                             {
@@ -133,13 +142,13 @@ namespace vipo
                                 dgw_gl_in.Refresh();
                             }
                         }
-                    }
-                    else
+                    
+                    /*else
                     {
                         MessageBox.Show("План не добавлен!\nТакой заводской номер уже был использован ранее!", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                    }
-                }
+                    }*/
             }
+            
         }
         
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
