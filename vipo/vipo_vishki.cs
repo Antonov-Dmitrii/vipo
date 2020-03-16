@@ -53,12 +53,16 @@ namespace vipo
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGridView1.Visible = true;
-            //pictureBox1.Image = Bitmap.FromFile("'label5.Text'");
+            pictureBox1.Image = Bitmap.FromFile("'label5.Text'");
             if (string.IsNullOrEmpty(label3.Text))
                 numbersBindingSource.Filter = "";
             else
                 numbersBindingSource.Filter = string.Format("[id_v] = {0}", label3.Text);
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
