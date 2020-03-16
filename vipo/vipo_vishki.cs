@@ -33,6 +33,7 @@ namespace vipo
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 14);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

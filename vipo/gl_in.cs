@@ -79,20 +79,8 @@ namespace vipo
 
         private void progress_button_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            string queryString = "TRUNCATE TABLE progress";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = queryString;
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                    connection.Close();
-                    /*progress prog = new progress();
-                    prog.Show();*/
-                }
-            }
+                progress prog = new progress();
+                prog.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
