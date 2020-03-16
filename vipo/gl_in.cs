@@ -79,7 +79,7 @@ namespace vipo
 
         private void progress_button_Click(object sender, EventArgs e)
         {
-                progress prog = new progress();
+                vipo_posts prog = new vipo_posts();
                 prog.Show();
         }
 
