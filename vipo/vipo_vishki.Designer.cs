@@ -37,7 +37,7 @@
             this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dubakby_VIPODataSet1 = new vipo.dubakby_VIPODataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.numbersBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -159,6 +159,7 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -330,7 +331,8 @@
         private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter1;
         private System.Windows.Forms.BindingSource numbersBindingSource;
         private dubakby_VIPODataSetTableAdapters.numbersTableAdapter numbersTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         public System.Windows.Forms.Label label6;
