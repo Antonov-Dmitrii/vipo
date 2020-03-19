@@ -295,7 +295,6 @@
         private dubakby_VIPODataSetTableAdapters.plan_allTableAdapter plan_allTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private dubakby_VIPODataSetTableAdapters.numbersTableAdapter numbersTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -314,5 +313,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        public System.Windows.Forms.Label label3;
     }
 }
