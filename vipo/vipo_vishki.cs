@@ -62,7 +62,7 @@ namespace vipo
         {
             string img = label5.Text;
             dataGridView1.Visible = true;
-            pictureBox1.Image = Bitmap.FromFile("'label5.Text'");
+            pictureBox1.Image = Bitmap.FromFile(img);
             if (string.IsNullOrEmpty(label3.Text))
                 numbersBindingSource.Filter = "";
             else

@@ -277,7 +277,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            //this.Controls.Add(this.label4);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.dataGridView1);
