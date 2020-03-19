@@ -52,8 +52,9 @@ namespace vipo
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //string img = label6. ;
             dataGridView1.Visible = true;
-            //pictureBox1.Image = Image.FromStream(label5);
+            //pictureBox1.Image = Image.FromFile(img);
             if (string.IsNullOrEmpty(label3.Text))
                 numbersBindingSource.Filter = "";
             else
