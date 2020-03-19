@@ -38,6 +38,9 @@
             this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dubakby_VIPODataSet1 = new vipo.dubakby_VIPODataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.numbersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -46,9 +49,6 @@
             this.vishkiTableAdapter1 = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
             this.numbersTableAdapter1 = new vipo.dubakby_VIPODataSetTableAdapters.numbersTableAdapter();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet1)).BeginInit();
@@ -149,6 +149,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(255, 80);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -158,6 +159,33 @@
             this.dataGridView1.Size = new System.Drawing.Size(207, 422);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.Visible = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "zav_n";
+            this.dataGridViewTextBoxColumn1.HeaderText = "zav_n";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_v";
+            this.dataGridViewTextBoxColumn2.HeaderText = "id_v";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "complete";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "complete";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Visible = false;
             // 
             // numbersBindingSource
             // 
@@ -222,37 +250,13 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(513, 45);
+            this.label6.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.numbersBindingSource, "zav_n", true));
+            this.label6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.numbersBindingSource, "zav_n", true));
+            this.label6.Location = new System.Drawing.Point(514, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 15;
             this.label6.Text = "label6";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "zav_n";
-            this.dataGridViewTextBoxColumn1.HeaderText = "zav_n";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_v";
-            this.dataGridViewTextBoxColumn2.HeaderText = "id_v";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "complete";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "complete";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Visible = false;
             // 
             // vipo_vishki
             // 
@@ -308,9 +312,9 @@
         private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter1;
         private System.Windows.Forms.BindingSource numbersBindingSource;
         private dubakby_VIPODataSetTableAdapters.numbersTableAdapter numbersTableAdapter1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        public System.Windows.Forms.Label label6;
     }
 }
