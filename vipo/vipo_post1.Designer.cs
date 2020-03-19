@@ -56,9 +56,9 @@ namespace vipo
             this.workersTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.workersTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label8 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -97,6 +97,7 @@ namespace vipo
             this.kol_rab.Name = "kol_rab";
             this.kol_rab.Size = new System.Drawing.Size(20, 24);
             this.kol_rab.TabIndex = 3;
+            this.kol_rab.Text = "2";
             // 
             // workersBindingSource
             // 
@@ -301,16 +302,6 @@ namespace vipo
             this.label8.TabIndex = 10;
             this.label8.Text = "op_name";
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(17, 37);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(109, 37);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "Выбрать";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -336,6 +327,16 @@ namespace vipo
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(54, 44);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(109, 37);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // vipo_post1
             // 
@@ -404,7 +405,7 @@ namespace vipo
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button6;
         public System.Windows.Forms.Label kol_rab;
+        private System.Windows.Forms.Button button6;
     }
 }

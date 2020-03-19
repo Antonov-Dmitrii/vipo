@@ -83,5 +83,11 @@ namespace vipo
         {
             Hide();
         }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            workers_add workers = new workers_add();
+            workers.Show();
+        }
     }
 }
