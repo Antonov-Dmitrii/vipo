@@ -19,9 +19,10 @@ namespace vipo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            vipo_post1 post1 = new vipo_post1();
-            post1.Show();
-            this.Close();
+            vipo_vishki vishki = new vipo_vishki();
+            vishki.Show();
+            Hide();
+            
 
         }
 
@@ -29,6 +30,31 @@ namespace vipo
         {
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
