@@ -39,6 +39,7 @@ namespace vipo
 
         private void vipo_post1_Load(object sender, EventArgs e)
         {
+           
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.workers". При необходимости она может быть перемещена или удалена.
