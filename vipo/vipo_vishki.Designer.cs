@@ -47,9 +47,8 @@
             this.vishkiTableAdapter1 = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
             this.numbersTableAdapter1 = new vipo.dubakby_VIPODataSetTableAdapters.numbersTableAdapter();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet1)).BeginInit();
@@ -241,31 +240,30 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "label6";
             // 
-            // dataGridViewTextBoxColumn1
+            // label3
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "zav_n";
-            this.dataGridViewTextBoxColumn1.HeaderText = "zav_n";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.vishkiBindingSource, "id_v", true));
+            this.label3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vishkiBindingSource, "id_v", true));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(1100, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "label3";
             // 
-            // dataGridViewTextBoxColumn2
+            // label7
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_v";
-            this.dataGridViewTextBoxColumn2.HeaderText = "id_v";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "complete";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "complete";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Visible = false;
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.vishkiBindingSource, "v_name", true));
+            this.label7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vishkiBindingSource, "v_name", true));
+            this.label7.Location = new System.Drawing.Point(517, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "label7";
             // 
             // vipo_vishki
             // 
@@ -324,6 +322,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        public System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
     }
