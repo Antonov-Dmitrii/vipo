@@ -26,16 +26,21 @@ namespace vipo
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-           
+            vipo_post1 vipo = new vipo_post1();
+            int b = Int32.Parse(vipo.kol_rab.Text);
             int index = listBox2.FindStringExact(label2.Text, -1);
             if (index != -1)
             {
                 MessageBox.Show("Работяга не шали!\n", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-            else
+            else if (listBox2.Items.Count != b)
             {
                 listBox2.Items.Add(label2.Text);
-            } 
+            }
+            else
+            {
+                MessageBox.Show("Норма времени не соответствует выбранному количеству работников!\n", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
 
         private void listBox2_DoubleClick(object sender, EventArgs e)
@@ -45,17 +50,8 @@ namespace vipo
 
         private void button1_Click(object sender, EventArgs e)
         {
-              vipo_post1 vipo = new vipo_post1();
-              int b = Int32.Parse(vipo.kol_rab.Text);
-              if (listBox2.Items.Count != b)
-              {
-                  MessageBox.Show("Норма времени не соответствует выбранному количеству работников!\n", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-              }
-              else
-              {
-
-                //vipo.label9.Text = label2.Text;
-            }
+            //vipo.label9.Text = label2.Text;
+        }
         }
     }
 }
