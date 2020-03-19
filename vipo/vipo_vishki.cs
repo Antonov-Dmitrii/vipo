@@ -37,7 +37,7 @@ namespace vipo
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {   
             vipo_post1 vipo_post = new vipo_post1();
             vipo_post.Show();
             vipo_post.label4.Text = label3.Text;
@@ -54,7 +54,7 @@ namespace vipo
         {
             //string img = label6. ;
             dataGridView1.Visible = true;
-            //pictureBox1.Image = Image.FromFile(img);
+            pictureBox1.Image = Bitmap.FromFile("'label5.Text'");
             if (string.IsNullOrEmpty(label3.Text))
                 numbersBindingSource.Filter = "";
             else
