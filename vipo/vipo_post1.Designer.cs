@@ -34,9 +34,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.kol_rab = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.time_f = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -100,6 +100,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DisplayMember = "id_rab";
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(218, 35);
@@ -107,6 +108,17 @@
             this.comboBox2.Size = new System.Drawing.Size(171, 32);
             this.comboBox2.TabIndex = 1;
             this.comboBox2.ValueMember = "id_rab";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DisplayMember = "id_rab";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(28, 35);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(171, 32);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.ValueMember = "id_rab";
             // 
             // workersBindingSource
             // 
@@ -117,16 +129,6 @@
             // 
             this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
             this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(28, 35);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 32);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.ValueMember = "id_rab";
             // 
             // groupBox2
             // 
@@ -337,13 +339,14 @@
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1176, -3);
+            this.pictureBox2.Image = global::vipo.Properties.Resources.back;
+            this.pictureBox2.Location = new System.Drawing.Point(1185, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(95, 67);
+            this.pictureBox2.Size = new System.Drawing.Size(80, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
             // 
             // vipo_post1
