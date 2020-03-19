@@ -29,19 +29,27 @@ namespace vipo
         {
             numbersTableAdapter1.Fill(dubakby_VIPODataSet1.numbers);
             vishkiTableAdapter1.Fill(dubakby_VIPODataSet1.vishki);
-            //plan_allTableAdapter.Fill(dubakby_VIPODataSet1.plan_all);
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 14);
+            label6.Text = "";
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            vipo_post1 vipo_post = new vipo_post1();
-            vipo_post.Show();
-            vipo_post.label4.Text = label3.Text;
-            this.Close(); 
+            if (dataGridView1.Rows.Count == 0 || string.IsNullOrEmpty(label6.Text))
+            {
+                MessageBox.Show("Не выбран заводской номер!", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            else
+            {
+                vipo_post1 vipo_post = new vipo_post1();
+                vipo_post.Show();
+                vipo_post.label4.Text = label7.Text;
+                vipo_post.label6.Text = dataGridView1.CurrentCell.EditedFormattedValue.ToString();
+                this.Close();
+            }
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -52,8 +60,9 @@ namespace vipo
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string img = label5.Text;
             dataGridView1.Visible = true;
-            //pictureBox1.Image = Image.FromStream(label5);
+            pictureBox2.Image = Image.FromFile(img);
             if (string.IsNullOrEmpty(label3.Text))
                 numbersBindingSource.Filter = "";
             else
