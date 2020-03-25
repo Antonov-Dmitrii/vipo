@@ -36,6 +36,20 @@ namespace vipo
             
         }
 
+        //  SELECT [id_op],[num_op],[op_name],[kol_rab],[time_norm] FROM [progress] WHERE [zav_n] = '" + label.. + "'  AND [id_v] = '"+ label... + "' AND [id_post] = '" + label... + "' AND [complete] = '" + label... + "' 
+
+
+        //label1.DataBindings.Add(new System.Windows.Forms.Binding("Text", ds.Tables["QUALITY"], "op_name"));
+/*
+         SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=db3;Integrated Security=True");
+         conn.Open();
+         SqlCommand cmd = new SqlCommand("select count (number) from t2 where number=@number", conn); 
+         cmd.Parameters.AddWithValue("@number", label1.Text); 
+         label5.Text=(cmd.ExecuteScalar().ToString()); 
+         conn.Close();
+*/
+       
+        
         private void button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == 0 || string.IsNullOrEmpty(label6.Text))

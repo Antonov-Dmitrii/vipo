@@ -21,7 +21,11 @@ namespace vipo
             InitializeComponent();
           
             timer1.Interval = 1000; //интервал между срабатываниями 1000 миллисекунд
-           // timer.Tick += new EventHandler(timer_Tick); //подписываемся на события Tick
+                                    // timer.Tick += new EventHandler(timer_Tick); //подписываемся на события Tick
+            label10.Visible = false;
+            label11.Visible = false;
+            label12.Visible = false;
+            label13.Visible = false;
 
         }
 
@@ -57,6 +61,42 @@ namespace vipo
             /////////////////////////////////////////
             ////////////////////////////////////////
             
+            if (listBox2.Items.Count == 1)
+            {
+                label10.Visible = true;
+                label10.Text = listBox2.Items[0].ToString();
+
+            }
+            if (listBox2.Items.Count == 2)
+            {
+                label10.Visible = true;
+                label11.Visible = true;
+                label10.Text = listBox2.Items[0].ToString();
+                label11.Text = listBox2.Items[1].ToString();
+
+            }
+            if (listBox2.Items.Count == 3)
+            {
+                label10.Visible = true;
+                label11.Visible = true;
+                label12.Visible = true;
+                label10.Text = listBox2.Items[0].ToString();
+                label11.Text = listBox2.Items[1].ToString();
+                label12.Text = listBox2.Items[2].ToString();
+
+            }
+            if (listBox2.Items.Count == 4)
+            {
+                label10.Visible = true;
+                label11.Visible = true;
+                label12.Visible = true;
+                label13.Visible = true;
+                label10.Text = listBox2.Items[0].ToString();
+                label11.Text = listBox2.Items[1].ToString();
+                label12.Text = listBox2.Items[2].ToString();
+                label13.Text = listBox2.Items[3].ToString();
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -84,10 +124,31 @@ namespace vipo
             Hide();
         }
 
-        private void button6_Click_1(object sender, EventArgs e)
+        private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            workers_add workers = new workers_add();
-            workers.Show();
+            int b = Int32.Parse(kol_rab.Text);
+            int index = listBox2.FindStringExact(label9.Text, -1);
+            if (index != -1)
+            {
+                MessageBox.Show("Работяга не шали!\n", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            else if (listBox2.Items.Count != b)
+            {
+                listBox2.Items.Add(label9.Text);
+            }
+            else
+            {
+                MessageBox.Show("Норма времени не соответствует выбранному количеству работников!\n", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+           
+
         }
+
+        private void listBox2_DoubleClick(object sender, EventArgs e)
+        {
+            listBox2.Items.Remove(listBox2.SelectedItem);
+        }
+
+       
     }
 }
