@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace vipo
 {
@@ -16,11 +17,11 @@ namespace vipo
         int i;
         int tk;
         string c;
-        
+
         public vipo_post1()
         {
             InitializeComponent();
-          
+
             timer1.Interval = 1000; //интервал между срабатываниями 1000 миллисекунд
                                     // timer.Tick += new EventHandler(timer_Tick); //подписываемся на события Tick
             label10.Visible = false;
@@ -32,7 +33,7 @@ namespace vipo
 
         private void label4_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -42,12 +43,52 @@ namespace vipo
 
         private void vipo_post1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.vishki". При необходимости она может быть перемещена или удалена.
+            this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.progress". При необходимости она может быть перемещена или удалена.
+            this.progressTableAdapter.Fill(this.dubakby_VIPODataSet.progress);
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.workers". При необходимости она может быть перемещена или удалена.
             this.workersTableAdapter.Fill(this.dubakby_VIPODataSet.workers);
+            //op_Load();
 
         }
+
+        /*private void op_Load()
+        {
+            Convert.ToInt32(label15.Text);
+            //int d = Convert.ToInt32(label15.Text);
+            //int b = int.Parse(s);
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            //int b = int.Parse(label15.Text);
+            string queryString = "SELECT [id_op],[op_name],[kol_rab],[time_norm] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [complete] =  0 ;";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
+                cmd.Parameters.AddWithValue("@number", label8.Text);
+                label5.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+
+            }
+        }*/
+        //  SELECT [id_op],[num_op],[op_name],[kol_rab],[time_norm] FROM [progress] WHERE [zav_n] = '" + label.. + "'  AND [id_v] = '"+ label... + "' AND [id_post] = '" + label... + "' AND [complete] = '" + label... + "' 
+
+
+        //label1.DataBindings.Add(new System.Windows.Forms.Binding("Text", ds.Tables["QUALITY"], "op_name"));
+        /*
+                 SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=db3;Integrated Security=True");
+                 conn.Open();
+                 SqlCommand cmd = new SqlCommand("select count (number) from t2 where number=@number", conn); 
+                 cmd.Parameters.AddWithValue("@number", label1.Text); 
+                 label5.Text=(cmd.ExecuteScalar().ToString()); 
+                 conn.Close();
+        */
+
 
         private void button1_Click(object sender, EventArgs e)
         {   //timer
@@ -58,7 +99,7 @@ namespace vipo
             timer1.Start();
             /////////////////////////////////////////
             ////////////////////////////////////////
-            
+
             if (listBox2.Items.Count == 1)
             {
                 label10.Visible = true;
@@ -109,7 +150,7 @@ namespace vipo
             tk = ++i;
             TimeSpan span = TimeSpan.FromMinutes(tk);
             string time_n = span.ToString(@"hh\:mm");
-            time_f.Text = time_n.ToString(); 
+            time_f.Text = time_n.ToString();
         }
 
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
@@ -143,6 +184,31 @@ namespace vipo
         private void listBox2_DoubleClick_1(object sender, EventArgs e)
         {
             listBox2.Items.Remove(listBox2.SelectedItem);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Convert.ToInt32(label15.Text);
+            //int d = Convert.ToInt32(label15.Text);
+            //int b = int.Parse(s);
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            //int b = int.Parse(label15.Text);
+            string queryString = "SELECT [id_op],[op_name],[kol_rab],[time_norm] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [complete] =  0 ;";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
+                cmd.Parameters.AddWithValue("@number", label8.Text);
+                kol_rab.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "kol_rab"));
+                cmd.Parameters.AddWithValue("@number1", kol_rab.Text);
+                time_n.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "time_norm"));
+                cmd.Parameters.AddWithValue("@number2", time_n.Text);
+                label15.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+            }
         }
     }
 }
