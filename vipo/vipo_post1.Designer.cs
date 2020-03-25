@@ -67,6 +67,13 @@ namespace vipo
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.progressBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.progressTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.progressTableAdapter();
+            this.label16 = new System.Windows.Forms.Label();
+            this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vishkiTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -74,6 +81,8 @@ namespace vipo
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -183,9 +192,9 @@ namespace vipo
             this.kol_rab.AutoSize = true;
             this.kol_rab.Location = new System.Drawing.Point(313, 127);
             this.kol_rab.Name = "kol_rab";
-            this.kol_rab.Size = new System.Drawing.Size(20, 24);
+            this.kol_rab.Size = new System.Drawing.Size(71, 24);
             this.kol_rab.TabIndex = 3;
-            this.kol_rab.Text = "2";
+            this.kol_rab.Text = "kol_rab";
             // 
             // groupBox2
             // 
@@ -441,12 +450,66 @@ namespace vipo
             this.label15.TabIndex = 14;
             this.label15.Text = "label15";
             // 
+            // progressBindingSource
+            // 
+            this.progressBindingSource.DataMember = "progress";
+            this.progressBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // progressTableAdapter
+            // 
+            this.progressTableAdapter.ClearBeforeFill = true;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label16.AutoSize = true;
+            this.label16.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.vishkiBindingSource, "id_v", true));
+            this.label16.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vishkiBindingSource, "id_v", true));
+            this.label16.Location = new System.Drawing.Point(1024, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 13);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "label16";
+            // 
+            // vishkiBindingSource
+            // 
+            this.vishkiBindingSource.DataMember = "vishki";
+            this.vishkiBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // vishkiTableAdapter
+            // 
+            this.vishkiTableAdapter.ClearBeforeFill = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(835, 127);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.progressBindingSource, "id_op", true));
+            this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.progressBindingSource, "id_op", true));
+            this.label17.Location = new System.Drawing.Point(451, 114);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "label17";
+            // 
             // vipo_post1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1266, 684);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label9);
@@ -474,6 +537,8 @@ namespace vipo
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -522,5 +587,12 @@ namespace vipo
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label label15;
+        private System.Windows.Forms.BindingSource progressBindingSource;
+        private dubakby_VIPODataSetTableAdapters.progressTableAdapter progressTableAdapter;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.BindingSource vishkiBindingSource;
+        private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label17;
     }
 }
