@@ -62,7 +62,7 @@ namespace vipo
                 vipo_post.Show();
                 vipo_post.label4.Text = label7.Text;
                 vipo_post.label6.Text = dataGridView1.CurrentCell.EditedFormattedValue.ToString();
-                vipo_post.label14.Text = label8.Text;
+                
                 this.Close();
             }
         }

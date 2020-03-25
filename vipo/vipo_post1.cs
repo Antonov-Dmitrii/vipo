@@ -122,7 +122,7 @@ namespace vipo
             Hide();
         }
 
-        private void listBox1_DoubleClick(object sender, EventArgs e)
+        private void listBox1_DoubleClick_1(object sender, EventArgs e)
         {
             int b = Int32.Parse(kol_rab.Text);
             int index = listBox2.FindStringExact(label9.Text, -1);
@@ -138,15 +138,11 @@ namespace vipo
             {
                 MessageBox.Show("Норма времени не соответствует выбранному количеству работников!\n", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-           
-
         }
 
-        private void listBox2_DoubleClick(object sender, EventArgs e)
+        private void listBox2_DoubleClick_1(object sender, EventArgs e)
         {
             listBox2.Items.Remove(listBox2.SelectedItem);
         }
-
-       
     }
 }
