@@ -74,6 +74,7 @@ namespace vipo
             this.vishkiTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
             this.button7 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -156,8 +157,6 @@ namespace vipo
             // 
             // listBox1
             // 
-            this.listBox1.DataSource = this.workersBindingSource;
-            this.listBox1.DisplayMember = "rab_name";
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
@@ -165,7 +164,6 @@ namespace vipo
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 100);
             this.listBox1.TabIndex = 4;
-            this.listBox1.ValueMember = "rab_name";
             this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick_1);
             // 
             // workersBindingSource
@@ -368,7 +366,7 @@ namespace vipo
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(21, 511);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(421, 161);
+            this.dataGridView1.Size = new System.Drawing.Size(668, 161);
             this.dataGridView1.TabIndex = 9;
             // 
             // workersTableAdapter
@@ -410,9 +408,9 @@ namespace vipo
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(448, 207);
+            this.pictureBox1.Location = new System.Drawing.Point(559, 190);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(806, 465);
+            this.pictureBox1.Size = new System.Drawing.Size(569, 315);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -501,12 +499,22 @@ namespace vipo
             this.label17.TabIndex = 17;
             this.label17.Text = "label17";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(466, 77);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.TabIndex = 18;
+            this.label18.Text = "label18";
+            // 
             // vipo_post1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1266, 684);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label16);
@@ -594,5 +602,6 @@ namespace vipo
         private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }

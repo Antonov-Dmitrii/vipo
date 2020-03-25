@@ -143,6 +143,7 @@ namespace vipo
             timer1.Enabled = false;
             timer1.Stop();
 
+
         }
 
         public void timer1_Tick(object sender, EventArgs e)
@@ -202,6 +203,8 @@ namespace vipo
                 SqlCommand cmd = new SqlCommand(queryString, conn);
                 label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
                 cmd.Parameters.AddWithValue("@number", label8.Text);
+                label18.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "id_op"));
+                cmd.Parameters.AddWithValue("@number3", label18.Text);
                 kol_rab.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "kol_rab"));
                 cmd.Parameters.AddWithValue("@number1", kol_rab.Text);
                 time_n.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "time_norm"));
@@ -209,6 +212,27 @@ namespace vipo
                 label15.Text = (cmd.ExecuteScalar().ToString());
                 conn.Close();
             }
+
+            var select = "SELECT [id_v],[id_post],[id_op],[id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "'  ";
+            var c = new SqlConnection(connectionString); 
+            SqlDataAdapter dataAdapter1 = new SqlDataAdapter(select, c);
+
+            var commandBuilder = new SqlCommandBuilder(dataAdapter1);
+            var dss = new DataSet();
+            dataAdapter1.Fill(dss);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.DataSource = dss.Tables[0];
+
+
+            SqlConnection Con = new SqlConnection(connectionString); //Новое подключение
+            SqlCommand command = new SqlCommand("SELECT [rab_name] FROM [workers] WHERE [id_post] = '" + label15.Text + "' ", Con); //Команда выбора данных
+            Con.Open(); //Открываем соединение
+            SqlDataReader read = command.ExecuteReader(); //Считываем и извлекаем данные
+            while (read.Read()) //Читаем пока есть данные
+            {
+                listBox1.Items.Add(read.GetValue(0).ToString()); //Добавляем данные в лист итем
+            }
+            Con.Close();
         }
     }
 }
