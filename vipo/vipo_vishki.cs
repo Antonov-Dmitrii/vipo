@@ -61,6 +61,7 @@ namespace vipo
                 vipo_post1 vipo_post = new vipo_post1();
                 vipo_post.Show();
                 vipo_post.label4.Text = label7.Text;
+                vipo_post.label15.Text = label8.Text;
                 vipo_post.label6.Text = dataGridView1.CurrentCell.EditedFormattedValue.ToString();
                 
                 this.Close();
