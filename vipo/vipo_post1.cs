@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace vipo
 {
@@ -15,7 +16,7 @@ namespace vipo
         int i;
         int tk;
         string c;
-
+        
         public vipo_post1()
         {
             InitializeComponent();
@@ -24,8 +25,6 @@ namespace vipo
            // timer.Tick += new EventHandler(timer_Tick); //подписываемся на события Tick
 
         }
-
-       
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -39,7 +38,6 @@ namespace vipo
 
         private void vipo_post1_Load(object sender, EventArgs e)
         {
-           
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.workers". При необходимости она может быть перемещена или удалена.
@@ -86,8 +84,12 @@ namespace vipo
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            workers_add workers = new workers_add();
-            workers.Show();
+            
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -120,12 +120,6 @@
     <Compile Include="vipo_zav.Designer.cs">
       <DependentUpon>vipo_zav.cs</DependentUpon>
     </Compile>
-    <Compile Include="workers_add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="workers_add.Designer.cs">
-      <DependentUpon>workers_add.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="author.resx">
       <DependentUpon>author.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vipo_zav.resx">
       <DependentUpon>vipo_zav.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="workers_add.resx">
-      <DependentUpon>workers_add.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dubakby_VIPODataSet.xsc">
       <DependentUpon>dubakby_VIPODataSet.xsd</DependentUpon>

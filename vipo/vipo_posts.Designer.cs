@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -35,7 +36,12 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
+            this.postsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.postsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.postsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -48,6 +54,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(300, 150);
             this.button1.TabIndex = 0;
+            this.button1.Tag = "1";
             this.button1.Text = "Пост №1 ";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -62,6 +69,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(300, 150);
             this.button2.TabIndex = 1;
+            this.button2.Tag = "2";
             this.button2.Text = "Пост №2";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -76,6 +84,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(300, 150);
             this.button3.TabIndex = 2;
+            this.button3.Tag = "3";
             this.button3.Text = "Пост №3";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -90,6 +99,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(300, 150);
             this.button4.TabIndex = 3;
+            this.button4.Tag = "4";
             this.button4.Text = "Пост №4";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -104,6 +114,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(300, 150);
             this.button5.TabIndex = 4;
+            this.button5.Tag = "5";
             this.button5.Text = "Пост №5";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -118,6 +129,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(300, 150);
             this.button6.TabIndex = 5;
+            this.button6.Tag = "6";
             this.button6.Text = "Пост №6";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -133,6 +145,20 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // dubakby_VIPODataSet
+            // 
+            this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
+            this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // postsBindingSource
+            // 
+            this.postsBindingSource.DataMember = "posts";
+            this.postsBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // postsTableAdapter
+            // 
+            this.postsTableAdapter.ClearBeforeFill = true;
             // 
             // vipo_posts
             // 
@@ -151,6 +177,8 @@
             this.Text = "vipo_posts";
             this.Load += new System.EventHandler(this.vipo_posts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -164,5 +192,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private dubakby_VIPODataSet dubakby_VIPODataSet;
+        private System.Windows.Forms.BindingSource postsBindingSource;
+        private dubakby_VIPODataSetTableAdapters.postsTableAdapter postsTableAdapter;
     }
 }
