@@ -87,6 +87,8 @@ namespace vipo
             this.id_mat = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.kol_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.izm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -455,8 +457,6 @@ namespace vipo
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.workersBindingSource, "rab_name", true));
-            this.label9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "rab_name", true));
             this.label9.Location = new System.Drawing.Point(304, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
@@ -622,12 +622,26 @@ namespace vipo
             this.izm.ReadOnly = true;
             this.izm.Width = 74;
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(455, 8);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 13);
+            this.label21.TabIndex = 21;
+            this.label21.Text = "label21";
+            // 
             // vipo_post1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1266, 684);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -735,5 +749,7 @@ namespace vipo
         private System.Windows.Forms.DataGridViewComboBoxColumn id_mat;
         private System.Windows.Forms.DataGridViewTextBoxColumn kol_mat;
         private System.Windows.Forms.DataGridViewTextBoxColumn izm;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label21;
     }
 }

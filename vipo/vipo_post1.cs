@@ -65,7 +65,7 @@ namespace vipo
         {
             timer1.Enabled = true;
             StartTime = DateTime.Now;
-            Convert.ToInt32(label15.Text);
+            
 
             if (listBox2.Items.Count == 1)
             {
@@ -117,26 +117,28 @@ namespace vipo
             {
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, id_st, time_norm, op_end , f_time) VALUES (@id_rab ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end ,@f_time)";
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end )";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
                 cmd_SQL.Parameters.AddWithValue("@rab_name", label10.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_v", label4.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_st", label20.Text);
                 cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
-                //cmd_SQL.Parameters.AddWithValue("@op_end", tbNameTov.Text);
-                cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_end", label21.Text);
+               // cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
                 try
                 {
                     connect.Open();
-                    int n = cmd_SQL.ExecuteNonQuery();
-                    // lbl_Delete.Text += String.Format("Добавлено {0} записей", n);
+                    
+                  int n = cmd_SQL.ExecuteNonQuery();
+                    //Convert.ToString(n);
+                    //MessageBox.Show("Добавлено {0} записей", n);
                 }
                 catch (SqlException ex)
                 {
-                    // throw new ApplicationException("error insert new_tovar", ex);
+                     throw new ApplicationException("error insert new_tovar", ex);
                 }
                 finally
                 {
@@ -281,6 +283,7 @@ namespace vipo
         {
             int b = Int32.Parse(kol_rab.Text);
             int index = listBox2.FindStringExact(label9.Text, -1);
+            label9.Text = listBox1.SelectedItem.ToString();
             if (index != -1)
             {
                 MessageBox.Show("Работяга не шали!\n", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
@@ -365,6 +368,11 @@ namespace vipo
                 label20.Text = (cmd.ExecuteScalar().ToString());
                 conn2.Close();
             }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            label21.Text = DateTime.Now.ToString();
         }
     }
 }
