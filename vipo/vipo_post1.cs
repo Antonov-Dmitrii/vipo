@@ -95,14 +95,10 @@ namespace vipo
 
 
         private void button1_Click(object sender, EventArgs e)
-        {   //timer
-            i = 0;
-            c = "00:00";
-            timer1.Interval = 1000;
+        {
             timer1.Enabled = true;
-            timer1.Start();
-            /////////////////////////////////////////
-            ////////////////////////////////////////
+            StartTime = DateTime.Now;
+           
 
             if (listBox2.Items.Count == 1)
             {
@@ -149,13 +145,27 @@ namespace vipo
 
 
         }
-
+        private DateTime StartTime;
         public void timer1_Tick(object sender, EventArgs e)
         {
-            tk = ++i;
-            TimeSpan span = TimeSpan.FromMinutes(tk);
-            string time_n = span.ToString(@"hh\:mm");
-            time_f.Text = time_n.ToString();
+            TimeSpan elapsed = DateTime.Now - StartTime;
+
+            // Начнем с дней, если больше 0.
+            string text = "";
+            if (elapsed.Days > 0)
+                text += elapsed.Days.ToString() + ".";
+
+            // Преобразование миллисекунд в десятые доли секунды.
+            int tenths = elapsed.Milliseconds / 100;
+
+            // Запишите оставшееся время.
+            text +=
+                elapsed.Hours.ToString("00") + ":" +
+                elapsed.Minutes.ToString("00") + ":" +
+                elapsed.Seconds.ToString("00") + "." +
+                tenths.ToString("0");
+
+            time_f.Text = text;
         }
 
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
