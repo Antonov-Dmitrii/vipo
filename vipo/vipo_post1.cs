@@ -43,6 +43,8 @@ namespace vipo
 
         private void vipo_post1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet1.op_norm". При необходимости она может быть перемещена или удалена.
+            this.op_normTableAdapter.Fill(this.dubakby_VIPODataSet1.op_norm);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.materials". При необходимости она может быть перемещена или удалена.
             this.materialsTableAdapter.Fill(this.dubakby_VIPODataSet.materials);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.mat_norm". При необходимости она может быть перемещена или удалена.
@@ -193,6 +195,7 @@ namespace vipo
 
         private void button7_Click(object sender, EventArgs e)
         {
+            pictureBox1.Visible = true;
             dataGridView1.Visible = true;
             Convert.ToInt32(label15.Text);
             //int d = Convert.ToInt32(label15.Text);

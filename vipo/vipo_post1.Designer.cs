@@ -85,6 +85,10 @@ namespace vipo
             this.id_op = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dubakby_VIPODataSet1 = new vipo.dubakby_VIPODataSet();
+            this.opnormBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.op_normTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.op_normTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -96,6 +100,8 @@ namespace vipo
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.matnormBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.opnormBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -439,6 +445,7 @@ namespace vipo
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // label9
             // 
@@ -488,7 +495,7 @@ namespace vipo
             this.label16.AutoSize = true;
             this.label16.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.vishkiBindingSource, "id_v", true));
             this.label16.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vishkiBindingSource, "id_v", true));
-            this.label16.Location = new System.Drawing.Point(1024, 13);
+            this.label16.Location = new System.Drawing.Point(1054, 21);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 13);
             this.label16.TabIndex = 15;
@@ -506,7 +513,7 @@ namespace vipo
             // button7
             // 
             this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button7.Location = new System.Drawing.Point(835, 127);
+            this.button7.Location = new System.Drawing.Point(454, 101);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 16;
@@ -516,10 +523,11 @@ namespace vipo
             // 
             // label17
             // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label17.AutoSize = true;
             this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.progressBindingSource, "id_op", true));
             this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.progressBindingSource, "id_op", true));
-            this.label17.Location = new System.Drawing.Point(451, 114);
+            this.label17.Location = new System.Drawing.Point(538, 114);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 13);
             this.label17.TabIndex = 17;
@@ -527,8 +535,9 @@ namespace vipo
             // 
             // label18
             // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(451, 101);
+            this.label18.Location = new System.Drawing.Point(538, 101);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(41, 13);
             this.label18.TabIndex = 18;
@@ -608,12 +617,38 @@ namespace vipo
             this.id_v.ReadOnly = true;
             this.id_v.Visible = false;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.opnormBindingSource, "img", true));
+            this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.opnormBindingSource, "img", true));
+            this.label19.Location = new System.Drawing.Point(538, 127);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.TabIndex = 19;
+            this.label19.Text = "label19";
+            // 
+            // dubakby_VIPODataSet1
+            // 
+            this.dubakby_VIPODataSet1.DataSetName = "dubakby_VIPODataSet";
+            this.dubakby_VIPODataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // opnormBindingSource
+            // 
+            this.opnormBindingSource.DataMember = "op_norm";
+            this.opnormBindingSource.DataSource = this.dubakby_VIPODataSet1;
+            // 
+            // op_normTableAdapter
+            // 
+            this.op_normTableAdapter.ClearBeforeFill = true;
+            // 
             // vipo_post1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1266, 684);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.button7);
@@ -649,6 +684,8 @@ namespace vipo
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matnormBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.opnormBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -715,5 +752,9 @@ namespace vipo
         private System.Windows.Forms.DataGridViewTextBoxColumn id_op;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_post;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_v;
+        private System.Windows.Forms.Label label19;
+        private dubakby_VIPODataSet dubakby_VIPODataSet1;
+        private System.Windows.Forms.BindingSource opnormBindingSource;
+        private dubakby_VIPODataSetTableAdapters.op_normTableAdapter op_normTableAdapter;
     }
 }
