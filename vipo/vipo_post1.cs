@@ -126,7 +126,7 @@ namespace vipo
                 cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_st", label20.Text);
                 cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
-                cmd_SQL.Parameters.AddWithValue("@op_end", label21.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_end",label21.Text);
                // cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
                 try
                 {
@@ -372,7 +372,7 @@ namespace vipo
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            label21.Text = DateTime.Now.ToString();
+            label21.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }
