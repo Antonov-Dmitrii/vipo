@@ -57,50 +57,15 @@ namespace vipo
             WindowState = FormWindowState.Maximized;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.workers". При необходимости она может быть перемещена или удалена.
             this.workersTableAdapter.Fill(this.dubakby_VIPODataSet.workers);
-            //op_Load();
+          
 
         }
-
-        /*private void op_Load()
-        {
-            Convert.ToInt32(label15.Text);
-            //int d = Convert.ToInt32(label15.Text);
-            //int b = int.Parse(s);
-            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            //int b = int.Parse(label15.Text);
-            string queryString = "SELECT [id_op],[op_name],[kol_rab],[time_norm] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [complete] =  0 ;";
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
-            {
-                DataSet ds = new DataSet();
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(queryString, conn);
-                label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
-                cmd.Parameters.AddWithValue("@number", label8.Text);
-                label5.Text = (cmd.ExecuteScalar().ToString());
-                conn.Close();
-
-            }
-        }*/
-        //  SELECT [id_op],[num_op],[op_name],[kol_rab],[time_norm] FROM [progress] WHERE [zav_n] = '" + label.. + "'  AND [id_v] = '"+ label... + "' AND [id_post] = '" + label... + "' AND [complete] = '" + label... + "' 
-
-
-        //label1.DataBindings.Add(new System.Windows.Forms.Binding("Text", ds.Tables["QUALITY"], "op_name"));
-        /*
-                 SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=db3;Integrated Security=True");
-                 conn.Open();
-                 SqlCommand cmd = new SqlCommand("select count (number) from t2 where number=@number", conn); 
-                 cmd.Parameters.AddWithValue("@number", label1.Text); 
-                 label5.Text=(cmd.ExecuteScalar().ToString()); 
-                 conn.Close();
-        */
-
 
         private void button1_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             StartTime = DateTime.Now;
-           
+            Convert.ToInt32(label15.Text);
 
             if (listBox2.Items.Count == 1)
             {
@@ -138,6 +103,9 @@ namespace vipo
                 label13.Text = listBox2.Items[3].ToString();
             }
 
+
+           
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -145,6 +113,135 @@ namespace vipo
             timer1.Enabled = false;
             timer1.Stop();
 
+            if (label10.Visible == true)
+            {
+                string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                SqlConnection connect = new SqlConnection(connection);
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, id_st, time_norm, op_end , f_time) VALUES (@id_rab ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end ,@f_time)";
+                SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                cmd_SQL.Parameters.AddWithValue("@rab_name", label10.Text);
+                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label4.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_st", label20.Text);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                //cmd_SQL.Parameters.AddWithValue("@op_end", tbNameTov.Text);
+                cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                try
+                {
+                    connect.Open();
+                    int n = cmd_SQL.ExecuteNonQuery();
+                    // lbl_Delete.Text += String.Format("Добавлено {0} записей", n);
+                }
+                catch (SqlException ex)
+                {
+                    // throw new ApplicationException("error insert new_tovar", ex);
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+
+            //////////////////////////////////////////////////
+       
+            if (label11.Visible == true)
+            {
+                string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                SqlConnection connect = new SqlConnection(connection);
+                string sql = "INSERT zp (id_rab , zav_n , id_v, id_post, id_op, id_st, time_norm, op_end , f_time) VALUES (@id_rab ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end ,@f_time)";
+                SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                cmd_SQL.Parameters.AddWithValue("@rab_name", label11.Text);
+                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label4.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
+                // cmd_SQL.Parameters.AddWithValue("@id_st", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                // cmd_SQL.Parameters.AddWithValue("@op_end", tbNameTov.Text);
+                cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                try
+                {
+                    connect.Open();
+                    int n = cmd_SQL.ExecuteNonQuery();
+                    // lbl_Delete.Text += String.Format("Добавлено {0} записей", n);
+                }
+                catch (SqlException ex)
+                {
+                    // throw new ApplicationException("error insert new_tovar", ex);
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+
+            /////////////////////////////////////////////////
+            
+            if (label12.Visible == true)
+            {
+                string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                SqlConnection connect = new SqlConnection(connection);
+                string sql = "INSERT zp (id_rab , zav_n , id_v, id_post, id_op, id_st, time_norm, op_end , f_time) VALUES (@id_rab ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end ,@f_time)";
+                SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                cmd_SQL.Parameters.AddWithValue("@rab_name", label12.Text);
+                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label4.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
+                // cmd_SQL.Parameters.AddWithValue("@id_st", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                // cmd_SQL.Parameters.AddWithValue("@op_end", tbNameTov.Text);
+                cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                try
+                {
+                    connect.Open();
+                    int n = cmd_SQL.ExecuteNonQuery();
+                    // lbl_Delete.Text += String.Format("Добавлено {0} записей", n);
+                }
+                catch (SqlException ex)
+                {
+                    // throw new ApplicationException("error insert new_tovar", ex);
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+
+            //////////////////////////////////////////////////////////////
+
+            if (label13.Visible == true)
+            {
+                string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                SqlConnection connect = new SqlConnection(connection);
+                string sql = "INSERT zp (id_rab , zav_n , id_v, id_post, id_op, id_st, time_norm, op_end , f_time) VALUES (@id_rab ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end ,@f_time)";
+                SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                cmd_SQL.Parameters.AddWithValue("@rab_name", label13.Text);
+                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label4.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
+                // cmd_SQL.Parameters.AddWithValue("@id_st", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                // cmd_SQL.Parameters.AddWithValue("@op_end", tbNameTov.Text);
+                cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                try
+                {
+                    connect.Open();
+                    int n = cmd_SQL.ExecuteNonQuery();
+                    // lbl_Delete.Text += String.Format("Добавлено {0} записей", n);
+                }
+                catch (SqlException ex)
+                {
+                    // throw new ApplicationException("error insert new_tovar", ex);
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
 
         }
         private DateTime StartTime;
@@ -231,7 +328,7 @@ namespace vipo
                 conn.Close();
             }
 
-            var select = "SELECT [id_v],[id_post],[id_op],[id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "'";
+           var select = "SELECT [id_v],[id_post],[id_op],[id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "'";
             var c = new SqlConnection(connectionString); 
             SqlDataAdapter dataAdapter1 = new SqlDataAdapter(select, c);
 
@@ -251,6 +348,23 @@ namespace vipo
                 listBox1.Items.Add(read.GetValue(0).ToString()); //Добавляем данные в лист итем
             }
             Con.Close();
+
+            ////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////
+
+            string connectionString2 = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString2 = "SELECT stavka FROM [stavka] WHERE [id_post] = '" + label15.Text + "' ";
+            using (SqlDataAdapter dataAdapter2 = new SqlDataAdapter(queryString2, connectionString2))
+            {
+                DataSet ds2 = new DataSet();
+                SqlConnection conn2 = new SqlConnection(connectionString2);
+                conn2.Open();
+                SqlCommand cmd = new SqlCommand(queryString2, conn2);
+                label20.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["stavka"], "stavka"));
+                cmd.Parameters.AddWithValue("@number5", label20.Text);
+                label20.Text = (cmd.ExecuteScalar().ToString());
+                conn2.Close();
+            }
         }
     }
 }
