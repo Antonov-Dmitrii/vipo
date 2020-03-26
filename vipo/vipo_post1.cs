@@ -43,6 +43,10 @@ namespace vipo
 
         private void vipo_post1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.materials". При необходимости она может быть перемещена или удалена.
+            this.materialsTableAdapter.Fill(this.dubakby_VIPODataSet.materials);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.mat_norm". При необходимости она может быть перемещена или удалена.
+            this.mat_normTableAdapter.Fill(this.dubakby_VIPODataSet.mat_norm);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.vishki". При необходимости она может быть перемещена или удалена.
             this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.progress". При необходимости она может быть перемещена или удалена.
@@ -189,6 +193,7 @@ namespace vipo
 
         private void button7_Click(object sender, EventArgs e)
         {
+            dataGridView1.Visible = true;
             Convert.ToInt32(label15.Text);
             //int d = Convert.ToInt32(label15.Text);
             //int b = int.Parse(s);
@@ -203,17 +208,17 @@ namespace vipo
                 SqlCommand cmd = new SqlCommand(queryString, conn);
                 label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
                 cmd.Parameters.AddWithValue("@number", label8.Text);
-                label18.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "id_op"));
-                cmd.Parameters.AddWithValue("@number3", label18.Text);
                 kol_rab.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "kol_rab"));
                 cmd.Parameters.AddWithValue("@number1", kol_rab.Text);
                 time_n.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "time_norm"));
                 cmd.Parameters.AddWithValue("@number2", time_n.Text);
+                label18.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "id_op"));
+                cmd.Parameters.AddWithValue("@number3", label18.Text);
                 label15.Text = (cmd.ExecuteScalar().ToString());
                 conn.Close();
             }
 
-            var select = "SELECT [id_v],[id_post],[id_op],[id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "'  ";
+            var select = "SELECT [id_v],[id_post],[id_op],[id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "'";
             var c = new SqlConnection(connectionString); 
             SqlDataAdapter dataAdapter1 = new SqlDataAdapter(select, c);
 
