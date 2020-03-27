@@ -12,13 +12,13 @@ using System.Data.SqlClient;
 
 namespace vipo
 {
-    public partial class vipo_post1 : Form
+    public partial class vipo_post : Form
     {
         int i;
         int tk;
         string c;
 
-        public vipo_post1()
+        public vipo_post()
         {
             InitializeComponent();
 
@@ -110,35 +110,36 @@ namespace vipo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
-            timer1.Stop();
-
             if (label10.Visible == true)
             {
+                string st = label20.Text;
+                float st1 = float.Parse(st);
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end )";
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_end )";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
                 cmd_SQL.Parameters.AddWithValue("@rab_name", label10.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_st", label20.Text);
+                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
                 cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
-                cmd_SQL.Parameters.AddWithValue("@op_end",label21.Text);
-               // cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+
                 try
                 {
                     connect.Open();
-                    
-                  int n = cmd_SQL.ExecuteNonQuery();
-                    //Convert.ToString(n);
-                    //MessageBox.Show("Добавлено {0} записей", n);
+                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Добавлено {0} записей");
                 }
                 catch (SqlException ex)
                 {
-                     throw new ApplicationException("error insert new_tovar", ex);
+
+                    throw new ApplicationException("error insert zp", ex);
+
                 }
                 finally
                 {
@@ -147,31 +148,37 @@ namespace vipo
             }
 
             //////////////////////////////////////////////////
-       
+
             if (label11.Visible == true)
             {
+                string st = label20.Text;
+                float st1 = float.Parse(st);
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (id_rab , zav_n , id_v, id_post, id_op, id_st, time_norm, op_end , f_time) VALUES (@id_rab ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end ,@f_time)";
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_end )";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
                 cmd_SQL.Parameters.AddWithValue("@rab_name", label11.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_v", label4.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
-                // cmd_SQL.Parameters.AddWithValue("@id_st", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
                 cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
-                // cmd_SQL.Parameters.AddWithValue("@op_end", tbNameTov.Text);
-                cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+
                 try
                 {
                     connect.Open();
-                    int n = cmd_SQL.ExecuteNonQuery();
-                    // lbl_Delete.Text += String.Format("Добавлено {0} записей", n);
+                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Добавлено {0} записей");
                 }
                 catch (SqlException ex)
                 {
-                    // throw new ApplicationException("error insert new_tovar", ex);
+
+                    throw new ApplicationException("error insert zp", ex);
+
                 }
                 finally
                 {
@@ -180,31 +187,37 @@ namespace vipo
             }
 
             /////////////////////////////////////////////////
-            
+
             if (label12.Visible == true)
             {
+                string st = label20.Text;
+                float st1 = float.Parse(st);
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (id_rab , zav_n , id_v, id_post, id_op, id_st, time_norm, op_end , f_time) VALUES (@id_rab ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end ,@f_time)";
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_end )";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
                 cmd_SQL.Parameters.AddWithValue("@rab_name", label12.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_v", label4.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
-                // cmd_SQL.Parameters.AddWithValue("@id_st", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
                 cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
-                // cmd_SQL.Parameters.AddWithValue("@op_end", tbNameTov.Text);
-                cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+
                 try
                 {
                     connect.Open();
-                    int n = cmd_SQL.ExecuteNonQuery();
-                    // lbl_Delete.Text += String.Format("Добавлено {0} записей", n);
+                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Добавлено {0} записей");
                 }
                 catch (SqlException ex)
                 {
-                    // throw new ApplicationException("error insert new_tovar", ex);
+
+                    throw new ApplicationException("error insert zp", ex);
+
                 }
                 finally
                 {
@@ -216,37 +229,44 @@ namespace vipo
 
             if (label13.Visible == true)
             {
+                string st = label20.Text;
+                float st1 = float.Parse(st);
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (id_rab , zav_n , id_v, id_post, id_op, id_st, time_norm, op_end , f_time) VALUES (@id_rab ,@zav_n ,@id_v ,@id_post , @id_op ,@id_st , @time_norm ,@op_end ,@f_time)";
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_end )";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
                 cmd_SQL.Parameters.AddWithValue("@rab_name", label13.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_v", label4.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", label18.Text);
-                // cmd_SQL.Parameters.AddWithValue("@id_st", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
                 cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
-                // cmd_SQL.Parameters.AddWithValue("@op_end", tbNameTov.Text);
-                cmd_SQL.Parameters.AddWithValue("@f_time", time_f.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+
                 try
                 {
                     connect.Open();
-                    int n = cmd_SQL.ExecuteNonQuery();
-                    // lbl_Delete.Text += String.Format("Добавлено {0} записей", n);
+                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Добавлено {0} записей");
                 }
                 catch (SqlException ex)
                 {
-                    // throw new ApplicationException("error insert new_tovar", ex);
+
+                    throw new ApplicationException("error insert zp", ex);
+
                 }
                 finally
                 {
                     connect.Close();
                 }
             }
-
         }
+
         private DateTime StartTime;
+
         public void timer1_Tick(object sender, EventArgs e)
         {
             TimeSpan elapsed = DateTime.Now - StartTime;
@@ -304,6 +324,158 @@ namespace vipo
         }
 
         private void button7_Click(object sender, EventArgs e)
+        {
+            op_name_method();
+            id_op_method();
+            kol_rab_method();
+            time_norm_method();
+            //img_method();
+            stavka_method();
+            workers_method();
+            mat_norm_method();
+        }
+
+        private void workers_method()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            SqlConnection Con = new SqlConnection(connectionString); //Новое подключение
+            SqlCommand command = new SqlCommand("SELECT [rab_name] FROM [workers] WHERE [id_post] = '" + label15.Text + "' ", Con); //Команда выбора данных
+            Con.Open(); //Открываем соединение
+            SqlDataReader read = command.ExecuteReader(); //Считываем и извлекаем данные
+            while (read.Read()) //Читаем пока есть данные
+            {
+                listBox1.Items.Add(read.GetValue(0).ToString()); //Добавляем данные в лист итем
+            }
+            Con.Close();
+        }
+
+
+        private void stavka_method()
+        {
+            string connectionString2 = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString2 = "SELECT stavka FROM [stavka] WHERE [id_post] = '" + label15.Text + "' ";
+            using (SqlDataAdapter dataAdapter2 = new SqlDataAdapter(queryString2, connectionString2))
+            {
+                DataSet ds2 = new DataSet();
+                SqlConnection conn2 = new SqlConnection(connectionString2);
+                conn2.Open();
+                SqlCommand cmd = new SqlCommand(queryString2, conn2);
+                label20.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["stavka"], "stavka"));
+                cmd.Parameters.AddWithValue("@number", label20.Text);
+                label20.Text = (cmd.ExecuteScalar().ToString());
+                conn2.Close();
+            }
+        }
+
+        private void id_op_method()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "SELECT [id_op],[op_name],[kol_rab],[time_norm] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [complete] =  0";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                label18.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "id_op"));
+                cmd.Parameters.AddWithValue("@number", label18.Text);
+                label18.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+            }
+        }
+
+        private void kol_rab_method()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "SELECT [kol_rab] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [complete] =  0";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                kol_rab.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "kol_rab"));
+                cmd.Parameters.AddWithValue("@number", kol_rab.Text);
+                kol_rab.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+            }
+        }
+
+        private void time_norm_method()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "SELECT [time_norm] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [complete] =  0";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                time_n.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "time_norm"));
+                cmd.Parameters.AddWithValue("@number", time_n.Text);
+                time_n.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+            }
+        }
+
+        private void mat_norm_method()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            var select = "SELECT [id_v],[id_post],[id_op],[id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "'";
+            var c = new SqlConnection(connectionString);
+            SqlDataAdapter dataAdapter1 = new SqlDataAdapter(select, c);
+
+            var commandBuilder = new SqlCommandBuilder(dataAdapter1);
+            var dss = new DataSet();
+            dataAdapter1.Fill(dss);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.DataSource = dss.Tables[0];
+
+        }
+
+        private void op_name_method()
+        {
+            dataGridView1.Visible = true;
+            Convert.ToInt32(label15.Text);
+            Convert.ToInt32(label16.Text);
+            Convert.ToInt32(label6.Text);
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "SELECT [op_name] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [complete] = 0";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                conn.Open();
+                label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
+                cmd.Parameters.AddWithValue("@number", label8.Text);
+                label8.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+            }
+        }
+
+        private void img_method()
+        {
+            string connectionString1 = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString1 = "SELECT [img] FROM [op_norm] WHERE [id_op] = '" + label18.Text + "'";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString1, connectionString1))
+            {
+                DataSet ds2 = new DataSet();
+                SqlConnection conn2 = new SqlConnection(connectionString1);
+                conn2.Open();
+                SqlCommand sql1 = new SqlCommand(queryString1, conn2);
+                label19.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["op_norm"], "img"));
+                sql1.Parameters.AddWithValue("@number6", label19.Text);
+                label19.Text = (sql1.ExecuteScalar().ToString());
+                conn2.Close();
+
+                string img = label19.Text;
+                pictureBox1.Image = Image.FromFile(img);
+                pictureBox1.Visible = true;
+            }
+        }
+
+        /*private void button7_Click(object sender, EventArgs e)
         {
             pictureBox1.Visible = true;
             dataGridView1.Visible = true;
@@ -368,11 +540,16 @@ namespace vipo
                 label20.Text = (cmd.ExecuteScalar().ToString());
                 conn2.Close();
             }
-        }
+        }*/
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             label21.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void listBox1_Click(object sender, EventArgs e)
+        {
+            label9.Text = listBox1.SelectedItem.ToString();
         }
     }
 }

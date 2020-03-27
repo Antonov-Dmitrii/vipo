@@ -58,7 +58,7 @@ namespace vipo
             }
             else
             {
-                vipo_post1 vipo_post = new vipo_post1();
+                vipo_post vipo_post = new vipo_post();
                 vipo_post.Show();
                 vipo_post.label4.Text = label7.Text;
                 vipo_post.label15.Text = label8.Text;
