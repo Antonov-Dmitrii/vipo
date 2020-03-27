@@ -561,6 +561,7 @@ namespace vipo
             // 
             // label19
             // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label19.AutoSize = true;
             this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.opnormBindingSource, "img", true));
             this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.opnormBindingSource, "img", true));

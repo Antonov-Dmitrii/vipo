@@ -329,7 +329,7 @@ namespace vipo
             id_op_method();
             kol_rab_method();
             time_norm_method();
-            //img_method();
+            img_method();
             stavka_method();
             workers_method();
             mat_norm_method();
@@ -457,23 +457,35 @@ namespace vipo
         private void img_method()
         {
             string connectionString1 = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            string queryString1 = "SELECT [img] FROM [op_norm] WHERE [id_op] = '" + label18.Text + "'";
+            SqlConnection Con = new SqlConnection(connectionString1);
+
+            SqlCommand command = new SqlCommand("SELECT [img] FROM [op_norm] WHERE [id_op] = '" + label18.Text + "'", Con); //Команда выбора данных
+            Con.Open(); //Открываем соединение
+            SqlDataReader read = command.ExecuteReader(); //Считываем и извлекаем данные
+            while (read.Read()) //Читаем пока есть данные
+            {
+                label19.Text =  (read.GetValue(0).ToString()); //Добавляем данные в лист итем
+            }
+            Con.Close();
+
+            /*string queryString1 = "SELECT [img] FROM [op_norm] WHERE [id_op] = '" + label18.Text + "'";
+
             using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString1, connectionString1))
             {
-                DataSet ds2 = new DataSet();
+                DataSet dataSet = new DataSet();
                 SqlConnection conn2 = new SqlConnection(connectionString1);
-                conn2.Open();
                 SqlCommand sql1 = new SqlCommand(queryString1, conn2);
+                conn2.Open();
                 label19.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["op_norm"], "img"));
-                sql1.Parameters.AddWithValue("@number6", label19.Text);
+                sql1.Parameters.AddWithValue("@number1", label19.Text);
                 label19.Text = (sql1.ExecuteScalar().ToString());
-                conn2.Close();
+                conn2.Close();*/
 
                 string img = label19.Text;
                 pictureBox1.Image = Image.FromFile(img);
                 pictureBox1.Visible = true;
             }
-        }
+        
 
         /*private void button7_Click(object sender, EventArgs e)
         {
