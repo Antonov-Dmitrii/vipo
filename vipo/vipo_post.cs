@@ -109,7 +109,15 @@ namespace vipo
 
         private void button2_Click(object sender, EventArgs e)
         {
+            rab_vremya();
+            complete_method();
             timer1.Stop();
+            
+        }
+
+        private void rab_vremya()
+        {
+            //Convert.ToInt32(dateTimePicker1.Value);
             if (label10.Visible == true)
             {
                 string st = label20.Text;
@@ -130,7 +138,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                   // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -169,7 +177,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                   // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -208,7 +216,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                   // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -247,7 +255,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                   // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -456,13 +464,11 @@ namespace vipo
 
         private void complete_method()
         {
-            int st = 1;
-            Convert.ToInt32(dateTimePicker1.Value);
             string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
             SqlConnection connect = new SqlConnection(connection);
-            string sql = "UPDATE progress SET complete = @complete WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "' ";
+            string sql = "UPDATE progress SET complete = 1 WHERE [zav_n] = '" + label6.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "' ";
             SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-            cmd_SQL.Parameters.AddWithValue("@complete", st);
+            //cmd_SQL.Parameters.AddWithValue("@complete", st);
            
             try
             {
@@ -496,93 +502,11 @@ namespace vipo
             {
                 label19.Text =  (read.GetValue(0).ToString()); //Добавляем данные в лист итем
             }
-            Con.Close();
-
-            /*string queryString1 = "SELECT [img] FROM [op_norm] WHERE [id_op] = '" + label18.Text + "'";
-
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString1, connectionString1))
-            {
-                DataSet dataSet = new DataSet();
-                SqlConnection conn2 = new SqlConnection(connectionString1);
-                SqlCommand sql1 = new SqlCommand(queryString1, conn2);
-                conn2.Open();
-                label19.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["op_norm"], "img"));
-                sql1.Parameters.AddWithValue("@number1", label19.Text);
-                label19.Text = (sql1.ExecuteScalar().ToString());
-                conn2.Close();*/
-
+                Con.Close();
                 string img = label19.Text;
                 pictureBox1.Image = Image.FromFile(img);
                 pictureBox1.Visible = true;
             }
-        
-
-        /*private void button7_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Visible = true;
-            dataGridView1.Visible = true;
-            Convert.ToInt32(label15.Text);
-            //int d = Convert.ToInt32(label15.Text);
-            //int b = int.Parse(s);
-            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            //int b = int.Parse(label15.Text);
-            string queryString = "SELECT [id_op],[op_name],[kol_rab],[time_norm] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [complete] =  0 ;";
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
-            {
-                DataSet ds = new DataSet();
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(queryString, conn);
-                label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
-                cmd.Parameters.AddWithValue("@number", label8.Text);
-                kol_rab.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "kol_rab"));
-                cmd.Parameters.AddWithValue("@number1", kol_rab.Text);
-                time_n.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "time_norm"));
-                cmd.Parameters.AddWithValue("@number2", time_n.Text);
-                label18.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "id_op"));
-                cmd.Parameters.AddWithValue("@number3", label18.Text);
-                label15.Text = (cmd.ExecuteScalar().ToString());
-                conn.Close();
-            }
-
-           var select = "SELECT [id_v],[id_post],[id_op],[id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "'";
-            var c = new SqlConnection(connectionString); 
-            SqlDataAdapter dataAdapter1 = new SqlDataAdapter(select, c);
-
-            var commandBuilder = new SqlCommandBuilder(dataAdapter1);
-            var dss = new DataSet();
-            dataAdapter1.Fill(dss);
-            dataGridView1.ReadOnly = true;
-            dataGridView1.DataSource = dss.Tables[0];
-
-
-            SqlConnection Con = new SqlConnection(connectionString); //Новое подключение
-            SqlCommand command = new SqlCommand("SELECT [rab_name] FROM [workers] WHERE [id_post] = '" + label15.Text + "' ", Con); //Команда выбора данных
-            Con.Open(); //Открываем соединение
-            SqlDataReader read = command.ExecuteReader(); //Считываем и извлекаем данные
-            while (read.Read()) //Читаем пока есть данные
-            {
-                listBox1.Items.Add(read.GetValue(0).ToString()); //Добавляем данные в лист итем
-            }
-            Con.Close();
-
-            ////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////
-
-            string connectionString2 = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            string queryString2 = "SELECT stavka FROM [stavka] WHERE [id_post] = '" + label15.Text + "' ";
-            using (SqlDataAdapter dataAdapter2 = new SqlDataAdapter(queryString2, connectionString2))
-            {
-                DataSet ds2 = new DataSet();
-                SqlConnection conn2 = new SqlConnection(connectionString2);
-                conn2.Open();
-                SqlCommand cmd = new SqlCommand(queryString2, conn2);
-                label20.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["stavka"], "stavka"));
-                cmd.Parameters.AddWithValue("@number5", label20.Text);
-                label20.Text = (cmd.ExecuteScalar().ToString());
-                conn2.Close();
-            }
-        }*/
 
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -602,16 +526,16 @@ namespace vipo
 
         private void button5_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
-            complete_method();
-            op_name_method();
-            id_op_method();
-            kol_rab_method();
-            time_norm_method();
-            img_method();
-            stavka_method();
-            workers_method();
-            mat_norm_method();
+            //timer1.Stop();
+            
+            //op_name_method();
+            //id_op_method();
+            //kol_rab_method();
+            //time_norm_method();
+            //img_method();
+            //stavka_method();
+            //workers_method();
+            //mat_norm_method();
         }
     }
 }
