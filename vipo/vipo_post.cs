@@ -528,6 +528,12 @@ namespace vipo
             label9.Text = listBox1.SelectedItem.ToString();
         }
 
+        private void next_method()
+        {
+
+
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             //timer1.Stop();
