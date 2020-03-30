@@ -44,6 +44,7 @@ namespace vipo
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.time_f = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.time_n = new System.Windows.Forms.Label();
@@ -117,12 +118,13 @@ namespace vipo
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.kol_rab);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(21, 21);
+            this.groupBox1.Location = new System.Drawing.Point(21, 85);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(421, 163);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выбор работника";
+            this.groupBox1.Visible = false;
             // 
             // label13
             // 
@@ -217,6 +219,7 @@ namespace vipo
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.time_f);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.time_n);
@@ -226,12 +229,22 @@ namespace vipo
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(21, 190);
+            this.groupBox2.Location = new System.Drawing.Point(21, 254);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(421, 235);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ход технологического процесса";
+            this.groupBox2.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(112, 136);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(50, 24);
+            this.label22.TabIndex = 8;
+            this.label22.Text = "мин.";
             // 
             // time_f
             // 
@@ -256,9 +269,9 @@ namespace vipo
             this.time_n.AutoSize = true;
             this.time_n.Location = new System.Drawing.Point(71, 136);
             this.time_n.Name = "time_n";
-            this.time_n.Size = new System.Drawing.Size(66, 24);
+            this.time_n.Size = new System.Drawing.Size(35, 24);
             this.time_n.TabIndex = 5;
-            this.time_n.Text = "time_n";
+            this.time_n.Text = "t_n";
             // 
             // label1
             // 
@@ -372,11 +385,11 @@ namespace vipo
             // 
             // button5
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(239, 431);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(239, 12);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(203, 58);
+            this.button5.Size = new System.Drawing.Size(203, 67);
             this.button5.TabIndex = 8;
             this.button5.Text = "Перейти к следующей технологической операции";
             this.button5.UseVisualStyleBackColor = true;
@@ -425,11 +438,12 @@ namespace vipo
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(448, 145);
+            this.label8.Location = new System.Drawing.Point(448, 160);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(166, 39);
             this.label8.TabIndex = 10;
             this.label8.Text = "op_name";
+            this.label8.Visible = false;
             // 
             // pictureBox2
             // 
@@ -461,11 +475,12 @@ namespace vipo
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(304, 9);
+            this.label9.Location = new System.Drawing.Point(448, 75);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "label9";
+            this.label9.Visible = false;
             // 
             // label14
             // 
@@ -502,13 +517,12 @@ namespace vipo
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label16.AutoSize = true;
-            this.label16.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.vishkiBindingSource, "id_v", true));
-            this.label16.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vishkiBindingSource, "id_v", true));
-            this.label16.Location = new System.Drawing.Point(1054, 21);
+            this.label16.Location = new System.Drawing.Point(495, 75);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 13);
             this.label16.TabIndex = 15;
             this.label16.Text = "label16";
+            this.label16.Visible = false;
             // 
             // vishkiBindingSource
             // 
@@ -521,36 +535,36 @@ namespace vipo
             // 
             // button7
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button7.Location = new System.Drawing.Point(21, 431);
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button7.Location = new System.Drawing.Point(21, 12);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(188, 58);
+            this.button7.Size = new System.Drawing.Size(199, 67);
             this.button7.TabIndex = 16;
-            this.button7.Text = "button7";
+            this.button7.Text = "Доступная операция";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label17
             // 
-            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label17.AutoSize = true;
             this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.progressBindingSource, "id_op", true));
             this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.progressBindingSource, "id_op", true));
-            this.label17.Location = new System.Drawing.Point(583, 77);
+            this.label17.Location = new System.Drawing.Point(448, 88);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 13);
             this.label17.TabIndex = 17;
             this.label17.Text = "label17";
+            this.label17.Visible = false;
             // 
             // label18
             // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(538, 114);
+            this.label18.Location = new System.Drawing.Point(448, 101);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(41, 13);
             this.label18.TabIndex = 18;
             this.label18.Text = "label18";
+            this.label18.Visible = false;
             // 
             // mat_normTableAdapter
             // 
@@ -562,15 +576,15 @@ namespace vipo
             // 
             // label19
             // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label19.AutoSize = true;
             this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.opnormBindingSource, "img", true));
             this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.opnormBindingSource, "img", true));
-            this.label19.Location = new System.Drawing.Point(538, 127);
+            this.label19.Location = new System.Drawing.Point(448, 114);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(41, 13);
             this.label19.TabIndex = 19;
             this.label19.Text = "label19";
+            this.label19.Visible = false;
             // 
             // opnormBindingSource
             // 
@@ -589,11 +603,12 @@ namespace vipo
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(236, 9);
+            this.label20.Location = new System.Drawing.Point(448, 127);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(41, 13);
             this.label20.TabIndex = 20;
             this.label20.Text = "label20";
+            this.label20.Visible = false;
             // 
             // timer2
             // 
@@ -602,11 +617,12 @@ namespace vipo
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(455, 8);
+            this.label21.Location = new System.Drawing.Point(448, 140);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(41, 13);
             this.label21.TabIndex = 21;
             this.label21.Text = "label21";
+            this.label21.Visible = false;
             // 
             // dateTimePicker1
             // 
@@ -617,6 +633,7 @@ namespace vipo
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 22;
+            this.dateTimePicker1.Visible = false;
             // 
             // zpTableAdapter
             // 
@@ -751,7 +768,6 @@ namespace vipo
         public System.Windows.Forms.Label label15;
         private System.Windows.Forms.BindingSource progressBindingSource;
         private dubakby_VIPODataSetTableAdapters.progressTableAdapter progressTableAdapter;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.BindingSource vishkiBindingSource;
         private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
         private System.Windows.Forms.Button button7;
@@ -770,6 +786,8 @@ namespace vipo
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private dubakby_VIPODataSetTableAdapters.zpTableAdapter zpTableAdapter;
+        private System.Windows.Forms.Label label22;
+        public System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridViewComboBoxColumn id_mat;
         private System.Windows.Forms.DataGridViewTextBoxColumn kol_mat;
         private System.Windows.Forms.DataGridViewTextBoxColumn izm;

@@ -109,10 +109,9 @@ namespace vipo
 
         private void button2_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             rab_vremya();
             complete_method();
-            timer1.Stop();
-            
         }
 
         private void rab_vremya()
@@ -138,10 +137,8 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Добавлено {0} записей");
                 }
                 catch (SqlException ex)
                 {
@@ -154,8 +151,6 @@ namespace vipo
                     connect.Close();
                 }
             }
-
-            //////////////////////////////////////////////////
 
             if (label11.Visible == true)
             {
@@ -177,10 +172,8 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Добавлено {0} записей");
                 }
                 catch (SqlException ex)
                 {
@@ -193,8 +186,6 @@ namespace vipo
                     connect.Close();
                 }
             }
-
-            /////////////////////////////////////////////////
 
             if (label12.Visible == true)
             {
@@ -216,10 +207,8 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Добавлено {0} записей");
                 }
                 catch (SqlException ex)
                 {
@@ -232,8 +221,6 @@ namespace vipo
                     connect.Close();
                 }
             }
-
-            //////////////////////////////////////////////////////////////
 
             if (label13.Visible == true)
             {
@@ -255,10 +242,8 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Добавлено {0} записей");
                 }
                 catch (SqlException ex)
                 {
@@ -319,6 +304,7 @@ namespace vipo
             else if (listBox2.Items.Count != b)
             {
                 listBox2.Items.Add(label9.Text);
+                groupBox2.Visible = true;
             }
             else
             {
@@ -333,6 +319,8 @@ namespace vipo
 
         private void button7_Click(object sender, EventArgs e)
         {
+            groupBox1.Visible = true;
+            label8.Visible = true;
             op_name_method();
             id_op_method();
             kol_rab_method();
@@ -472,11 +460,33 @@ namespace vipo
            
             try
             {
-                connect.Open();
-               // progressTableAdapter.Fill(dubakby_VIPODataSet.progress);
-                progressTableAdapter.Update(dubakby_VIPODataSet.progress);
-                cmd_SQL.ExecuteNonQuery();
-                MessageBox.Show("Добавлено {0} записей");
+                if (label10.Visible == true && label11.Visible == false && label12.Visible == false && label13.Visible == false)
+                {
+                    connect.Open();
+                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Операция " + label8.Text + " выполнена рабочим " + label10.Text + " за " + time_f.Text + " минут.");
+                }
+                else if (label10.Visible == true && label11.Visible == true && label12.Visible == false && label13.Visible == false)
+                {
+                    connect.Open();
+                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Операция " + label8.Text + " выполнена рабочими " + label10.Text + " и " + label11.Text + " за " + time_f.Text + " минут.");
+                }
+                else if (label10.Visible == true && label11.Visible == true && label12.Visible == true && label13.Visible == false)
+                {
+                    connect.Open();
+                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                    MessageBox.Show("Операция " + label8.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + " и " + label12.Text + " за " + time_f.Text + " минут.");
+                }
+                else
+                {
+                    connect.Open();
+                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Операция " + label8.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + ",\n " + label12.Text + " и " + label13.Text + " за " + time_f.Text + " минут.");
+                }  
             }
             catch (SqlException ex)
             {

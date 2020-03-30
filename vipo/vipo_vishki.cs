@@ -52,20 +52,47 @@ namespace vipo
         
         private void button1_Click(object sender, EventArgs e)
         {
+            proverka_zav_n();
+            
+        }
+
+        private void proverka_zav_n()
+        {
             if (dataGridView1.Rows.Count == 0 || string.IsNullOrEmpty(label6.Text))
             {
                 MessageBox.Show("Не выбран заводской номер!", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
             else
             {
+                proverka_op();
+            }
+        }
+
+        private void proverka_op()
+        {
+            //string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            //string sql = "SELECT 'EXISTS'(SELECT complete FROM progress WHERE complete = 1 AND [zav_n] = '" + label6.Text + "' AND [id_post] = '" + label8.Text + "')";
+
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            SqlConnection Con = new SqlConnection(connectionString); //Новое подключение
+            SqlCommand command = new SqlCommand("SELECT complete FROM progress WHERE complete = 0 AND [zav_n] = '" + label6.Text + "' AND [id_post] = '" + label8.Text + "'", Con); //Команда выбора данных
+            Con.Open(); //Открываем соединение
+            SqlDataReader read = command.ExecuteReader(); //Считываем и извлекаем данные
+            if (read.Read()) //Читаем пока есть данные
+            {
                 vipo_post vipo_post = new vipo_post();
                 vipo_post.Show();
                 vipo_post.label4.Text = label7.Text;
                 vipo_post.label15.Text = label8.Text;
                 vipo_post.label6.Text = dataGridView1.CurrentCell.EditedFormattedValue.ToString();
-                
+                vipo_post.label16.Text = label3.Text;
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("По заводскому номеру " + label6.Text.ToString() + " операции на " + label8.Text.ToString() + " посту ОТСУТСТВУЮТ!", "!?ОПА!?", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            Con.Close();
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
