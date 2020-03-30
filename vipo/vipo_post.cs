@@ -53,11 +53,10 @@ namespace vipo
             this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.progress". При необходимости она может быть перемещена или удалена.
             this.progressTableAdapter.Fill(this.dubakby_VIPODataSet.progress);
-            FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.workers". При необходимости она может быть перемещена или удалена.
             this.workersTableAdapter.Fill(this.dubakby_VIPODataSet.workers);
-          
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
         }
 
@@ -130,7 +129,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    //zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -169,7 +168,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    //zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -208,7 +207,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    //zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -247,7 +246,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                    //zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
