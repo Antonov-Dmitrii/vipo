@@ -53,11 +53,10 @@ namespace vipo
             this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.progress". При необходимости она может быть перемещена или удалена.
             this.progressTableAdapter.Fill(this.dubakby_VIPODataSet.progress);
-            FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.workers". При необходимости она может быть перемещена или удалена.
             this.workersTableAdapter.Fill(this.dubakby_VIPODataSet.workers);
-          
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
         }
 
