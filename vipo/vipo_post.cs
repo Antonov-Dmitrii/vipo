@@ -110,6 +110,7 @@ namespace vipo
 
         private void button2_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             if (label10.Visible == true)
             {
                 string st = label20.Text;
@@ -130,7 +131,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                   // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -169,7 +170,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                   // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -208,7 +209,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                   // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -247,7 +248,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
+                   // zpTableAdapter.Fill(dubakby_VIPODataSet.zp);
                     zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                     MessageBox.Show("Добавлено {0} записей");
@@ -454,6 +455,36 @@ namespace vipo
             }
         }
 
+        private void complete_method()
+        {
+            int st = 1;
+            Convert.ToInt32(dateTimePicker1.Value);
+            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            SqlConnection connect = new SqlConnection(connection);
+            string sql = "UPDATE progress SET complete = @complete WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label18.Text + "' ";
+            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+            cmd_SQL.Parameters.AddWithValue("@complete", st);
+           
+            try
+            {
+                connect.Open();
+               // progressTableAdapter.Fill(dubakby_VIPODataSet.progress);
+                progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                cmd_SQL.ExecuteNonQuery();
+                MessageBox.Show("Добавлено {0} записей");
+            }
+            catch (SqlException ex)
+            {
+
+                throw new ApplicationException("error insert zp", ex);
+
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
         private void img_method()
         {
             string connectionString1 = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
@@ -562,6 +593,20 @@ namespace vipo
         private void listBox1_Click(object sender, EventArgs e)
         {
             label9.Text = listBox1.SelectedItem.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            complete_method();
+            op_name_method();
+            id_op_method();
+            kol_rab_method();
+            time_norm_method();
+            img_method();
+            stavka_method();
+            workers_method();
+            mat_norm_method();
         }
     }
 }
