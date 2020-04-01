@@ -25,6 +25,8 @@ namespace vipo
             var pass_b = "2";
             var log_admin = "3";
             var pass_admin = "3";
+            var log_gal = "4";
+            var pass_gal = "4";
             //passBox.PasswordChar = '*';
 
             if ((logBox.Text == log_gl_in) && (passBox.Text == pass_gl_in))
@@ -45,7 +47,13 @@ namespace vipo
                 admin.Show();
                 this.Close();
             }
-            else if ((logBox.Text == log_admin) && (passBox.Text == pass_admin) && (logBox.Text == log_gl_in) && (passBox.Text == pass_gl_in) && (logBox.Text == log_b) && (passBox.Text == pass_b))
+            if ((logBox.Text == log_gal) && (passBox.Text == pass_gal))
+            {
+                gal_petr gal = new gal_petr();
+                gal.Show();
+                this.Close();
+            }
+            else if ((logBox.Text == log_admin) && (passBox.Text == pass_admin) && (logBox.Text == log_gl_in) && (passBox.Text == pass_gl_in) && (logBox.Text == log_b) && (passBox.Text == pass_b) && (logBox.Text == log_gal) && (passBox.Text == pass_gal))
             {
                 MessageBox.Show("Неправильно введен логин или пароль!!!");
             }
