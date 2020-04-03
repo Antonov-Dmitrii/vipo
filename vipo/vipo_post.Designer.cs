@@ -77,14 +77,14 @@ namespace vipo
             this.vishkiTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
             this.button7 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.id_op = new System.Windows.Forms.Label();
             this.mat_normTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.mat_normTableAdapter();
             this.materialsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.materialsTableAdapter();
             this.label19 = new System.Windows.Forms.Label();
             this.opnormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dubakby_VIPODataSet1 = new vipo.dubakby_VIPODataSet();
             this.op_normTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.op_normTableAdapter();
-            this.label20 = new System.Windows.Forms.Label();
+            this.stavka = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label21 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -235,7 +235,6 @@ namespace vipo
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ход технологического процесса";
-            this.groupBox2.Visible = false;
             // 
             // label22
             // 
@@ -267,7 +266,7 @@ namespace vipo
             // time_n
             // 
             this.time_n.AutoSize = true;
-            this.time_n.Location = new System.Drawing.Point(71, 136);
+            this.time_n.Location = new System.Drawing.Point(81, 136);
             this.time_n.Name = "time_n";
             this.time_n.Size = new System.Drawing.Size(35, 24);
             this.time_n.TabIndex = 5;
@@ -391,7 +390,7 @@ namespace vipo
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(203, 67);
             this.button5.TabIndex = 8;
-            this.button5.Text = "Перейти к следующей технологической операции";
+            this.button5.Text = "Следующая операция";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -408,8 +407,10 @@ namespace vipo
             this.izm});
             this.dataGridView1.DataSource = this.matnormBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(21, 495);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(421, 177);
             this.dataGridView1.TabIndex = 9;
@@ -556,15 +557,15 @@ namespace vipo
             this.label17.Text = "label17";
             this.label17.Visible = false;
             // 
-            // label18
+            // id_op
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(448, 101);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 13);
-            this.label18.TabIndex = 18;
-            this.label18.Text = "label18";
-            this.label18.Visible = false;
+            this.id_op.AutoSize = true;
+            this.id_op.Location = new System.Drawing.Point(448, 101);
+            this.id_op.Name = "id_op";
+            this.id_op.Size = new System.Drawing.Size(33, 13);
+            this.id_op.TabIndex = 18;
+            this.id_op.Text = "id_op";
+            this.id_op.Visible = false;
             // 
             // mat_normTableAdapter
             // 
@@ -600,15 +601,15 @@ namespace vipo
             // 
             this.op_normTableAdapter.ClearBeforeFill = true;
             // 
-            // label20
+            // stavka
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(448, 127);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 13);
-            this.label20.TabIndex = 20;
-            this.label20.Text = "label20";
-            this.label20.Visible = false;
+            this.stavka.AutoSize = true;
+            this.stavka.Location = new System.Drawing.Point(448, 127);
+            this.stavka.Name = "stavka";
+            this.stavka.Size = new System.Drawing.Size(39, 13);
+            this.stavka.TabIndex = 20;
+            this.stavka.Text = "stavka";
+            this.stavka.Visible = false;
             // 
             // timer2
             // 
@@ -623,6 +624,7 @@ namespace vipo
             this.label21.TabIndex = 21;
             this.label21.Text = "label21";
             this.label21.Visible = false;
+            this.label21.TextChanged += new System.EventHandler(this.label21_TextChanged);
             // 
             // dateTimePicker1
             // 
@@ -646,7 +648,7 @@ namespace vipo
             this.id_mat.DataSource = this.materialsBindingSource;
             this.id_mat.DisplayMember = "mat_name";
             this.id_mat.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.id_mat.HeaderText = "Наименование";
+            this.id_mat.HeaderText = "Наименование материала";
             this.id_mat.Name = "id_mat";
             this.id_mat.ReadOnly = true;
             this.id_mat.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -657,10 +659,10 @@ namespace vipo
             // 
             this.kol_mat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.kol_mat.DataPropertyName = "kol_mat";
-            this.kol_mat.HeaderText = "Кол. мат.";
+            this.kol_mat.HeaderText = "Кол-во";
             this.kol_mat.Name = "kol_mat";
             this.kol_mat.ReadOnly = true;
-            this.kol_mat.Width = 79;
+            this.kol_mat.Width = 66;
             // 
             // izm
             // 
@@ -679,9 +681,9 @@ namespace vipo
             this.ClientSize = new System.Drawing.Size(1266, 684);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.label20);
+            this.Controls.Add(this.stavka);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
+            this.Controls.Add(this.id_op);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label16);
@@ -772,7 +774,7 @@ namespace vipo
         private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label id_op;
         private System.Windows.Forms.BindingSource matnormBindingSource;
         private dubakby_VIPODataSetTableAdapters.mat_normTableAdapter mat_normTableAdapter;
         private System.Windows.Forms.BindingSource materialsBindingSource;
@@ -781,7 +783,7 @@ namespace vipo
         private dubakby_VIPODataSet dubakby_VIPODataSet1;
         private System.Windows.Forms.BindingSource opnormBindingSource;
         private dubakby_VIPODataSetTableAdapters.op_normTableAdapter op_normTableAdapter;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label stavka;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
