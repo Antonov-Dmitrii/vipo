@@ -322,12 +322,12 @@ namespace vipo
             listBox1.Items.Clear();
             listBox2.Items.Clear();
             id_op.DataBindings.Clear();
-            label8.DataBindings.Clear();
+            op_name_label.DataBindings.Clear();
             time_n.DataBindings.Clear();
             kol_rab.DataBindings.Clear();
             stavka.DataBindings.Clear();
             groupBox1.Visible = true;
-            label8.Visible = true;
+            op_name_label.Visible = true;
             op_name_method();
             id_op_method();
             kol_rab_method();
@@ -451,9 +451,9 @@ namespace vipo
                 SqlConnection conn = new SqlConnection(connectionString);
                 SqlCommand cmd = new SqlCommand(queryString, conn);
                 conn.Open();
-                label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
-                cmd.Parameters.AddWithValue("@number", label8.Text);
-                label8.Text = (cmd.ExecuteScalar().ToString());
+                op_name_label.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
+                cmd.Parameters.AddWithValue("@number", op_name_label.Text);
+                op_name_label.Text = (cmd.ExecuteScalar().ToString());
                 conn.Close();
             }
         }
@@ -473,27 +473,27 @@ namespace vipo
                     connect.Open();
                     progressTableAdapter.Update(dubakby_VIPODataSet.progress);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + label8.Text + " выполнена рабочим " + label10.Text + " за " + time_f.Text + " минут.");
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочим " + label10.Text + " за " + time_f.Text + " минут.");
                 }
                 else if (label10.Visible == true && label11.Visible == true && label12.Visible == false && label13.Visible == false)
                 {
                     connect.Open();
                     progressTableAdapter.Update(dubakby_VIPODataSet.progress);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + label8.Text + " выполнена рабочими " + label10.Text + " и " + label11.Text + " за " + time_f.Text + " минут.");
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими " + label10.Text + " и " + label11.Text + " за " + time_f.Text + " минут.");
                 }
                 else if (label10.Visible == true && label11.Visible == true && label12.Visible == true && label13.Visible == false)
                 {
                     connect.Open();
                     progressTableAdapter.Update(dubakby_VIPODataSet.progress);
-                    MessageBox.Show("Операция " + label8.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + " и " + label12.Text + " за " + time_f.Text + " минут.");
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + " и " + label12.Text + " за " + time_f.Text + " минут.");
                 }
                 else
                 {
                     connect.Open();
                     progressTableAdapter.Update(dubakby_VIPODataSet.progress);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + label8.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + ",\n " + label12.Text + " и " + label13.Text + " за " + time_f.Text + " минут.");
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + ",\n " + label12.Text + " и " + label13.Text + " за " + time_f.Text + " минут.");
                 }  
             }
             catch (SqlException ex)
@@ -539,10 +539,10 @@ namespace vipo
         private void button5_Click(object sender, EventArgs e)
         {
             label21.DataBindings.Clear();
-            next_op();
+            next_id_op();
         }
 
-        private void next_op()
+        private void next_id_op()
         {
             string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
             string queryString = "SELECT MIN(id_op) FROM [progress] WHERE [id_op]>'" + id_op.Text + "' and [zav_n] = '" + label6.Text + "' and [id_v] = '" + label16.Text + "' and [id_post] = '" + label15.Text + "' and [complete] = 0";
@@ -553,11 +553,9 @@ namespace vipo
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(queryString, conn);
                 label21.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "id_op"));
-                cmd.Parameters.AddWithValue("@number", time_n.Text);
+                cmd.Parameters.AddWithValue("@number", label21.Text);
                 label21.Text = (cmd.ExecuteScalar().ToString());
                 conn.Close();
-                //id_op.DataBindings.Clear();
-                //id_op.Text = label21.Text;
             }
         }
 
@@ -565,30 +563,40 @@ namespace vipo
         {
             if (string.IsNullOrEmpty(label21.Text))
             {
-                label8.DataBindings.Clear();
-                time_n.DataBindings.Clear();
-                kol_rab.DataBindings.Clear();
-                stavka.DataBindings.Clear();
                 button7_Click(sender, e);
             }
             else
             {
+                id_op.DataBindings.Clear();
+                id_op.Text = label21.Text;
+                op_name_label.DataBindings.Clear();
+                time_n.DataBindings.Clear();
+                kol_rab.DataBindings.Clear();
+                listBox2.Items.Clear();
                 label10.DataBindings.Clear();
                 label11.DataBindings.Clear();
                 label12.DataBindings.Clear();
                 label13.DataBindings.Clear();
-                listBox2.Items.Clear();
-                id_op.DataBindings.Clear();
-                label8.DataBindings.Clear();
-                time_n.DataBindings.Clear();
-                kol_rab.DataBindings.Clear();
-                id_op.Text = label21.Text;
                 next_op_name();
                 next_time_norm();
                 next_kol_rab();
                 next_mat_norm();
                 next_img();
             }
+        }
+
+        private void next_op_name()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            SqlConnection Con = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand("SELECT[op_name] FROM[progress] WHERE[zav_n] = '" + label6.Text + "'  AND[id_v] = '" + label16.Text + "' AND[id_post] = '" + label15.Text + "' AND[id_op] = '" + label21.Text + "' AND[complete] = 0", Con); //Команда выбора данных
+            Con.Open(); //Открываем соединение
+            SqlDataReader read = command.ExecuteReader(); //Считываем и извлекаем данные
+            while (read.Read()) //Читаем пока есть данные
+            {
+                op_name_label.Text = (read.GetValue(0).ToString()); //Добавляем данные в лист итем
+            }
+            Con.Close();
         }
 
         private void next_img()
@@ -607,27 +615,9 @@ namespace vipo
             pictureBox1.Image = Image.FromFile(img);
         }
 
-        private void next_op_name()
-        {
-            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            string queryString = "SELECT [op_name] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label21.Text + "' AND [complete] = 0";
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
-            {
-                DataSet ds = new DataSet();
-                SqlConnection conn = new SqlConnection(connectionString);
-                SqlCommand cmd = new SqlCommand(queryString, conn);
-                conn.Open();
-                label8.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "op_name"));
-                cmd.Parameters.AddWithValue("@number", label8.Text);
-                label8.Text = (cmd.ExecuteScalar().ToString());
-                conn.Close();
-            }
-        }
-
         private void next_mat_norm()
         {
             string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            //var select = "SELECT [id_v],[id_post],[id_op],[id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
             var select = "SELECT [id_mat],[kol_mat],[izm] FROM [mat_norm] WHERE [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label21.Text + "'";
             var c = new SqlConnection(connectionString);
             SqlDataAdapter dataAdapter1 = new SqlDataAdapter(select, c);
@@ -642,35 +632,29 @@ namespace vipo
         private void next_time_norm()
         {
             string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            string queryString = "SELECT [time_norm] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label21.Text + "' AND [complete] =  0";
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            SqlConnection Con = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand("SELECT [time_norm] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label21.Text + "' AND [complete] =  0", Con); //Команда выбора данных
+            Con.Open(); //Открываем соединение
+            SqlDataReader read = command.ExecuteReader(); //Считываем и извлекаем данные
+            while (read.Read()) //Читаем пока есть данные
             {
-                DataSet ds = new DataSet();
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(queryString, conn);
-                time_n.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "time_norm"));
-                cmd.Parameters.AddWithValue("@number", time_n.Text);
-                time_n.Text = (cmd.ExecuteScalar().ToString());
-                conn.Close();
+                time_n.Text = (read.GetValue(0).ToString()); //Добавляем данные в лист итем
             }
+            Con.Close();
         }
 
         private void next_kol_rab()
         {
             string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            string queryString = "SELECT [kol_rab] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label21.Text + "' AND [complete] =  0";
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            SqlConnection Con = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand("SELECT [kol_rab] FROM [progress] WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + label21.Text + "' AND [complete] =  0", Con); //Команда выбора данных
+            Con.Open(); //Открываем соединение
+            SqlDataReader read = command.ExecuteReader(); //Считываем и извлекаем данные
+            while (read.Read()) //Читаем пока есть данные
             {
-                DataSet ds = new DataSet();
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(queryString, conn);
-                kol_rab.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["progress"], "kol_rab"));
-                cmd.Parameters.AddWithValue("@number", kol_rab.Text);
-                kol_rab.Text = (cmd.ExecuteScalar().ToString());
-                conn.Close();
+                kol_rab.Text = (read.GetValue(0).ToString()); //Добавляем данные в лист итем
             }
+            Con.Close();
         }
 
     }
