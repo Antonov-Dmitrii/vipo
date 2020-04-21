@@ -14,22 +14,14 @@ namespace vipo
 {
     public partial class vipo_post : Form
     {
-        int i;
-        int tk;
-        string c;
 
         public vipo_post()
         {
             InitializeComponent();
 
-            timer1.Interval = 1000; //интервал между срабатываниями 1000 миллисекунд
-                                    // timer.Tick += new EventHandler(timer_Tick); //подписываемся на события Tick
-            label10.Visible = false;
-            label11.Visible = false;
-            label12.Visible = false;
-            label13.Visible = false;
-
         }
+        int h, m, s; //часы, минуты, секунды
+        string zav_n1, id_v1, id_post1, id_op1, op_name1, v_name1, h1, m1, s1;
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -38,11 +30,16 @@ namespace vipo
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            h = Convert.ToInt32(time_f.Text);
+            m = Convert.ToInt32(time_f1.Text);
+            s = Convert.ToInt32(time_f2.Text);
+            timer1.Enabled = true;
         }
 
         private void vipo_post1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.p_time". При необходимости она может быть перемещена или удалена.
+            this.p_timeTableAdapter1.Fill(this.dubakby_VIPODataSet.p_time);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet1.op_norm". При необходимости она может быть перемещена или удалена.
             this.op_normTableAdapter.Fill(this.dubakby_VIPODataSet1.op_norm);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.materials". При необходимости она может быть перемещена или удалена.
@@ -57,14 +54,13 @@ namespace vipo
             this.workersTableAdapter.Fill(this.dubakby_VIPODataSet.workers);
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            time();
             timer1.Enabled = true;
-            StartTime = DateTime.Now;
-            
+            timer1.Start();
 
             if (listBox2.Items.Count == 1)
             {
@@ -107,11 +103,80 @@ namespace vipo
 
         }
 
+        private void time()
+        {
+            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            SqlConnection connect = new SqlConnection(connection);
+            string sql = "INSERT p_time (zav_n , id_v, id_post, id_op, op_start) VALUES (@zav_n ,@id_v ,@id_post , @id_op, @op_start)";
+            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+            cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+            cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
+            cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+            cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
+            cmd_SQL.Parameters.AddWithValue("@op_start", dateTimePicker1.Value);
+
+            try
+            {
+                connect.Open();
+                p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
+                cmd_SQL.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+
+                throw new ApplicationException("error insert p_time", ex);
+
+            }
+            finally
+            {
+                connect.Close();
+            }
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
+            int h = Int32.Parse(time_f.Text);
+            int m = Int32.Parse(time_f1.Text);
+            int s = Int32.Parse(time_f2.Text);
+            timer1.Stop(); // при нажатии пользователем на кнопку "Стоп" таймер останавливается
+            int d = (h * 60) + m + (s / 60);
+            string dd = Convert.ToString(d);
+            label18.Text = dd;
+            timer1.Enabled = false;
+            time_f.Text = "00";
+            time_f1.Text = "00";
+            time_f2.Text = "00";
+            op_end();
             rab_vremya();
             complete_method();
+        }
+
+        private void op_end()
+        {
+            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            SqlConnection connect = new SqlConnection(connection);
+            string sql = "UPDATE p_time SET op_end = @op_end, f_time=@f_time WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
+            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+            cmd_SQL.Parameters.AddWithValue("@f_time", label18.Text);
+
+            try
+            {
+                connect.Open();
+                p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
+                cmd_SQL.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+
+                throw new ApplicationException("error insert p_time", ex);
+
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
 
         private void rab_vremya()
@@ -137,7 +202,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -172,7 +237,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -207,7 +272,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -242,7 +307,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -258,31 +323,27 @@ namespace vipo
             }
         }
 
-        private DateTime StartTime;
-
         public void timer1_Tick(object sender, EventArgs e)
         {
-            TimeSpan elapsed = DateTime.Now - StartTime;
+            s = s + 1; //каждую секунду счетчик таймера секунд уменьшается на 1
+            if (s == 60) //если кончается минута, а секундная переменная становится меньше единицы, значит минута уменьшается на единицу, а секундный счетчик начинает с 59
+            {
+                m = m + 1;
+                s = 0;
+            }
+            if (m == 60) //то же самое для часов
+            {
+                h = h + 1;
+                m = 0;
+            }
 
-            // Начнем с дней, если больше 0.
-            string text = "";
-            if (elapsed.Days > 0)
-                text += elapsed.Days.ToString() + ".";
+            time_f.Text = Convert.ToString(h); //выводим таймер на экран, чтобы пользователь наглядно видел, сколько время осталось.
+            time_f1.Text = Convert.ToString(m);
+            time_f2.Text = Convert.ToString(s);
 
-            // Преобразование миллисекунд в десятые доли секунды.
-            int tenths = elapsed.Milliseconds / 100;
-
-            // Запишите оставшееся время.
-            text +=
-                elapsed.Hours.ToString("00") + ":" +
-                elapsed.Minutes.ToString("00") + ":" +
-                elapsed.Seconds.ToString("00") + "." +
-                tenths.ToString("0");
-
-            time_f.Text = text;
         }
 
-        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+    private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
             Close();
         }
@@ -326,8 +387,12 @@ namespace vipo
             time_n.DataBindings.Clear();
             kol_rab.DataBindings.Clear();
             stavka.DataBindings.Clear();
+            time_f.DataBindings.Clear();
+            time_f1.DataBindings.Clear();
+            time_f2.DataBindings.Clear();
             groupBox1.Visible = true;
             op_name_label.Visible = true;
+            button5.Visible = true;
             op_name_method();
             id_op_method();
             kol_rab_method();
@@ -336,7 +401,85 @@ namespace vipo
             stavka_method();
             workers_method();
             mat_norm_method();
+            try
+            {
+                p_time();
+                p_rab();
+            }
+            catch
+            {
+                time_f.Text = "00";
+                time_f1.Text = "00";
+                time_f2.Text = "00";
+            }
         }
+
+        private void p_rab()
+        {
+
+        }
+
+        private void p_time()
+        {
+            p_hours();
+            p_minutes();
+            p_seconds();
+        }
+
+        private void p_hours()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "SELECT p_hours FROM [p_time]  WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                time_f.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["p_time"], "p_hours"));
+                cmd.Parameters.AddWithValue("@number", time_f.Text);
+                string h = Convert.ToString(time_f.Text);
+                time_f.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+            }
+        }
+
+        private void p_minutes()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "SELECT [p_minutes] FROM [p_time]  WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                time_f1.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["p_time"], "p_minutes"));
+                cmd.Parameters.AddWithValue("@number", time_f1.Text);
+                string m = Convert.ToString(time_f1.Text);
+                time_f1.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+            }
+        }
+
+        private void p_seconds()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "SELECT [p_seconds] FROM [p_time]  WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
+            {
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                time_f2.DataBindings.Add(new Binding("Text", dubakby_VIPODataSet.Tables["p_time"], "p_seconds"));
+                cmd.Parameters.AddWithValue("@number", time_f2.Text);
+                string s = Convert.ToString(time_f2.Text);
+                time_f2.Text = (cmd.ExecuteScalar().ToString());
+                conn.Close();
+            }
+        }
+
 
         private void workers_method()
         {
@@ -473,27 +616,27 @@ namespace vipo
                     connect.Open();
                     progressTableAdapter.Update(dubakby_VIPODataSet.progress);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочим " + label10.Text + " за " + time_f.Text + " минут.");
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочим " + label10.Text + " за " + label18.Text + " минут.");
                 }
                 else if (label10.Visible == true && label11.Visible == true && label12.Visible == false && label13.Visible == false)
                 {
                     connect.Open();
                     progressTableAdapter.Update(dubakby_VIPODataSet.progress);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими " + label10.Text + " и " + label11.Text + " за " + time_f.Text + " минут.");
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими " + label10.Text + " и " + label11.Text + " за " + label18.Text + " минут.");
                 }
                 else if (label10.Visible == true && label11.Visible == true && label12.Visible == true && label13.Visible == false)
                 {
                     connect.Open();
                     progressTableAdapter.Update(dubakby_VIPODataSet.progress);
-                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + " и " + label12.Text + " за " + time_f.Text + " минут.");
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + " и " + label12.Text + " за " + label18.Text + " минут.");
                 }
                 else
                 {
                     connect.Open();
                     progressTableAdapter.Update(dubakby_VIPODataSet.progress);
                     cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + ",\n " + label12.Text + " и " + label13.Text + " за " + time_f.Text + " минут.");
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + ",\n " + label12.Text + " и " + label13.Text + " за " + label18.Text + " минут.");
                 }  
             }
             catch (SqlException ex)
@@ -525,15 +668,17 @@ namespace vipo
             pictureBox1.Image = Image.FromFile(img);
             pictureBox1.Visible = true;
         }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            label21.Text = DateTime.Now.ToLongTimeString();
-        }
-
+        
         private void listBox1_Click(object sender, EventArgs e)
         {
-            label9.Text = listBox1.SelectedItem.ToString();
+            if (listBox1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Рабочий не выбран!");
+            }
+            else
+            {
+                label9.Text = listBox1.SelectedItem.ToString();
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -582,6 +727,16 @@ namespace vipo
                 next_kol_rab();
                 next_mat_norm();
                 next_img();
+                try
+                {
+                    p_time();
+                }
+                catch
+                {
+                    time_f.Text = "00";
+                    time_f1.Text = "00";
+                    time_f2.Text = "00";
+                }
             }
         }
 
@@ -657,5 +812,29 @@ namespace vipo
             Con.Close();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            pauza pauza = new pauza();
+            string zav_n1 = Convert.ToString(label6.Text);
+            pauza.label2.Text = zav_n1;
+            string id_v1 = Convert.ToString(label16.Text);
+            pauza.label3.Text = id_v1;
+            string id_post1 = Convert.ToString(label15.Text);
+            pauza.label4.Text = id_post1;
+            string id_op1 = Convert.ToString(id_op.Text);
+            pauza.label5.Text = id_op1;
+            string op_name1 = Convert.ToString(op_name_label.Text);
+            pauza.label8.Text = op_name1;
+            string v_name1 = Convert.ToString(label4.Text);
+            pauza.label9.Text = v_name1;
+            string h1 = Convert.ToString(time_f.Text);
+            pauza.label6.Text = h1;
+            string m1 = Convert.ToString(time_f1.Text);
+            pauza.label10.Text = m1;
+            string s1 = Convert.ToString(time_f2.Text);
+            pauza.label11.Text = s1;
+            pauza.Show();
+        }
     }
 }

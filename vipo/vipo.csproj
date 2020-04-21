@@ -101,6 +101,12 @@
     <Compile Include="gl_in.Designer.cs">
       <DependentUpon>gl_in.cs</DependentUpon>
     </Compile>
+    <Compile Include="pauza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pauza.Designer.cs">
+      <DependentUpon>pauza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="progress.cs">
       <SubType>Form</SubType>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gl_in.resx">
       <DependentUpon>gl_in.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pauza.resx">
+      <DependentUpon>pauza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="progress.resx">
       <DependentUpon>progress.cs</DependentUpon>

@@ -84,8 +84,6 @@ namespace vipo {
         
         private global::System.Data.DataRelation relationFK_workers_posts;
         
-        private global::System.Data.DataRelation relationFK_zp_rab_zp;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -619,7 +617,6 @@ namespace vipo {
             this.relationFK_sklad_posts = this.Relations["FK_sklad_posts"];
             this.relationFK_stavka_posts = this.Relations["FK_stavka_posts"];
             this.relationFK_workers_posts = this.Relations["FK_workers_posts"];
-            this.relationFK_zp_rab_zp = this.Relations["FK_zp_rab_zp"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -716,10 +713,6 @@ namespace vipo {
                         this.tableposts.id_postColumn}, new global::System.Data.DataColumn[] {
                         this.tableworkers.id_postColumn}, false);
             this.Relations.Add(this.relationFK_workers_posts);
-            this.relationFK_zp_rab_zp = new global::System.Data.DataRelation("FK_zp_rab_zp", new global::System.Data.DataColumn[] {
-                        this.tablezp.rab_nameColumn}, new global::System.Data.DataColumn[] {
-                        this.tablezp_rab.rab_nameColumn}, false);
-            this.Relations.Add(this.relationFK_zp_rab_zp);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2526,8 +2519,6 @@ namespace vipo {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class p_timeDataTable : global::System.Data.TypedTableBase<p_timeRow> {
             
-            private global::System.Data.DataColumn columnid_time;
-            
             private global::System.Data.DataColumn columnzav_n;
             
             private global::System.Data.DataColumn columnid_v;
@@ -2540,9 +2531,11 @@ namespace vipo {
             
             private global::System.Data.DataColumn columnop_end;
             
-            private global::System.Data.DataColumn columnp_start;
+            private global::System.Data.DataColumn columnp_hours;
             
-            private global::System.Data.DataColumn columnp_stop;
+            private global::System.Data.DataColumn columnp_minutes;
+            
+            private global::System.Data.DataColumn columnp_seconds;
             
             private global::System.Data.DataColumn columnf_time;
             
@@ -2581,14 +2574,6 @@ namespace vipo {
             protected p_timeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn id_timeColumn {
-                get {
-                    return this.columnid_time;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2641,17 +2626,25 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn p_startColumn {
+            public global::System.Data.DataColumn p_hoursColumn {
                 get {
-                    return this.columnp_start;
+                    return this.columnp_hours;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn p_stopColumn {
+            public global::System.Data.DataColumn p_minutesColumn {
                 get {
-                    return this.columnp_stop;
+                    return this.columnp_minutes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn p_secondsColumn {
+                get {
+                    return this.columnp_seconds;
                 }
             }
             
@@ -2716,18 +2709,18 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public p_timeRow Addp_timeRow(int zav_n, int id_v, int id_post, int id_op, System.DateTime op_start, System.DateTime op_end, System.DateTime p_start, System.DateTime p_stop, System.DateTime f_time, float otkl, p_reasonsRow parentp_reasonsRowByFK_p_time_p_reasons) {
+            public p_timeRow Addp_timeRow(int zav_n, int id_v, int id_post, int id_op, string op_start, string op_end, string p_hours, string p_minutes, string p_seconds, string f_time, float otkl, p_reasonsRow parentp_reasonsRowByFK_p_time_p_reasons) {
                 p_timeRow rowp_timeRow = ((p_timeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
                         zav_n,
                         id_v,
                         id_post,
                         id_op,
                         op_start,
                         op_end,
-                        p_start,
-                        p_stop,
+                        p_hours,
+                        p_minutes,
+                        p_seconds,
                         f_time,
                         otkl,
                         null};
@@ -2737,13 +2730,6 @@ namespace vipo {
                 rowp_timeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowp_timeRow);
                 return rowp_timeRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public p_timeRow FindByid_time(int id_time) {
-                return ((p_timeRow)(this.Rows.Find(new object[] {
-                            id_time})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2763,15 +2749,15 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnid_time = base.Columns["id_time"];
                 this.columnzav_n = base.Columns["zav_n"];
                 this.columnid_v = base.Columns["id_v"];
                 this.columnid_post = base.Columns["id_post"];
                 this.columnid_op = base.Columns["id_op"];
                 this.columnop_start = base.Columns["op_start"];
                 this.columnop_end = base.Columns["op_end"];
-                this.columnp_start = base.Columns["p_start"];
-                this.columnp_stop = base.Columns["p_stop"];
+                this.columnp_hours = base.Columns["p_hours"];
+                this.columnp_minutes = base.Columns["p_minutes"];
+                this.columnp_seconds = base.Columns["p_seconds"];
                 this.columnf_time = base.Columns["f_time"];
                 this.columnotkl = base.Columns["otkl"];
                 this.columnid_p = base.Columns["id_p"];
@@ -2780,8 +2766,6 @@ namespace vipo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid_time = new global::System.Data.DataColumn("id_time", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_time);
                 this.columnzav_n = new global::System.Data.DataColumn("zav_n", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnzav_n);
                 this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2790,39 +2774,33 @@ namespace vipo {
                 base.Columns.Add(this.columnid_post);
                 this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_op);
-                this.columnop_start = new global::System.Data.DataColumn("op_start", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnop_start = new global::System.Data.DataColumn("op_start", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnop_start);
-                this.columnop_end = new global::System.Data.DataColumn("op_end", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnop_end = new global::System.Data.DataColumn("op_end", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnop_end);
-                this.columnp_start = new global::System.Data.DataColumn("p_start", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnp_start);
-                this.columnp_stop = new global::System.Data.DataColumn("p_stop", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnp_stop);
-                this.columnf_time = new global::System.Data.DataColumn("f_time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnp_hours = new global::System.Data.DataColumn("p_hours", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnp_hours);
+                this.columnp_minutes = new global::System.Data.DataColumn("p_minutes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnp_minutes);
+                this.columnp_seconds = new global::System.Data.DataColumn("p_seconds", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnp_seconds);
+                this.columnf_time = new global::System.Data.DataColumn("f_time", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnf_time);
                 this.columnotkl = new global::System.Data.DataColumn("otkl", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnotkl);
                 this.columnid_p = new global::System.Data.DataColumn("id_p", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_p);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid_time}, true));
-                this.columnid_time.AutoIncrement = true;
-                this.columnid_time.AutoIncrementSeed = -1;
-                this.columnid_time.AutoIncrementStep = -1;
-                this.columnid_time.AllowDBNull = false;
-                this.columnid_time.ReadOnly = true;
-                this.columnid_time.Unique = true;
                 this.columnzav_n.AllowDBNull = false;
                 this.columnid_v.AllowDBNull = false;
                 this.columnid_post.AllowDBNull = false;
                 this.columnid_op.AllowDBNull = false;
                 this.columnop_start.AllowDBNull = false;
-                this.columnop_end.AllowDBNull = false;
-                this.columnp_start.AllowDBNull = false;
-                this.columnp_stop.AllowDBNull = false;
-                this.columnf_time.AllowDBNull = false;
-                this.columnotkl.AllowDBNull = false;
-                this.columnid_p.AllowDBNull = false;
+                this.columnop_start.MaxLength = 100;
+                this.columnop_end.MaxLength = 100;
+                this.columnp_hours.MaxLength = 100;
+                this.columnp_minutes.MaxLength = 100;
+                this.columnp_seconds.MaxLength = 100;
+                this.columnf_time.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4290,7 +4268,7 @@ namespace vipo {
             
             private global::System.Data.DataColumn columnkol;
             
-            private global::System.Data.DataColumn columnizm;
+            private global::System.Data.DataColumn columnid_v;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -4351,9 +4329,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn izmColumn {
+            public global::System.Data.DataColumn id_vColumn {
                 get {
-                    return this.columnizm;
+                    return this.columnid_v;
                 }
             }
             
@@ -4394,13 +4372,13 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public skladRow AddskladRow(materialsRow parentmaterialsRowByFK_sklad_materials, postsRow parentpostsRowByFK_sklad_posts, float kol, string izm) {
+            public skladRow AddskladRow(materialsRow parentmaterialsRowByFK_sklad_materials, postsRow parentpostsRowByFK_sklad_posts, float kol, int id_v) {
                 skladRow rowskladRow = ((skladRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         kol,
-                        izm};
+                        id_v};
                 if ((parentmaterialsRowByFK_sklad_materials != null)) {
                     columnValuesArray[0] = parentmaterialsRowByFK_sklad_materials[0];
                 }
@@ -4432,7 +4410,7 @@ namespace vipo {
                 this.columnid_mat = base.Columns["id_mat"];
                 this.columnid_post = base.Columns["id_post"];
                 this.columnkol = base.Columns["kol"];
-                this.columnizm = base.Columns["izm"];
+                this.columnid_v = base.Columns["id_v"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4444,13 +4422,12 @@ namespace vipo {
                 base.Columns.Add(this.columnid_post);
                 this.columnkol = new global::System.Data.DataColumn("kol", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkol);
-                this.columnizm = new global::System.Data.DataColumn("izm", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnizm);
+                this.columnid_v = new global::System.Data.DataColumn("id_v", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_v);
                 this.columnid_mat.AllowDBNull = false;
                 this.columnid_post.AllowDBNull = false;
                 this.columnkol.AllowDBNull = false;
-                this.columnizm.AllowDBNull = false;
-                this.columnizm.MaxLength = 20;
+                this.columnid_v.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5951,7 +5928,7 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zpRow AddzpRow(string rab_name, int zav_n, int id_v, int id_post, int id_op, float stavka, int time_norm, System.DateTime op_end) {
+            public zpRow AddzpRow(string rab_name, int zav_n, int id_v, int id_post, int id_op, double stavka, int time_norm, string op_end) {
                 zpRow rowzpRow = ((zpRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         rab_name,
@@ -5965,13 +5942,6 @@ namespace vipo {
                 rowzpRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowzpRow);
                 return rowzpRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zpRow FindByrab_name(string rab_name) {
-                return ((zpRow)(this.Rows.Find(new object[] {
-                            rab_name})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6014,16 +5984,13 @@ namespace vipo {
                 base.Columns.Add(this.columnid_post);
                 this.columnid_op = new global::System.Data.DataColumn("id_op", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_op);
-                this.columnstavka = new global::System.Data.DataColumn("stavka", typeof(float), null, global::System.Data.MappingType.Element);
+                this.columnstavka = new global::System.Data.DataColumn("stavka", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstavka);
                 this.columntime_norm = new global::System.Data.DataColumn("time_norm", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntime_norm);
-                this.columnop_end = new global::System.Data.DataColumn("op_end", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnop_end = new global::System.Data.DataColumn("op_end", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnop_end);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnrab_name}, true));
                 this.columnrab_name.AllowDBNull = false;
-                this.columnrab_name.Unique = true;
                 this.columnrab_name.MaxLength = 100;
                 this.columnzav_n.AllowDBNull = false;
                 this.columnid_v.AllowDBNull = false;
@@ -6032,6 +5999,7 @@ namespace vipo {
                 this.columnstavka.AllowDBNull = false;
                 this.columntime_norm.AllowDBNull = false;
                 this.columnop_end.AllowDBNull = false;
+                this.columnop_end.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6255,14 +6223,11 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zp_rabRow Addzp_rabRow(zpRow parentzpRowByFK_zp_rab_zp, float zp) {
+            public zp_rabRow Addzp_rabRow(string rab_name, float zp) {
                 zp_rabRow rowzp_rabRow = ((zp_rabRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        rab_name,
                         zp};
-                if ((parentzpRowByFK_zp_rab_zp != null)) {
-                    columnValuesArray[0] = parentzpRowByFK_zp_rab_zp[0];
-                }
                 rowzp_rabRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowzp_rabRow);
                 return rowzp_rabRow;
@@ -6890,17 +6855,6 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int id_time {
-                get {
-                    return ((int)(this[this.tablep_time.id_timeColumn]));
-                }
-                set {
-                    this[this.tablep_time.id_timeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int zav_n {
                 get {
                     return ((int)(this[this.tablep_time.zav_nColumn]));
@@ -6945,9 +6899,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime op_start {
+            public string op_start {
                 get {
-                    return ((global::System.DateTime)(this[this.tablep_time.op_startColumn]));
+                    return ((string)(this[this.tablep_time.op_startColumn]));
                 }
                 set {
                     this[this.tablep_time.op_startColumn] = value;
@@ -6956,9 +6910,14 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime op_end {
+            public string op_end {
                 get {
-                    return ((global::System.DateTime)(this[this.tablep_time.op_endColumn]));
+                    try {
+                        return ((string)(this[this.tablep_time.op_endColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'op_end\' в таблице \'p_time\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablep_time.op_endColumn] = value;
@@ -6967,31 +6926,62 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime p_start {
+            public string p_hours {
                 get {
-                    return ((global::System.DateTime)(this[this.tablep_time.p_startColumn]));
+                    try {
+                        return ((string)(this[this.tablep_time.p_hoursColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'p_hours\' в таблице \'p_time\' равно DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablep_time.p_startColumn] = value;
+                    this[this.tablep_time.p_hoursColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime p_stop {
+            public string p_minutes {
                 get {
-                    return ((global::System.DateTime)(this[this.tablep_time.p_stopColumn]));
+                    try {
+                        return ((string)(this[this.tablep_time.p_minutesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'p_minutes\' в таблице \'p_time\' равно DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablep_time.p_stopColumn] = value;
+                    this[this.tablep_time.p_minutesColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime f_time {
+            public string p_seconds {
                 get {
-                    return ((global::System.DateTime)(this[this.tablep_time.f_timeColumn]));
+                    try {
+                        return ((string)(this[this.tablep_time.p_secondsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'p_seconds\' в таблице \'p_time\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablep_time.p_secondsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string f_time {
+                get {
+                    try {
+                        return ((string)(this[this.tablep_time.f_timeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'f_time\' в таблице \'p_time\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablep_time.f_timeColumn] = value;
@@ -7002,7 +6992,12 @@ namespace vipo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public float otkl {
                 get {
-                    return ((float)(this[this.tablep_time.otklColumn]));
+                    try {
+                        return ((float)(this[this.tablep_time.otklColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'otkl\' в таблице \'p_time\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablep_time.otklColumn] = value;
@@ -7013,7 +7008,12 @@ namespace vipo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int id_p {
                 get {
-                    return ((int)(this[this.tablep_time.id_pColumn]));
+                    try {
+                        return ((int)(this[this.tablep_time.id_pColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'id_p\' в таблице \'p_time\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablep_time.id_pColumn] = value;
@@ -7029,6 +7029,90 @@ namespace vipo {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_p_time_p_reasons"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isop_endNull() {
+                return this.IsNull(this.tablep_time.op_endColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setop_endNull() {
+                this[this.tablep_time.op_endColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isp_hoursNull() {
+                return this.IsNull(this.tablep_time.p_hoursColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setp_hoursNull() {
+                this[this.tablep_time.p_hoursColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isp_minutesNull() {
+                return this.IsNull(this.tablep_time.p_minutesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setp_minutesNull() {
+                this[this.tablep_time.p_minutesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isp_secondsNull() {
+                return this.IsNull(this.tablep_time.p_secondsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setp_secondsNull() {
+                this[this.tablep_time.p_secondsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isf_timeNull() {
+                return this.IsNull(this.tablep_time.f_timeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setf_timeNull() {
+                this[this.tablep_time.f_timeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsotklNull() {
+                return this.IsNull(this.tablep_time.otklColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetotklNull() {
+                this[this.tablep_time.otklColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isid_pNull() {
+                return this.IsNull(this.tablep_time.id_pColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setid_pNull() {
+                this[this.tablep_time.id_pColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7522,12 +7606,12 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string izm {
+            public int id_v {
                 get {
-                    return ((string)(this[this.tablesklad.izmColumn]));
+                    return ((int)(this[this.tablesklad.id_vColumn]));
                 }
                 set {
-                    this[this.tablesklad.izmColumn] = value;
+                    this[this.tablesklad.id_vColumn] = value;
                 }
             }
             
@@ -7916,9 +8000,9 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public float stavka {
+            public double stavka {
                 get {
-                    return ((float)(this[this.tablezp.stavkaColumn]));
+                    return ((double)(this[this.tablezp.stavkaColumn]));
                 }
                 set {
                     this[this.tablezp.stavkaColumn] = value;
@@ -7938,23 +8022,12 @@ namespace vipo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime op_end {
+            public string op_end {
                 get {
-                    return ((global::System.DateTime)(this[this.tablezp.op_endColumn]));
+                    return ((string)(this[this.tablezp.op_endColumn]));
                 }
                 set {
                     this[this.tablezp.op_endColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zp_rabRow[] Getzp_rabRows() {
-                if ((this.Table.ChildRelations["FK_zp_rab_zp"] == null)) {
-                    return new zp_rabRow[0];
-                }
-                else {
-                    return ((zp_rabRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zp_rab_zp"])));
                 }
             }
         }
@@ -7992,17 +8065,6 @@ namespace vipo {
                 }
                 set {
                     this[this.tablezp_rab.zpColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zpRow zpRow {
-                get {
-                    return ((zpRow)(this.GetParentRow(this.Table.ParentRelations["FK_zp_rab_zp"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_zp_rab_zp"]);
                 }
             }
         }
@@ -10365,80 +10427,35 @@ SELECT id_op, id_post, id_v, num_op, op_name, time_norm, kol_rab, proc_op, img F
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "p_time";
-            tableMapping.ColumnMappings.Add("id_time", "id_time");
             tableMapping.ColumnMappings.Add("zav_n", "zav_n");
             tableMapping.ColumnMappings.Add("id_v", "id_v");
             tableMapping.ColumnMappings.Add("id_post", "id_post");
             tableMapping.ColumnMappings.Add("id_op", "id_op");
             tableMapping.ColumnMappings.Add("op_start", "op_start");
             tableMapping.ColumnMappings.Add("op_end", "op_end");
-            tableMapping.ColumnMappings.Add("p_start", "p_start");
-            tableMapping.ColumnMappings.Add("p_stop", "p_stop");
+            tableMapping.ColumnMappings.Add("p_hours", "p_hours");
+            tableMapping.ColumnMappings.Add("p_minutes", "p_minutes");
+            tableMapping.ColumnMappings.Add("p_seconds", "p_seconds");
             tableMapping.ColumnMappings.Add("f_time", "f_time");
             tableMapping.ColumnMappings.Add("otkl", "otkl");
             tableMapping.ColumnMappings.Add("id_p", "id_p");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dubakby_Dubak].[p_time] WHERE (([id_time] = @Original_id_time) AND ([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([id_post] = @Original_id_post) AND ([id_op] = @Original_id_op) AND ([op_start] = @Original_op_start) AND ([op_end] = @Original_op_end) AND ([p_start] = @Original_p_start) AND ([p_stop] = @Original_p_stop) AND ([f_time] = @Original_f_time) AND ([otkl] = @Original_otkl) AND ([id_p] = @Original_id_p))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_start", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_stop", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_stop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dubakby_Dubak].[p_time] ([zav_n], [id_v], [id_post], [id_op], [op_start], [op_end], [p_start], [p_stop], [f_time], [otkl], [id_p]) VALUES (@zav_n, @id_v, @id_post, @id_op, @op_start, @op_end, @p_start, @p_stop, @f_time, @otkl, @id_p);
-SELECT id_time, zav_n, id_v, id_post, id_op, op_start, op_end, p_start, p_stop, f_time, otkl, id_p FROM p_time WHERE (id_time = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dubakby_Dubak].[p_time] ([zav_n], [id_v], [id_post], [id_op], [op_start], [op_end], [p_hours], [p_minutes], [p_seconds], [f_time], [otkl], [id_p]) VALUES (@zav_n, @id_v, @id_post, @id_op, @op_start, @op_end, @p_hours, @p_minutes, @p_seconds, @f_time, @otkl, @id_p)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_stop", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_stop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_start", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_hours", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_hours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_minutes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_minutes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_seconds", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_seconds", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@f_time", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[p_time] SET [zav_n] = @zav_n, [id_v] = @id_v, [id_post] = @id_post, [id_op] = @id_op, [op_start] = @op_start, [op_end] = @op_end, [p_start] = @p_start, [p_stop] = @p_stop, [f_time] = @f_time, [otkl] = @otkl, [id_p] = @id_p WHERE (([id_time] = @Original_id_time) AND ([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([id_post] = @Original_id_post) AND ([id_op] = @Original_id_op) AND ([op_start] = @Original_op_start) AND ([op_end] = @Original_op_end) AND ([p_start] = @Original_p_start) AND ([p_stop] = @Original_p_stop) AND ([f_time] = @Original_f_time) AND ([otkl] = @Original_otkl) AND ([id_p] = @Original_id_p));
-SELECT id_time, zav_n, id_v, id_post, id_op, op_start, op_end, p_start, p_stop, f_time, otkl, id_p FROM p_time WHERE (id_time = @id_time)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_start", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_stop", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_stop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_start", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_start", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_start", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_stop", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_stop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_f_time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "f_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_otkl", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "otkl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_p", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_p", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_time", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10454,8 +10471,8 @@ SELECT id_time, zav_n, id_v, id_post, id_op, op_start, op_end, p_start, p_stop, 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_time, zav_n, id_v, id_post, id_op, op_start, op_end, p_start, p_stop, f" +
-                "_time, otkl, id_p FROM dubakby_Dubak.p_time";
+            this._commandCollection[0].CommandText = "SELECT zav_n, id_v, id_post, id_op, op_start, op_end, p_hours, p_minutes, p_secon" +
+                "ds, f_time, otkl, id_p FROM dubakby_Dubak.p_time";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10515,52 +10532,60 @@ SELECT id_time, zav_n, id_v, id_post, id_op, op_start, op_end, p_start, p_stop, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_time, int Original_zav_n, int Original_id_v, int Original_id_post, int Original_id_op, System.DateTime Original_op_start, System.DateTime Original_op_end, System.DateTime Original_p_start, System.DateTime Original_p_stop, System.DateTime Original_f_time, float Original_otkl, int Original_id_p) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_time));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_zav_n));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_id_v));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_id_post));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_id_op));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_op_start));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_op_end));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_p_start));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_p_stop));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_f_time));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((float)(Original_otkl));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_id_p));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int zav_n, int id_v, int id_post, int id_op, System.DateTime op_start, System.DateTime op_end, System.DateTime p_start, System.DateTime p_stop, System.DateTime f_time, float otkl, int id_p) {
+        public virtual int Insert(int zav_n, int id_v, int id_post, int id_op, string op_start, string op_end, string p_hours, string p_minutes, string p_seconds, string f_time, global::System.Nullable<float> otkl, global::System.Nullable<int> id_p) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(zav_n));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_v));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(id_post));
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(id_op));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(op_start));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(op_end));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(p_start));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(p_stop));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(f_time));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((float)(otkl));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(id_p));
+            if ((op_start == null)) {
+                throw new global::System.ArgumentNullException("op_start");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(op_start));
+            }
+            if ((op_end == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(op_end));
+            }
+            if ((p_hours == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(p_hours));
+            }
+            if ((p_minutes == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(p_minutes));
+            }
+            if ((p_seconds == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(p_seconds));
+            }
+            if ((f_time == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(f_time));
+            }
+            if ((otkl.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((float)(otkl.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((id_p.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(id_p.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10575,106 +10600,6 @@ SELECT id_time, zav_n, id_v, id_post, id_op, op_start, op_end, p_start, p_stop, 
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int zav_n, 
-                    int id_v, 
-                    int id_post, 
-                    int id_op, 
-                    System.DateTime op_start, 
-                    System.DateTime op_end, 
-                    System.DateTime p_start, 
-                    System.DateTime p_stop, 
-                    System.DateTime f_time, 
-                    float otkl, 
-                    int id_p, 
-                    int Original_id_time, 
-                    int Original_zav_n, 
-                    int Original_id_v, 
-                    int Original_id_post, 
-                    int Original_id_op, 
-                    System.DateTime Original_op_start, 
-                    System.DateTime Original_op_end, 
-                    System.DateTime Original_p_start, 
-                    System.DateTime Original_p_stop, 
-                    System.DateTime Original_f_time, 
-                    float Original_otkl, 
-                    int Original_id_p, 
-                    int id_time) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(zav_n));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_v));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(id_post));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id_op));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(op_start));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(op_end));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(p_start));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(p_stop));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(f_time));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((float)(otkl));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(id_p));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_id_time));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_zav_n));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_id_v));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_id_post));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_id_op));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_op_start));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_op_end));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_p_start));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_p_stop));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_f_time));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((float)(Original_otkl));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_id_p));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(id_time));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int zav_n, 
-                    int id_v, 
-                    int id_post, 
-                    int id_op, 
-                    System.DateTime op_start, 
-                    System.DateTime op_end, 
-                    System.DateTime p_start, 
-                    System.DateTime p_stop, 
-                    System.DateTime f_time, 
-                    float otkl, 
-                    int id_p, 
-                    int Original_id_time, 
-                    int Original_zav_n, 
-                    int Original_id_v, 
-                    int Original_id_post, 
-                    int Original_id_op, 
-                    System.DateTime Original_op_start, 
-                    System.DateTime Original_op_end, 
-                    System.DateTime Original_p_start, 
-                    System.DateTime Original_p_stop, 
-                    System.DateTime Original_f_time, 
-                    float Original_otkl, 
-                    int Original_id_p) {
-            return this.Update(zav_n, id_v, id_post, id_op, op_start, op_end, p_start, p_stop, f_time, otkl, id_p, Original_id_time, Original_zav_n, Original_id_v, Original_id_post, Original_id_op, Original_op_start, Original_op_end, Original_p_start, Original_p_stop, Original_f_time, Original_otkl, Original_id_p, Original_id_time);
         }
     }
     
@@ -12073,17 +11998,17 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
             tableMapping.ColumnMappings.Add("id_mat", "id_mat");
             tableMapping.ColumnMappings.Add("id_post", "id_post");
             tableMapping.ColumnMappings.Add("kol", "kol");
-            tableMapping.ColumnMappings.Add("izm", "izm");
+            tableMapping.ColumnMappings.Add("id_v", "id_v");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[sklad] ([id_mat], [id_post], [kol], [izm]) VALUES (@" +
-                "id_mat, @id_post, @kol, @izm)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[sklad] ([id_mat], [id_post], [kol], [id_v]) VALUES (" +
+                "@id_mat, @id_post, @kol, @id_v)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_mat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_mat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kol", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@izm", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "izm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12099,7 +12024,7 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_mat, id_post, kol, izm FROM dubakby_Dubak.sklad";
+            this._commandCollection[0].CommandText = "SELECT id_mat, id_post, kol, id_v FROM dubakby_Dubak.sklad";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12160,16 +12085,11 @@ SELECT zav_n, id_v, volt, data_pl, data_v, complete FROM plan_all WHERE (zav_n =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int id_mat, int id_post, float kol, string izm) {
+        public virtual int Insert(int id_mat, int id_post, float kol, int id_v) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_mat));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_post));
             this.Adapter.InsertCommand.Parameters[2].Value = ((float)(kol));
-            if ((izm == null)) {
-                throw new global::System.ArgumentNullException("izm");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(izm));
-            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(id_v));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13700,52 +13620,20 @@ SELECT rab_name, id_post, position, pass FROM workers WHERE (rab_name = @rab_nam
             tableMapping.ColumnMappings.Add("time_norm", "time_norm");
             tableMapping.ColumnMappings.Add("op_end", "op_end");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dubakby_Dubak].[zp] WHERE (([rab_name] = @Original_rab_name) AND ([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([id_post] = @Original_id_post) AND ([id_op] = @Original_id_op) AND ([stavka] = @Original_stavka) AND ([time_norm] = @Original_time_norm) AND ([op_end] = @Original_op_end))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rab_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rab_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stavka", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dubakby_Dubak].[zp] ([rab_name], [zav_n], [id_v], [id_post], [id_op], [stavka], [time_norm], [op_end]) VALUES (@rab_name, @zav_n, @id_v, @id_post, @id_op, @stavka, @time_norm, @op_end);
-SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp WHERE (rab_name = @rab_name)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dubakby_Dubak].[zp] ([rab_name], [zav_n], [id_v], [id_post], [id_op]" +
+                ", [stavka], [time_norm], [op_end]) VALUES (@rab_name, @zav_n, @id_v, @id_post, @" +
+                "id_op, @stavka, @time_norm, @op_end)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rab_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rab_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stavka", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stavka", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dubakby_Dubak].[zp] SET [rab_name] = @rab_name, [zav_n] = @zav_n, [id_v] = @id_v, [id_post] = @id_post, [id_op] = @id_op, [stavka] = @stavka, [time_norm] = @time_norm, [op_end] = @op_end WHERE (([rab_name] = @Original_rab_name) AND ([zav_n] = @Original_zav_n) AND ([id_v] = @Original_id_v) AND ([id_post] = @Original_id_post) AND ([id_op] = @Original_id_op) AND ([stavka] = @Original_stavka) AND ([time_norm] = @Original_time_norm) AND ([op_end] = @Original_op_end));
-SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp WHERE (rab_name = @rab_name)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rab_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rab_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stavka", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rab_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rab_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zav_n", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zav_n", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_v", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_v", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_post", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_post", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_op", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_op", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stavka", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stavka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_time_norm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "time_norm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_op_end", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@op_end", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "op_end", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13822,42 +13710,8 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_rab_name, int Original_zav_n, int Original_id_v, int Original_id_post, int Original_id_op, float Original_stavka, int Original_time_norm, System.DateTime Original_op_end) {
-            if ((Original_rab_name == null)) {
-                throw new global::System.ArgumentNullException("Original_rab_name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_rab_name));
-            }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_zav_n));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_id_v));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_id_post));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_id_op));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((float)(Original_stavka));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_time_norm));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_op_end));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string rab_name, int zav_n, int id_v, int id_post, int id_op, float stavka, int time_norm, System.DateTime op_end) {
+        public virtual int Insert(string rab_name, int zav_n, int id_v, int id_post, int id_op, double stavka, int time_norm, string op_end) {
             if ((rab_name == null)) {
                 throw new global::System.ArgumentNullException("rab_name");
             }
@@ -13868,9 +13722,14 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(id_v));
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(id_post));
             this.Adapter.InsertCommand.Parameters[4].Value = ((int)(id_op));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((float)(stavka));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((double)(stavka));
             this.Adapter.InsertCommand.Parameters[6].Value = ((int)(time_norm));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(op_end));
+            if ((op_end == null)) {
+                throw new global::System.ArgumentNullException("op_end");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(op_end));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13885,77 +13744,6 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string rab_name, 
-                    int zav_n, 
-                    int id_v, 
-                    int id_post, 
-                    int id_op, 
-                    float stavka, 
-                    int time_norm, 
-                    System.DateTime op_end, 
-                    string Original_rab_name, 
-                    int Original_zav_n, 
-                    int Original_id_v, 
-                    int Original_id_post, 
-                    int Original_id_op, 
-                    float Original_stavka, 
-                    int Original_time_norm, 
-                    System.DateTime Original_op_end) {
-            if ((rab_name == null)) {
-                throw new global::System.ArgumentNullException("rab_name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(rab_name));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(zav_n));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(id_v));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id_post));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(id_op));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((float)(stavka));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(time_norm));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(op_end));
-            if ((Original_rab_name == null)) {
-                throw new global::System.ArgumentNullException("Original_rab_name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_rab_name));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_zav_n));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_id_v));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_id_post));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_id_op));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((float)(Original_stavka));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_time_norm));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_op_end));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int zav_n, int id_v, int id_post, int id_op, float stavka, int time_norm, System.DateTime op_end, string Original_rab_name, int Original_zav_n, int Original_id_v, int Original_id_post, int Original_id_op, float Original_stavka, int Original_time_norm, System.DateTime Original_op_end) {
-            return this.Update(Original_rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end, Original_rab_name, Original_zav_n, Original_id_v, Original_id_post, Original_id_op, Original_stavka, Original_time_norm, Original_op_end);
         }
     }
     
@@ -14696,15 +14484,6 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._zpTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.zp.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._zpTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._workersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.workers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -14747,6 +14526,15 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._mat_normTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._zpTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.zp.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._zpTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14854,14 +14642,6 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._zpTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.zp.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._zpTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._workersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.workers.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -14899,6 +14679,14 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._mat_normTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._zpTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.zp.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._zpTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15008,6 +14796,14 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._zpTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.zp.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._zpTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._mat_normTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.mat_norm.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -15045,14 +14841,6 @@ SELECT rab_name, zav_n, id_v, id_post, id_op, stavka, time_norm, op_end FROM zp 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._workersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._zpTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.zp.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._zpTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
