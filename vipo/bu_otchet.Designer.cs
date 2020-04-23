@@ -59,7 +59,6 @@
             this.idpostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idmatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.kolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.izmDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skladBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -78,9 +77,19 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.materialsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.materialsTableAdapter();
             this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
             this.postsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.postsTableAdapter();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.id_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mat_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
@@ -96,6 +105,8 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -105,6 +116,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControl1.Location = new System.Drawing.Point(0, 1);
             this.tabControl1.Name = "tabControl1";
@@ -391,7 +403,6 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
@@ -405,8 +416,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idpostDataGridViewTextBoxColumn,
             this.idmatDataGridViewTextBoxColumn1,
-            this.kolDataGridViewTextBoxColumn,
-            this.izmDataGridViewTextBoxColumn1});
+            this.kolDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.skladBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 30);
             this.dataGridView1.MultiSelect = false;
@@ -448,15 +458,6 @@
             this.kolDataGridViewTextBoxColumn.Name = "kolDataGridViewTextBoxColumn";
             this.kolDataGridViewTextBoxColumn.ReadOnly = true;
             this.kolDataGridViewTextBoxColumn.Width = 194;
-            // 
-            // izmDataGridViewTextBoxColumn1
-            // 
-            this.izmDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.izmDataGridViewTextBoxColumn1.DataPropertyName = "izm";
-            this.izmDataGridViewTextBoxColumn1.HeaderText = "Ед. изм.";
-            this.izmDataGridViewTextBoxColumn1.Name = "izmDataGridViewTextBoxColumn1";
-            this.izmDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.izmDataGridViewTextBoxColumn1.Width = 88;
             // 
             // skladBindingSource
             // 
@@ -647,6 +648,54 @@
             this.dataGridView2.Size = new System.Drawing.Size(809, 490);
             this.dataGridView2.TabIndex = 1;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.dataGridView4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1258, 651);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Материалы 1С";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(1054, 15);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(189, 48);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "Записать данные в бд";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(871, 15);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(164, 48);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Открыть файл";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AllowUserToOrderColumns = true;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_mat,
+            this.mat_name,
+            this.id_post,
+            this.kol,
+            this.id_v});
+            this.dataGridView4.Location = new System.Drawing.Point(8, 6);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(845, 633);
+            this.dataGridView4.TabIndex = 0;
+            // 
             // materialsTableAdapter
             // 
             this.materialsTableAdapter.ClearBeforeFill = true;
@@ -658,6 +707,39 @@
             // postsTableAdapter
             // 
             this.postsTableAdapter.ClearBeforeFill = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // id_mat
+            // 
+            this.id_mat.HeaderText = "Номер материала";
+            this.id_mat.Name = "id_mat";
+            this.id_mat.Width = 150;
+            // 
+            // mat_name
+            // 
+            this.mat_name.HeaderText = "Название материала";
+            this.mat_name.Name = "mat_name";
+            this.mat_name.Width = 250;
+            // 
+            // id_post
+            // 
+            this.id_post.HeaderText = "Номер поста";
+            this.id_post.Name = "id_post";
+            this.id_post.Width = 150;
+            // 
+            // kol
+            // 
+            this.kol.HeaderText = "Количество";
+            this.kol.Name = "kol";
+            // 
+            // id_v
+            // 
+            this.id_v.HeaderText = "Номер вышки";
+            this.id_v.Name = "id_v";
+            this.id_v.Width = 150;
             // 
             // bu_otchet
             // 
@@ -688,6 +770,8 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -751,5 +835,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kolDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn izmDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_mat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mat_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_post;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_v;
     }
 }

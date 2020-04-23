@@ -14,11 +14,11 @@ namespace vipo
     public partial class bu_otchet : Form
     {
         //работа с БД
-/*        private readonly IDataContext _dataContext = new TestDataContext();
-        //источник привязки для DGV
-        private readonly BindingSource _bsPeople = new BindingSource();
-        //объект формирования выборок для DGV
-        private readonly FilterDgv _filterDgv = new FilterDgv();*/
+        /*        private readonly IDataContext _dataContext = new TestDataContext();
+                //источник привязки для DGV
+                private readonly BindingSource _bsPeople = new BindingSource();
+                //объект формирования выборок для DGV
+                private readonly FilterDgv _filterDgv = new FilterDgv();*/
         SqlConnection connection_bu;
         DataSet dataSet_bu;
         BindingSource bindingSource;
@@ -33,7 +33,7 @@ namespace vipo
             dataSet_bu = new DataSet();
         }
 
-            private void bu_otchet_Load(object sender, EventArgs e)
+        private void bu_otchet_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.posts". При необходимости она может быть перемещена или удалена.
             this.postsTableAdapter.Fill(this.dubakby_VIPODataSet.posts);
@@ -69,8 +69,8 @@ namespace vipo
             {
                 string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 _ = int.Parse(label12.Text);
-                string queryString1 = "INSERT INTO sklad (id_mat, id_post, kol, izm) VALUES ('" + label12.Text + "', '" + comboBox1.Text + "', '" + textBox1.Text + "', '" + label14.Text.ToString() + "');";       
-                 
+                string queryString1 = "INSERT INTO sklad (id_mat, id_post, kol, izm) VALUES ('" + label12.Text + "', '" + comboBox1.Text + "', '" + textBox1.Text + "', '" + label14.Text.ToString() + "');";
+
                 using (SqlConnection connection_bu = new SqlConnection(connectionString))
                 {
                     using (SqlCommand command = connection_bu.CreateCommand())
@@ -81,7 +81,7 @@ namespace vipo
                         {
                             connection_bu.Open();
                             command.ExecuteNonQuery();
-                            MessageBox.Show("Материал " + label13.Text + " добавлен на ПОСТ №" + comboBox1.Text + " в количестве " + textBox1.Text +" "+ label14.Text +".");
+                            MessageBox.Show("Материал " + label13.Text + " добавлен на ПОСТ №" + comboBox1.Text + " в количестве " + textBox1.Text + " " + label14.Text + ".");
                             skladTableAdapter.Fill(dubakby_VIPODataSet.sklad);
                             dataGridView1.Refresh();
                             textBox1.Clear();
@@ -122,5 +122,120 @@ namespace vipo
             label14.Text = s2;
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string str;
+            int rCnt;
+            int cCnt;
+
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Excel (*.XLSX)|*.XLSX";
+            opf.ShowDialog();
+            System.Data.DataTable tb = new System.Data.DataTable();
+            string filename = opf.FileName;
+
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook ExcelWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+            Microsoft.Office.Interop.Excel.Range ExcelRange;
+
+            ExcelWorkBook = ExcelApp.Workbooks.Open(filename, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false,
+                false, 0, true, 1, 0);
+            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+
+            ExcelRange = ExcelWorkSheet.UsedRange;
+            for (rCnt = 1; rCnt <= ExcelRange.Rows.Count; rCnt++)
+            {
+                dataGridView4.Rows.Add(1);
+                for (cCnt = 1; cCnt <= 5; cCnt++)
+                {
+                    str = (string)(ExcelRange.Cells[rCnt, cCnt] as Microsoft.Office.Interop.Excel.Range).Text;
+                    dataGridView4.Rows[rCnt - 1].Cells[cCnt - 1].Value = str;
+                }
+            }
+            ExcelWorkBook.Close(true, null, null);
+            ExcelApp.Quit();
+
+            releaseObject(ExcelWorkSheet);
+            releaseObject(ExcelWorkBook);
+            releaseObject(ExcelApp);
+        }
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Unable to release the object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+        public void UpdateGrid(DataTable bsource)
+        {
+            dataGridView4.DataSource = bsource;
+           
+            dataGridView4.AutoResizeColumnHeadersHeight();
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView4.Rows.Count; i++)
+            {
+                SqlConnection con = new SqlConnection("Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312");
+                SqlCommand cmd = new SqlCommand("INSERT INTO sklad ([id_mat], [mat_name], [id_post], [kol], [id_v])VALUES(@id_mat, @mat_name, @id_post, @kol, @id_v)", con);
+                cmd.Parameters.AddWithValue("@id_mat", dataGridView4.Rows[i].Cells[0].Value);
+                cmd.Parameters.AddWithValue("@mat_name", dataGridView4.Rows[i].Cells[1].Value);
+                cmd.Parameters.AddWithValue("@id_post", dataGridView4.Rows[i].Cells[2].Value);
+                cmd.Parameters.AddWithValue("@kol", dataGridView4.Rows[i].Cells[3].Value);
+                cmd.Parameters.AddWithValue("@id_v", dataGridView4.Rows[i].Cells[4].Value);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Added successfully!");
+            }
+                /*SqlTransaction transaction = con.BeginTransaction();
+
+                try
+                {
+
+
+                    foreach (DataGridViewRow row in dataGridView4.Rows)
+                    {
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO sklad ([id_mat], [mat_name], [id_post], [kol], [id_v])VALUES(@id_mat, @mat_name, @id_post, @kol, @id_v)", con))
+                        {
+                           *//* cmd.Parameters["id_mat"].Value = row.Cells[0].Value;
+                            cmd.Parameters["mat_name"].Value = row.Cells[1].Value;
+                            cmd.Parameters["id_post"].Value = row.Cells[2].Value;
+                            cmd.Parameters["kol"].Value = row.Cells[3].Value;
+                            cmd.Parameters["id_v"].Value = row.Cells[4].Value;*//*
+
+                            cmd.Parameters.AddWithValue("@id_mat", row.Cells[0].Value);
+                            cmd.Parameters.AddWithValue("@mat_name", row.Cells[1].Value);
+                            cmd.Parameters.AddWithValue("@id_post", row.Cells[2].Value);
+                            cmd.Parameters.AddWithValue("@kol", row.Cells[3].Value);
+                            cmd.Parameters.AddWithValue("@id_v", row.Cells[4].Value);
+                            cmd.Transaction = transaction;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    transaction.Commit();
+                    con.Close();
+                    MessageBox.Show("Successfully Saved!");
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    con.Close();
+                    MessageBox.Show(ex.Message);
+                }*/
+            }
     }
 }
