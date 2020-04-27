@@ -179,12 +179,7 @@ namespace vipo
                 GC.Collect();
             }
         }
-        public void UpdateGrid(DataTable bsource)
-        {
-            dataGridView4.DataSource = bsource;
-           
-            dataGridView4.AutoResizeColumnHeadersHeight();
-        }
+        
         private void button6_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dataGridView4.Rows.Count; i++)
@@ -199,43 +194,41 @@ namespace vipo
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Added successfully!");
+                
             }
-                /*SqlTransaction transaction = con.BeginTransaction();
+            MessageBox.Show("Added successfully!");
 
-                try
+           /* SqlTransaction transaction = con.BeginTransaction();
+
+            try
+            {
+
+
+                foreach (DataGridViewRow row in dataGridView4.Rows)
                 {
-
-
-                    foreach (DataGridViewRow row in dataGridView4.Rows)
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO sklad ([id_mat], [mat_name], [id_post], [kol], [id_v])VALUES(@id_mat, @mat_name, @id_post, @kol, @id_v)", con))
                     {
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO sklad ([id_mat], [mat_name], [id_post], [kol], [id_v])VALUES(@id_mat, @mat_name, @id_post, @kol, @id_v)", con))
-                        {
-                           *//* cmd.Parameters["id_mat"].Value = row.Cells[0].Value;
-                            cmd.Parameters["mat_name"].Value = row.Cells[1].Value;
-                            cmd.Parameters["id_post"].Value = row.Cells[2].Value;
-                            cmd.Parameters["kol"].Value = row.Cells[3].Value;
-                            cmd.Parameters["id_v"].Value = row.Cells[4].Value;*//*
+                       
 
-                            cmd.Parameters.AddWithValue("@id_mat", row.Cells[0].Value);
-                            cmd.Parameters.AddWithValue("@mat_name", row.Cells[1].Value);
-                            cmd.Parameters.AddWithValue("@id_post", row.Cells[2].Value);
-                            cmd.Parameters.AddWithValue("@kol", row.Cells[3].Value);
-                            cmd.Parameters.AddWithValue("@id_v", row.Cells[4].Value);
-                            cmd.Transaction = transaction;
-                            cmd.ExecuteNonQuery();
-                        }
+                        cmd.Parameters.AddWithValue("@id_mat", row.Cells[0].Value);
+                        cmd.Parameters.AddWithValue("@mat_name", row.Cells[1].Value);
+                        cmd.Parameters.AddWithValue("@id_post", row.Cells[2].Value);
+                        cmd.Parameters.AddWithValue("@kol", row.Cells[3].Value);
+                        cmd.Parameters.AddWithValue("@id_v", row.Cells[4].Value);
+                        cmd.Transaction = transaction;
+                        cmd.ExecuteNonQuery();
                     }
-                    transaction.Commit();
-                    con.Close();
-                    MessageBox.Show("Successfully Saved!");
                 }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    con.Close();
-                    MessageBox.Show(ex.Message);
-                }*/
+                transaction.Commit();
+                con.Close();
+                MessageBox.Show("Successfully Saved!");
             }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                con.Close();
+                MessageBox.Show(ex.Message);
+            }*/
+        }
     }
 }
