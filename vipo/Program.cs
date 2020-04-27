@@ -17,6 +17,16 @@ namespace vipo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            nach first = new nach();
+            DateTime end = DateTime.Now + TimeSpan.FromSeconds(5);
+            first.Show();
+            while (end > DateTime.Now)
+            {
+                Application.DoEvents();
+            }
+            first.Close();
+            first.Dispose();
             Application.Run(new Form1());
         }
     }
