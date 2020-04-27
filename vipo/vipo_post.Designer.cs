@@ -104,6 +104,7 @@ namespace vipo
             this.label18 = new System.Windows.Forms.Label();
             this.ptimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.p_timeTableAdapter1 = new vipo.dubakby_VIPODataSetTableAdapters.p_timeTableAdapter();
+            this.zpTableAdapter1 = new vipo.dubakby_VIPODataSetTableAdapters.zpTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -710,6 +711,7 @@ namespace vipo
             this.id_op.Size = new System.Drawing.Size(33, 13);
             this.id_op.TabIndex = 18;
             this.id_op.Text = "id_op";
+            this.id_op.Visible = false;
             // 
             // mat_normTableAdapter
             // 
@@ -763,6 +765,7 @@ namespace vipo
             this.label21.Size = new System.Drawing.Size(41, 13);
             this.label21.TabIndex = 21;
             this.label21.Text = "label21";
+            this.label21.Visible = false;
             this.label21.TextChanged += new System.EventHandler(this.label21_TextChanged);
             // 
             // dateTimePicker1
@@ -798,6 +801,10 @@ namespace vipo
             // p_timeTableAdapter1
             // 
             this.p_timeTableAdapter1.ClearBeforeFill = true;
+            // 
+            // zpTableAdapter1
+            // 
+            this.zpTableAdapter1.ClearBeforeFill = true;
             // 
             // vipo_post
             // 
@@ -933,5 +940,6 @@ namespace vipo
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.BindingSource ptimeBindingSource;
         private dubakby_VIPODataSetTableAdapters.p_timeTableAdapter p_timeTableAdapter1;
+        private dubakby_VIPODataSetTableAdapters.zpTableAdapter zpTableAdapter1;
     }
 }

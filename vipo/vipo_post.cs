@@ -59,6 +59,7 @@ namespace vipo
         private void button1_Click(object sender, EventArgs e)
         {
             time();
+            rab_start();
             timer1.Enabled = true;
             timer1.Start();
 
@@ -101,6 +102,149 @@ namespace vipo
 
            
 
+        }
+
+        private void rab_start()
+        {
+            if (label10.Visible == true)
+            {
+                string st = stavka.Text;
+                float st1 = float.Parse(st);
+                string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                SqlConnection connect = new SqlConnection(connection);
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_start ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_start )";
+                SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                cmd_SQL.Parameters.AddWithValue("@rab_name", label10.Text);
+                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
+                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_start", dateTimePicker1.Value);
+
+                try
+                {
+                    connect.Open();
+                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    cmd_SQL.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+
+                    throw new ApplicationException("error insert zp", ex);
+
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+
+            if (label11.Visible == true)
+            {
+                string st = stavka.Text;
+                float st1 = float.Parse(st);
+                string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                SqlConnection connect = new SqlConnection(connection);
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_start ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_start )";
+                SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                cmd_SQL.Parameters.AddWithValue("@rab_name", label11.Text);
+                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
+                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_start", dateTimePicker1.Value);
+
+                try
+                {
+                    connect.Open();
+                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    cmd_SQL.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+
+                    throw new ApplicationException("error insert zp", ex);
+
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+
+            if (label12.Visible == true)
+            {
+                string st = stavka.Text;
+                float st1 = float.Parse(st);
+                string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                SqlConnection connect = new SqlConnection(connection);
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_start ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_start )";
+                SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                cmd_SQL.Parameters.AddWithValue("@rab_name", label12.Text);
+                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
+                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_start", dateTimePicker1.Value);
+
+                try
+                {
+                    connect.Open();
+                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    cmd_SQL.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+
+                    throw new ApplicationException("error insert zp", ex);
+
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+
+            if (label13.Visible == true)
+            {
+                string st = stavka.Text;
+                float st1 = float.Parse(st);
+                string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                SqlConnection connect = new SqlConnection(connection);
+                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_start ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_start )";
+                SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                cmd_SQL.Parameters.AddWithValue("@rab_name", label13.Text);
+                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
+                cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
+                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@op_start", dateTimePicker1.Value);
+
+                try
+                {
+                    connect.Open();
+                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    cmd_SQL.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+
+                    throw new ApplicationException("error insert zp", ex);
+
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
         }
 
         private void time()
@@ -202,7 +346,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -237,7 +381,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -272,7 +416,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -307,7 +451,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    p_timeTableAdapter.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -414,9 +558,54 @@ namespace vipo
             }
         }
 
-        private void p_rab()
+        private void p_rab()//вывод рабочих после паузы
         {
+            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            SqlConnection connect = new SqlConnection(connection);
+            string sql = "SELECT rab_name FROM [p_time]  WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
+            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+            //cmd_SQL.Parameters.AddWithValue("@complete", st);
 
+            try
+            {
+                if (label10.Visible == true && label11.Visible == false && label12.Visible == false && label13.Visible == false)
+                {
+                    connect.Open();
+                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочим " + label10.Text + " за " + label18.Text + " минут.");
+                }
+                else if (label10.Visible == true && label11.Visible == true && label12.Visible == false && label13.Visible == false)
+                {
+                    connect.Open();
+                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими " + label10.Text + " и " + label11.Text + " за " + label18.Text + " минут.");
+                }
+                else if (label10.Visible == true && label11.Visible == true && label12.Visible == true && label13.Visible == false)
+                {
+                    connect.Open();
+                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + " и " + label12.Text + " за " + label18.Text + " минут.");
+                }
+                else
+                {
+                    connect.Open();
+                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
+                    cmd_SQL.ExecuteNonQuery();
+                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + ",\n " + label12.Text + " и " + label13.Text + " за " + label18.Text + " минут.");
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                throw new ApplicationException("error insert zp", ex);
+
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
 
         private void p_time()
