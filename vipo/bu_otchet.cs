@@ -191,12 +191,31 @@ namespace vipo
                 cmd.Parameters.AddWithValue("@id_post", dataGridView4.Rows[i].Cells[2].Value);
                 cmd.Parameters.AddWithValue("@kol", dataGridView4.Rows[i].Cells[3].Value);
                 cmd.Parameters.AddWithValue("@id_v", dataGridView4.Rows[i].Cells[4].Value);
-                con.Open();
+
+                try
+                {
+                    con.Open();
+                    skladTableAdapter.Update(dubakby_VIPODataSet.sklad);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+
+                    throw new ApplicationException("error insert sklad", ex);
+
+                }
+                finally
+                {
+                    
+                    con.Close();
+                }
+                //MessageBox.Show("Added successfully!");
+                /*con.Open();
                 cmd.ExecuteNonQuery();
-                con.Close();
-                
+                con.Close();*/
+
             }
-            MessageBox.Show("Added successfully!");
+            
 
            /* SqlTransaction transaction = con.BeginTransaction();
 
