@@ -59,7 +59,6 @@ namespace vipo
         private void button1_Click(object sender, EventArgs e)
         {
             time();
-            rab_start();
             timer1.Enabled = true;
             timer1.Start();
 
@@ -98,10 +97,7 @@ namespace vipo
                 label12.Text = listBox2.Items[2].ToString();
                 label13.Text = listBox2.Items[3].ToString();
             }
-
-
-           
-
+            rab_start();
         }
 
         private void rab_start()
@@ -126,7 +122,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -161,7 +157,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -196,7 +192,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -231,7 +227,7 @@ namespace vipo
                 try
                 {
                     connect.Open();
-                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -332,21 +328,21 @@ namespace vipo
                 float st1 = float.Parse(st);
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_end )";
+                string sql = "UPDATE zp SET op_end = @op_end WHERE [rab_name] = '" + label10.Text + "' AND [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-                cmd_SQL.Parameters.AddWithValue("@rab_name", label10.Text);
+                /*cmd_SQL.Parameters.AddWithValue("@rab_name", label10.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
                 cmd_SQL.Parameters.AddWithValue("@stavka", st1);
-                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);*/
                 cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
 
                 try
                 {
                     connect.Open();
-                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -367,21 +363,21 @@ namespace vipo
                 float st1 = float.Parse(st);
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_end )";
+                string sql = "UPDATE zp SET op_end = @op_end WHERE [rab_name] = '" + label11.Text + "' AND [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-                cmd_SQL.Parameters.AddWithValue("@rab_name", label11.Text);
+                /*cmd_SQL.Parameters.AddWithValue("@rab_name", label11.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
                 cmd_SQL.Parameters.AddWithValue("@stavka", st1);
-                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);*/
                 cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
 
                 try
                 {
                     connect.Open();
-                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -402,21 +398,21 @@ namespace vipo
                 float st1 = float.Parse(st);
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_end )";
+                string sql = "UPDATE zp SET op_end = @op_end WHERE [rab_name] = '" + label12.Text + "' AND [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-                cmd_SQL.Parameters.AddWithValue("@rab_name", label12.Text);
+                /*cmd_SQL.Parameters.AddWithValue("@rab_name", label12.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
                 cmd_SQL.Parameters.AddWithValue("@stavka", st1);
-                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);*/
                 cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
 
                 try
                 {
                     connect.Open();
-                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -437,21 +433,21 @@ namespace vipo
                 float st1 = float.Parse(st);
                 string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 SqlConnection connect = new SqlConnection(connection);
-                string sql = "INSERT zp (rab_name , zav_n , id_v, id_post, id_op, stavka, time_norm, op_end ) VALUES (@rab_name ,@zav_n ,@id_v ,@id_post , @id_op ,@stavka , @time_norm ,@op_end )";
+                string sql = "UPDATE zp SET op_end = @op_end WHERE [rab_name] = '" + label13.Text + "' AND [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-                cmd_SQL.Parameters.AddWithValue("@rab_name", label13.Text);
+                /*cmd_SQL.Parameters.AddWithValue("@rab_name", label13.Text);
                 cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
                 cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
                 cmd_SQL.Parameters.AddWithValue("@stavka", st1);
-                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
+                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);*/
                 cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
 
                 try
                 {
                     connect.Open();
-                    zpTableAdapter1.Update(dubakby_VIPODataSet.zp);
+                    zpTableAdapter.Update(dubakby_VIPODataSet.zp);
                     cmd_SQL.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
@@ -534,6 +530,10 @@ namespace vipo
             time_f.DataBindings.Clear();
             time_f1.DataBindings.Clear();
             time_f2.DataBindings.Clear();
+            label10.DataBindings.Clear();
+            label11.DataBindings.Clear();
+            label12.DataBindings.Clear();
+            label13.DataBindings.Clear();
             groupBox1.Visible = true;
             op_name_label.Visible = true;
             button5.Visible = true;
@@ -548,7 +548,6 @@ namespace vipo
             try
             {
                 p_time();
-                p_rab();
             }
             catch
             {
@@ -556,55 +555,75 @@ namespace vipo
                 time_f1.Text = "00";
                 time_f2.Text = "00";
             }
+            try
+            {
+                p_rab();
+            }
+            catch
+            {
+                label10.DataBindings.Clear();
+                label11.DataBindings.Clear();
+                label12.DataBindings.Clear();
+                label13.DataBindings.Clear();
+            }
         }
 
         private void p_rab()//вывод рабочих после паузы
         {
-            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
-            SqlConnection connect = new SqlConnection(connection);
-            string sql = "SELECT rab_name FROM [p_time]  WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
-            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-            //cmd_SQL.Parameters.AddWithValue("@complete", st);
-
-            try
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            string queryString = "SELECT rab_name FROM [zp]  WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
+            //string queryString = "SELECT rab_name FROM [zp]  WHERE [zav_n] = 1234  AND [id_v] = 1201 AND [id_post] = 3 AND [id_op] = 12";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
             {
-                if (label10.Visible == true && label11.Visible == false && label12.Visible == false && label13.Visible == false)
+                DataSet ds = new DataSet();
+                SqlConnection conn = new SqlConnection(connectionString);
+                dataAdapter.Fill(ds);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(queryString, conn);
+                if (ds.Tables[0].Rows.Count == 0)
                 {
-                    connect.Open();
-                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
-                    cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочим " + label10.Text + " за " + label18.Text + " минут.");
+                    label10.Visible = false;
+                    label10.DataBindings.Clear();
+                    label11.Visible = false;
+                    label11.DataBindings.Clear();
+                    label12.Visible = false;
+                    label12.DataBindings.Clear();
+                    label13.Visible = false;
+                    label13.DataBindings.Clear();
                 }
-                else if (label10.Visible == true && label11.Visible == true && label12.Visible == false && label13.Visible == false)
+                else if (ds.Tables[0].Rows.Count == 1)
                 {
-                    connect.Open();
-                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
-                    cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими " + label10.Text + " и " + label11.Text + " за " + label18.Text + " минут.");
+                    label10.Text = ds.Tables[0].Rows[0][0].ToString();
+                    label10.Visible = true;
                 }
-                else if (label10.Visible == true && label11.Visible == true && label12.Visible == true && label13.Visible == false)
+                else if (ds.Tables[0].Rows.Count == 2)
                 {
-                    connect.Open();
-                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
-                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + " и " + label12.Text + " за " + label18.Text + " минут.");
+                    label10.Text = ds.Tables[0].Rows[0][0].ToString();
+                    label10.Visible = true;
+                    label11.Text = ds.Tables[0].Rows[1][0].ToString();
+                    label11.Visible = true;
                 }
-                else
+                else if (ds.Tables[0].Rows.Count == 3)
                 {
-                    connect.Open();
-                    progressTableAdapter.Update(dubakby_VIPODataSet.progress);
-                    cmd_SQL.ExecuteNonQuery();
-                    MessageBox.Show("Операция " + op_name_label.Text + " выполнена рабочими: " + label10.Text + ", " + label11.Text + ",\n " + label12.Text + " и " + label13.Text + " за " + label18.Text + " минут.");
+                    label10.Text = ds.Tables[0].Rows[0][0].ToString();
+                    label10.Visible = true;
+                    label11.Text = ds.Tables[0].Rows[1][0].ToString();
+                    label11.Visible = true;
+                    label12.Text = ds.Tables[0].Rows[2][0].ToString();
+                    label12.Visible = true;
                 }
-            }
-            catch (SqlException ex)
-            {
-
-                throw new ApplicationException("error insert zp", ex);
-
-            }
-            finally
-            {
-                connect.Close();
+                else if (ds.Tables[0].Rows.Count == 4)
+                {
+                    label10.Text = ds.Tables[0].Rows[0][0].ToString();
+                    label10.Visible = true;
+                    label11.Text = ds.Tables[0].Rows[1][0].ToString();
+                    label11.Visible = true;
+                    label12.Text = ds.Tables[0].Rows[2][0].ToString();
+                    label12.Visible = true;
+                    label13.Text = ds.Tables[0].Rows[3][0].ToString();
+                    label13.Visible = true;
+                }
+                conn.Close();
             }
         }
 
@@ -857,7 +876,12 @@ namespace vipo
             pictureBox1.Image = Image.FromFile(img);
             pictureBox1.Visible = true;
         }
-        
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            p_rab();
+        }
+
         private void listBox1_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItems.Count == 0)
@@ -925,6 +949,17 @@ namespace vipo
                     time_f.Text = "00";
                     time_f1.Text = "00";
                     time_f2.Text = "00";
+                }
+                try
+                {
+                    p_rab();
+                }
+                catch
+                {
+                    label10.DataBindings.Clear();
+                    label11.DataBindings.Clear();
+                    label12.DataBindings.Clear();
+                    label13.DataBindings.Clear();
                 }
             }
         }
