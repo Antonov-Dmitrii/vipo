@@ -19,9 +19,23 @@ namespace vipo
         {
             InitializeComponent();
 
+            this.ShowInTaskbar = false;
+            notifyIcon1.Click += notifyIcon1_Click;
+
+            // задаем иконку всплывающей подсказки
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+            // задаем текст подсказки
+            notifyIcon1.BalloonTipText = "Нажмите, чтобы отобразить окно";
+            // устанавливаем зголовк
+            notifyIcon1.BalloonTipTitle = "Подсказка";
+            // отображаем подсказку 12 секунд
+            notifyIcon1.ShowBalloonTip(12);
+
         }
+
         int h, m, s; //часы, минуты, секунды
         string zav_n1, id_v1, id_post1, id_op1, op_name1, v_name1, h1, m1, s1;
+        int MyForm;
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -34,6 +48,8 @@ namespace vipo
             m = Convert.ToInt32(time_f1.Text);
             s = Convert.ToInt32(time_f2.Text);
             timer1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
         }
 
         private void vipo_post1_Load(object sender, EventArgs e)
@@ -58,6 +74,10 @@ namespace vipo
 
         private void button1_Click(object sender, EventArgs e)
         {
+            pictureBox3.Enabled = true;
+            pictureBox2.Enabled = false;
+            button7.Enabled = false;
+            button5.Enabled = false;
             h = 0;
             m = 0;
             s = 0;
@@ -102,6 +122,7 @@ namespace vipo
                 label13.Text = listBox2.Items[3].ToString();
             }
             rab_start();
+            button1.Enabled = false;
         }
 
         private void spisanie_mat()
@@ -111,9 +132,9 @@ namespace vipo
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 
-             SqlCommand cmd = new SqlCommand("UPDATE sklad SET sklad.kol = sklad.kol - m.kol_mat FROM mat_norm AS m WHERE sklad.id_mat = m.id_mat AND sklad.id_mat = '" + dataGridView1.Rows[i].Cells[0].Value +"'", con);
+             SqlCommand cmd = new SqlCommand("UPDATE sklad SET sklad.kol = sklad.kol - m.kol_mat FROM mat_norm AS m WHERE sklad.id_mat = m.id_mat AND sklad.id_mat = '" + dataGridView1.Rows[i].Cells[0].Value + "' AND sklad.id_v = '" + label16.Text + "'", con);// AND sklad.id_post = '" + label15.Text + "'
 
-            try           
+                try           
             {
                 con.Open();
                     skladTableAdapter.Update(dubakby_VIPODataSet.sklad);
@@ -307,11 +328,13 @@ namespace vipo
 
         private void button2_Click(object sender, EventArgs e)
         {
+            button7.Enabled = true;
+            button5.Enabled = true;
+            pictureBox2.Enabled = true;
             int h = Int32.Parse(time_f.Text);
             int m = Int32.Parse(time_f1.Text);
             int s = Int32.Parse(time_f2.Text);
             timer1.Stop(); // при нажатии пользователем на кнопку "Стоп" таймер останавливается
-            //timer1.;
             int d = (h * 60) + m + (s / 60);
             string dd = Convert.ToString(d);
             label18.Text = dd;
@@ -510,8 +533,9 @@ namespace vipo
             {
                 listBox2.Items.Add(label9.Text);
                 groupBox2.Visible = true;
+                button1.Enabled = true;
             }
-            else
+            else 
             {
                 MessageBox.Show("Норма времени не соответствует выбранному количеству работников!\n", "Ошибка добавления", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
@@ -523,7 +547,7 @@ namespace vipo
         }
 
         private void button7_Click(object sender, EventArgs e)
-        {
+        { 
             listBox1.Items.Clear();
             listBox2.Items.Clear();
             id_op.DataBindings.Clear();
@@ -885,6 +909,18 @@ namespace vipo
             p_rab();
         }
 
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        public void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Normal;
+        }
+
         private void listBox1_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItems.Count == 0)
@@ -1064,6 +1100,8 @@ namespace vipo
             pauza.label10.Text = m1;
             string s1 = Convert.ToString(time_f2.Text);
             pauza.label11.Text = s1;
+            button3.Enabled = false;
+            button2.Enabled = false;
             pauza.Show();
         }
     }

@@ -106,6 +106,8 @@ namespace vipo
             this.p_timeTableAdapter1 = new vipo.dubakby_VIPODataSetTableAdapters.p_timeTableAdapter();
             this.zpTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.zpTableAdapter();
             this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -120,6 +122,7 @@ namespace vipo
             ((System.ComponentModel.ISupportInitialize)(this.opnormBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptimeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -258,6 +261,7 @@ namespace vipo
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ход технологического процесса";
+            this.groupBox2.Visible = false;
             // 
             // time_f2
             // 
@@ -379,6 +383,7 @@ namespace vipo
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(17, 28);
             this.button1.Name = "button1";
@@ -811,12 +816,33 @@ namespace vipo
             // 
             this.skladTableAdapter.ClearBeforeFill = true;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Enabled = false;
+            this.pictureBox3.Image = global::vipo.Properties.Resources._167_1676951_open_drop_down_menu_icon;
+            this.pictureBox3.Location = new System.Drawing.Point(1142, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(38, 38);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 24;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
+            // 
             // vipo_post
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1266, 684);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label21);
@@ -842,6 +868,7 @@ namespace vipo
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "vipo_post";
+            this.ShowInTaskbar = false;
             this.Text = "vipo_post1";
             this.Load += new System.EventHandler(this.vipo_post1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -860,6 +887,7 @@ namespace vipo
             ((System.ComponentModel.ISupportInitialize)(this.opnormBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptimeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -947,5 +975,7 @@ namespace vipo
         private System.Windows.Forms.DataGridViewTextBoxColumn idmatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolmatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn izmDataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        public System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

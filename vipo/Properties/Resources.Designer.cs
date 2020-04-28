@@ -63,6 +63,16 @@ namespace vipo.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _167_1676951_open_drop_down_menu_icon {
+            get {
+                object obj = ResourceManager.GetObject("167-1676951_open-drop-down-menu-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _52_521680_red_close_button_vector_clipart_image_smiley_pas {
             get {
                 object obj = ResourceManager.GetObject("52-521680_red-close-button-vector-clipart-image-smiley-pas", resourceCulture);
