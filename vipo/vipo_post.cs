@@ -58,6 +58,10 @@ namespace vipo
 
         private void button1_Click(object sender, EventArgs e)
         {
+            h = 0;
+            m = 0;
+            s = 0;
+            spisanie_mat();
             time();
             timer1.Enabled = true;
             timer1.Start();
@@ -98,6 +102,31 @@ namespace vipo
                 label13.Text = listBox2.Items[3].ToString();
             }
             rab_start();
+        }
+
+        private void spisanie_mat()
+        {
+            
+            /*for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {*/
+                SqlConnection con = new SqlConnection("Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312");
+                SqlCommand cmd = new SqlCommand("UPDATE sklad SET sklad.kol = sklad.kol - m.kol_mat FROM mat_norm AS m WHERE sklad.id_mat = m.id_mat AND sklad.id_v ='" + label16.Text + "' AND sklad.id_post = '" + label15.Text + "'", con);
+
+                try           //'" + dataGridView1.Rows[i].Cells[0].Value + "'
+                {
+                con.Open();
+                    skladTableAdapter.Update(dubakby_VIPODataSet.sklad);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    throw new ApplicationException("error insert sklad", ex);
+                }
+                finally
+                {
+                    con.Close();
+                }
+           /* }*/
         }
 
         private void rab_start()
@@ -247,13 +276,14 @@ namespace vipo
         {
             string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
             SqlConnection connect = new SqlConnection(connection);
-            string sql = "INSERT p_time (zav_n , id_v, id_post, id_op, op_start) VALUES (@zav_n ,@id_v ,@id_post , @id_op, @op_start)";
+            string sql = "INSERT p_time (zav_n , id_v, id_post, id_op, op_start, time_norm) VALUES (@zav_n ,@id_v ,@id_post , @id_op, @op_start, @time_norm)";
             SqlCommand cmd_SQL = new SqlCommand(sql, connect);
             cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
             cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
             cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
             cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
             cmd_SQL.Parameters.AddWithValue("@op_start", dateTimePicker1.Value);
+            cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);
 
             try
             {
@@ -280,6 +310,7 @@ namespace vipo
             int m = Int32.Parse(time_f1.Text);
             int s = Int32.Parse(time_f2.Text);
             timer1.Stop(); // при нажатии пользователем на кнопку "Стоп" таймер останавливается
+            //timer1.;
             int d = (h * 60) + m + (s / 60);
             string dd = Convert.ToString(d);
             label18.Text = dd;
@@ -287,6 +318,7 @@ namespace vipo
             time_f.Text = "00";
             time_f1.Text = "00";
             time_f2.Text = "00";
+            
             op_end();
             rab_vremya();
             complete_method();
@@ -321,7 +353,6 @@ namespace vipo
 
         private void rab_vremya()
         {
-            //Convert.ToInt32(dateTimePicker1.Value);
             if (label10.Visible == true)
             {
                 string st = stavka.Text;
@@ -330,13 +361,6 @@ namespace vipo
                 SqlConnection connect = new SqlConnection(connection);
                 string sql = "UPDATE zp SET op_end = @op_end WHERE [rab_name] = '" + label10.Text + "' AND [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-                /*cmd_SQL.Parameters.AddWithValue("@rab_name", label10.Text);
-                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
-                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
-                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);*/
                 cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
 
                 try
@@ -365,13 +389,6 @@ namespace vipo
                 SqlConnection connect = new SqlConnection(connection);
                 string sql = "UPDATE zp SET op_end = @op_end WHERE [rab_name] = '" + label11.Text + "' AND [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-                /*cmd_SQL.Parameters.AddWithValue("@rab_name", label11.Text);
-                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
-                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
-                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);*/
                 cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
 
                 try
@@ -400,13 +417,6 @@ namespace vipo
                 SqlConnection connect = new SqlConnection(connection);
                 string sql = "UPDATE zp SET op_end = @op_end WHERE [rab_name] = '" + label12.Text + "' AND [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-                /*cmd_SQL.Parameters.AddWithValue("@rab_name", label12.Text);
-                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
-                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
-                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);*/
                 cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
 
                 try
@@ -435,13 +445,6 @@ namespace vipo
                 SqlConnection connect = new SqlConnection(connection);
                 string sql = "UPDATE zp SET op_end = @op_end WHERE [rab_name] = '" + label13.Text + "' AND [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
                 SqlCommand cmd_SQL = new SqlCommand(sql, connect);
-                /*cmd_SQL.Parameters.AddWithValue("@rab_name", label13.Text);
-                cmd_SQL.Parameters.AddWithValue("@zav_n", label6.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_v", label16.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_post", label15.Text);
-                cmd_SQL.Parameters.AddWithValue("@id_op", id_op.Text);
-                cmd_SQL.Parameters.AddWithValue("@stavka", st1);
-                cmd_SQL.Parameters.AddWithValue("@time_norm", time_n.Text);*/
                 cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
 
                 try
@@ -572,7 +575,6 @@ namespace vipo
         {
             string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
             string queryString = "SELECT rab_name FROM [zp]  WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "' AND [id_op] = '" + id_op.Text + "'";
-            //string queryString = "SELECT rab_name FROM [zp]  WHERE [zav_n] = 1234  AND [id_v] = 1201 AND [id_post] = 3 AND [id_op] = 12";
             using (SqlDataAdapter dataAdapter = new SqlDataAdapter(queryString, connectionString))
             {
                 DataSet ds = new DataSet();
@@ -931,6 +933,9 @@ namespace vipo
                 time_n.DataBindings.Clear();
                 kol_rab.DataBindings.Clear();
                 listBox2.Items.Clear();
+                time_f.DataBindings.Clear();
+                time_f1.DataBindings.Clear();
+                time_f2.DataBindings.Clear();
                 label10.DataBindings.Clear();
                 label11.DataBindings.Clear();
                 label12.DataBindings.Clear();
@@ -941,26 +946,26 @@ namespace vipo
                 next_mat_norm();
                 next_img();
                 try
-                {
-                    p_time();
-                }
-                catch
-                {
-                    time_f.Text = "00";
-                    time_f1.Text = "00";
-                    time_f2.Text = "00";
-                }
+                    {
+                        p_time();
+                    }
+                    catch
+                    {
+                        time_f.Text = "00";
+                        time_f1.Text = "00";
+                        time_f2.Text = "00";
+                    }
                 try
-                {
-                    p_rab();
-                }
-                catch
-                {
-                    label10.DataBindings.Clear();
-                    label11.DataBindings.Clear();
-                    label12.DataBindings.Clear();
-                    label13.DataBindings.Clear();
-                }
+                    {
+                        p_rab();
+                    }
+                    catch
+                    {
+                        label10.DataBindings.Clear();
+                        label11.DataBindings.Clear();
+                        label12.DataBindings.Clear();
+                        label13.DataBindings.Clear();
+                    }
             }
         }
 
