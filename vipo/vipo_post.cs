@@ -106,14 +106,15 @@ namespace vipo
 
         private void spisanie_mat()
         {
-            
-            /*for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {*/
-                SqlConnection con = new SqlConnection("Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312");
-                SqlCommand cmd = new SqlCommand("UPDATE sklad SET sklad.kol = sklad.kol - m.kol_mat FROM mat_norm AS m WHERE sklad.id_mat = m.id_mat AND sklad.id_v ='" + label16.Text + "' AND sklad.id_post = '" + label15.Text + "'", con);
+            // SqlCommand cmd = new SqlCommand("UPDATE sklad SET sklad.kol = sklad.kol - (Select kol_mat FROM mat_norm WHERE [sklad].[id_mat] = [mat_norm].[id_mat] AND [id_v] = '" + label16.Text + "' AND [id_post] = '" + label15.Text + "')", con);
+            SqlConnection con = new SqlConnection("Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312");
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                
+             SqlCommand cmd = new SqlCommand("UPDATE sklad SET sklad.kol = sklad.kol - m.kol_mat FROM mat_norm AS m WHERE sklad.id_mat = m.id_mat AND sklad.id_mat = '" + dataGridView1.Rows[i].Cells[0].Value +"'", con);
 
-                try           //'" + dataGridView1.Rows[i].Cells[0].Value + "'
-                {
+            try           
+            {
                 con.Open();
                     skladTableAdapter.Update(dubakby_VIPODataSet.sklad);
                     cmd.ExecuteNonQuery();
@@ -126,7 +127,7 @@ namespace vipo
                 {
                     con.Close();
                 }
-           /* }*/
+           }
         }
 
         private void rab_start()
