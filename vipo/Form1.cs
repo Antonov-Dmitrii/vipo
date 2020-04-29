@@ -48,10 +48,5 @@ namespace vipo
         {
             Close();
         }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-           
-        }
     }
 }

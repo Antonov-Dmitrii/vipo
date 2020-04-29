@@ -73,6 +73,16 @@ namespace vipo.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _209004_widescreen_white_brick_wallpaper_2500x1389_images {
+            get {
+                object obj = ResourceManager.GetObject("209004-widescreen-white-brick-wallpaper-2500x1389-images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _52_521680_red_close_button_vector_clipart_image_smiley_pas {
             get {
                 object obj = ResourceManager.GetObject("52-521680_red-close-button-vector-clipart-image-smiley-pas", resourceCulture);
