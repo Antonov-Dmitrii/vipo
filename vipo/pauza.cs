@@ -41,7 +41,7 @@ namespace vipo
         {
             string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
             SqlConnection connect = new SqlConnection(connection);
-            string sql = "UPDATE p_time SET id_p = @id_p, p_hours = '" + label6.Text + "' , p_minutes = '" + label10.Text + "' , p_seconds = '" + label11.Text + "' WHERE [zav_n] = '" + label2.Text + "'  AND [id_v] = '" + label3.Text + "' AND [id_post] = '" + label4.Text + "' AND [id_op] = '" + label5.Text + "'";
+            string sql = "UPDATE p_time SET id_p = @id_p, p_hours = '" + label6.Text + "' , p_minutes = '" + label10.Text + "' , p_seconds = '" + label11.Text + "' WHERE [zav_n] = '" + label2.Text + "'  AND [id_v] = '" + label3.Text + "' AND [id_post] = '" + label4.Text + "' AND [num_op] = '" + label5.Text + "'";
             SqlCommand cmd_SQL = new SqlCommand(sql, connect);
             cmd_SQL.Parameters.AddWithValue("@id_p", label1.Text);
             if(MessageBox.Show("Операция " + label8.Text + "\nпо вышке " + label9.Text + " с заводским номером " + label2.Text + "\nприостановлена по причине " + label7.Text + ".", "Пауза поставлена", MessageBoxButtons.OK, MessageBoxIcon.Warning)==DialogResult.OK)

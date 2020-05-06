@@ -123,6 +123,26 @@ namespace vipo.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kissclipart_upkeep_logo_clipart_computerized_maintenance_manag_8ceb2d27d96bb5a1 {
+            get {
+                object obj = ResourceManager.GetObject("kissclipart-upkeep-logo-clipart-computerized-maintenance-manag-8ceb2d27d96bb5a1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_atm_machine_icon_in_trendy_style_isolated_background_png_image_1540276 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-atm-machine-icon-in-trendy-style-isolated-background-png-image_1540276", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vhod {
             get {
                 object obj = ResourceManager.GetObject("vhod", resourceCulture);
@@ -146,6 +166,26 @@ namespace vipo.Properties {
         internal static System.Drawing.Bitmap Без_имени_1 {
             get {
                 object obj = ResourceManager.GetObject("Без имени-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ВИПО_18_на_фоне_завода {
+            get {
+                object obj = ResourceManager.GetObject("ВИПО-18 на фоне завода", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap для_фона {
+            get {
+                object obj = ResourceManager.GetObject("для фона", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

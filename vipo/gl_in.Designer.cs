@@ -37,12 +37,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgw_gl_in = new System.Windows.Forms.DataGridView();
-            this.zavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
-            this.voltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.planagpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +55,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.zavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.voltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_gl_in)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -109,34 +109,6 @@
             this.dgw_gl_in.Size = new System.Drawing.Size(822, 407);
             this.dgw_gl_in.TabIndex = 0;
             // 
-            // zavnDataGridViewTextBoxColumn
-            // 
-            this.zavnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.zavnDataGridViewTextBoxColumn.DataPropertyName = "zav_n";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.zavnDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.zavnDataGridViewTextBoxColumn.HeaderText = "Заводской номер";
-            this.zavnDataGridViewTextBoxColumn.Name = "zavnDataGridViewTextBoxColumn";
-            this.zavnDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idvDataGridViewTextBoxColumn
-            // 
-            this.idvDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
-            this.idvDataGridViewTextBoxColumn.DataSource = this.vishkiBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.idvDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idvDataGridViewTextBoxColumn.DisplayMember = "v_name";
-            this.idvDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.idvDataGridViewTextBoxColumn.HeaderText = "Название вышки";
-            this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
-            this.idvDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idvDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.idvDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.idvDataGridViewTextBoxColumn.ValueMember = "id_v";
-            // 
             // vishkiBindingSource
             // 
             this.vishkiBindingSource.DataMember = "vishki";
@@ -146,28 +118,6 @@
             // 
             this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
             this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // voltDataGridViewTextBoxColumn
-            // 
-            this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.voltDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.voltDataGridViewTextBoxColumn.HeaderText = "Вольтаж";
-            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
-            this.voltDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataplDataGridViewTextBoxColumn
-            // 
-            this.dataplDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataplDataGridViewTextBoxColumn.DataPropertyName = "data_pl";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataplDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataplDataGridViewTextBoxColumn.HeaderText = "Дата заполнения";
-            this.dataplDataGridViewTextBoxColumn.Name = "dataplDataGridViewTextBoxColumn";
-            this.dataplDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // planagpBindingSource
             // 
@@ -239,11 +189,11 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(434, 422);
+            this.label3.Location = new System.Drawing.Point(417, 422);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 24);
+            this.label3.Size = new System.Drawing.Size(128, 24);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Вольтаж:";
+            this.label3.Text = "Напряжение:";
             // 
             // dateTimePicker1
             // 
@@ -335,6 +285,56 @@
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 17;
             this.label5.Text = "label5";
+            // 
+            // zavnDataGridViewTextBoxColumn
+            // 
+            this.zavnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.zavnDataGridViewTextBoxColumn.DataPropertyName = "zav_n";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.zavnDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.zavnDataGridViewTextBoxColumn.HeaderText = "Заводской номер";
+            this.zavnDataGridViewTextBoxColumn.Name = "zavnDataGridViewTextBoxColumn";
+            this.zavnDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idvDataGridViewTextBoxColumn
+            // 
+            this.idvDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
+            this.idvDataGridViewTextBoxColumn.DataSource = this.vishkiBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.idvDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idvDataGridViewTextBoxColumn.DisplayMember = "v_name";
+            this.idvDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.idvDataGridViewTextBoxColumn.HeaderText = "Название вышки";
+            this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
+            this.idvDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idvDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idvDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idvDataGridViewTextBoxColumn.ValueMember = "id_v";
+            // 
+            // voltDataGridViewTextBoxColumn
+            // 
+            this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.voltDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.voltDataGridViewTextBoxColumn.HeaderText = "Напряжение";
+            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
+            this.voltDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataplDataGridViewTextBoxColumn
+            // 
+            this.dataplDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataplDataGridViewTextBoxColumn.DataPropertyName = "data_pl";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataplDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataplDataGridViewTextBoxColumn.HeaderText = "Дата заполнения";
+            this.dataplDataGridViewTextBoxColumn.Name = "dataplDataGridViewTextBoxColumn";
+            this.dataplDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // gl_in
             // 

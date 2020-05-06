@@ -145,6 +145,9 @@
     <Compile Include="vipo_zav.Designer.cs">
       <DependentUpon>vipo_zav.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="admin.resx">
+      <DependentUpon>admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="author.resx">
       <DependentUpon>author.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +236,10 @@
     <Content Include="img\7899.png" />
     <Content Include="img\9676.png" />
     <Content Include="img\img1-----------.jpg" />
+    <None Include="Resources\kissclipart-upkeep-logo-clipart-computerized-maintenance-manag-8ceb2d27d96bb5a1.png" />
+    <None Include="Resources\pngtree-atm-machine-icon-in-trendy-style-isolated-background-png-image_1540276.jpg" />
+    <None Include="Resources\для фона.jpg" />
+    <None Include="Resources\ВИПО-18 на фоне завода.jpg" />
     <None Include="Resources\209004-widescreen-white-brick-wallpaper-2500x1389-images.jpg" />
     <None Include="Resources\167-1676951_open-drop-down-menu-icon.png" />
     <None Include="Resources\vip18img.JPG" />

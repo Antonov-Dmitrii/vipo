@@ -81,15 +81,19 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.materialsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.materialsTableAdapter();
-            this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
-            this.postsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.postsTableAdapter();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.id_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mat_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.materialsTableAdapter();
+            this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
+            this.postsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.postsTableAdapter();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vishkiTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
@@ -107,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -126,6 +131,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.comboBox4);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label12);
@@ -341,7 +348,7 @@
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.Location = new System.Drawing.Point(416, 551);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(832, 29);
+            this.textBox2.Size = new System.Drawing.Size(580, 29);
             this.textBox2.TabIndex = 5;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
@@ -350,9 +357,9 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(955, 591);
+            this.button1.Location = new System.Drawing.Point(1002, 591);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(293, 45);
+            this.button1.Size = new System.Drawing.Size(246, 45);
             this.button1.TabIndex = 4;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
@@ -696,22 +703,6 @@
             this.dataGridView4.Size = new System.Drawing.Size(845, 633);
             this.dataGridView4.TabIndex = 0;
             // 
-            // materialsTableAdapter
-            // 
-            this.materialsTableAdapter.ClearBeforeFill = true;
-            // 
-            // skladTableAdapter
-            // 
-            this.skladTableAdapter.ClearBeforeFill = true;
-            // 
-            // postsTableAdapter
-            // 
-            this.postsTableAdapter.ClearBeforeFill = true;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // id_mat
             // 
             this.id_mat.HeaderText = "Номер материала";
@@ -740,6 +731,57 @@
             this.id_v.HeaderText = "Номер вышки";
             this.id_v.Name = "id_v";
             this.id_v.Width = 150;
+            // 
+            // materialsTableAdapter
+            // 
+            this.materialsTableAdapter.ClearBeforeFill = true;
+            // 
+            // skladTableAdapter
+            // 
+            this.skladTableAdapter.ClearBeforeFill = true;
+            // 
+            // postsTableAdapter
+            // 
+            this.postsTableAdapter.ClearBeforeFill = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vishkiBindingSource, "id_v", true));
+            this.comboBox4.DataSource = this.vishkiBindingSource;
+            this.comboBox4.DisplayMember = "v_name";
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(1002, 553);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(250, 32);
+            this.comboBox4.TabIndex = 20;
+            this.comboBox4.ValueMember = "id_v";
+            // 
+            // vishkiBindingSource
+            // 
+            this.vishkiBindingSource.DataMember = "vishki";
+            this.vishkiBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // vishkiTableAdapter
+            // 
+            this.vishkiTableAdapter.ClearBeforeFill = true;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(1083, 523);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 24);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Вышка:";
             // 
             // bu_otchet
             // 
@@ -772,6 +814,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -845,5 +888,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_post;
         private System.Windows.Forms.DataGridViewTextBoxColumn kol;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_v;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.BindingSource vishkiBindingSource;
+        private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
+        private System.Windows.Forms.Label label8;
     }
 }

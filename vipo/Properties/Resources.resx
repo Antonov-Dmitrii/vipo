@@ -121,6 +121,12 @@
   <data name="close_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="209004-widescreen-white-brick-wallpaper-2500x1389-images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\209004-widescreen-white-brick-wallpaper-2500x1389-images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngtree-atm-machine-icon-in-trendy-style-isolated-background-png-image_1540276" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngtree-atm-machine-icon-in-trendy-style-isolated-background-png-image_1540276.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="52-521680_red-close-button-vector-clipart-image-smiley-pas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\52-521680_red-close-button-vector-clipart-image-smiley-pas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,16 +139,22 @@
   <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="167-1676951_open-drop-down-menu-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\167-1676951_open-drop-down-menu-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="для фона" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\для фона.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Без имени-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Без имени-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="167-1676951_open-drop-down-menu-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\167-1676951_open-drop-down-menu-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВИПО-18 на фоне завода" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВИПО-18 на фоне завода.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="vhod" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vhod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="209004-widescreen-white-brick-wallpaper-2500x1389-images" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\209004-widescreen-white-brick-wallpaper-2500x1389-images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kissclipart-upkeep-logo-clipart-computerized-maintenance-manag-8ceb2d27d96bb5a1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kissclipart-upkeep-logo-clipart-computerized-maintenance-manag-8ceb2d27d96bb5a1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -70,14 +69,15 @@
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.BackgroundImage = global::vipo.Properties.Resources.pngtree_atm_machine_icon_in_trendy_style_isolated_background_png_image_1540276;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ForeColor = System.Drawing.Color.DarkMagenta;
             this.button2.Location = new System.Drawing.Point(793, 210);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(300, 300);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Банкомат";
             this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -86,14 +86,14 @@
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button3.BackgroundImage = global::vipo.Properties.Resources.kissclipart_upkeep_logo_clipart_computerized_maintenance_manag_8ceb2d27d96bb5a1;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(93, 210);
+            this.button3.ForeColor = System.Drawing.Color.DarkOrange;
+            this.button3.Location = new System.Drawing.Point(178, 210);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(500, 300);
+            this.button3.Size = new System.Drawing.Size(300, 300);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Технологический процесс";
             this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -120,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = global::vipo.Properties.Resources._209004_widescreen_white_brick_wallpaper_2500x1389_images;
+            this.BackgroundImage = global::vipo.Properties.Resources.ВИПО_18_на_фоне_завода;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.button4);

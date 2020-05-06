@@ -35,6 +35,8 @@ namespace vipo
 
         private void bu_otchet_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.vishki". При необходимости она может быть перемещена или удалена.
+            this.vishkiTableAdapter.Fill(this.dubakby_VIPODataSet.vishki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.posts". При необходимости она может быть перемещена или удалена.
             this.postsTableAdapter.Fill(this.dubakby_VIPODataSet.posts);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.sklad". При необходимости она может быть перемещена или удалена.
@@ -69,7 +71,7 @@ namespace vipo
             {
                 string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
                 _ = int.Parse(label12.Text);
-                string queryString1 = "INSERT INTO sklad (id_mat, id_post, kol, izm) VALUES ('" + label12.Text + "', '" + comboBox1.Text + "', '" + textBox1.Text + "', '" + label14.Text.ToString() + "');";
+                string queryString1 = "INSERT INTO sklad (id_mat, mat_name, id_post, kol, id_v) VALUES ('" + label12.Text + "', '" + comboBox1.Text + "', '" + textBox1.Text + "', '" + label14.Text.ToString() + "');";
 
                 using (SqlConnection connection_bu = new SqlConnection(connectionString))
                 {
@@ -184,12 +186,14 @@ namespace vipo
         {
             for (int i = 0; i < dataGridView4.Rows.Count; i++)
             {
+                float x;
                 SqlConnection con = new SqlConnection("Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312");
                 SqlCommand cmd = new SqlCommand("INSERT INTO sklad ([id_mat], [mat_name], [id_post], [kol], [id_v])VALUES(@id_mat, @mat_name, @id_post, @kol, @id_v)", con);
                 cmd.Parameters.AddWithValue("@id_mat", dataGridView4.Rows[i].Cells[0].Value);
                 cmd.Parameters.AddWithValue("@mat_name", dataGridView4.Rows[i].Cells[1].Value);
                 cmd.Parameters.AddWithValue("@id_post", dataGridView4.Rows[i].Cells[2].Value);
-                cmd.Parameters.AddWithValue("@kol", dataGridView4.Rows[i].Cells[3].Value);
+                x = float.Parse(dataGridView4.Rows[i].Cells[3].Value.ToString());
+                cmd.Parameters.AddWithValue("@kol", x);
                 cmd.Parameters.AddWithValue("@id_v", dataGridView4.Rows[i].Cells[4].Value);
 
                 try
