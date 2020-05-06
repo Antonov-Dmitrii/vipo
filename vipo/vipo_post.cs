@@ -67,7 +67,7 @@ namespace vipo
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.progress". При необходимости она может быть перемещена или удалена.
             this.progressTableAdapter.Fill(this.dubakby_VIPODataSet.progress);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dubakby_VIPODataSet.workers". При необходимости она может быть перемещена или удалена.
-            this.workersTableAdapter.Fill(this.dubakby_VIPODataSet.workers);
+            //this.workersTableAdapter.Fill(this.dubakby_VIPODataSet.workers);
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
         }
@@ -352,6 +352,8 @@ namespace vipo
             rab_vremya();
             complete_method();
             plan_all_proverka();
+            button7_Click(sender, e);
+
         }
 
         private void plan_all_proverka()

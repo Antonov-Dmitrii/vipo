@@ -54,8 +54,9 @@ namespace vipo
                 label2.Text = (cmd.ExecuteScalar().ToString());
                 conn.Close();
             }
-            int m1 = int.Parse(label2.Text);
-            progressBar1.Value = m1;
+            float m1 = float.Parse(label2.Text);
+            int m2 = Convert.ToInt32(m1);
+            progressBar1.Value = m2;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,8 +67,8 @@ namespace vipo
         private void progress_Update()
         {
             // тут логика обновления формы
-            dataGridView1.Update();
-            dataGridView3.Update();
+            dataGridView1.Refresh();
+            dataGridView3.Refresh();
            
         }
     }
