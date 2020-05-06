@@ -29,60 +29,122 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(progress));
             this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.planallBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.plan_allTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.plan_allTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.skladBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.progressBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.progressTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.progressTableAdapter();
+            this.zprabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zp_rabTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.zp_rabTableAdapter();
+            this.zavnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idvDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idpostDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.opnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kolrabDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timenormDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ftimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.otklDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.procopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.completeDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.zavnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.voltDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datavDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.completeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.progressBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.progressTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.progressTableAdapter();
-            this.ptimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.p_timeTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.p_timeTableAdapter();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.zpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zpTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.zpTableAdapter();
-            this.zavnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idvDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idpostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ftimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.otklDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rabnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zavnDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idvDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idpostDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idopDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stavkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timenormDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.opendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.opstartDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button1 = new System.Windows.Forms.Button();
+            this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vishkiTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptimeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skladBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zpBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zprabBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dubakby_VIPODataSet
             // 
             this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
             this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1164, 653);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.progressBar1);
+            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.dataGridView3);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1156, 627);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Общий план";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1156, 627);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Прогресс";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.zavnDataGridViewTextBoxColumn,
+            this.idvDataGridViewTextBoxColumn,
+            this.voltDataGridViewTextBoxColumn,
+            this.dataplDataGridViewTextBoxColumn,
+            this.datavDataGridViewTextBoxColumn,
+            this.completeDataGridViewCheckBoxColumn});
+            this.dataGridView1.DataSource = this.planallBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1147, 220);
+            this.dataGridView1.TabIndex = 0;
             // 
             // planallBindingSource
             // 
@@ -93,134 +155,39 @@
             // 
             this.plan_allTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
+            // skladBindingSource
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.zavnDataGridViewTextBoxColumn,
-            this.idvDataGridViewTextBoxColumn,
-            this.voltDataGridViewTextBoxColumn,
-            this.dataplDataGridViewTextBoxColumn,
-            this.datavDataGridViewTextBoxColumn,
-            this.completeDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.planallBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(946, 372);
-            this.dataGridView1.TabIndex = 0;
+            this.skladBindingSource.DataMember = "sklad";
+            this.skladBindingSource.DataSource = this.dubakby_VIPODataSet;
             // 
-            // zavnDataGridViewTextBoxColumn
+            // skladTableAdapter
             // 
-            this.zavnDataGridViewTextBoxColumn.DataPropertyName = "zav_n";
-            this.zavnDataGridViewTextBoxColumn.HeaderText = "Заводской номер";
-            this.zavnDataGridViewTextBoxColumn.Name = "zavnDataGridViewTextBoxColumn";
-            this.zavnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.zavnDataGridViewTextBoxColumn.Width = 150;
+            this.skladTableAdapter.ClearBeforeFill = true;
             // 
-            // idvDataGridViewTextBoxColumn
+            // dataGridView3
             // 
-            this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
-            this.idvDataGridViewTextBoxColumn.HeaderText = "Номер вышки";
-            this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
-            this.idvDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idvDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // voltDataGridViewTextBoxColumn
-            // 
-            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
-            this.voltDataGridViewTextBoxColumn.HeaderText = "Напряжение";
-            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
-            this.voltDataGridViewTextBoxColumn.ReadOnly = true;
-            this.voltDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dataplDataGridViewTextBoxColumn
-            // 
-            this.dataplDataGridViewTextBoxColumn.DataPropertyName = "data_pl";
-            this.dataplDataGridViewTextBoxColumn.HeaderText = "Дата добавления";
-            this.dataplDataGridViewTextBoxColumn.Name = "dataplDataGridViewTextBoxColumn";
-            this.dataplDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataplDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // datavDataGridViewTextBoxColumn
-            // 
-            this.datavDataGridViewTextBoxColumn.DataPropertyName = "data_v";
-            this.datavDataGridViewTextBoxColumn.HeaderText = "Дата выпуска";
-            this.datavDataGridViewTextBoxColumn.Name = "datavDataGridViewTextBoxColumn";
-            this.datavDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datavDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // completeDataGridViewCheckBoxColumn
-            // 
-            this.completeDataGridViewCheckBoxColumn.DataPropertyName = "complete";
-            this.completeDataGridViewCheckBoxColumn.HeaderText = "Готовность";
-            this.completeDataGridViewCheckBoxColumn.Name = "completeDataGridViewCheckBoxColumn";
-            this.completeDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.completeDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1240, 653);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1232, 627);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Общий план";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dataGridView3);
-            this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1232, 627);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Прогресс";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.zavnDataGridViewTextBoxColumn1,
-            this.idvDataGridViewTextBoxColumn1,
-            this.idpostDataGridViewTextBoxColumn,
-            this.idopDataGridViewTextBoxColumn,
+            this.idvDataGridViewTextBoxColumn2,
+            this.idpostDataGridViewTextBoxColumn1,
+            this.numopDataGridViewTextBoxColumn,
+            this.opnameDataGridViewTextBoxColumn,
+            this.kolrabDataGridViewTextBoxColumn,
+            this.timenormDataGridViewTextBoxColumn,
             this.ftimeDataGridViewTextBoxColumn,
-            this.otklDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.ptimeBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(645, 303);
-            this.dataGridView2.TabIndex = 0;
+            this.otklDataGridViewTextBoxColumn,
+            this.procopDataGridViewTextBoxColumn,
+            this.completeDataGridViewCheckBoxColumn1});
+            this.dataGridView3.DataSource = this.progressBindingSource;
+            this.dataGridView3.Location = new System.Drawing.Point(6, 251);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(1147, 269);
+            this.dataGridView3.TabIndex = 2;
             // 
             // progressBindingSource
             // 
@@ -231,200 +198,286 @@
             // 
             this.progressTableAdapter.ClearBeforeFill = true;
             // 
-            // ptimeBindingSource
+            // zprabBindingSource
             // 
-            this.ptimeBindingSource.DataMember = "p_time";
-            this.ptimeBindingSource.DataSource = this.dubakby_VIPODataSet;
+            this.zprabBindingSource.DataMember = "zp_rab";
+            this.zprabBindingSource.DataSource = this.dubakby_VIPODataSet;
             // 
-            // p_timeTableAdapter
+            // zp_rabTableAdapter
             // 
-            this.p_timeTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rabnameDataGridViewTextBoxColumn,
-            this.zavnDataGridViewTextBoxColumn2,
-            this.idvDataGridViewTextBoxColumn2,
-            this.idpostDataGridViewTextBoxColumn1,
-            this.idopDataGridViewTextBoxColumn1,
-            this.stavkaDataGridViewTextBoxColumn,
-            this.timenormDataGridViewTextBoxColumn,
-            this.opendDataGridViewTextBoxColumn,
-            this.opstartDataGridViewTextBoxColumn});
-            this.dataGridView3.DataSource = this.zpBindingSource;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 328);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(945, 293);
-            this.dataGridView3.TabIndex = 1;
-            // 
-            // zpBindingSource
-            // 
-            this.zpBindingSource.DataMember = "zp";
-            this.zpBindingSource.DataSource = this.dubakby_VIPODataSet;
-            // 
-            // zpTableAdapter
-            // 
-            this.zpTableAdapter.ClearBeforeFill = true;
+            this.zp_rabTableAdapter.ClearBeforeFill = true;
             // 
             // zavnDataGridViewTextBoxColumn1
             // 
+            this.zavnDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.zavnDataGridViewTextBoxColumn1.DataPropertyName = "zav_n";
             this.zavnDataGridViewTextBoxColumn1.HeaderText = "Заводской номер";
             this.zavnDataGridViewTextBoxColumn1.Name = "zavnDataGridViewTextBoxColumn1";
-            this.zavnDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // idvDataGridViewTextBoxColumn1
-            // 
-            this.idvDataGridViewTextBoxColumn1.DataPropertyName = "id_v";
-            this.idvDataGridViewTextBoxColumn1.HeaderText = "Номер вышки";
-            this.idvDataGridViewTextBoxColumn1.Name = "idvDataGridViewTextBoxColumn1";
-            this.idvDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // idpostDataGridViewTextBoxColumn
-            // 
-            this.idpostDataGridViewTextBoxColumn.DataPropertyName = "id_post";
-            this.idpostDataGridViewTextBoxColumn.HeaderText = "Номер поста";
-            this.idpostDataGridViewTextBoxColumn.Name = "idpostDataGridViewTextBoxColumn";
-            this.idpostDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idopDataGridViewTextBoxColumn
-            // 
-            this.idopDataGridViewTextBoxColumn.DataPropertyName = "id_op";
-            this.idopDataGridViewTextBoxColumn.HeaderText = "Номер операции";
-            this.idopDataGridViewTextBoxColumn.Name = "idopDataGridViewTextBoxColumn";
-            this.idopDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ftimeDataGridViewTextBoxColumn
-            // 
-            this.ftimeDataGridViewTextBoxColumn.DataPropertyName = "f_time";
-            this.ftimeDataGridViewTextBoxColumn.HeaderText = "Время операции";
-            this.ftimeDataGridViewTextBoxColumn.Name = "ftimeDataGridViewTextBoxColumn";
-            this.ftimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // otklDataGridViewTextBoxColumn
-            // 
-            this.otklDataGridViewTextBoxColumn.DataPropertyName = "otkl";
-            this.otklDataGridViewTextBoxColumn.HeaderText = "Откланение";
-            this.otklDataGridViewTextBoxColumn.Name = "otklDataGridViewTextBoxColumn";
-            this.otklDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rabnameDataGridViewTextBoxColumn
-            // 
-            this.rabnameDataGridViewTextBoxColumn.DataPropertyName = "rab_name";
-            this.rabnameDataGridViewTextBoxColumn.HeaderText = "ФИО рабочего";
-            this.rabnameDataGridViewTextBoxColumn.Name = "rabnameDataGridViewTextBoxColumn";
-            // 
-            // zavnDataGridViewTextBoxColumn2
-            // 
-            this.zavnDataGridViewTextBoxColumn2.DataPropertyName = "zav_n";
-            this.zavnDataGridViewTextBoxColumn2.HeaderText = "Заводской номер";
-            this.zavnDataGridViewTextBoxColumn2.Name = "zavnDataGridViewTextBoxColumn2";
+            this.zavnDataGridViewTextBoxColumn1.Width = 112;
             // 
             // idvDataGridViewTextBoxColumn2
             // 
+            this.idvDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.idvDataGridViewTextBoxColumn2.DataPropertyName = "id_v";
             this.idvDataGridViewTextBoxColumn2.HeaderText = "Номер вышки";
             this.idvDataGridViewTextBoxColumn2.Name = "idvDataGridViewTextBoxColumn2";
+            this.idvDataGridViewTextBoxColumn2.Width = 95;
             // 
             // idpostDataGridViewTextBoxColumn1
             // 
+            this.idpostDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.idpostDataGridViewTextBoxColumn1.DataPropertyName = "id_post";
             this.idpostDataGridViewTextBoxColumn1.HeaderText = "Номер поста";
             this.idpostDataGridViewTextBoxColumn1.Name = "idpostDataGridViewTextBoxColumn1";
+            this.idpostDataGridViewTextBoxColumn1.Width = 90;
             // 
-            // idopDataGridViewTextBoxColumn1
+            // numopDataGridViewTextBoxColumn
             // 
-            this.idopDataGridViewTextBoxColumn1.DataPropertyName = "id_op";
-            this.idopDataGridViewTextBoxColumn1.HeaderText = "Номер операции";
-            this.idopDataGridViewTextBoxColumn1.Name = "idopDataGridViewTextBoxColumn1";
+            this.numopDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.numopDataGridViewTextBoxColumn.DataPropertyName = "num_op";
+            this.numopDataGridViewTextBoxColumn.HeaderText = "Номер операции";
+            this.numopDataGridViewTextBoxColumn.Name = "numopDataGridViewTextBoxColumn";
+            this.numopDataGridViewTextBoxColumn.Width = 107;
             // 
-            // stavkaDataGridViewTextBoxColumn
+            // opnameDataGridViewTextBoxColumn
             // 
-            this.stavkaDataGridViewTextBoxColumn.DataPropertyName = "stavka";
-            this.stavkaDataGridViewTextBoxColumn.HeaderText = "Ставка";
-            this.stavkaDataGridViewTextBoxColumn.Name = "stavkaDataGridViewTextBoxColumn";
+            this.opnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.opnameDataGridViewTextBoxColumn.DataPropertyName = "op_name";
+            this.opnameDataGridViewTextBoxColumn.HeaderText = "Название операции";
+            this.opnameDataGridViewTextBoxColumn.Name = "opnameDataGridViewTextBoxColumn";
+            // 
+            // kolrabDataGridViewTextBoxColumn
+            // 
+            this.kolrabDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.kolrabDataGridViewTextBoxColumn.DataPropertyName = "kol_rab";
+            this.kolrabDataGridViewTextBoxColumn.HeaderText = "Количество рабочих";
+            this.kolrabDataGridViewTextBoxColumn.Name = "kolrabDataGridViewTextBoxColumn";
+            this.kolrabDataGridViewTextBoxColumn.Width = 123;
             // 
             // timenormDataGridViewTextBoxColumn
             // 
+            this.timenormDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.timenormDataGridViewTextBoxColumn.DataPropertyName = "time_norm";
             this.timenormDataGridViewTextBoxColumn.HeaderText = "Норма времени";
             this.timenormDataGridViewTextBoxColumn.Name = "timenormDataGridViewTextBoxColumn";
+            this.timenormDataGridViewTextBoxColumn.Width = 104;
             // 
-            // opendDataGridViewTextBoxColumn
+            // ftimeDataGridViewTextBoxColumn
             // 
-            this.opendDataGridViewTextBoxColumn.DataPropertyName = "op_end";
-            this.opendDataGridViewTextBoxColumn.HeaderText = "Конец операции";
-            this.opendDataGridViewTextBoxColumn.Name = "opendDataGridViewTextBoxColumn";
+            this.ftimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ftimeDataGridViewTextBoxColumn.DataPropertyName = "f_time";
+            this.ftimeDataGridViewTextBoxColumn.HeaderText = "Затраченное время";
+            this.ftimeDataGridViewTextBoxColumn.Name = "ftimeDataGridViewTextBoxColumn";
+            this.ftimeDataGridViewTextBoxColumn.Width = 121;
             // 
-            // opstartDataGridViewTextBoxColumn
+            // otklDataGridViewTextBoxColumn
             // 
-            this.opstartDataGridViewTextBoxColumn.DataPropertyName = "op_start";
-            this.opstartDataGridViewTextBoxColumn.HeaderText = "Начало операции";
-            this.opstartDataGridViewTextBoxColumn.Name = "opstartDataGridViewTextBoxColumn";
+            this.otklDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.otklDataGridViewTextBoxColumn.DataPropertyName = "otkl";
+            this.otklDataGridViewTextBoxColumn.HeaderText = "Отклонение";
+            this.otklDataGridViewTextBoxColumn.Name = "otklDataGridViewTextBoxColumn";
+            this.otklDataGridViewTextBoxColumn.Width = 93;
+            // 
+            // procopDataGridViewTextBoxColumn
+            // 
+            this.procopDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.procopDataGridViewTextBoxColumn.DataPropertyName = "proc_op";
+            this.procopDataGridViewTextBoxColumn.HeaderText = "Процент выполнения";
+            this.procopDataGridViewTextBoxColumn.Name = "procopDataGridViewTextBoxColumn";
+            this.procopDataGridViewTextBoxColumn.Width = 128;
+            // 
+            // completeDataGridViewCheckBoxColumn1
+            // 
+            this.completeDataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.completeDataGridViewCheckBoxColumn1.DataPropertyName = "complete";
+            this.completeDataGridViewCheckBoxColumn1.HeaderText = "Выполнение";
+            this.completeDataGridViewCheckBoxColumn1.Name = "completeDataGridViewCheckBoxColumn1";
+            this.completeDataGridViewCheckBoxColumn1.Width = 76;
+            // 
+            // zavnDataGridViewTextBoxColumn
+            // 
+            this.zavnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.zavnDataGridViewTextBoxColumn.DataPropertyName = "zav_n";
+            this.zavnDataGridViewTextBoxColumn.HeaderText = "Заводской номер";
+            this.zavnDataGridViewTextBoxColumn.Name = "zavnDataGridViewTextBoxColumn";
+            // 
+            // idvDataGridViewTextBoxColumn
+            // 
+            this.idvDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
+            this.idvDataGridViewTextBoxColumn.HeaderText = "Номер вышки";
+            this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
+            // 
+            // voltDataGridViewTextBoxColumn
+            // 
+            this.voltDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.voltDataGridViewTextBoxColumn.DataPropertyName = "volt";
+            this.voltDataGridViewTextBoxColumn.HeaderText = "Напряжение";
+            this.voltDataGridViewTextBoxColumn.Name = "voltDataGridViewTextBoxColumn";
+            // 
+            // dataplDataGridViewTextBoxColumn
+            // 
+            this.dataplDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataplDataGridViewTextBoxColumn.DataPropertyName = "data_pl";
+            this.dataplDataGridViewTextBoxColumn.HeaderText = "Дата плана";
+            this.dataplDataGridViewTextBoxColumn.Name = "dataplDataGridViewTextBoxColumn";
+            // 
+            // datavDataGridViewTextBoxColumn
+            // 
+            this.datavDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.datavDataGridViewTextBoxColumn.DataPropertyName = "data_v";
+            this.datavDataGridViewTextBoxColumn.HeaderText = "Дата выпуска";
+            this.datavDataGridViewTextBoxColumn.Name = "datavDataGridViewTextBoxColumn";
+            // 
+            // completeDataGridViewCheckBoxColumn
+            // 
+            this.completeDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.completeDataGridViewCheckBoxColumn.DataPropertyName = "complete";
+            this.completeDataGridViewCheckBoxColumn.HeaderText = "complete";
+            this.completeDataGridViewCheckBoxColumn.Name = "completeDataGridViewCheckBoxColumn";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox2.DataSource = this.planallBindingSource;
+            this.comboBox2.DisplayMember = "zav_n";
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(19, 572);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(156, 28);
+            this.comboBox2.TabIndex = 4;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.progressBar1.Location = new System.Drawing.Point(411, 572);
+            this.progressBar1.Maximum = 150;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(264, 28);
+            this.progressBar1.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(203, 571);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 29);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Выбрать";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // vishkiBindingSource
+            // 
+            this.vishkiBindingSource.DataMember = "vishki";
+            this.vishkiBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // vishkiTableAdapter
+            // 
+            this.vishkiTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(991, 669);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(524, 544);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(886, 563);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(217, 37);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Обновить данные формы";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // progress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 670);
+            this.ClientSize = new System.Drawing.Size(1177, 670);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "progress";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "progress";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.progress_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptimeBindingSource)).EndInit();
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planallBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skladBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zpBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zprabBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private dubakby_VIPODataSet dubakby_VIPODataSet;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idopDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idopDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource planallBindingSource;
         private dubakby_VIPODataSetTableAdapters.plan_allTableAdapter plan_allTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource skladBindingSource;
+        private dubakby_VIPODataSetTableAdapters.skladTableAdapter skladTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.BindingSource progressBindingSource;
+        private dubakby_VIPODataSetTableAdapters.progressTableAdapter progressTableAdapter;
+        private System.Windows.Forms.BindingSource zprabBindingSource;
+        private dubakby_VIPODataSetTableAdapters.zp_rabTableAdapter zp_rabTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zavnDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idvDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpostDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numopDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn opnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kolrabDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timenormDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ftimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn otklDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn procopDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn completeDataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn zavnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idvDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn voltDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataplDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datavDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn completeDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.BindingSource progressBindingSource;
-        private dubakby_VIPODataSetTableAdapters.progressTableAdapter progressTableAdapter;
-        private System.Windows.Forms.BindingSource ptimeBindingSource;
-        private dubakby_VIPODataSetTableAdapters.p_timeTableAdapter p_timeTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.BindingSource zpBindingSource;
-        private dubakby_VIPODataSetTableAdapters.zpTableAdapter zpTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rabnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zavnDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idvDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idpostDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idopDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stavkaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timenormDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn opendDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn opstartDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zavnDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idvDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idpostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idopDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ftimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn otklDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource vishkiBindingSource;
+        private dubakby_VIPODataSetTableAdapters.vishkiTableAdapter vishkiTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
     }
 }
