@@ -64,7 +64,15 @@ namespace vipo
             this.label4 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id_mat = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kol_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idpostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idmatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kolmatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matnormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.workersTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -99,14 +107,6 @@ namespace vipo
             this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.id_mat = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.kol_mat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idpostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idmatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolmatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
@@ -486,10 +486,81 @@ namespace vipo
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.Visible = false;
             // 
+            // id_mat
+            // 
+            this.id_mat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_mat.DataPropertyName = "id_mat";
+            this.id_mat.DataSource = this.materialsBindingSource;
+            this.id_mat.DisplayMember = "mat_name";
+            this.id_mat.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.id_mat.HeaderText = "Наименование материала";
+            this.id_mat.Name = "id_mat";
+            this.id_mat.ReadOnly = true;
+            this.id_mat.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.id_mat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.id_mat.ValueMember = "id_mat";
+            // 
             // materialsBindingSource
             // 
             this.materialsBindingSource.DataMember = "materials";
             this.materialsBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // kol_mat
+            // 
+            this.kol_mat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.kol_mat.DataPropertyName = "kol_mat";
+            this.kol_mat.HeaderText = "Кол-во";
+            this.kol_mat.Name = "kol_mat";
+            this.kol_mat.ReadOnly = true;
+            this.kol_mat.Width = 66;
+            // 
+            // idvDataGridViewTextBoxColumn
+            // 
+            this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
+            this.idvDataGridViewTextBoxColumn.HeaderText = "id_v";
+            this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
+            this.idvDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idvDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idpostDataGridViewTextBoxColumn
+            // 
+            this.idpostDataGridViewTextBoxColumn.DataPropertyName = "id_post";
+            this.idpostDataGridViewTextBoxColumn.HeaderText = "id_post";
+            this.idpostDataGridViewTextBoxColumn.Name = "idpostDataGridViewTextBoxColumn";
+            this.idpostDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idpostDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idmatDataGridViewTextBoxColumn
+            // 
+            this.idmatDataGridViewTextBoxColumn.DataPropertyName = "id_mat";
+            this.idmatDataGridViewTextBoxColumn.HeaderText = "id_mat";
+            this.idmatDataGridViewTextBoxColumn.Name = "idmatDataGridViewTextBoxColumn";
+            this.idmatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idmatDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // kolmatDataGridViewTextBoxColumn
+            // 
+            this.kolmatDataGridViewTextBoxColumn.DataPropertyName = "kol_mat";
+            this.kolmatDataGridViewTextBoxColumn.HeaderText = "kol_mat";
+            this.kolmatDataGridViewTextBoxColumn.Name = "kolmatDataGridViewTextBoxColumn";
+            this.kolmatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kolmatDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // numopDataGridViewTextBoxColumn
+            // 
+            this.numopDataGridViewTextBoxColumn.DataPropertyName = "num_op";
+            this.numopDataGridViewTextBoxColumn.HeaderText = "num_op";
+            this.numopDataGridViewTextBoxColumn.Name = "numopDataGridViewTextBoxColumn";
+            this.numopDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numopDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // matnameDataGridViewTextBoxColumn
+            // 
+            this.matnameDataGridViewTextBoxColumn.DataPropertyName = "mat_name";
+            this.matnameDataGridViewTextBoxColumn.HeaderText = "mat_name";
+            this.matnameDataGridViewTextBoxColumn.Name = "matnameDataGridViewTextBoxColumn";
+            this.matnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.matnameDataGridViewTextBoxColumn.Visible = false;
             // 
             // matnormBindingSource
             // 
@@ -551,7 +622,6 @@ namespace vipo
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "label9";
-            this.label9.Visible = false;
             // 
             // label14
             // 
@@ -635,7 +705,6 @@ namespace vipo
             this.id_op.Size = new System.Drawing.Size(33, 13);
             this.id_op.TabIndex = 18;
             this.id_op.Text = "id_op";
-            this.id_op.Visible = false;
             // 
             // mat_normTableAdapter
             // 
@@ -689,7 +758,6 @@ namespace vipo
             this.label21.Size = new System.Drawing.Size(41, 13);
             this.label21.TabIndex = 21;
             this.label21.Text = "label21";
-            this.label21.Visible = false;
             this.label21.TextChanged += new System.EventHandler(this.label21_TextChanged);
             // 
             // dateTimePicker1
@@ -753,77 +821,6 @@ namespace vipo
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
-            // 
-            // id_mat
-            // 
-            this.id_mat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_mat.DataPropertyName = "id_mat";
-            this.id_mat.DataSource = this.materialsBindingSource;
-            this.id_mat.DisplayMember = "mat_name";
-            this.id_mat.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.id_mat.HeaderText = "Наименование материала";
-            this.id_mat.Name = "id_mat";
-            this.id_mat.ReadOnly = true;
-            this.id_mat.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.id_mat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.id_mat.ValueMember = "id_mat";
-            // 
-            // kol_mat
-            // 
-            this.kol_mat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.kol_mat.DataPropertyName = "kol_mat";
-            this.kol_mat.HeaderText = "Кол-во";
-            this.kol_mat.Name = "kol_mat";
-            this.kol_mat.ReadOnly = true;
-            this.kol_mat.Width = 66;
-            // 
-            // idvDataGridViewTextBoxColumn
-            // 
-            this.idvDataGridViewTextBoxColumn.DataPropertyName = "id_v";
-            this.idvDataGridViewTextBoxColumn.HeaderText = "id_v";
-            this.idvDataGridViewTextBoxColumn.Name = "idvDataGridViewTextBoxColumn";
-            this.idvDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idvDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idpostDataGridViewTextBoxColumn
-            // 
-            this.idpostDataGridViewTextBoxColumn.DataPropertyName = "id_post";
-            this.idpostDataGridViewTextBoxColumn.HeaderText = "id_post";
-            this.idpostDataGridViewTextBoxColumn.Name = "idpostDataGridViewTextBoxColumn";
-            this.idpostDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idpostDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idmatDataGridViewTextBoxColumn
-            // 
-            this.idmatDataGridViewTextBoxColumn.DataPropertyName = "id_mat";
-            this.idmatDataGridViewTextBoxColumn.HeaderText = "id_mat";
-            this.idmatDataGridViewTextBoxColumn.Name = "idmatDataGridViewTextBoxColumn";
-            this.idmatDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idmatDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // kolmatDataGridViewTextBoxColumn
-            // 
-            this.kolmatDataGridViewTextBoxColumn.DataPropertyName = "kol_mat";
-            this.kolmatDataGridViewTextBoxColumn.HeaderText = "kol_mat";
-            this.kolmatDataGridViewTextBoxColumn.Name = "kolmatDataGridViewTextBoxColumn";
-            this.kolmatDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kolmatDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // numopDataGridViewTextBoxColumn
-            // 
-            this.numopDataGridViewTextBoxColumn.DataPropertyName = "num_op";
-            this.numopDataGridViewTextBoxColumn.HeaderText = "num_op";
-            this.numopDataGridViewTextBoxColumn.Name = "numopDataGridViewTextBoxColumn";
-            this.numopDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numopDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // matnameDataGridViewTextBoxColumn
-            // 
-            this.matnameDataGridViewTextBoxColumn.DataPropertyName = "mat_name";
-            this.matnameDataGridViewTextBoxColumn.HeaderText = "mat_name";
-            this.matnameDataGridViewTextBoxColumn.Name = "matnameDataGridViewTextBoxColumn";
-            this.matnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.matnameDataGridViewTextBoxColumn.Visible = false;
             // 
             // vipo_post
             // 

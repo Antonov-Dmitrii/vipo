@@ -335,6 +335,10 @@ namespace vipo
             int h = Int32.Parse(time_f.Text);
             int m = Int32.Parse(time_f1.Text);
             int s = Int32.Parse(time_f2.Text);
+            if (s>=30)
+            {
+                m = m + 1;
+            }
             timer1.Stop(); // при нажатии пользователем на кнопку "Стоп" таймер останавливается
             int d = (h * 60) + m + (s / 60);
             string dd = Convert.ToString(d);
@@ -347,6 +351,142 @@ namespace vipo
             op_end();
             rab_vremya();
             complete_method();
+            plan_all_proverka();
+            button5_Click(sender, e);
+        }
+
+        private void plan_all_proverka()
+        {
+            string connectionString = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+            SqlConnection Con = new SqlConnection(connectionString); //Новое подключение
+            SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM progress where [zav_n] = '" + label6.Text + "' AND [complete] = 1", Con); //Команда выбора данных
+            Con.Open();
+
+            int Count = 0;
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader != null)
+            {
+                if (reader.Read())
+                {
+                    int.TryParse(reader[0].ToString(), out Count);
+                    int vishka = Int32.Parse(label6.Text);
+                    if (vishka == 12521)
+                    {
+                        if (Count == 37)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 13245)
+                    {
+                        if (Count == 36)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 12810)
+                    {
+                        if (Count == 40)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 12166)
+                    {
+                        if (Count == 35)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 12790)
+                    {
+                        if (Count == 39)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 12164)
+                    {
+                        if (Count == 41)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 12165)
+                    {
+                        if (Count == 41)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 12550)
+                    {
+                        if (Count == 33)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 12162)
+                    {
+                        if (Count == 44)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else if (vishka == 12163)
+                    {
+                        if (Count == 45)
+                        {
+                            string connection = "Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312";
+                            SqlConnection connect = new SqlConnection(connection);
+                            string sql = "UPDATE plan_all SET complete = 1, data_v = @op_end WHERE [zav_n] = '" + label6.Text + "'  AND [id_v] = '" + label16.Text + "'";
+                            SqlCommand cmd_SQL = new SqlCommand(sql, connect);
+                            cmd_SQL.Parameters.AddWithValue("@op_end", dateTimePicker1.Value);
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+            }
         }
 
         private void op_end()
@@ -566,8 +706,8 @@ namespace vipo
             groupBox1.Visible = true;
             op_name_label.Visible = true;
             button5.Visible = true;
-            op_name_method();
             id_op_method();
+            op_name_method();
             kol_rab_method();
             time_norm_method();
             img_method();
