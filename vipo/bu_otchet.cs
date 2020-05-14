@@ -188,14 +188,15 @@ namespace vipo
             {
                 float x;
                 SqlConnection con = new SqlConnection("Data Source=dubakby.w12.hoster.by;Initial Catalog=dubakby_VIPO;Persist Security Info=True;User ID=dubakby_Dubak;Password=Qwerty12312");
-                SqlCommand cmd = new SqlCommand("INSERT INTO sklad ([id_mat], [mat_name], [id_post], [kol], [id_v])VALUES(@id_mat, @mat_name, @id_post, @kol, @id_v)", con);
+                SqlCommand cmd = new SqlCommand("UPDATE sklad SET sklad.kol = sklad.kol + @kol WHERE sklad.id_mat = @id_mat AND sklad.id_post = @id_post AND sklad.id_v = @id_v ", con);
+                //SqlCommand cmd = new SqlCommand("INSERT INTO sklad ([id_mat], [mat_name], [id_post], [kol], [id_v])VALUES(@id_mat, @mat_name, @id_post, @kol, @id_v)", con);
                 cmd.Parameters.AddWithValue("@id_mat", dataGridView4.Rows[i].Cells[0].Value);
                 cmd.Parameters.AddWithValue("@mat_name", dataGridView4.Rows[i].Cells[1].Value);
                 cmd.Parameters.AddWithValue("@id_post", dataGridView4.Rows[i].Cells[2].Value);
                 x = float.Parse(dataGridView4.Rows[i].Cells[3].Value.ToString());
                 cmd.Parameters.AddWithValue("@kol", x);
                 cmd.Parameters.AddWithValue("@id_v", dataGridView4.Rows[i].Cells[4].Value);
-
+                
                 try
                 {
                     con.Open();

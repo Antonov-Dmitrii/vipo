@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -40,13 +44,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.postsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dubakby_VIPODataSet = new vipo.dubakby_VIPODataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgv_materials = new System.Windows.Forms.DataGridView();
             this.idmatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.izmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -90,14 +92,12 @@
             this.skladTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.skladTableAdapter();
             this.postsTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.postsTableAdapter();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.vishkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vishkiTableAdapter = new vipo.dubakby_VIPODataSetTableAdapters.vishkiTableAdapter();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_materials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -111,7 +111,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -158,6 +157,42 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Материалы";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(1083, 523);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 24);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Вышка:";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vishkiBindingSource, "id_v", true));
+            this.comboBox4.DataSource = this.vishkiBindingSource;
+            this.comboBox4.DisplayMember = "v_name";
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(1002, 553);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(250, 32);
+            this.comboBox4.TabIndex = 20;
+            this.comboBox4.ValueMember = "id_v";
+            // 
+            // vishkiBindingSource
+            // 
+            this.vishkiBindingSource.DataMember = "vishki";
+            this.vishkiBindingSource.DataSource = this.dubakby_VIPODataSet;
+            // 
+            // dubakby_VIPODataSet
+            // 
+            this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
+            this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label14
             // 
@@ -249,11 +284,6 @@
             this.postsBindingSource.DataMember = "posts";
             this.postsBindingSource.DataSource = this.dubakby_VIPODataSet;
             // 
-            // dubakby_VIPODataSet
-            // 
-            this.dubakby_VIPODataSet.DataSetName = "dubakby_VIPODataSet";
-            this.dubakby_VIPODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -289,8 +319,7 @@
             this.dgv_materials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_materials.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idmatDataGridViewTextBoxColumn,
-            this.matnameDataGridViewTextBoxColumn,
-            this.izmDataGridViewTextBoxColumn});
+            this.matnameDataGridViewTextBoxColumn});
             this.dgv_materials.DataSource = this.materialsBindingSource;
             this.dgv_materials.Location = new System.Drawing.Point(679, 30);
             this.dgv_materials.MultiSelect = false;
@@ -316,15 +345,6 @@
             this.matnameDataGridViewTextBoxColumn.HeaderText = "Наименование материала";
             this.matnameDataGridViewTextBoxColumn.Name = "matnameDataGridViewTextBoxColumn";
             this.matnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // izmDataGridViewTextBoxColumn
-            // 
-            this.izmDataGridViewTextBoxColumn.DataPropertyName = "izm";
-            this.izmDataGridViewTextBoxColumn.HeaderText = "izm";
-            this.izmDataGridViewTextBoxColumn.Name = "izmDataGridViewTextBoxColumn";
-            this.izmDataGridViewTextBoxColumn.ReadOnly = true;
-            this.izmDataGridViewTextBoxColumn.Visible = false;
-            this.izmDataGridViewTextBoxColumn.Width = 58;
             // 
             // materialsBindingSource
             // 
@@ -690,7 +710,6 @@
             // 
             // dataGridView4
             // 
-            this.dataGridView4.AllowUserToOrderColumns = true;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_mat,
@@ -748,40 +767,9 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // comboBox4
-            // 
-            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vishkiBindingSource, "id_v", true));
-            this.comboBox4.DataSource = this.vishkiBindingSource;
-            this.comboBox4.DisplayMember = "v_name";
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(1002, 553);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(250, 32);
-            this.comboBox4.TabIndex = 20;
-            this.comboBox4.ValueMember = "id_v";
-            // 
-            // vishkiBindingSource
-            // 
-            this.vishkiBindingSource.DataMember = "vishki";
-            this.vishkiBindingSource.DataSource = this.dubakby_VIPODataSet;
-            // 
             // vishkiTableAdapter
             // 
             this.vishkiTableAdapter.ClearBeforeFill = true;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(1083, 523);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 24);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Вышка:";
             // 
             // bu_otchet
             // 
@@ -796,8 +784,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dubakby_VIPODataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_materials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -814,7 +803,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vishkiBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
